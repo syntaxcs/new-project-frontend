@@ -1,18 +1,33 @@
+// import Modules
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations/';
+import { routing } from './app.routing';
 import { NgModule } from '@angular/core';
+import { LayoutModule } from './theme/layout/layout.module';
 
-
+// import Components
 import { AppComponent } from './app.component';
 
+// import Services
+import { JwtService } from './shared/services/jwt.service';
+import { ApiService } from './shared/services/api.service';
+import { GlobalState } from './shared/global.state';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    LayoutModule,
+    routing
   ],
-  providers: [],
+  providers: [
+    JwtService,
+    GlobalState,
+    ApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,10 @@
+<mat-card *ngFor="let menu of menus">
+  <mat-card-content>
+    <mat-card-title>
+      {{menu.title}}
+    </mat-card-title>
+    <hr>
+    <app-menu-item [items]="menu.items">
+    </app-menu-item>
+  </mat-card-content>
+</mat-card>

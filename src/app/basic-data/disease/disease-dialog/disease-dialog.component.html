@@ -1,0 +1,21 @@
+<app-dialog title="โรค">
+  <content fxLayout="column">
+    <div fxLayout="row">
+      <app-input-text-normal [value]="data.degreeNameTh" name="degreeNameTh" placeholder="ชื่อระดับการศึกษา (ไทย)" text="ชื่อระดับการศึกษา"
+        fxFlex [formGroup]='form'></app-input-text-normal>
+      <app-input-text-normal [value]="data.degreeNameEn" name="degreeNameEn" placeholder="ชื่อระดับการศึกษา (อังกฤษ)" text="" fxFlex
+        [formGroup]='form'></app-input-text-normal>
+    </div>
+    <div fxLayout="row">
+      <app-input-text-normal [value]="data.degreeInitialsTh" name="degreeInitialsTh" placeholder="ชื่อย่อระดับการศึกษา (ไทย)" text="ชื่อย่อระดับการศึกษา"
+        fxFlex [formGroup]='form'></app-input-text-normal>
+      <app-input-text-normal [value]="data.degreeInitialsEn" name="degreeInitialsEn" placeholder="ชื่อย่อระดับการศึกษา (อังกฤษ)"
+        text="" fxFlex [formGroup]='form'></app-input-text-normal>
+    </div>
+
+  </content>
+  <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">บันทึก</button>
+    <button mat-raised-button color="warn" (click)="onClose()">ยกเลิก</button>
+  </footer>
+</app-dialog>

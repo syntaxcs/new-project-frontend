@@ -1,0 +1,14 @@
+mat-card:not(:first-child){
+  margin-top:20px;
+  
+}
+mat-card-title{
+  margin: 0 10px 0 10px;
+  
+}
+hr {
+  display: block;
+  margin: 0 10px;
+  border-top: 1px solid rgba(159, 11, 189, 0.12);
+  width: 100%
+}

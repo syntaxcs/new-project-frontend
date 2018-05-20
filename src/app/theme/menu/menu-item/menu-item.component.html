@@ -1,0 +1,8 @@
+<mat-grid-list [cols]="nbCols" rowHeight="200px">
+  <mat-grid-tile *ngFor="let item of items">
+    <a routerLink="{{item.url}}">
+        <img src="{{item.icon}}" width="100px" height="100px"/>
+        <p><span> {{item.title}} </span></p>
+    </a>
+  </mat-grid-tile>
+</mat-grid-list>

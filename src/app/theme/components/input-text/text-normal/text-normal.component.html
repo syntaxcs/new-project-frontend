@@ -1,0 +1,6 @@
+<div fxLayout="row" fxLayoutWrap fxLayoutAlign="start center" fxLayoutGap="20px">
+  <label fxFlex fxHide.xs fxFlex="nogrow">{{text}}</label>
+  <mat-form-field fxFlex [formGroup]="formGroup">
+    <input matInput [placeholder]="placeholder" [formControlName]="name">
+  </mat-form-field>
+</div>

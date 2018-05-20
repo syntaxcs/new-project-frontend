@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+    <div fxFlex></div>
+    <button mat-button [matMenuTriggerFor]="menu" fxFlex="3">
+        <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>โปรไฟล์</button>
+        <button mat-menu-item (click)="openDialogEditProfile()">แก้ไขข้อมูลส่วนตัว</button>
+        <button mat-menu-item routerLink="/login">ออกจากระบบ</button>
+    </mat-menu>
+</mat-toolbar>

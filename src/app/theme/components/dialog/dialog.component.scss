@@ -1,0 +1,37 @@
+@import '../../theme.scss';
+
+.title{
+  background-color:$primary;;
+  border-top: 1px solid #7986cb;
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  -o-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+  -webkit-box-shadow: 0 6px 3px -3px rgba(63,81,181,.5);
+  -moz-box-shadow: 0 6px 3px -3px rgba(63,81,181,.5);
+  -o-box-shadow: 0 6px 3px -3px rgba(63,81,181,.5);
+  box-shadow: 0 6px 3px -3px rgba(63,81,181,.5);
+  display: block;
+  position: relative;
+  p {
+    color: #fff;
+    margin: 0;
+    padding: 20px 15px;
+    font-size: 18px;
+}
+}
+.content{
+  padding: 10px 20px 20px 20px;
+  margin: 10px 0;
+}
+.footer{
+  margin-top:10px;
+  background-color: #e8eaf6;
+  border-top: 1px solid $primary;
+  -webkit-border-radius: 0 0 3px 3px;
+  -moz-border-radius: 0 0 3px 3px;
+  -o-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
+  display: block;
+  padding: 10px 25px;
+}

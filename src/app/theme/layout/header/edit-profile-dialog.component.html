@@ -1,0 +1,17 @@
+<app-dialog title="แก้ไขข้อมูลส่วนตัว">
+  <content fxLayout="column">
+    <mat-form-field>
+      <input matInput placeholder="คำนำหน้าชื่อ">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="ชื่อ">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="นามสกุล">
+    </mat-form-field>
+  </content>
+  <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+    <button mat-button tabindex="2">บันทึก</button>
+    <button mat-button (click)="onCancleClick()" tabindex="-1">ยกเลิก</button>
+  </footer>
+</app-dialog>

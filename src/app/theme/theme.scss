@@ -1,0 +1,21 @@
+@import '~@angular/material/theming';
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+$app-primary: mat-palette($mat-blue,A400);
+$app-accent:  mat-palette($mat-grey);
+$app-warn:    mat-palette($mat-red);
+
+// Custom Sass colors vars (will be available in all the project)
+$primary: mat-color($app-primary);
+$accent: mat-color($app-accent);
+$warn: mat-color($app-warn);
+
+@include mat-core();
+$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+@include angular-material-theme($app-theme);
+
+.mat-dialog-container {
+  max-height: 100vh;
+  border-radius: 5px !important;
+  padding: 0px !important;
+}

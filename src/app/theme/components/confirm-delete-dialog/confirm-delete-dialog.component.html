@@ -1,0 +1,9 @@
+<app-dialog title="คุณแน่ใจหรือไม่ที่จะลบ">
+  <content fxLayout="column">
+    {{data.content}}
+  </content>
+  <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+    <button mat-raised-button color="primary" (click)="onSave()">ยืนยัน</button>
+    <button mat-raised-button color="warn" (click)="onClose()">ยกเลิก</button>
+  </footer>
+</app-dialog>
