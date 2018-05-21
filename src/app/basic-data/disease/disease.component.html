@@ -1,9 +1,9 @@
 <mat-card>
     <mat-card-subtitle fxLayout="row" fxLayoutGap="10px">
-        <h2>โรค</h2>
+        <h2>ข้อมูลโรค/หัตถการ</h2>
         <div fxFlex></div>
         <app-button-card-title (onClick)="openDialog()">
-            <mat-icon>add</mat-icon>เพิ่มโรค</app-button-card-title>
+            <mat-icon>add</mat-icon>เพิ่มข้อมูลโรค/หัตถการ</app-button-card-title>
     </mat-card-subtitle>
     <mat-card-content>
         <ngx-datatable class="material" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
@@ -14,27 +14,29 @@
             </ngx-datatable-column>
             <ngx-datatable-column name="รหัสโรค">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-
+                    {{value.disID}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="ชื่อโรค">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-
+                    {{value.disName}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="หัตถการ">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-
+                    {{value.disProcedure}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="ดำเนินการ" [maxWidth]="170">
                 <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                    <button mat-mini-fab color="primary" (click)="openEditDialog(value)">
-                        <mat-icon>mode_edit</mat-icon>
-                    </button>
-                    <button mat-mini-fab color="warn" (click)="confirmDelete(value)">
+                    <!-- <button mat-mini-fab color="primary" (click)="openEditDialog(value)">
+                        <mat-icon>mode_edit</mat-icon> -->
+                        <img src="../assets/images/395848.svg" width="40px" height="40px" title="ลบ">
+                    <!-- </button> -->
+                    <!-- <button mat-mini-fab color="warn" (click)="confirmDelete(value)">
                         <mat-icon>delete</mat-icon>
-                    </button>
+                    </button> -->
+                    <img src="../assets/images/pencil.png" width="40px" height="40px" title="แก้ไข">
                 </ng-template>
             </ngx-datatable-column>
         </ngx-datatable>

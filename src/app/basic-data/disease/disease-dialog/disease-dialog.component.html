@@ -1,16 +1,16 @@
-<app-dialog title="โรค">
+<app-dialog title="ข้อมูลโรค/หัตการ">
   <content fxLayout="column">
     <div fxLayout="row">
-      <app-input-text-normal [value]="data.degreeNameTh" name="degreeNameTh" placeholder="ชื่อระดับการศึกษา (ไทย)" text="ชื่อระดับการศึกษา"
-        fxFlex [formGroup]='form'></app-input-text-normal>
-      <app-input-text-normal [value]="data.degreeNameEn" name="degreeNameEn" placeholder="ชื่อระดับการศึกษา (อังกฤษ)" text="" fxFlex
+      <app-input-text-normal [value]="data.disID" name="disID" placeholder="U61.2" text="รหัสโรค ( ID Disease )" fxFlex
         [formGroup]='form'></app-input-text-normal>
     </div>
     <div fxLayout="row">
-      <app-input-text-normal [value]="data.degreeInitialsTh" name="degreeInitialsTh" placeholder="ชื่อย่อระดับการศึกษา (ไทย)" text="ชื่อย่อระดับการศึกษา"
+      <app-input-text-normal [value]="data.disName" name="disName" placeholder="เหน็บชา" text="ชื่อโรค ( Name Disease )" fxFlex
+      [formGroup]='form'></app-input-text-normal>
+    </div>
+    <div fxLayout="row">
+      <app-input-text-normal [value]="data.disProcedure" name="disProcedure" placeholder="ส.4 หัวไหล่" text="หัตถการ ( Procedure )"
         fxFlex [formGroup]='form'></app-input-text-normal>
-      <app-input-text-normal [value]="data.degreeInitialsEn" name="degreeInitialsEn" placeholder="ชื่อย่อระดับการศึกษา (อังกฤษ)"
-        text="" fxFlex [formGroup]='form'></app-input-text-normal>
     </div>
 
   </content>

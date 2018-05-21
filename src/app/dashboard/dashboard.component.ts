@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit {
             title: 'เพิ่มข้อมูลโรค/หัตถการ',
             url: '/basic-data/disease'
           },
+<<<<<<< HEAD
           {
             icon: 'assets/images/pain.png',
             title: 'เพิ่มข้อมูลวิธีการรักษา',
@@ -57,6 +58,9 @@ export class DashboardComponent implements OnInit {
             url: '/basic-data/disease'
           },
           
+=======
+        
+>>>>>>> aeb5c687eea67ea08faa42427c1096358d7b25dd
         ]
     },
     {
