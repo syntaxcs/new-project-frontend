@@ -9,17 +9,17 @@ import { routing } from './basic-data.routing';
 import { BasicDataComponent } from './basic-data.component';
 import { DiseaseComponent } from './disease/disease.component';
 import { TreaterComponent } from './treater/treater.component';
+import { DrugComponent } from './drug/drug.component';
 import { DiseaseDialogComponent } from './disease/disease-dialog/disease-dialog.component';
-<<<<<<< HEAD
 import { TreaterDialogComponent } from './treater/treater-dialog/treater-dialog.component';
-
-=======
-
+import { DrugDialogComponent } from './drug/drug-dialog/drug-dialog.component';
 
 
 //service
 import { DiseaseService } from '../shared/services/disease.service'; 
->>>>>>> aeb5c687eea67ea08faa42427c1096358d7b25dd
+import { TreaterService } from '../shared/services/treater.service';
+import { DrugService } from '../shared/services/drug.service';
+
 @NgModule({
     imports: [
         SharedModule,
@@ -31,14 +31,20 @@ import { DiseaseService } from '../shared/services/disease.service';
         BasicDataComponent,
         DiseaseComponent,
         DiseaseDialogComponent,
-        TreaterDialogComponent
+        TreaterComponent,
+        TreaterDialogComponent,
+        DrugComponent,
+        DrugDialogComponent
     ],
     entryComponents: [
         DiseaseDialogComponent,
-        TreaterDialogComponent
+        TreaterDialogComponent,
+        DrugDialogComponent
     ],
     providers: [
-        DiseaseService
+        DiseaseService,
+        TreaterService,
+        DrugService
     ],
 })
 export class BasicDataModule {

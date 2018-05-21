@@ -1,18 +1,18 @@
 <app-dialog title="ผู้รักษา">
         <content fxLayout="column">
           <div fxLayout="row">
-            <app-input-text-normal [value]="" name="" placeholder="" text="เลขที่ประกอบโรคศิลปะ ( Licensed No. )"
+            <app-input-text-normal [value]="data.cerLicensed_No" name="cerLicensed_No" placeholder="พท.ป.608" text="เลขที่ประกอบโรคศิลปะ ( Licensed No. )"
               fxFlex [formGroup]='form'></app-input-text-normal>
             
           </div>
           <div fxLayout="row">
-            <app-input-text-normal [value]="" name="" placeholder="" text="ชื่อ ( First Name )"
+            <app-input-text-normal [value]="data.cerPhysicianName" name="cerPhysicianName" placeholder="name" text="ชื่อ ( First Name )"
               fxFlex [formGroup]='form'></app-input-text-normal>
             
           </div>
 
           <div fxLayout="row">
-                <app-input-text-normal [value]="" name="" placeholder="lastname" text="นามสกุล ( Last Name )"
+                <app-input-text-normal [value]="data.cerPhysicianSurName" name="cerPhysicianSurName" placeholder="lastname" text="นามสกุล ( Last Name )"
                   fxFlex [formGroup]='form'></app-input-text-normal>
                 
               </div>

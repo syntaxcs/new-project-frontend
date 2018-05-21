@@ -14,9 +14,9 @@ export const routes: Routes = [
         path: 'disease',
         component: DiseaseComponent
     },
-    // {
-    //     path: 'treater',
-    //     component: TreaterComponent
-    // },
+    {
+        path: 'treater',
+        component: TreaterComponent
+    },
 ];
 export const routing: ModuleWithProviders = RouterModule.forChild(routes);
