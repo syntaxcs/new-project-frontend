@@ -10,16 +10,15 @@ import { BasicDataComponent } from './basic-data.component';
 import { DiseaseComponent } from './disease/disease.component';
 import { TreaterComponent } from './treater/treater.component';
 import { DiseaseDialogComponent } from './disease/disease-dialog/disease-dialog.component';
-<<<<<<< HEAD
 import { TreaterDialogComponent } from './treater/treater-dialog/treater-dialog.component';
 
-=======
+
 
 
 
 //service
 import { DiseaseService } from '../shared/services/disease.service'; 
->>>>>>> aeb5c687eea67ea08faa42427c1096358d7b25dd
+
 @NgModule({
     imports: [
         SharedModule,
