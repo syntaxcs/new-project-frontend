@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
             title: 'ยารักษา/โรค',
             url: '/basic-data/disease'
           },
+        
         ]
     },
   ];
