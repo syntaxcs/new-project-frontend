@@ -7,7 +7,10 @@ import { routing } from './basic-data.routing';
 
 import { BasicDataComponent } from './basic-data.component';
 import { DiseaseComponent } from './disease/disease.component';
+import { TreaterComponent } from './treater/treater.component';
 import { DiseaseDialogComponent } from './disease/disease-dialog/disease-dialog.component';
+import { TreaterDialogComponent } from './treater/treater-dialog/treater-dialog.component';
+
 @NgModule({
     imports: [
         SharedModule,
@@ -18,10 +21,12 @@ import { DiseaseDialogComponent } from './disease/disease-dialog/disease-dialog.
     declarations: [
         BasicDataComponent,
         DiseaseComponent,
-        DiseaseDialogComponent
+        DiseaseDialogComponent,
+        TreaterDialogComponent
     ],
     entryComponents: [
-        DiseaseDialogComponent
+        DiseaseDialogComponent,
+        TreaterDialogComponent
     ],
     providers: [
 

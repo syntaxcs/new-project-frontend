@@ -1,0 +1,25 @@
+<app-dialog title="ผู้รักษา">
+        <content fxLayout="column">
+          <div fxLayout="row">
+            <app-input-text-normal [value]="" name="" placeholder="" text="เลขที่ประกอบโรคศิลปะ ( Licensed No. )"
+              fxFlex [formGroup]='form'></app-input-text-normal>
+            
+          </div>
+          <div fxLayout="row">
+            <app-input-text-normal [value]="" name="" placeholder="" text="ชื่อ ( First Name )"
+              fxFlex [formGroup]='form'></app-input-text-normal>
+            
+          </div>
+
+          <div fxLayout="row">
+                <app-input-text-normal [value]="" name="" placeholder="lastname" text="นามสกุล ( Last Name )"
+                  fxFlex [formGroup]='form'></app-input-text-normal>
+                
+              </div>
+      
+        </content>
+        <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+          <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">บันทึก</button>
+          <button mat-raised-button color="warn" (click)="onClose()">ยกเลิก</button>
+        </footer>
+      </app-dialog>
