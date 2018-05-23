@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
           {
             icon: 'assets/images/pills.png',
             title: 'เพิ่มข้อมูลยา',
-            url: '/basic-data/disease'
+            url: '/basic-data/drug'
           },
           {
             icon: 'assets/images/doctor.png',
@@ -45,7 +45,7 @@ export class DashboardComponent implements OnInit {
           {
             icon: 'assets/images/patient.png',
             title: 'การรักษา',
-            url: '/basic-data/disease'
+            url: '/basic-data/personal'
           },
           {
             icon: 'assets/images/medical-history.png',
@@ -55,7 +55,7 @@ export class DashboardComponent implements OnInit {
           {
             icon: 'assets/images/calendar.png',
             title: 'การนัดหมาย',
-            url: '/basic-data/disease'
+            url: '/basic-data/follow'
           },
           
         ]

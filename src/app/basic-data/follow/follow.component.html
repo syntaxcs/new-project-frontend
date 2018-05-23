@@ -1,9 +1,9 @@
 <mat-card>
     <mat-card-subtitle fxLayout="row" fxLayoutGap="10px">
-        <h2>ข้อมูลผู้รักษา</h2>
+        <h2>ข้อมูลการนัดหมาย</h2>
         <div fxFlex></div>
         <app-button-card-title (onClick)="openDialog()">
-            <mat-icon>add</mat-icon>เพิ่มผู้รักษา</app-button-card-title>
+            <mat-icon>add</mat-icon>เพิ่มการนัดหมาย</app-button-card-title>
     </mat-card-subtitle>
     <mat-card-content>
         <ngx-datatable class="material" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows" [limit]="10">
@@ -12,14 +12,24 @@
                     {{rowIndex + 1}}
                 </ng-template>
             </ngx-datatable-column>
-            <ngx-datatable-column name="ใบอนุญาตประกอบโรคศิลปะเลขที่">
+            <ngx-datatable-column name="วันที่">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.cerLicensed_No}}
+                    {{value.folDate}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="เวลา">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.folmytimeHour}}-{{value.folmytimeMinute}} น.
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="ชื่อ-นามสกุล">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.cerNameTitle}} {{value.cerPhysicianName}} {{value.cerPhysicianSurName}}
+                    {{value.folName}} {{value.folSurName}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="ผู้รักษา">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                        
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="ดำเนินการ" [maxWidth]="170">

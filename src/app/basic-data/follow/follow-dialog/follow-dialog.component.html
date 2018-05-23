@@ -1,0 +1,58 @@
+<app-dialog title="การนัดหมาย">
+    <content fxLayout="column">
+        <div fxLayout="row">
+            <app-input-text-normal [value]="data.folName" name="folName" placeholder="ชื่อผู้ป่วย" text="" fxFlex [formGroup]='form'></app-input-text-normal>
+            <app-input-text-normal [value]="data.folSurName" name="folSurName" placeholder="นามสกุล" text="" fxFlex [formGroup]='form'></app-input-text-normal>
+        </div>
+
+
+        <div fxLayout="row">
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="วันเดือนปีที่นัดพบแพทย์">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <section class="example-section">
+                <mat-form-field>
+                    <mat-select placeholder="เวลานัดหมาย">
+                        <mat-option *ngFor="let data of time" [value]="data" name="folmytimeHour">{{data}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <label class="example-margin">ถึง</label>
+                <mat-form-field>
+                    <mat-select placeholder="เวลานัดหมาย">
+                        <mat-option *ngFor="let data of time" [value]="data" name="folmytimeMinute">{{data}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </section>
+        </div>
+
+        <div fxLayout="row">
+            <app-input-text-normal [value]="data.folPurpose" name="folPurpose" placeholder="จุดประสงค์เพื่อ" text="" fxFlex [formGroup]='form'></app-input-text-normal>
+
+            <section class="example-section">
+                <label class="example-margin">ช่วงการรักษา</label>
+                <mat-radio-group>
+                    <mat-radio-button value="ในเวลา">ในเวลา</mat-radio-button>
+                    <mat-radio-button value="นอกเวลา">นอกเวลา</mat-radio-button>
+                </mat-radio-group>
+            </section>
+        </div>
+
+        <div fxLayout="row">
+            
+            <mat-form-field>
+                <mat-select placeholder="ชื่อผู้รักษา">
+                    <mat-option></mat-option>
+                    <mat-option *ngFor="let data of certificate" [value]="data">{{data.cerPhysicianName}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+    </content>
+    <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+        <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">บันทึก</button>
+        <button mat-raised-button color="warn" (click)="onClose()">ยกเลิก</button>
+    </footer>
+</app-dialog>

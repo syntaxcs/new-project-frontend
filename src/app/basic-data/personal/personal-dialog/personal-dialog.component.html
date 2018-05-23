@@ -1,0 +1,84 @@
+<app-dialog title="เพิ่มข้อมูลทั่วไป ( Add Personal )">
+  <content fxLayout="column">
+    <div fxLayout="row">
+      <app-input-text-normal [value]="data.personId" name="personId" placeholder="เลขที่บัตร ( ID )" text="" fxFlex [formGroup]='form'></app-input-text-normal>
+
+      <section class="example-section">
+        <label class="example-margin">เพศ( sex )</label>
+        <mat-radio-group>
+          <mat-radio-button value="ชาย">ชาย</mat-radio-button>
+          <mat-radio-button value="หญิง">หญิง</mat-radio-button>
+        </mat-radio-group>
+      </section>
+    </div>
+    <div fxLayout="row">
+      <mat-form-field>
+        <mat-select placeholder="คำนำหน้า( NameTitle )">
+          
+          <mat-option *ngFor="let data of nametitle" [value]="data" name="personNameTitle">{{data}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <app-input-text-normal [value]="data.personName" name="personName" placeholder="ชื่อ ( First Name )" text="" fxFlex [formGroup]='form'></app-input-text-normal>
+      <app-input-text-normal [value]="data.personSurname" name="personSurname" placeholder="นามสกุล ( Last Name )" text="" fxFlex
+        [formGroup]='form'></app-input-text-normal>
+    </div>
+
+    <div fxLayout="row">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="วัน/เดือน/ปีที่นัดพบแพทย์">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <app-input-text-normal [value]="data.personIdentityId" name="personIdentityId" placeholder="เลขบัตรประชาชน (ฺฺ ID card )"
+        text="" fxFlex [formGroup]='form'></app-input-text-normal>
+
+      <mat-form-field>
+        <mat-select placeholder="สถานภาพ (ฺ Status )">
+          
+          <mat-option *ngFor="let data of status" [value]="data" name="personMaritalStatus">{{data}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row">
+      <app-input-text-normal [value]="data.personCareer" name="personCareer" placeholder="อาชีพ (ฺ Occupation )" text="" fxFlex
+        [formGroup]='form'></app-input-text-normal>
+      <app-input-text-normal [value]="data.personBirthPlace" name="personBirthPlace" placeholder="สถานที่เกิด ( Brith Palce )"
+        text="" fxFlex [formGroup]='form'></app-input-text-normal>
+      <app-input-text-normal [value]="data.personProvince" name="personProvince" placeholder="จังหวัด (ฺ Province )" text="" fxFlex
+        [formGroup]='form'></app-input-text-normal>
+    </div>
+
+    <div fxLayout="row">
+      <app-input-text-normal [value]="data.personNationality" name="personNationality" placeholder="เชื้อชาติ (ฺ Nationality )"
+        text="" fxFlex [formGroup]='form'></app-input-text-normal>
+      <app-input-text-normal [value]="data.personCitizenship" name="personCitizenship" placeholder="สัญชาติ (ฺ Citizenship )" text=""
+        fxFlex [formGroup]='form'></app-input-text-normal>
+      <app-input-text-normal [value]="data.personReligion" name="personReligion" placeholder="ศาสนา (ฺ Religion )" text="" fxFlex
+        [formGroup]='form'></app-input-text-normal>
+    </div>
+
+    <div fxLayout="row">
+
+      <app-input-text-normal [value]="data.personNumber" name="personNumber" placeholder="โทรศัพท์ (ฺ Phone )" text="" fxFlex [formGroup]='form'></app-input-text-normal>
+
+      <app-input-text-normal [value]="data.personAddress" name="personAddress" placeholder="ที่อยู่ ( Address )" text="" fxFlex
+        [formGroup]='form'></app-input-text-normal>
+
+
+    </div>
+
+    <div fxLayout="row">
+      <app-input-text-normal [value]="data.personFamilyHistory" name="personFamilyHistory" placeholder="ประวัติครอบครัว ( Past History )"
+        text="" fxFlex [formGroup]='form'></app-input-text-normal>
+      <app-input-text-normal [value]="data.personPersonalHistory" name="personPersonalHistory" placeholder="ประวัติส่วนตัว ( Personal History ) "
+        text="" fxFlex [formGroup]='form'></app-input-text-normal>
+    </div>
+
+  </content>
+  <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">บันทึก</button>
+    <button mat-raised-button color="warn" (click)="onClose()">ยกเลิก</button>
+  </footer>
+</app-dialog>

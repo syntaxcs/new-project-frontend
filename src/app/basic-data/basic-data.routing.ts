@@ -4,6 +4,10 @@ import { ModuleWithProviders } from '@angular/core';
 import { BasicDataComponent } from './basic-data.component'
 import { DiseaseComponent } from './disease/disease.component'
 import { TreaterComponent } from './treater/treater.component'
+import { DrugComponent } from './drug/drug.component';
+import { FollowComponent } from './follow/follow.component';
+import { PersonalComponent } from './personal/personal.component';
+
 
 export const routes: Routes = [
     {
@@ -18,5 +22,18 @@ export const routes: Routes = [
         path: 'treater',
         component: TreaterComponent
     },
+    {
+        path: 'drug',
+        component: DrugComponent
+    },
+    {
+        path: 'follow',
+        component: FollowComponent
+    },
+    {
+        path: 'personal',
+        component: PersonalComponent
+    },
+    
 ];
 export const routing: ModuleWithProviders = RouterModule.forChild(routes);
