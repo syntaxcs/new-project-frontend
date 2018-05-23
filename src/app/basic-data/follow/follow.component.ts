@@ -1,42 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { Observable} from 'rxjs/Rx';
+import {Observable} from 'rxjs/Rx';
 import { GlobalState } from '../../shared/global.state';
-import { DrugDialogComponent } from './drug-dialog/drug-dialog.component';
-import { DrugService } from '../../shared/services/drug.service';
+import { FollowDialogComponent} from './follow-dialog/follow-dialog.component';
+import { FollowService } from '../../shared/services/follow.service';
 @Component({
-  selector: 'app-drug',
-  templateUrl: './drug.component.html',
-  styleUrls: ['./drug.component.scss']
+  selector: 'app-follow',
+  templateUrl: './follow.component.html',
+  styleUrls: ['./follow.component.scss']
 })
-export class DrugComponent implements OnInit {
+export class FollowComponent implements OnInit {
   public rows = [];
   public form: FormGroup;
   constructor(
     private _state: GlobalState,
     private dialog: MatDialog,
     private formBuilder: FormBuilder,
-    private drugService: DrugService,
+    private followService: FollowService,
   ) { }
 
   ngOnInit() {
-    this._state.notifyDataChanged('[Breadcrumbs] changed', [{ url: '/', title: 'หน้าแรก' }, { title: 'ข้อมูลยา' }]);
+    this._state.notifyDataChanged('[Breadcrumbs] changed', [{ url: '/', title: 'หน้าแรก' }, { title: 'การนัดหมาย' }]);
     this.form = this.formBuilder.group({});
-    this.drugService.getDrug().subscribe(result => {
+    this.followService.getFollow().subscribe(result => {
       this.rows = result;
     });
   }
   openDialog(): void {
-    const dialogRef = this.dialog.open(DrugDialogComponent, {
+    const dialogRef = this.dialog.open(FollowDialogComponent, {
       width: '750px',
       data: {
       }
     });
     dialogRef.afterClosed().subscribe(resultAllDialog => {
       if (resultAllDialog !== undefined) {
-        this.drugService.addDrug(resultAllDialog)
-        .mergeMap(() => this.drugService.getDrug())
+        this.followService.addFollow(resultAllDialog)
+        .mergeMap(() => this.followService.getFollow())
         .subscribe((valueFromDatabse) => {
             this.rows = valueFromDatabse;
         })
