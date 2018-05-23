@@ -1,0 +1,35 @@
+<app-dialog title="ข้อมูลใบรับรองแพทย์">
+    <content fxLayout="column">
+        <div fxLayout="row">
+            <app-input-text-normal [value]="" name="" placeholder="00-0000" text="เลขที่บัตรผู้ป่วย" fxFlex [formGroup]='form'></app-input-text-normal>
+        </div>
+        <div fxLayout="row">
+            <app-input-text-normal [value]="data.personName" name="personName" placeholder="name" text="ชื่อผู้ป่วย" fxFlex [formGroup]='form'></app-input-text-normal>
+
+            <app-input-text-normal [value]="data.personSurname" name="personSurname" placeholder="surname" text="นามสกุล" fxFlex [formGroup]='form'></app-input-text-normal>
+        </div>
+        <div fxLayout="row">
+            <app-input-text-normal [value]="data.personAddress" name="personAddress" placeholder="" text="ที่อยู่" fxFlex [formGroup]='form'></app-input-text-normal>
+
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="วัน/เดือน/ปีที่นัดพบแพทย์">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div fxLayout="row">
+            <app-input-text-normal [value]="data.cerSymptom" name="cerSymptom" placeholder="" text="อาการ/โรค" fxFlex [formGroup]='form'></app-input-text-normal>
+
+            <mat-form-field>
+                <mat-select placeholder="ชื่อผู้รักษา">
+                    <mat-option *ngFor="let data of certificate" [value]="data"></mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+    </content>
+    <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+        <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">บันทึก</button>
+        <button mat-raised-button color="warn" (click)="onClose()">ยกเลิก</button>
+    </footer>
+</app-dialog>

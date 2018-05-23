@@ -12,12 +12,14 @@ import { TreaterComponent } from './treater/treater.component';
 import { DrugComponent } from './drug/drug.component';
 import { FollowComponent } from './follow/follow.component';
 import { PersonalComponent } from './personal/personal.component';
+import { CertificateComponent } from './certificate/certificate.component';
 import { DiseaseDialogComponent } from './disease/disease-dialog/disease-dialog.component';
 import { TreaterDialogComponent } from './treater/treater-dialog/treater-dialog.component';
 import { DrugDialogComponent } from './drug/drug-dialog/drug-dialog.component';
 import { RemedyDialogComponent } from './remedy/remedy-dialog/remedy-dialog.component';
 import { FollowDialogComponent } from './follow/follow-dialog/follow-dialog.component';
 import { PersonalDialogComponent } from './personal/personal-dialog/personal-dialog.component';
+import { CertificateDialogComponent } from './certificate/certificate-dialog/certificate-dialog.component';
 
 
 
@@ -29,7 +31,7 @@ import { TreatmentService } from '../shared/services/treatment.service';
 import { RemedyComponent } from './remedy/remedy.component';
 import { FollowService } from '../shared/services/follow.service';
 import { PersonalService } from '../shared/services/personal.service';
-
+import { CertificateService } from '../shared/services/certificate.service';
 
 
 @NgModule({
@@ -38,6 +40,7 @@ import { PersonalService } from '../shared/services/personal.service';
         routing,
         MenuModule,
         HttpClientModule,
+       
     ],
     //เขียน2ไฟล์(Component,Dialog)
     declarations: [
@@ -53,7 +56,9 @@ import { PersonalService } from '../shared/services/personal.service';
         FollowComponent,
         FollowDialogComponent,
         PersonalComponent,
-        PersonalDialogComponent
+        PersonalDialogComponent,
+        CertificateComponent,
+        CertificateDialogComponent
 
     ],
     entryComponents: [
@@ -62,7 +67,8 @@ import { PersonalService } from '../shared/services/personal.service';
         DrugDialogComponent,
         RemedyDialogComponent,
         FollowDialogComponent,
-        PersonalDialogComponent
+        PersonalDialogComponent,
+        CertificateDialogComponent
 
     ],
     providers: [
@@ -71,7 +77,10 @@ import { PersonalService } from '../shared/services/personal.service';
         DrugService,
         TreatmentService,
         FollowService,
-        PersonalService
+        PersonalService,
+        CertificateService,
+        
+        
 
     ],
 })

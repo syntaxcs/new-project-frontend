@@ -49,7 +49,7 @@ export class DashboardComponent implements OnInit {
           {
             icon: 'assets/images/medical-history (1).png',
             title: 'ใบรับรองแพทย์',
-            url: '/basic-data/disease'
+            url: '/basic-data/certificate'
           },
           {
             icon: 'assets/images/calendar (1).png',
