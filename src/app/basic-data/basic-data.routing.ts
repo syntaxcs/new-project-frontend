@@ -8,6 +8,7 @@ import { DrugComponent } from './drug/drug.component';
 import { FollowComponent } from './follow/follow.component';
 import { PersonalComponent } from './personal/personal.component';
 
+
 export const routes: Routes = [
     {
         path: '',

@@ -14,6 +14,10 @@ export const routes: Routes = [
       {
         path: 'basic-data',
         loadChildren: './basic-data/basic-data.module#BasicDataModule',
+      },
+      {
+        path: 'personal-list',
+        loadChildren: './personal-list/personal-list.module#PersonalListModule',
       }
     ]
   },
