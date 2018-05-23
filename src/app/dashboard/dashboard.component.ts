@@ -20,12 +20,12 @@ export class DashboardComponent implements OnInit {
             url: '/basic-data/disease'
           },
           {
-            icon: 'assets/images/pain.png',
+            icon: 'assets/images/pain (1).png',
             title: 'เพิ่มข้อมูลวิธีการรักษา',
             url: '/basic-data/remedy'
           },
           {
-            icon: 'assets/images/pills.png',
+            icon: 'assets/images/pills (1).png',
             title: 'เพิ่มข้อมูลยา',
             url: '/basic-data/drug'
           },
@@ -42,17 +42,17 @@ export class DashboardComponent implements OnInit {
       items:
         [
           {
-            icon: 'assets/images/patient.png',
+            icon: 'assets/images/patient (1).png',
             title: 'การรักษา',
             url: '/basic-data/personal'
           },
           {
-            icon: 'assets/images/medical-history.png',
+            icon: 'assets/images/medical-history (1).png',
             title: 'ใบรับรองแพทย์',
             url: '/basic-data/disease'
           },
           {
-            icon: 'assets/images/calendar.png',
+            icon: 'assets/images/calendar (1).png',
             title: 'การนัดหมาย',
             url: '/basic-data/follow'
           },
@@ -64,14 +64,13 @@ export class DashboardComponent implements OnInit {
       items:
         [
           {
-            icon: 'assets/images/computer.png',
+            icon: 'assets/images/computer (1).png',
             title: 'แบบบันทึกรายงานสรุป',
             url: '/basic-data/disease'
           },
         ]
         },
   ];
-
 
   constructor(
     private _state: GlobalState,
