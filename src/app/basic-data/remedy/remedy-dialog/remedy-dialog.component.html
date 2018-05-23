@@ -1,0 +1,25 @@
+<app-dialog title="ข้อมูลวิธีการรักษา">
+    <content fxLayout="column">
+      <div fxLayout="row">
+        <app-input-text-normal [value]="data.treatID" name="treatID" placeholder=" " text="รหัสวิธีการรักษา ( ID Treatment )" fxFlex
+          [formGroup]='form'></app-input-text-normal>
+      </div>
+      <div fxLayout="row">
+        <app-input-text-normal [value]="data.treatMents" name="treatMents" placeholder="ประคบสมุนไพร" text="วิธีการรักษา ( TreatMents )" fxFlex
+        [formGroup]='form'></app-input-text-normal>
+      </div>
+      <div fxLayout="row">
+        <app-input-text-normal [value]="data.treatInTime" name="treatInTime" placeholder="100" text="ราคาในเวลา ( Treatment InTime )"
+          fxFlex [formGroup]='form'></app-input-text-normal>
+      </div>
+      <div fxLayout="row">
+        <app-input-text-normal [value]="data.treatOutTime" name="treatOutTime" placeholder="100" text="ราคานอกเวลา ( Treatment OutTime )"
+          fxFlex [formGroup]='form'></app-input-text-normal>
+      </div>
+  
+    </content>
+    <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+      <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">บันทึก</button>
+      <button mat-raised-button color="warn" (click)="onClose()">ยกเลิก</button>
+    </footer>
+  </app-dialog>

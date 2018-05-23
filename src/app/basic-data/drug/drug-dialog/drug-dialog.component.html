@@ -1,0 +1,28 @@
+<app-dialog title="ผู้รักษา">
+    <content fxLayout="column">
+        <div fxLayout="row">
+            <app-input-text-normal [value]="data.drugId" name="drugId" placeholder="001" text="รหัสยา ( Drug ID )" fxFlex [formGroup]='form'></app-input-text-normal>
+
+        </div>
+        <div fxLayout="row">
+            <app-input-text-normal [value]="data.drugName" name="drugName" placeholder="น้ำมันนวด" text="ชื่อยา ( Drug Name )" fxFlex
+                [formGroup]='form'></app-input-text-normal>
+
+        </div>
+
+        <div fxLayout="row">
+            <app-input-text-normal [value]="data.drugPrice" name="drugPrice" placeholder="100" text="ราคา ( Price )" fxFlex [formGroup]='form'></app-input-text-normal>
+
+        </div>
+
+        <div fxLayout="row">
+            <app-input-text-normal [value]="data.drugPackages" name="drugPackages" placeholder="กระปุก" text="บรรจุภัณฑ์ ( Packages )" fxFlex [formGroup]='form'></app-input-text-normal>
+
+        </div>
+
+    </content>
+    <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+        <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">บันทึก</button>
+        <button mat-raised-button color="warn" (click)="onClose()">ยกเลิก</button>
+    </footer>
+</app-dialog>

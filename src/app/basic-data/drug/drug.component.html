@@ -1,9 +1,9 @@
 <mat-card>
     <mat-card-subtitle fxLayout="row" fxLayoutGap="10px">
-        <h2>ข้อมูลผู้รักษา</h2>
+        <h2>ข้อมูลยา</h2>
         <div fxFlex></div>
         <app-button-card-title (onClick)="openDialog()">
-            <mat-icon>add</mat-icon>เพิ่มผู้รักษา</app-button-card-title>
+            <mat-icon>add</mat-icon>เพิ่มข้อมูลยา</app-button-card-title>
     </mat-card-subtitle>
     <mat-card-content>
         <ngx-datatable class="material" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
@@ -12,14 +12,19 @@
                     {{rowIndex + 1}}
                 </ng-template>
             </ngx-datatable-column>
-            <ngx-datatable-column name="ใบอนุญาตประกอบโรคศิลปะเลขที่">
+            <ngx-datatable-column name="รหัสยา ( Drug ID)">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.cerLicensed_No}}
+                    {{value.drugId}}
                 </ng-template>
             </ngx-datatable-column>
-            <ngx-datatable-column name="ชื่อ-นามสกุล">
+            <ngx-datatable-column name="ชื่อยา ( Drug Name )">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.cerNameTitle}} {{value.cerPhysicianName}} {{value.cerPhysicianSurName}}
+                    {{value.drugName}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="บรรจุภัณฑ์ ( Packages )">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.drugPackages}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="ดำเนินการ" [maxWidth]="170">
