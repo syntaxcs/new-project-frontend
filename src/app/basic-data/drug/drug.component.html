@@ -22,6 +22,11 @@
                     {{value.drugName}}
                 </ng-template>
             </ngx-datatable-column>
+            <ngx-datatable-column name="ราคา">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.drugPrice}}
+                </ng-template>
+            </ngx-datatable-column>
             <ngx-datatable-column name="บรรจุภัณฑ์">
                 <ng-template let-value="value" ngx-datatable-cell-template>
                     {{value.drugPackages}}

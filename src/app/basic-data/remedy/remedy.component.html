@@ -34,14 +34,14 @@
             </ngx-datatable-column>
             <ngx-datatable-column name="ดำเนินการ" [maxWidth]="170">
                 <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                    <!-- <button mat-mini-fab color="primary" (click)="openEditDialog(value)">
-                        <mat-icon>mode_edit</mat-icon> -->
-                        <img src="../assets/images/395848.svg" width="40px" height="40px" title="ลบ">
-                    <!-- </button> -->
-                    <!-- <button mat-mini-fab color="warn" (click)="confirmDelete(value)">
+                    <button mat-mini-fab color="primary" (click)="openEditDialog(value)">
+                        <mat-icon>mode_edit</mat-icon>
+                        <!-- <img src="../assets/images/395848.svg" width="40px" height="40px" title="ลบ"> -->
+                    </button>
+                    <button mat-mini-fab color="warn" (click)="confirmDelete(value)">
                         <mat-icon>delete</mat-icon>
-                    </button> -->
-                    <img src="../assets/images/pencil.png" width="40px" height="40px" title="แก้ไข">
+                    </button>
+                    <!-- <img src="../assets/images/pencil.png" width="40px" height="40px" title="แก้ไข"> -->
                 </ng-template>
             </ngx-datatable-column>
         </ngx-datatable>

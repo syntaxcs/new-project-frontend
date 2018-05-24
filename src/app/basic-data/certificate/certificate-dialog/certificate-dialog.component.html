@@ -18,11 +18,11 @@
             </mat-form-field>
         </div>
         <div fxLayout="row">
-            <app-input-text-normal [value]="data.cerSymptom" name="cerSymptom" placeholder="" text="อาการ/โรค" fxFlex [formGroup]='form'></app-input-text-normal>
+            <app-input-text-normal [value]="" name="" placeholder="" text="อาการ/โรค" fxFlex [formGroup]='form'></app-input-text-normal>
 
             <mat-form-field>
                 <mat-select placeholder="ชื่อผู้รักษา">
-                    <mat-option *ngFor="let data of certificate" [value]="data"></mat-option>
+                    <mat-option *ngFor="let data of " [value]="data"></mat-option>
                 </mat-select>
             </mat-form-field>
         </div>

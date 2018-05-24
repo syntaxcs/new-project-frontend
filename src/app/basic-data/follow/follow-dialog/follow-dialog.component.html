@@ -1,14 +1,14 @@
 <app-dialog title="การนัดหมาย">
     <content fxLayout="column">
         <div fxLayout="row">
-            <app-input-text-normal [value]="data.folName" name="folName" placeholder="ชื่อผู้ป่วย" text="" fxFlex [formGroup]='form'></app-input-text-normal>
-            <app-input-text-normal [value]="data.folSurName" name="folSurName" placeholder="นามสกุล" text="" fxFlex [formGroup]='form'></app-input-text-normal>
+            <app-input-text-normal [value]="data.personName" name="personName" placeholder="ชื่อผู้ป่วย" text="" fxFlex [formGroup]='form'></app-input-text-normal>
+            <app-input-text-normal [value]="data.personSurname" name="personSurname" placeholder="นามสกุล" text="" fxFlex [formGroup]='form'></app-input-text-normal>
         </div>
 
 
         <div fxLayout="row">
             <mat-form-field>
-                <input matInput [matDatepicker]="picker" placeholder="วันเดือนปีที่นัดพบแพทย์">
+                <input matInput [matDatepicker]="picker"  placeholder="วันเดือนปีที่นัดพบแพทย์">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
