@@ -5,6 +5,7 @@ import {Observable} from 'rxjs/Rx';
 import { GlobalState } from '../../shared/global.state';
 import { CertificateDialogComponent } from './certificate-dialog/certificate-dialog.component';
 import { CertificateService} from '../../shared/services/certificate.service';
+import { ConfirmDeleteDialogComponent } from '../../theme/components/confirm-delete-dialog/confirm-delete-dialog.component';
 @Component({
   selector: 'app-certificate',
   templateUrl: './certificate.component.html',
@@ -46,6 +47,42 @@ export class CertificateComponent implements OnInit {
       }
     });
   }
-  
+  openEditDialog(row): void {
+    const dialogRef = this.dialog.open(CertificateDialogComponent, {
+      width: '750px',
+      data: {
+        cerLicensed_No: row.cerLicensed_No,
+        cerNameTitle: row.cerNameTitle,
+        cerPhysicianName: row.cerPhysicianName,
+        cerPhysicianSurName: row.cerPhysicianSurName
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result !== undefined) {
+        this.certificateService.updateCer(row._id, result)
+          .mergeMap(() => this.certificateService.getCer())
+          .subscribe((results) => {
+            this.rows = results;
+          });
+      }
+    });
+  }
+  confirmDelete(row): void {
+    const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {
+      width: '500px',
+      data: {
+        content: 'ใบรับรองแพทย์: ' + row.cerLicensed_No
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result.status === true) {
+        this.certificateService.deleteCer(row._id)
+          .mergeMap(() => this.certificateService.getCer())
+          .subscribe((results) => {
+            this.rows = results;
+          });
+      }
+    });
+  }
 
 }

@@ -66,7 +66,7 @@ export class DiseaseComponent implements OnInit {
     const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {
       width: '500px',
       data: {
-        content: 'รหัสโรค: ' + row.disID
+        content: 'รหัสยา: ' + row.disID
       }
     });
     dialogRef.afterClosed().subscribe(result => {
