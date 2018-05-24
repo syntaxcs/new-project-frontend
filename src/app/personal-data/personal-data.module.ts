@@ -8,6 +8,7 @@ import { routing } from './personal-data.routing';
 import { PersonalDataComponent } from './personal-data.component'
 import { PersonalListComponent } from './personal-list/personal-list.component'
 
+
 import { PersonalService } from '../shared/services/personal.service';
 
 @NgModule({
