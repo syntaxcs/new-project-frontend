@@ -40,7 +40,7 @@ import { CertificateService } from '../shared/services/certificate.service';
         routing,
         MenuModule,
         HttpClientModule,
-       
+
     ],
     //เขียน2ไฟล์(Component,Dialog)
     declarations: [
@@ -79,8 +79,8 @@ import { CertificateService } from '../shared/services/certificate.service';
         FollowService,
         PersonalService,
         CertificateService,
-        
-        
+
+
 
     ],
 })

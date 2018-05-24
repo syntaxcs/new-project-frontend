@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import {Observable} from 'rxjs/Rx';
+
 import { GlobalState } from '../../shared/global.state';
+import { ConfirmDeleteDialogComponent } from '../../theme/components/confirm-delete-dialog/confirm-delete-dialog.component';
 import { DiseaseDialogComponent } from './disease-dialog/disease-dialog.component';
-import {DiseaseService } from '../../shared/services/disease.service';
+import { DiseaseService } from '../../shared/services/disease.service';
 @Component({
   selector: 'app-disease',
   templateUrl: './disease.component.html',
@@ -12,8 +13,6 @@ import {DiseaseService } from '../../shared/services/disease.service';
 })
 export class DiseaseComponent implements OnInit {
   public rows = [];
-  public form: FormGroup;
- 
   constructor(
     private _state: GlobalState,
     private dialog: MatDialog,
@@ -24,7 +23,6 @@ export class DiseaseComponent implements OnInit {
 
   ngOnInit() {
     this._state.notifyDataChanged('[Breadcrumbs] changed', [{ url: '/', title: 'หน้าแรก' }, { title: 'โรค-หัตถการ' }]);
-    this.form = this.formBuilder.group({});
     this.diseaseService.getDis().subscribe(result => {
       this.rows = result;
     });
@@ -32,20 +30,54 @@ export class DiseaseComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(DiseaseDialogComponent, {
       width: '750px',
-      data: {
-      }
+      data: {}
     });
 
     dialogRef.afterClosed().subscribe(resultAllDialog => {
       if (resultAllDialog !== undefined) {
         this.diseaseService.addDis(resultAllDialog)
-        .mergeMap(() => this.diseaseService.getDis())
-        .subscribe((valueFromDatabse) => {
+          .mergeMap(() => this.diseaseService.getDis())
+          .subscribe((valueFromDatabse) => {
             this.rows = valueFromDatabse;
-        })
+          })
       }
     });
   }
-  
+  openEditDialog(row): void {
+    const dialogRef = this.dialog.open(DiseaseDialogComponent, {
+        width: '500px',
+        data: {
+          disID: row.disID,
+          disName: row.disName,
+          disProcedure: row.disProcedure
+        }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+        if (result !== undefined) {
+          this.diseaseService.updateDis(row._id, result)
+          .mergeMap(() => this.diseaseService.getDis())
+          .subscribe((results) => {
+            this.rows = results;
+          });
+        }
+    });
+}
+  confirmDelete(row): void {
+    const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {
+      width: '500px',
+      data: {
+        content: 'รหัสโรค: ' + row.disID
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result.status === true) {
+        this.diseaseService.deleteDis(row._id)
+          .mergeMap(() => this.diseaseService.getDis())
+          .subscribe((results) => {
+            this.rows = results;
+          });
+      }
+    });
+  }
 
 }
