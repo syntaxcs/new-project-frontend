@@ -1,9 +1,9 @@
 <mat-card>
         <mat-card-subtitle fxLayout="row" fxLayoutGap="10px">
-            <h2>ข้อมูลประวัติการรักษา</h2>
+            <h2>ข้อมูลตรวจร่างกายและประเมินผลหลังการรักษา</h2>
             <div fxFlex></div>
             <app-button-card-title (onClick)="openDialog()">
-                <mat-icon>add</mat-icon>เพิ่มข้อมูลประวัติการรักษา</app-button-card-title>
+                <mat-icon>add</mat-icon>เพิ่มข้อมูลตรวจร่างกายและประเมินผลหลังการรักษา</app-button-card-title>
         </mat-card-subtitle>
         <mat-card-content>
             <ngx-datatable class="material" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
@@ -12,26 +12,21 @@
                         {{rowIndex + 1}}
                     </ng-template>
                 </ngx-datatable-column>
-                <ngx-datatable-column name="อุณหภูมิ">
+                <ngx-datatable-column name="การวินิจฉัย">
                     <ng-template let-value="value" ngx-datatable-cell-template>
-                            {{value.phyTemp}}
+                        {{value.disID}}
                     </ng-template>
                 </ngx-datatable-column>
-                <ngx-datatable-column name="ส่วนสูง">
+                <ngx-datatable-column name="ระดับความเจ็บปวด">
                     <ng-template let-value="value" ngx-datatable-cell-template>
-                            {{value.phyHeight}}
+                        {{value.disName}}
                     </ng-template>
                 </ngx-datatable-column>
-                <ngx-datatable-column name="น้ำหนัก">
+                <ngx-datatable-column name="ส่วนของร่างกาย">
                     <ng-template let-value="value" ngx-datatable-cell-template>
-                            {{value.phyWeight}}
+                        {{value.disProcedure}}
                     </ng-template>
                 </ngx-datatable-column>
-                <ngx-datatable-column name="ค่า BMI">
-                        <ng-template let-value="value" ngx-datatable-cell-template>
-                            {{value.disProcedure}}
-                        </ng-template>
-                    </ngx-datatable-column>
                 <ngx-datatable-column name="ดำเนินการ" [maxWidth]="170">
                     <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
                         <img src="../assets/images/pencil.png" (click)="openEditDialog(value)" width="40px" height="40px" title="แก้ไข">

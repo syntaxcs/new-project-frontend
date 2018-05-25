@@ -3,7 +3,7 @@ import { MatDialog, MatSnackBar } from '@angular/material';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 import { GlobalState } from '../../shared/global.state';
-// import { DiseaseDialogComponent } from './disease-dialog/disease-dialog.component';
+// import { PhysicalDialogComponent} from './physical/physical-dialog/physical-dialog.component';
 import { PersonalService } from '../../shared/services/personal.service';
 @Component({
   selector: 'app-personal-list',
@@ -18,14 +18,14 @@ export class PersonalListComponent implements OnInit {
     private _state: GlobalState,
     private dialog: MatDialog,
     private formBuilder: FormBuilder,
-    private personalservice: PersonalService,
+    private personalService: PersonalService,
 
   ) { }
 
   ngOnInit() {
     this._state.notifyDataChanged('[Breadcrumbs] changed', [{ url: '/', title: 'หน้าแรก' }, { title: 'โรค-หัตถการ' }]);
     this.form = this.formBuilder.group({});
-    this.personalservice.getPerson().subscribe(result => {
+    this.personalService.getPerson().subscribe(result => {
       this.rows = result;
     });
   }

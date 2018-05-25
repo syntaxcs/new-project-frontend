@@ -1,0 +1,27 @@
+<app-dialog title="ข้อมูลประวัติการรักษา">
+    <content fxLayout="column">
+      <div fxLayout="row">
+        <app-input-text-normal [value]="data.genDate" name="genDate" placeholder="U61.2" text="วัน เดือน ปีที่มาพบแพทย์ ( Current date )" fxFlex [formGroup]='form'></app-input-text-normal>
+      </div>
+      <div fxLayout="row">
+        <app-input-text-normal [value]="data.genTime" name="genTime" placeholder="เหน็บชา" text="เวลา ( Hour ) นาที ( minute )"
+          fxFlex [formGroup]='form'></app-input-text-normal>
+      </div>
+      <div fxLayout="row">
+        <app-input-text-normal [value]="data.genSymptoms" name="genSymptoms" placeholder="ส.4 หัวไหล่" text="อาการสำคัญ ( Symptoms/Condition )"
+          fxFlex [formGroup]='form'></app-input-text-normal>
+      </div>
+      <div fxLayout="row">
+        <app-input-text-normal [value]="data.genPresentHistory" name="genPresentHistory" placeholder="ส.4 หัวไหล่" text="ประวัติปัจจุบัน ( Present History )"
+          fxFlex [formGroup]='form'></app-input-text-normal>
+      </div>
+      <div fxLayout="row">
+        <app-input-text-normal [value]="data.genPastHistory" name="genPastHistory" placeholder="ส.4 หัวไหล่" text="ประวัติอดีต ( Past History )"
+          fxFlex [formGroup]='form'></app-input-text-normal>
+      </div>
+    </content>
+    <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+      <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">บันทึก</button>
+      <button mat-raised-button color="warn" (click)="onClose()">ยกเลิก</button>
+    </footer>
+  </app-dialog>

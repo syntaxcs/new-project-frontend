@@ -1,0 +1,28 @@
+<app-dialog title="ข้อมูลตรวจร่างกายและประเมินผลหลังการรักษา">
+    <content fxLayout="column">
+        <div fxLayout="row">
+            <app-input-text-normal [value]="data.disID" name="disID" placeholder="U61.2" text="การวินิจฉัย" fxFlex [formGroup]='form'></app-input-text-normal>
+        </div>
+        <div fxLayout="row">
+            <mat-form-field>
+                <mat-select placeholder="ระดับความเจ็บปวด">
+                    <mat-option *ngFor="let food of levels" [value]="levels.value">
+                        {{ levels.viewValue }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div fxLayout="row">
+            <mat-form-field>
+                <mat-select placeholder="ส่วนของร่างกาย" text="ส่วนของร่างกาย" >
+                    <mat-option *ngFor="let data of bodyparth" value="option">{{data}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <img src="../../assets/images/ศีรษะ.jpg" width="25%" height="25%">
+        </div>
+    </content>
+    <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+        <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">บันทึก</button>
+        <button mat-raised-button color="warn" (click)="onClose()">ยกเลิก</button>
+    </footer>
+</app-dialog>
