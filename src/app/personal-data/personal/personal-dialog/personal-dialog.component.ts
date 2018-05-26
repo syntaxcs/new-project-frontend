@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class PersonalDialogComponent implements OnInit {
   public form: FormGroup;
+  startDate: any;
   public nametitle = ['นาย', 'นาง', 'นางสาว', 'ศาสตราจารย์ ', 'ผู้ช่วยศาสตราจารย์ '
     , 'รองศาสตราจารย์ ', 'พระสงฆ์ ', 'Mr.', 'Miss', 'Mrs.'];
   public status = ['โสด ( Single )', 'แต่งงาน ( Married )', 'หม้าย ( Widowed )', 'หย่า ( Divorced )'
@@ -20,6 +21,12 @@ export class PersonalDialogComponent implements OnInit {
   ) { }
   ngOnInit() {
     this.form = this.formBuilder.group({});
+    this.calculateYear();
+  }
+  calculateYear() {
+    let year = new Date().getFullYear() + 543;
+    let month = new Date().getMonth()
+    this.startDate = new Date(year+1, month+1, null, null, null, null);
   }
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);

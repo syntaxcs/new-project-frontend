@@ -1,0 +1,14 @@
+<mat-card>
+    <img src="../assets/images/cloud-computing.png">
+    <div fxLayout="row">
+        <mat-form-field>
+            <input matInput [(ngModel)]="userPerson" name="userPerson" placeholder="ผู้ป่วยรายเก่า">
+        </mat-form-field>
+    </div>
+    <button mat-raised-button (click)="findPerson(userPerson)">
+        ค้นหาผุ้ป่วย
+    </button>
+    <div fxLayout="row" fxFlex><br></div>
+    <button mat-raised-button (click)="openDialog()">ผู้ป่วยรายใหม่</button>
+    <div fxLayout="row" fxFlex><br></div>
+</mat-card>

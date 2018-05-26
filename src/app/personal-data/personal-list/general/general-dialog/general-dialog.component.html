@@ -1,31 +1,44 @@
 <app-dialog title="ข้อมูลประวัติการรักษา">
-    <content fxLayout="column">
-      <div fxLayout="row">
-        <mat-form-field>
-          <input matInput [matDatepicker]="picker" placeholder="วัน/เดือน/ปีที่นัดพบแพทย์">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+  <content fxLayout="column">
+    <div fxLayout="row">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="วัน/เดือน/ปีที่นัดพบแพทย์">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
+      </mat-form-field>
+
+    </div>
+
+    <div fxLayout="row">
+        
+      <div class="custom-buttons-example">
+        <input placeholder="เวลาที่มาพบแพทย์" aria-label="Custom buttons" [ngxTimepicker]="timepickerWithButtons" readonly>
+        <ngx-material-timepicker #timepickerWithButtons [cancelBtnTmpl]="cancelBtn" [confirmBtnTmpl]="confirmBtn"></ngx-material-timepicker>
+
+        <ng-template #cancelBtn>
+          <button style="margin-right: 10px;">ยกเลิก</button>
+        </ng-template>
+        <ng-template #confirmBtn>
+          <button>ตกลง</button>
+        </ng-template>
       </div>
-      <div fxLayout="row">
-        <app-input-text-normal [value]="data.genTime" name="genTime" placeholder="เหน็บชา" text="เวลา ( Hour ) นาที ( minute )"
-          fxFlex [formGroup]='form'></app-input-text-normal>
-      </div>
-      <div fxLayout="row">
-        <app-input-text-normal [value]="data.genSymptoms" name="genSymptoms" placeholder="ส.4 หัวไหล่" text="อาการสำคัญ ( Symptoms/Condition )"
-          fxFlex [formGroup]='form'></app-input-text-normal>
-      </div>
-      <div fxLayout="row">
-        <app-input-text-normal [value]="data.genPresentHistory" name="genPresentHistory" placeholder="ส.4 หัวไหล่" text="ประวัติปัจจุบัน ( Present History )"
-          fxFlex [formGroup]='form'></app-input-text-normal>
-      </div>
-      <div fxLayout="row">
-        <app-input-text-normal [value]="data.genPastHistory" name="genPastHistory" placeholder="ส.4 หัวไหล่" text="ประวัติอดีต ( Past History )"
-          fxFlex [formGroup]='form'></app-input-text-normal>
-      </div>
-    </content>
-    <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
-      <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">บันทึก</button>
-      <button mat-raised-button color="warn" (click)="onClose()">ยกเลิก</button>
-    </footer>
-  </app-dialog>
+
+    </div>
+    <div fxLayout="row">
+      <app-input-text-normal [value]="data.genSymptoms" name="genSymptoms" placeholder="ส.4 หัวไหล่" text="อาการสำคัญ ( Symptoms/Condition )"
+        fxFlex [formGroup]='form'></app-input-text-normal>
+    </div>
+    <div fxLayout="row">
+      <app-input-text-normal [value]="data.genPresentHistory" name="genPresentHistory" placeholder="ส.4 หัวไหล่" text="ประวัติปัจจุบัน ( Present History )"
+        fxFlex [formGroup]='form'></app-input-text-normal>
+    </div>
+    <div fxLayout="row">
+      <app-input-text-normal [value]="data.genPastHistory" name="genPastHistory" placeholder="ส.4 หัวไหล่" text="ประวัติอดีต ( Past History )"
+        fxFlex [formGroup]='form'></app-input-text-normal>
+    </div>
+  </content>
+  <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">บันทึก</button>
+    <button mat-raised-button color="warn" (click)="onClose()">ยกเลิก</button>
+  </footer>
+</app-dialog>

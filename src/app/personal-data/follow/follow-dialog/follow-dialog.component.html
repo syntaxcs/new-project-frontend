@@ -8,9 +8,9 @@
 
         <div fxLayout="row">
             <mat-form-field>
-                <input matInput [matDatepicker]="picker"  placeholder="วันเดือนปีที่นัดพบแพทย์">
+                <input matInput [matDatepicker]="picker" placeholder="วันเดือนปีที่นัดพบแพทย์">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+                <mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
             </mat-form-field>
 
             <section class="example-section">
@@ -41,7 +41,7 @@
         </div>
 
         <div fxLayout="row">
-            
+
             <mat-form-field>
                 <mat-select placeholder="ชื่อผู้รักษา">
                     <mat-option></mat-option>

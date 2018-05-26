@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-
 import { GlobalState } from '../../../shared/global.state';
 import { ConfirmDeleteDialogComponent } from '../../../theme/components/confirm-delete-dialog/confirm-delete-dialog.component';
 import { GeneralDialogComponent } from './general-dialog/general-dialog.component';
 import { GeneralService} from '../../../shared/services/general.service';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+
+
 @Component({
   selector: 'app-general',
   templateUrl: './general.component.html',
-//   styleUrls: ['./general.component.scss']
+  styleUrls: ['./general.component.scss']
 })
 export class GeneralComponent implements OnInit {
   public rows = [];

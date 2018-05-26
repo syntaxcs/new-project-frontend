@@ -26,9 +26,9 @@
 
     <div fxLayout="row">
       <mat-form-field>
-        <input matInput [matDatepicker]="picker" placeholder="วัน/เดือน/ปีที่นัดพบแพทย์">
+        <input matInput [matDatepicker]="picker" placeholder="วัน/เดือน/ปีเกิด">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+        <mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
       </mat-form-field>
 
       <app-input-text-normal [value]="data.personIdentityId" name="personIdentityId" placeholder="เลขบัตรประชาชน (ฺฺ ID card )"

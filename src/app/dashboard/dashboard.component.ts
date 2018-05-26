@@ -38,23 +38,23 @@ export class DashboardComponent implements OnInit {
     },
     {
       title: 'ข้อมูลผู้ป่วย',
-      name: 'manage-basic',
+      name: 'manage-personal',
       items:
         [
           {
             icon: 'assets/images/patient (1).png',
             title: 'การรักษา',
-            url: '/basic-data/personal'
+            url: '/personal-data/personal'
           },
           {
             icon: 'assets/images/medical-history (1).png',
             title: 'ใบรับรองแพทย์',
-            url: '/basic-data/certificate'
+            url: '/personal-data/certificate'
           },
           {
             icon: 'assets/images/calendar (1).png',
             title: 'การนัดหมาย',
-            url: '/basic-data/follow'
+            url: '/personal-data/follow'
           },
         ]
     },
