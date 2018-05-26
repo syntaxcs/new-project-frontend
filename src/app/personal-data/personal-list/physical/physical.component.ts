@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-
+import { ActivatedRoute } from '@angular/router'
 import { GlobalState } from '../../../shared/global.state';
 import { ConfirmDeleteDialogComponent } from '../../../theme/components/confirm-delete-dialog/confirm-delete-dialog.component';
 import { PhysicalDialogComponent } from './physical-dialog/physical-dialog.component';
@@ -13,16 +13,17 @@ import { PhysicalService} from '../../../shared/services/physical.service';
 })
 export class PhysicalComponent implements OnInit {
   public rows = [];
+  public id;
   constructor(
     private _state: GlobalState,
     private dialog: MatDialog,
     private formBuilder: FormBuilder,
+    private activatedroute: ActivatedRoute,
     private physicalService: PhysicalService,
 
-  ) { }
+  ) { }//this.id = this.activatedroute.snapshot.params['personalId']; }
 
   ngOnInit() {
-    this._state.notifyDataChanged('[Breadcrumbs] changed', [{ url: '/', title: 'หน้าแรก' }, { title: 'โรค-หัตถการ' }]);
     this.physicalService.getPhy().subscribe(result => {
       this.rows = result;
     });

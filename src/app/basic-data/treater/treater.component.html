@@ -3,7 +3,9 @@
         <h2>ข้อมูลผู้รักษา</h2>
         <div fxFlex></div>
         <app-button-card-title (onClick)="openDialog()">
-            <mat-icon>add</mat-icon>เพิ่มผู้รักษา</app-button-card-title>
+            <mat-icon>add</mat-icon>เพิ่มข้อมูลผู้รักษา</app-button-card-title>
+            <app-button-card-title routerLink = "/">
+                <mat-icon>home</mat-icon>กลับสู่เมนูหลัก</app-button-card-title>
     </mat-card-subtitle>
     <mat-card-content>
         <ngx-datatable class="material" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows" [limit]="10">
@@ -22,7 +24,7 @@
                     {{value.cerNameTitle}} {{value.cerPhysicianName}} {{value.cerPhysicianSurName}}
                 </ng-template>
             </ngx-datatable-column>
-            <ngx-datatable-column name="ดำเนินการ" [maxWidth]="170">
+            <ngx-datatable-column name="เครื่องมือ" [maxWidth]="170">
                 <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
                     <img src="../assets/images/pencil.png" (click)="openEditDialog(value)" width="40px" height="40px" title="แก้ไข">
                     <img src="../assets/images/395848.svg" (click)="confirmDelete(value)"  width="40px" height="40px" title="ลบ">

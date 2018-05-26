@@ -13,6 +13,9 @@ import { PersonalService } from '../../shared/services/personal.service';
 export class PersonalListComponent implements OnInit {
   public rows = [];
   public id;
+  public nametitle = ['นาย', 'นาง', 'นางสาว'];
+  public status = ['โสด ( Single )', 'แต่งงาน ( Married )', 'หม้าย ( Widowed )', 'หย่า ( Divorced )'
+    , 'แยกกันอยู่ ( Separated )', 'นักบวช ( Monk )'];
   constructor(
     private _state: GlobalState,
     private dialog: MatDialog,

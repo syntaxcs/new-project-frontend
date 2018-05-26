@@ -3,8 +3,9 @@
         <mat-grid-tile>
             <img src="../assets/images/user.png">
             <colgroup>
-                <p> คุณ : {{rows.personName}} {{rows.personSurname}}</p>
+                <p> คุณ : {{rows.personName}}  {{rows.personSurname}}</p>
                 <p>สถานะ : ออนไลน์ </p>
+                <p routerLink = "/personal-data/personal">ออกจากระบบ</p>
             </colgroup>
         </mat-grid-tile>
     </mat-grid-list>
@@ -12,16 +13,16 @@
         <mat-expansion-panel>
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    <h4>ข้อมูลส่วนตัว :</h4>
+                    <h4>ข้อมูลส่วนตัว : {{rows.personId}} </h4>
                 </mat-panel-title>
             </mat-expansion-panel-header>
             <table>
                 <tr>
                     <th>เลขที่บัตร</th>
-                    <td> 50-1346</td>
+                    <td> {{rows.personId}} </td>
 
                     <th>ชื่อ-นามสกุล</th>
-                    <td>นางสาว กนก อิ่มกลม</td>
+                    <td>{{rows.personNameTitle}} {{rows.personName}} {{rows.personSurname}}</td>
                 </tr>
                 <tr>
                     <th>เพศ</th>
@@ -31,7 +32,7 @@
                 </tr>
                 <tr>
                     <th>อายุ</th>
-                    <td> 21</td>
+                    <td></td>
                     <th>เลขบัตรประชาชน</th>
                     <td>{{rows.personIdentityId}}</td>
                 </tr>
