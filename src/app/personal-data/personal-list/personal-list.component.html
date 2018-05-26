@@ -1,48 +1,47 @@
-<mat-grid-list cols="2" rowHeight="2:1">
-    <mat-grid-tile>
-        <img src="../assets/images/user.png">
-        <colgroup>
-            <p> คุณ : {{rows.personName}} {{rows.personSurname}}</p>
-            <p>สถานะ : ออนไลน์ </p>
-        </colgroup>
-    </mat-grid-tile>
-</mat-grid-list>
+<mat-card>
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile>
+            <img src="../assets/images/user.png">
+            <colgroup>
+                <p> คุณ : {{rows.personName}} {{rows.personSurname}}</p>
+                <p>สถานะ : ออนไลน์ </p>
+            </colgroup>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <h4>ข้อมูลส่วนตัว :</h4>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <table>
+                <tr>
+                    <th>เลขที่บัตร</th>
+                    <td> 50-1346</td>
 
-<mat-accordion>
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-               <h4>ข้อมูลส่วนตัว :</h4> 
-            </mat-panel-title>
-        </mat-expansion-panel-header>
-       
-        <table>
-            <tr>
-                <th >เลขที่บัตร</th>
-                <td > 50-1346</td>
-
-                <th >ชื่อ-นามสกุล</th>
-                <td>นางสาว กนก อิ่มกลม</td>
-            </tr>
-            <tr>
-                <th >เพศ</th>
-                <td>{{rows.personGender}}</td>
-                <th >วันเกิด</th>
-                <td>{{rows.personBirth}} </td>
-            </tr>
-            <tr>
-                <th >อายุ</th>
-                <td> 21</td>
-                <th >เลขบัตรประชาชน</th>
-                <td>{{rows.personIdentityId}}</td>
-            </tr>
-            <tr>
-                <th >สถานะภาพ</th>
-                <td> {{rows.personMaritalStatus}}</td>
-                <th >อาชีพ</th>
-                <td>{{rows.personCareer}}</td>
-            </tr>
-            <tr>
+                    <th>ชื่อ-นามสกุล</th>
+                    <td>นางสาว กนก อิ่มกลม</td>
+                </tr>
+                <tr>
+                    <th>เพศ</th>
+                    <td>{{rows.personGender}}</td>
+                    <th>วันเกิด</th>
+                    <td>{{rows.personBirth}} </td>
+                </tr>
+                <tr>
+                    <th>อายุ</th>
+                    <td> 21</td>
+                    <th>เลขบัตรประชาชน</th>
+                    <td>{{rows.personIdentityId}}</td>
+                </tr>
+                <tr>
+                    <th>สถานะภาพ</th>
+                    <td> {{rows.personMaritalStatus}}</td>
+                    <th>อาชีพ</th>
+                    <td>{{rows.personCareer}}</td>
+                </tr>
+                <tr>
                     <th>สถานที่เกิด</th>
                     <td> {{rows.personBirthPlace}}</td>
                     <th>จังหวัด</th>
@@ -68,24 +67,25 @@
                     <th>ประวัติส่วนตัว</th>
                     <td>{{rows.personPersonalHistory}}</td>
                 </tr>
-        </table>
-    </mat-expansion-panel>
-</mat-accordion>
-
-<br>
-<br>
-
-<mat-tab-group cols="2">
-    <mat-tab label="ประวัติการรักษา">
-        <app-general></app-general>
-    </mat-tab>
-    <mat-tab label="ตรวจร่างกายก่อนการรักษา">
-        <app-physical></app-physical>
-    </mat-tab>
-    <mat-tab label="สรุปความเจ็บป่วย">
-        <app-summary></app-summary>
-    </mat-tab>
-    <mat-tab label="ตรวจร่างกายและประเมินผลหลังการรักษา">
-        <app-evalution></app-evalution>
-    </mat-tab>
-</mat-tab-group>
+            </table>
+        </mat-expansion-panel>
+    </mat-accordion>
+</mat-card>
+<div fxFlex><br></div>
+<mat-card>
+    <div fxFlex><br></div>
+    <mat-tab-group cols="2">
+        <mat-tab label="ประวัติการรักษา">
+            <app-general></app-general>
+        </mat-tab>
+        <mat-tab label="ตรวจร่างกายก่อนการรักษา">
+            <app-physical></app-physical>
+        </mat-tab>
+        <mat-tab label="สรุปความเจ็บป่วย">
+            <app-summary></app-summary>
+        </mat-tab>
+        <mat-tab label="ตรวจร่างกายและประเมินผลหลังการรักษา">
+            <app-evalution></app-evalution>
+        </mat-tab>
+    </mat-tab-group>
+</mat-card>

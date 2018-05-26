@@ -1,13 +1,13 @@
 <app-dialog title="ข้อมูลสรุปความเจ็บป่วย">
     <content fxLayout="column">
         <div fxLayout="row">
-                <mat-form-field>
-                        <mat-select placeholder="อาการโรค" text="อาการโรค ( Symptom )">
-                          <mat-option *ngFor="let food of foods" [value]="data.summarySymptom" name="summarySymptom">
-                            {{ food.viewValue }}
-                          </mat-option>
-                        </mat-select>
-                      </mat-form-field>
+            <mat-form-field>
+                <mat-select placeholder="อาการโรค" text="อาการโรค ( Symptom )">
+                    <mat-option *ngFor="let food of foods" [value]="data.summarySymptom" name="summarySymptom">
+                        {{ food.viewValue }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
         <div fxLayout="row">
             <app-input-text-normal [value]="data.summaryProcedure" name="summaryProcedure" placeholder="เหน็บชา" text="หัตถการ ( masssge )"
@@ -17,7 +17,16 @@
             <app-input-text-normal [value]="data.summaryTreatment" name="summaryTreatment" placeholder="ส.4 หัวไหล่" text="การรักษา ( Treatment )"
                 fxFlex [formGroup]='form'></app-input-text-normal>
         </div>
-
+        <form>
+            <mat-form-field>
+                <input type="text" placeholder="Pick one" matInput [(ngModel)]="select" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let drug of drugs" [value]="drug.drugName">
+                        {{ drug.drugName }}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </form>
         <!-- <h2 class="example-h2">วิธีการรักษา ( Treatment Program )</h2>
 
         <section class="example-section">
@@ -31,15 +40,14 @@
         <div fxLayout="row">
             <mat-form-field>
                 <mat-select placeholder="Favorite food">
-                  <mat-option *ngFor="let food of foods" [value]="data.summaryUnit" name="summaryUnit" >
-                    {{ food.viewValue }}
-                  </mat-option>
+                    <mat-option *ngFor="let food of foods" [value]="data.summaryUnit" name="summaryUnit">
+                        {{ food.viewValue }}
+                    </mat-option>
                 </mat-select>
-              </mat-form-field>
+            </mat-form-field>
         </div>
         <div fxLayout="row">
-            <app-input-text-normal [value]="data.summaryUnit" name="summaryUnit" placeholder="ส.4 หัวไหล่" text="หน่วย"
-                fxFlex [formGroup]='form'></app-input-text-normal>
+            <app-input-text-normal [value]="data.summaryUnit" name="summaryUnit" placeholder="ส.4 หัวไหล่" text="หน่วย" fxFlex [formGroup]='form'></app-input-text-normal>
         </div>
     </content>
     <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
