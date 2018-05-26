@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import url("https://fonts.googleapis.com/css?family=Athiti:600" );
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
+// @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import 'app/theme/theme.scss';
@@ -9,11 +9,15 @@
 @import '~@swimlane/ngx-datatable/release/themes/material.css';
 @import '~@swimlane/ngx-datatable/release/assets/icons.css';
 
+*{
+    font-family: 'Athiti', sans-serif;
+}
 html, body {
     box-sizing: border-box;
     height: 100%;
     margin: 0;
-    background-color: rgb(173, 213, 238);
+    background-color:rgb(255, 217, 102);
+    font-family: 'Pridi', serif;
 }
   
 .material-icons { 
@@ -21,4 +25,7 @@ html, body {
     height: 19px;
     width: 19px;
     text-align: center;
+}
+.mat-card{
+    background-color:rgb(204, 242, 255);
 }
