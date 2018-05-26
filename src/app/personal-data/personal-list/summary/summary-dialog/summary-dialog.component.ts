@@ -2,10 +2,11 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { DrugService } from '../../../../shared/services/drug.service';
+import { from } from 'rxjs/internal/observable/from';
 @Component({
   selector: 'app-summary-dialog',
   templateUrl: './summary-dialog.component.html',
-//   styleUrls: ['./summary-dialog.component.css']
+  //   styleUrls: ['./summary-dialog.component.css']
 })
 export class SummaryDialogComponent implements OnInit {
   public form: FormGroup;
@@ -15,7 +16,7 @@ export class SummaryDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<SummaryDialogComponent>,
-    private drugservice: DrugService
+    private drugservice: DrugService,
   ) { }
   ngOnInit() {
     this.form = this.formBuilder.group({});
@@ -23,6 +24,7 @@ export class SummaryDialogComponent implements OnInit {
       this.drugs = result;
       console.log(this.drugs)
     })
+
   }
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);

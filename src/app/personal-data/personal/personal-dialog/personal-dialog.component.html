@@ -6,14 +6,14 @@
       <section class="example-section">
         <label class="example-margin">เพศ( sex )</label>
         <mat-radio-group>
-          <mat-radio-button value="ชาย">ชาย</mat-radio-button>
-          <mat-radio-button value="หญิง">หญิง</mat-radio-button>
+          <mat-radio-button formControlName="personGender" value="ชาย">ชาย</mat-radio-button>
+          <mat-radio-button formControlName="personGender" value="หญิง">หญิง</mat-radio-button>
         </mat-radio-group>
       </section>
     </div>
     <div fxLayout="row">
       <mat-form-field>
-        <mat-select placeholder="คำนำหน้า( NameTitle )">
+        <mat-select formControlName="personNameTitle" placeholder="คำนำหน้า( NameTitle )" >
 
           <mat-option *ngFor="let data of nametitle" [value]="data" name="personNameTitle">{{data}}</mat-option>
         </mat-select>

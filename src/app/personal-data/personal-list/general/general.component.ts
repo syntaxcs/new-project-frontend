@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-
+import { ActivatedRoute } from '@angular/router'
 import { GlobalState } from '../../../shared/global.state';
 import { ConfirmDeleteDialogComponent } from '../../../theme/components/confirm-delete-dialog/confirm-delete-dialog.component';
 import { GeneralDialogComponent } from './general-dialog/general-dialog.component';
@@ -13,16 +13,27 @@ import { GeneralService} from '../../../shared/services/general.service';
 })
 export class GeneralComponent implements OnInit {
   public rows = [];
+  public id;
+  public form: FormGroup;
+//   public data = {
+//     // personId : [null, Validators.required],
+//     genDate:  [new Date('yyyy-mm-dd'), Validators.required],
+//     genTime: [null, Validators.required],
+//     genSymptoms: [null, Validators.required],
+//     genPresentHistory: [null, Validators.required],
+//     genPastHistory: [null, Validators.required],
+// }
   constructor(
     private _state: GlobalState,
     private dialog: MatDialog,
     private formBuilder: FormBuilder,
+    private activatedroute: ActivatedRoute,
     private generalService:GeneralService,
 
-  ) { }
+  ) {}  //this.id = this.activatedroute.snapshot.params['personalId']; }
 
   ngOnInit() {
-    this._state.notifyDataChanged('[Breadcrumbs] changed', [{ url: '/', title: 'หน้าแรก' }, { title: 'โรค-หัตถการ' }]);
+    // this.form = this.formBuilder.group(this.data);
     this.generalService.getGen().subscribe(result => {
       this.rows = result;
     });
@@ -47,9 +58,11 @@ export class GeneralComponent implements OnInit {
     const dialogRef = this.dialog.open(GeneralDialogComponent, {
         width: '500px',
         data: {
-          disID: row.disID,
-          disName: row.disName,
-          disProcedure: row.disProcedure
+          genDate: row.genDate,
+          genTime: row.genTime,
+          genSymptoms: row.genSymptoms,
+          genPresentHistory: row.genPresentHistory,
+          genPastHistory: row.genPastHistory,
         }
     });
     dialogRef.afterClosed().subscribe(result => {

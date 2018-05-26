@@ -6,9 +6,13 @@
         </mat-form-field>
     </div>
     <button mat-raised-button (click)="findPerson(userPerson)">
-        ค้นหาผุ้ป่วย
+        ค้นหาผู้ป่วย<mat-icon>search</mat-icon>
     </button>
     <div fxLayout="row" fxFlex><br></div>
-    <button mat-raised-button (click)="openDialog()">ผู้ป่วยรายใหม่</button>
+    <button mat-raised-button (click)="openDialog()">ผู้ป่วยรายใหม่<mat-icon>face</mat-icon></button>
+    <div fxLayout="row" fxFlex><br></div>
+
+    <div fxLayout="row" fxFlex></div>
+    <button mat-raised-button routerLink = "/">กลับสู่เมนูหลัก<mat-icon>home</mat-icon></button>
     <div fxLayout="row" fxFlex><br></div>
 </mat-card>
