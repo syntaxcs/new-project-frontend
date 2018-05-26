@@ -13,7 +13,6 @@ import { PersonalService } from '../../shared/services/personal.service';
 export class PersonalComponent implements OnInit {
   public rows = [];
   public form: FormGroup;
- 
   constructor(
     private _state: GlobalState,
     private dialog: MatDialog,
@@ -29,6 +28,7 @@ export class PersonalComponent implements OnInit {
       this.rows = result;
     });
   }
+  
   openDialog(): void {
     const dialogRef = this.dialog.open(PersonalDialogComponent, {
       width: '750px',

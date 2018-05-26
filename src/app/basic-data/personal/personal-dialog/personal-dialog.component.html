@@ -14,7 +14,7 @@
     <div fxLayout="row">
       <mat-form-field>
         <mat-select placeholder="คำนำหน้า( NameTitle )">
-          
+
           <mat-option *ngFor="let data of nametitle" [value]="data" name="personNameTitle">{{data}}</mat-option>
         </mat-select>
       </mat-form-field>
@@ -36,7 +36,7 @@
 
       <mat-form-field>
         <mat-select placeholder="สถานภาพ (ฺ Status )">
-          
+
           <mat-option *ngFor="let data of status" [value]="data" name="personMaritalStatus">{{data}}</mat-option>
         </mat-select>
       </mat-form-field>
