@@ -23,6 +23,10 @@
       <app-input-text-normal [value]="data.phyWeight" name="phyWeight" placeholder="ส.4 หัวไหล่" text="น้ำหนัก ( Weight ) กก. ( Kg.)"
         fxFlex [formGroup]='form'></app-input-text-normal>
     </div>
+    <div fxLayout="row">
+     <h4>มาตรวัดความปวด( ก่อนการรักษา ) Pain score ( Pre-treatment )</h4>
+ 
+    </div>
   </content>
   <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
     <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">บันทึก</button>

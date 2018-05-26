@@ -1,7 +1,11 @@
 <app-dialog title="ข้อมูลประวัติการรักษา">
     <content fxLayout="column">
       <div fxLayout="row">
-        <app-input-text-normal [value]="data.genDate" name="genDate" placeholder="U61.2" text="วัน เดือน ปีที่มาพบแพทย์ ( Current date )" fxFlex [formGroup]='form'></app-input-text-normal>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="วัน/เดือน/ปีที่นัดพบแพทย์">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
       </div>
       <div fxLayout="row">
         <app-input-text-normal [value]="data.genTime" name="genTime" placeholder="เหน็บชา" text="เวลา ( Hour ) นาที ( minute )"

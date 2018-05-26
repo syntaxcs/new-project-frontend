@@ -13,6 +13,7 @@ import { PersonalService } from '../../shared/services/personal.service';
 export class PersonalListComponent implements OnInit {
   public rows = [];
   public form: FormGroup;
+  public id;
 
   constructor(
     private _state: GlobalState,
@@ -29,23 +30,23 @@ export class PersonalListComponent implements OnInit {
       this.rows = result;
     });
   }
-  // openDialog(): void {
-  //   const dialogRef = this.dialog.open(, {
-  //     width: '750px',
-  //     data: {
-  //     }
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(resultAllDialog => {
-  //     if (resultAllDialog !== undefined) {
-  //       this.personalService.addPerson(resultAllDialog)
-  //         .mergeMap(() => this.personalService.getPerson())
-  //         .subscribe((valueFromDatabse) => {
-  //           this.rows = valueFromDatabse;
-  //         })
-  //     }
-  //   });
-  // }
-
-
+  submit() {
+    const value = this.form.value;
+    if (value !== undefined) {
+      if (this.form.value.status === 'edit') {
+        console.log(value)
+        this.personalService.updatePerson(value.id, value)
+          .mergeMap(() => this.personalService.getPersonById(this.id))
+          .subscribe(result => {
+            this.rows = result;
+          })
+      } else {
+        this.personalService.addPerson(value)
+          .mergeMap(() => this.personalService.getPersonById(this.id))
+          .subscribe(result => {
+            this.rows = result;
+          })
+      }
+    }
+  }
 }
