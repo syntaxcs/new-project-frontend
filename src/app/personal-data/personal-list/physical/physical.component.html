@@ -1,0 +1,48 @@
+<mat-card>
+    <mat-card-subtitle fxLayout="row" fxLayoutGap="10px">
+        <h2>ข้อมูลตรวจร่างกายก่อนรักษา</h2>
+        <div fxFlex></div>
+        <app-button-card-title (onClick)="openDialog()">
+            <mat-icon>add</mat-icon>เพิ่มข้อมูลประวัติการรักษา</app-button-card-title>
+    </mat-card-subtitle>
+    <mat-card-content>
+        <ngx-datatable class="material" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows">
+            <ngx-datatable-column name="ลำดับ" [maxWidth]="100">
+                <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                    {{rowIndex + 1}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="อุณหภูมิ">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.phyTemp}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="ความดันโลหิต">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.phyBp}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="ส่วนสูง">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.phyHeight}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="น้ำหนัก">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.phyWeight}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="ค่า BMI">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    <!-- {{value.phyBMI}} -->
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="ดำเนินการ" [maxWidth]="170">
+                <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                    <img src="../assets/images/pencil.png" (click)="openEditDialog(value)" width="40px" height="40px" title="แก้ไข">
+                    <img src="../assets/images/395848.svg" (click)="confirmDelete(value)" width="40px" height="40px" title="ลบ">
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+    </mat-card-content>
+</mat-card>

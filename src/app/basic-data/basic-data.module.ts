@@ -42,7 +42,7 @@ import { CertificateService } from '../shared/services/certificate.service';
         HttpClientModule,
 
     ],
-    //เขียน2ไฟล์(Component,Dialog)
+    //(Component,dialog)
     declarations: [
         BasicDataComponent,
         DiseaseComponent,
@@ -61,6 +61,7 @@ import { CertificateService } from '../shared/services/certificate.service';
         CertificateDialogComponent
 
     ],
+    //dialog
     entryComponents: [
         DiseaseDialogComponent,
         TreaterDialogComponent,

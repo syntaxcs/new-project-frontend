@@ -1,0 +1,31 @@
+<app-dialog title="ข้อมูลตรวจร่างกายก่อนรักษา">
+  <content fxLayout="column">
+    <div fxLayout="row">
+      <app-input-text-normal [value]="data.phyTemp" name="phyTemp" placeholder="U61.2" text="อุณหภูมิ ( Temp )" fxFlex [formGroup]='form'></app-input-text-normal>
+    </div>
+    <div fxLayout="row">
+      <app-input-text-normal [value]="data.phyPulse" name="phyPulse" placeholder="เหน็บชา" text="ชีพจร( Pulse ) ครั้ง/นาที ( Beats/min )"
+        fxFlex [formGroup]='form'></app-input-text-normal>
+    </div>
+    <div fxLayout="row">
+      <app-input-text-normal [value]="data.phyRespirationRate" name="phyRespirationRate" placeholder="ส.4 หัวไหล่" text="การหายใจ ( Respiration ) ครั้ง/นาที ( Beats/min )"
+        fxFlex [formGroup]='form'></app-input-text-normal>
+    </div>
+    <div fxLayout="row">
+      <app-input-text-normal [value]="data.phyBp" name="phyBp" placeholder="ส.4 หัวไหล่" text="ความดันโลหิต ( BP ) มม.ปรอท ( mmHg )"
+        fxFlex [formGroup]='form'></app-input-text-normal>
+    </div>
+    <div fxLayout="row">
+      <app-input-text-normal [value]="data.phyHeight" name="phyHeight" placeholder="ส.4 หัวไหล่" text="ส่วนสูง ( Height ) ซม. ( cm. )"
+        fxFlex [formGroup]='form'></app-input-text-normal>
+    </div>
+    <div fxLayout="row">
+      <app-input-text-normal [value]="data.phyWeight" name="phyWeight" placeholder="ส.4 หัวไหล่" text="น้ำหนัก ( Weight ) กก. ( Kg.)"
+        fxFlex [formGroup]='form'></app-input-text-normal>
+    </div>
+  </content>
+  <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">บันทึก</button>
+    <button mat-raised-button color="warn" (click)="onClose()">ยกเลิก</button>
+  </footer>
+</app-dialog>
