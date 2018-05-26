@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-summary-dialog',
   templateUrl: './summary-dialog.component.html',
-//   styleUrls: ['./summary-dialog.component.css']
+  styleUrls: ['./summary-dialog.component.css']
 })
 export class SummaryDialogComponent implements OnInit {
   public form: FormGroup;

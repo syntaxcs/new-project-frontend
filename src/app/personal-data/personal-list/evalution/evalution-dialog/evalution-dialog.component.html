@@ -6,7 +6,6 @@
         <div fxLayout="row">
             <mat-form-field>
                 <mat-select placeholder="ระดับความเจ็บปวด">
-                    <mat-option>ระดับ</mat-option>
                     <mat-option *ngFor="let data of level" value="option">
                         {{data}}
                     </mat-option>

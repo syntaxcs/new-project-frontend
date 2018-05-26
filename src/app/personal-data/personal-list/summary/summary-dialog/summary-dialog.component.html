@@ -1,13 +1,13 @@
 <app-dialog title="ข้อมูลสรุปความเจ็บป่วย">
     <content fxLayout="column">
         <div fxLayout="row">
-                <mat-form-field>
-                        <mat-select placeholder="อาการโรค" text="อาการโรค ( Symptom )">
-                          <mat-option *ngFor="let food of foods" [value]="data.summarySymptom" name="summarySymptom">
-                            {{ food.viewValue }}
-                          </mat-option>
-                        </mat-select>
-                      </mat-form-field>
+            <mat-form-field>
+                <mat-select placeholder="อาการโรค" text="อาการโรค ( Symptom )">
+                    <mat-option *ngFor="let food of foods" [value]="data.summarySymptom" name="summarySymptom">
+                        {{ food.viewValue }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
         </div>
         <div fxLayout="row">
             <app-input-text-normal [value]="data.summaryProcedure" name="summaryProcedure" placeholder="เหน็บชา" text="หัตถการ ( masssge )"
@@ -31,16 +31,18 @@
         <div fxLayout="row">
             <mat-form-field>
                 <mat-select placeholder="Favorite food">
-                  <mat-option *ngFor="let food of foods" [value]="data.summaryUnit" name="summaryUnit" >
-                    {{ food.viewValue }}
-                  </mat-option>
+                    <mat-option *ngFor="let food of foods" [value]="data.summaryUnit" name="summaryUnit">
+                        {{ food.viewValue }}
+                    </mat-option>
                 </mat-select>
-              </mat-form-field>
+            </mat-form-field>
+
+            <app-input-text-normal [value]="data.summaryUnit" name="summaryUnit" placeholder="2 กระปุก" text="จำนวน" fxFlex [formGroup]='form'></app-input-text-normal>
         </div>
-        <div fxLayout="row">
+        <!-- <div fxLayout="row">
             <app-input-text-normal [value]="data.summaryUnit" name="summaryUnit" placeholder="ส.4 หัวไหล่" text="หน่วย"
                 fxFlex [formGroup]='form'></app-input-text-normal>
-        </div>
+        </div> -->
     </content>
     <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
         <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">บันทึก</button>
