@@ -3,9 +3,10 @@
         <mat-grid-tile>
             <img src="../assets/images/user.png">
             <colgroup>
-                <p> คุณ : {{rows.personName}}  {{rows.personSurname}}</p>
-                <p>สถานะ : ออนไลน์ </p>
-                <p routerLink = "/personal-data/personal">ออกจากระบบ</p>
+                <p><mat-icon>face</mat-icon>คุณ : {{rows.personName}}  {{rows.personSurname}}</p>
+                <p><mat-icon>room</mat-icon>สถานะ : กำลังใช้งาน </p>
+                <p  (click)="openEditDialog(rows)"><mat-icon>settings</mat-icon>แก้ไขข้อมูลส่วนตัว</p>
+                <p routerLink = "/personal-data/personal"><mat-icon>assignment_return</mat-icon>ออกจากระบบ</p>
             </colgroup>
         </mat-grid-tile>
     </mat-grid-list>

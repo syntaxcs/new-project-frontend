@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class TreaterDialogComponent implements OnInit {
   public form: FormGroup;
+  public nametitle = ['นาย', 'นาง', 'นางสาว'];
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,

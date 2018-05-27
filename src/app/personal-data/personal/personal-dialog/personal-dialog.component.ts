@@ -10,8 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class PersonalDialogComponent implements OnInit {
   public form: FormGroup;
   startDate: any;
-  public nametitle = ['นาย', 'นาง', 'นางสาว', 'ศาสตราจารย์ ', 'ผู้ช่วยศาสตราจารย์ '
-    , 'รองศาสตราจารย์ ', 'พระสงฆ์ ', 'Mr.', 'Miss', 'Mrs.'];
+  public nametitle = ['นาย', 'นาง', 'นางสาว'];
   public status = ['โสด ( Single )', 'แต่งงาน ( Married )', 'หม้าย ( Widowed )', 'หย่า ( Divorced )'
     , 'แยกกันอยู่ ( Separated )', 'นักบวช ( Monk )'];
   constructor(

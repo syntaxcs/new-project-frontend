@@ -2,13 +2,14 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
-
+import { CertificateService } from '../../../shared/services/certificate.service';
 @Component({
   selector: 'app-follow-dialog',
   templateUrl: './follow-dialog.component.html',
   styleUrls: ['./follow-dialog.component.css']
 })
 export class FollowDialogComponent implements OnInit {
+  public treaterNames= [];
   public form: FormGroup;
   startDate: any;
   public time = ['06.00', '06.30', '07.00', '07.30', '08.00', '08.30', '09.00', '09.30', '10.00', '10.30', '11.00',
@@ -19,11 +20,15 @@ export class FollowDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<FollowDialogComponent>,
+    private certificateService: CertificateService
   
   ) { }
   ngOnInit() {
     this.form = this.formBuilder.group({});
     this.calculateYear();
+    this.certificateService.getCer().subscribe(result => {
+      this.treaterNames= result;
+      })
   }
   calculateYear() {
     let year = new Date().getFullYear() + 543;
