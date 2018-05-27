@@ -31,6 +31,7 @@ export class SummaryComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(SummaryDialogComponent, {
       width: '750px',
+      height: '800px',
       data: {}
     });
 

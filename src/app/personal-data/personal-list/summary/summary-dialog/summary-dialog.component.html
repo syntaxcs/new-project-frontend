@@ -3,10 +3,10 @@
         <div fxLayout="row">
             <form>
                 <mat-form-field>
-                    <input type="text" placeholder="อาการโรค" matInput [(ngModel)]="select" [matAutocomplete]="auto">
-                    <mat-autocomplete #auto="matAutocomplete">
-                        <mat-option *ngFor="let Symptom of Symptoms" [value]="summary.summarySymptom">
-                            {{ summary.summarySymptom }}
+                    <input type="text" placeholder="อาการโรค" matInput [(ngModel)]="find" name="summarySymptom" [matAutocomplete]="matauto">
+                    <mat-autocomplete #matauto="matAutocomplete">
+                        <mat-option *ngFor="let symptom of symptoms" [value]="symptom.summarySymptom">
+                            {{ symptom.summarySymptom }}
                         </mat-option>
                     </mat-autocomplete>
                 </mat-form-field>

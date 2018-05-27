@@ -31,6 +31,7 @@ export class PhysicalComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(PhysicalDialogComponent, {
       width: '750px',
+      height: '800px',
       data: {}
     });
 

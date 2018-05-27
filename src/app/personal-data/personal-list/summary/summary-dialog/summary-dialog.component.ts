@@ -27,7 +27,6 @@ export class SummaryDialogComponent implements OnInit {
     this.drugservice.getDrug().subscribe(result => {
       this.drugs = result; 
      });
-    
       this.summaryService.getSummary().subscribe(result => {
         this.symptoms = result;
       });
