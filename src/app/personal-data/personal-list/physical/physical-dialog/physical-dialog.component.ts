@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-physical-dialog',
   templateUrl: './physical-dialog.component.html',
-  // styleUrls: ['./physical-dialog.component.css']
+  styleUrls: ['./physical-dialog.component.css']
 })
 export class PhysicalDialogComponent implements OnInit {
   public form: FormGroup;

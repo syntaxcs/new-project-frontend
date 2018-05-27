@@ -14,6 +14,16 @@ import { SummaryService } from '../../../shared/services/summary.service';
 export class SummaryComponent implements OnInit {
   public rows = [];
   public id;
+  public bankCtrl: FormControl = new FormControl();
+
+  /** control for the MatSelect filter keyword */
+  public bankFilterCtrl: FormControl = new FormControl();
+
+  /** control for the selected bank for multi-selection */
+  public bankMultiCtrl: FormControl = new FormControl();
+
+  /** control for the MatSelect filter keyword multi-selection */
+  public bankMultiFilterCtrl: FormControl = new FormControl();
   constructor(
     private _state: GlobalState,
     private dialog: MatDialog,

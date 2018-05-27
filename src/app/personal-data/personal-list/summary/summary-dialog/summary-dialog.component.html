@@ -1,14 +1,16 @@
 <app-dialog title="ข้อมูลสรุปความเจ็บป่วย">
     <content fxLayout="column">
         <div fxLayout="row">
-            <mat-form-field>
-                <mat-select placeholder="อาการโรค" text="อาการโรค ( Symptom )">
-                    <mat-option *ngFor="let disease of diseases" [value]="dis.disname" name="summarySymptom">
-                        {{ dis.disName }}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-        
+            <form>
+                <mat-form-field>
+                    <input type="text" placeholder="อาการโรค" matInput [(ngModel)]="select" [matAutocomplete]="auto">
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let Symptom of Symptoms" [value]="summary.summarySymptom">
+                            {{ summary.summarySymptom }}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </form>
         </div>
         <div fxLayout="row">
             <app-input-text-normal [value]="data.summaryProcedure" name="summaryProcedure" placeholder="เหน็บชา" text="หัตถการ ( masssge )"
@@ -18,20 +20,75 @@
             <app-input-text-normal [value]="data.summaryTreatment" name="summaryTreatment" placeholder="ส.4 หัวไหล่" text="การรักษา ( Treatment )"
                 fxFlex [formGroup]='form'></app-input-text-normal>
         </div>
-        <h2>จ่ายยา</h2>
         <div fxLayout="row">
-        <form>
+            <h3>วิธีการรักษา ( Treatment )</h3>
+            <h3 class="daration">ช่วงเวลา ( Duration )</h3>
+        </div>
+        <div fxLayout="row">
+            <form>
+                <section class="example-section">
+                    <mat-checkbox class="example-margin" color="warn" [(ngModel)]="checked">นวดบำบัดอาการ</mat-checkbox>
+                </section>
+                <section class="example-section">
+                    <mat-checkbox class="example-margin" color="warn" [(ngModel)]="indeterminate">นวดบำบัดและประคบสมุนไพร</mat-checkbox>
+                </section>
+                <section class="example-section">
+                    <mat-checkbox class="example-margin" color="warn" [(ngModel)]="checked">อบไอน้ำสมุนไพร</mat-checkbox>
+                </section>
+                <section class="example-section">
+                    <mat-checkbox class="example-margin" color="warn" [(ngModel)]="indeterminate">ค่าประคบสมุนไพร</mat-checkbox>
+                </section>
+                <section class="example-section">
+                    <mat-checkbox class="example-margin" color="warn" [(ngModel)]="indeterminate">ทับหม้อเกลือฟื้นฟูมารดาหลังคลอด</mat-checkbox>
+                </section>
+            </form>
+            <form>
+                <mat-radio-group>
+                    <mat-radio-button class="time" color="primary" value="ในเวลา">ในเวลา</mat-radio-button>
+                    <mat-radio-button class="time" color="primary" value="นอกเวลา">นอกเวลา</mat-radio-button>
+                </mat-radio-group>
+            </form>
+
+        </div>
+
+        <h3>จ่ายยา ( Dispense )</h3>
+        <div fxLayout="row">
+            <!-- <form>
+                <mat-form-field>
+                    <input type="text" placeholder="ชื่อยา" matInput [(ngModel)]="select" [matAutocomplete]="auto">
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let drug of drugs" [value]="drug.drugName">
+                            {{ drug.drugName }}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </form> -->
+
             <mat-form-field>
-                <input type="text" placeholder="Pick one" matInput [(ngModel)]="select" [matAutocomplete]="auto">
-                <mat-autocomplete #auto="matAutocomplete">
+                <mat-select [formControl]="bankMultiCtrl" placeholder="ชื่อยา" [multiple]="true" #multiSelect>
+                    <ngx-mat-select-search [formControl]="bankMultiFilterCtrl"></ngx-mat-select-search>
                     <mat-option *ngFor="let drug of drugs" [value]="drug.drugName">
                         {{ drug.drugName }}
                     </mat-option>
-                </mat-autocomplete>
+                </mat-select>
             </mat-form-field>
-        </form>
-        <app-input-text-normal [value]="data.summaryUnit" name="summaryUnit" placeholder="2 กระปุก" text="จำนวน" fxFlex [formGroup]='form'></app-input-text-normal>
-    </div>
+
+            <!-- <p>
+                Selected Banks:
+            </p>
+            <ul *ngFor="let bank of bankMultiCtrl?.value">
+                <li>{{ drug.drugName }}</li>
+            </ul> -->
+            <app-input-text-normal [value]="data.summaryUnit" name="summaryUnit" placeholder="2 กระปุก" text="จำนวน" fxFlex [formGroup]='form'></app-input-text-normal>
+        </div>
+        <div fxLayout="row">
+            <p>
+                Selected Banks:
+            </p>
+            <ul *ngFor="let drug of bankMultiCtrl?.value">
+                <li>{{ drug.drugName }}</li>
+            </ul>
+        </div>
         <!-- <h2 class="example-h2">วิธีการรักษา ( Treatment Program )</h2>
 
         <section class="example-section">
@@ -41,7 +98,7 @@
             <mat-checkbox class="example-margin" [(ngModel)]="นวดบำบัดอาการ">นวดบำบัดอาการ</mat-checkbox>
             <mat-checkbox class="example-margin" [(ngModel)]="ค่าประคบสมุนไพร">ค่าประคบสมุนไพร</mat-checkbox>
         </section> -->
-        
+
         <!-- <div fxLayout="row">
             <app-input-text-normal [value]="data.summaryUnit" name="summaryUnit" placeholder="ส.4 หัวไหล่" text="หน่วย"
                 fxFlex [formGroup]='form'></app-input-text-normal>

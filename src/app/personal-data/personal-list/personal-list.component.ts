@@ -3,7 +3,7 @@ import { MatDialog, MatSnackBar } from '@angular/material';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router'
 import { GlobalState } from '../../shared/global.state';
-// import { PhysicalDialogComponent} from './physical/physical-dialog/physical-dialog.component';
+import { PersonalDialogComponent} from '../personal/personal-dialog/personal-dialog.component';
 import { PersonalService } from '../../shared/services/personal.service';
 @Component({
   selector: 'app-personal-list',
@@ -32,6 +32,56 @@ export class PersonalListComponent implements OnInit {
       this.rows = result;
   })
   }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(PersonalDialogComponent, {
+      width: '750px',
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(resultAllDialog => {
+      if (resultAllDialog !== undefined) {
+        this.personalService.addPerson(resultAllDialog)
+          .mergeMap(() => this.personalService.getPerson())
+          .subscribe((valueFromDatabse) => {
+            this.rows = valueFromDatabse;
+          })
+      }
+    });
+  }
+  openEditDialog(row): void {
+    const dialogRef = this.dialog.open(PersonalDialogComponent, {
+        width: '750px',
+        data: {
+          personId: row.personalId,
+          personNameTitle: row.personNameTitle,
+          personName: row.personName,
+          personSurname: row.personSurname,
+          personGender: row.personGender,
+          personBirth: row.personBirth,
+          personMaritalStatus: row.personMaritalStatus,
+          personNationality: row.personNationality,
+          personCitizenship: row.personCitizenship,
+          personReligion: row.personReligion,
+          personCareer: row.personCareer,
+          personIdentityId: row.personIdentityId,
+          personBirthPlace: row.personBirthPlace,
+          personProvince: row.personProvince,
+          personAddress: row.personAddress,
+          personNumber: row.personNumber,
+          personFamilyHistory: row.personFamilyHistory,
+          personPersonalHistory: row.personPersonalHistory,
+        }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+        if (result !== undefined) {
+          this.personalService.updatePerson(row._id, result)
+          .mergeMap(() => this.personalService.getPerson())
+          .subscribe((results) => {
+            this.rows = results;
+          });
+        }
+    });
+}
   submit() {
 
   }

@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SummaryDialogComponent } from './summary-dialog.component';
 
 describe('SummaryDialogComponent', () => {
@@ -8,7 +7,7 @@ describe('SummaryDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SummaryDialogComponent ]
+      declarations: [ SummaryDialogComponent ],
     })
     .compileComponents();
   }));
@@ -22,4 +21,5 @@ describe('SummaryDialogComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
 });

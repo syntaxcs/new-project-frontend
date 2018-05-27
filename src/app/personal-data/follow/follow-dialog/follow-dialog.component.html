@@ -40,15 +40,18 @@
             </section>
         </div>
 
-        <div fxLayout="row">
-
-            <mat-form-field>
-                <mat-select placeholder="ชื่อผู้รักษา">
-                    <mat-option></mat-option>
-                    <mat-option *ngFor="let data of certificate" [value]="data">{{data.cerPhysicianName}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
+        <!-- <div fxLayout="row">
+            <form>
+                <mat-form-field>
+                    <input type="text" placeholder="ชื่อผู้รักษา" matInput [(ngModel)]="select" [matAutocomplete]="auto">
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let cer of treaterNames" [value]="cer.cerNameTitle" [value]= "cer.cerPhysicianName" [value]="cer.cerPhysicianSurName" [value]="cer.cerLicensed_No">
+                                {{ cer.cerNameTitle }}{{ cer.cerPhysicianName }} {{ cer.cerPhysicianSurName }} {{ cer.cerLicensed_No }}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </form>
+        </div> -->
 
     </content>
     <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
