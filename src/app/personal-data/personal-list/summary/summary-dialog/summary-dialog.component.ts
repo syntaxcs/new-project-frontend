@@ -18,6 +18,7 @@ export class SummaryDialogComponent implements OnInit {
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<SummaryDialogComponent>,
     private drugservice: DrugService,
+    
   ) { }
   ngOnInit() {
     this.form = this.formBuilder.group({});

@@ -3,11 +3,12 @@
         <div fxLayout="row">
             <mat-form-field>
                 <mat-select placeholder="อาการโรค" text="อาการโรค ( Symptom )">
-                    <mat-option *ngFor="let food of foods" [value]="data.summarySymptom" name="summarySymptom">
-                        {{ food.viewValue }}
+                    <mat-option *ngFor="let disease of diseases" [value]="dis.disname" name="summarySymptom">
+                        {{ dis.disName }}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
+        
         </div>
         <div fxLayout="row">
             <app-input-text-normal [value]="data.summaryProcedure" name="summaryProcedure" placeholder="เหน็บชา" text="หัตถการ ( masssge )"
