@@ -2,12 +2,11 @@
     <mat-grid-list cols="2" rowHeight="2:1">
         <mat-grid-tile>
             <img src="../assets/images/user.png">
-            <colgroup>
-                <p><mat-icon>face</mat-icon>คุณ : {{rows.personName}}  {{rows.personSurname}}</p>
+            <div>
+                <p><mat-icon>face</mat-icon>คุณ : {{rows.personName}} {{rows.personSurname}}</p>
                 <p><mat-icon>room</mat-icon>สถานะ : กำลังใช้งาน </p>
-                <p  (click)="openEditDialog(rows)"><mat-icon>settings</mat-icon>แก้ไขข้อมูลส่วนตัว</p>
-                <p routerLink = "/personal-data/personal"><mat-icon>assignment_return</mat-icon>ออกจากระบบ</p>
-            </colgroup>
+                <p routerLink="/personal-data/personal"><mat-icon>assignment_return</mat-icon>ออกจากระบบ</p>
+            </div>
         </mat-grid-tile>
     </mat-grid-list>
     <mat-accordion>
@@ -17,11 +16,16 @@
                     <h4>ข้อมูลส่วนตัว : {{rows.personId}} </h4>
                 </mat-panel-title>
             </mat-expansion-panel-header>
+            <div fxLayout="row">
+                <div fxFlex></div>
+                <app-button-card-title (onClick)="openEditDialog(rows)">
+                    <mat-icon>settings</mat-icon>แก้ไขข้อมูลส่วนตัว
+                </app-button-card-title>
+            </div><br>
             <table>
                 <tr>
                     <th>เลขที่บัตร</th>
                     <td> {{rows.personId}} </td>
-
                     <th>ชื่อ-นามสกุล</th>
                     <td>{{rows.personNameTitle}} {{rows.personName}} {{rows.personSurname}}</td>
                 </tr>
@@ -73,9 +77,13 @@
         </mat-expansion-panel>
     </mat-accordion>
 </mat-card>
-<div fxFlex><br></div>
+<div fxFlex>
+    <br>
+</div>
 <mat-card>
-    <div fxFlex><br></div>
+    <div fxFlex>
+        <br>
+    </div>
     <mat-tab-group cols="2">
         <mat-tab label="ประวัติการรักษา">
             <app-general></app-general>

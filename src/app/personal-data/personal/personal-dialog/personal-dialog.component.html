@@ -2,12 +2,11 @@
   <content fxLayout="column">
     <div fxLayout="row">
       <app-input-text-normal [value]="data.personId" name="personId" placeholder="เลขที่บัตร ( ID )" text="" fxFlex [formGroup]='form'></app-input-text-normal>
-
-      <section class="example-section">
-        <label class="example-margin">เพศ( sex )</label>
-        <mat-radio-group>
-          <mat-radio-button  value="ชาย">ชาย</mat-radio-button>
-          <mat-radio-button  value="หญิง">หญิง</mat-radio-button>
+      <section >
+        <label>เพศ( sex )</label>
+        <mat-radio-group name="gender" [(ngModel)]="gender">
+          <mat-radio-button value="ชาย">ชาย</mat-radio-button>
+          <mat-radio-button value="หญิง">หญิง</mat-radio-button>
         </mat-radio-group>
       </section>
     </div>
@@ -26,7 +25,7 @@
 
     <div fxLayout="row">
       <mat-form-field>
-        <input matInput [matDatepicker]="picker" placeholder="วัน/เดือน/ปีเกิด">
+        <input matInput [matDatepicker]="picker" placeholder="วัน/เดือน/ปีเกิด" [(ngModel)]="brithDay">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
       </mat-form-field>
