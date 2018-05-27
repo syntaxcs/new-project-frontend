@@ -10,11 +10,6 @@
     </mat-card-subtitle>
     <mat-card-content>
         <ngx-datatable class="material" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows" [limit]="10">
-            <ngx-datatable-column name="ลำดับ" [maxWidth]="100">
-                <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                    {{rowIndex + 1}}
-                </ng-template>
-            </ngx-datatable-column>
             <ngx-datatable-column name="รหัสโรค">
                 <ng-template let-value="value" ngx-datatable-cell-template>
                     {{value.disID}}

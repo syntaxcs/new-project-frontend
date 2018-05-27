@@ -6,7 +6,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { MatNativeDateModule } from '@angular/material';
 
 import { TextNormalComponent } from './text-normal/text-normal.component';
-
+import { DropdownComponent } from './dropdown/dropdown.component';
 @NgModule({
   imports: [
     MaterialModule,
@@ -18,9 +18,11 @@ import { TextNormalComponent } from './text-normal/text-normal.component';
   ],
   declarations: [
     TextNormalComponent,
+    DropdownComponent
   ],
   exports: [
     TextNormalComponent,
+    DropdownComponent
   ]
 })
 export class InputModule { }

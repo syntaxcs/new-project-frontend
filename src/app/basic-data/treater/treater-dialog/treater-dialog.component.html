@@ -3,23 +3,15 @@
     <div fxLayout="row">
       <app-input-text-normal [value]="data.cerLicensed_No" name="cerLicensed_No" placeholder="พท.ป.608" text="เลขที่ประกอบโรคศิลปะ ( Licensed No. )"
         fxFlex [formGroup]='form'></app-input-text-normal>
+      <app-dropdown [data]="nametitle" [value]="data.cerNameTitle" text="คำนำหน้า" placeholder="คำนำหน้า( NameTitle )" name="cerNameTitle"
+        fxFlex [formGroup]='form'></app-dropdown>
     </div>
     <div fxLayout="row">
-      <mat-form-field>
-        <mat-select placeholder="คำนำหน้า( NameTitle )">
-          <mat-option *ngFor="let data of nametitle" [value]="data" name="cerNameTitle">{{data}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div fxLayout="row">
-      <app-input-text-normal [value]="data.cerPhysicianName" name="cerPhysicianName" placeholder="ชื่อ" text="ชื่อ ( First Name )"
+      <app-input-text-normal [value]="data.cerPhysicianName" name="cerPhysicianName" placeholder="ชื่อ" text="ชื่อ-นามสกุล"
         fxFlex [formGroup]='form'></app-input-text-normal>
+      <app-input-text-normal [value]="data.cerPhysicianSurName" name="cerPhysicianSurName" placeholder="นามสกุล" text="" fxFlex
+        [formGroup]='form'></app-input-text-normal>
     </div>
-    <div fxLayout="row">
-      <app-input-text-normal [value]="data.cerPhysicianSurName" name="cerPhysicianSurName" placeholder="นามสกุล" text="นามสกุล ( Last Name )"
-        fxFlex [formGroup]='form'></app-input-text-normal>
-    </div>
-
   </content>
   <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
     <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">บันทึก</button>
