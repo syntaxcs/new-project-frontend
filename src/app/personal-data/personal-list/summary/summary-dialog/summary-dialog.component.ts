@@ -34,7 +34,6 @@ export class SummaryDialogComponent implements OnInit {
         this.symptoms = result;
       });
   
-
   }
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);

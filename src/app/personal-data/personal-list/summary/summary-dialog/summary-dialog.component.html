@@ -65,8 +65,8 @@
             </form> -->
 
             <mat-form-field>
-                <mat-select [formControl]="bankMultiCtrl" placeholder="ชื่อยา" [multiple]="true" #multiSelect>
-                    <ngx-mat-select-search [formControl]="bankMultiFilterCtrl"></ngx-mat-select-search>
+                <mat-select [formControl]="drugMultiCtrl" placeholder="ชื่อยา" [multiple]="true" #multiSelect>
+                    <ngx-mat-select-search [formControl]="drugMultiFilterCtrl"></ngx-mat-select-search>
                     <mat-option *ngFor="let drug of drugs" [value]="drug.drugName">
                         {{ drug.drugName }}
                     </mat-option>
@@ -79,7 +79,7 @@
             <p>
                 Selected Banks:
             </p>
-            <ul *ngFor="let drug of bankMultiCtrl?.value">
+            <ul *ngFor="let drug of drugMultiCtrl?.value">
                 <li>{{ drug.drugName }}</li>
             </ul>
         </div> -->
