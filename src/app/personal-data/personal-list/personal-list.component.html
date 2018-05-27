@@ -33,11 +33,11 @@
                     <th>เพศ</th>
                     <td>{{rows.personGender}}</td>
                     <th>วันเกิด</th>
-                    <td>{{rows.personBirth}} </td>
+                    <td>{{dateShow(rows.personBirth)}} </td>
                 </tr>
                 <tr>
                     <th>อายุ</th>
-                    <td></td>
+                    <td>{{ageCalculate(rows.personBirth)}}</td>
                     <th>เลขบัตรประชาชน</th>
                     <td>{{rows.personIdentityId}}</td>
                 </tr>
