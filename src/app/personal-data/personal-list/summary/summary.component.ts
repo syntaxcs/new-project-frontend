@@ -87,8 +87,8 @@ export class SummaryComponent implements OnInit {
     this.filteredDrugs
       .pipe(take(1), takeUntil(this._onDestroy))
       .subscribe(() => {
-        this.singleSelect.compareWith = (ก: Drug, ข: Drug) => ก.id === ข.id;
-        this.multiSelect.compareWith = (ก: Drug, ข: Drug) => ก.id === ข.id;
+        this.singleSelect.compareWith = (a: Drug, b: Drug) =>a.id === b.id;
+        this.multiSelect.compareWith = (a: Drug, b: Drug) => a.id === b.id;
       });
   }
   private filterDrugs() {
@@ -128,6 +128,7 @@ export class SummaryComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(SummaryDialogComponent, {
       width: '750px',
+      height: '800px',
       data: {}
     });
 

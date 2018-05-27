@@ -2,7 +2,7 @@
   <content fxLayout="column">
     <div fxLayout="row">
       <app-input-text-normal [value]="data.personId" name="personId" placeholder="เลขที่บัตร ( ID )" text="" fxFlex [formGroup]='form'></app-input-text-normal>
-      <section >
+      <section>
         <label>เพศ( sex )</label>
         <mat-radio-group name="gender" [(ngModel)]="gender">
           <mat-radio-button value="ชาย">ชาย</mat-radio-button>
@@ -11,12 +11,8 @@
       </section>
     </div>
     <div fxLayout="row">
-      <mat-form-field>
-        <mat-select  placeholder="คำนำหน้า( NameTitle )" >
-
-          <mat-option *ngFor="let data of nametitle" [value]="data" name="personNameTitle">{{data}}</mat-option>
-        </mat-select>
-      </mat-form-field>
+      <app-dropdown [data]="nametitle" [value]="data.personNameTitle" placeholder="คำนำหน้า( NameTitle )" name="personNameTitle"
+        fxFlex [formGroup]='form'></app-dropdown>
 
       <app-input-text-normal [value]="data.personName" name="personName" placeholder="ชื่อ ( First Name )" text="" fxFlex [formGroup]='form'></app-input-text-normal>
       <app-input-text-normal [value]="data.personSurname" name="personSurname" placeholder="นามสกุล ( Last Name )" text="" fxFlex
@@ -33,12 +29,8 @@
       <app-input-text-normal [value]="data.personIdentityId" name="personIdentityId" placeholder="เลขบัตรประชาชน (ฺฺ ID card )"
         text="" fxFlex [formGroup]='form'></app-input-text-normal>
 
-      <mat-form-field>
-        <mat-select placeholder="สถานภาพ (ฺ Status )">
-
-          <mat-option *ngFor="let data of status" [value]="data" name="personMaritalStatus">{{data}}</mat-option>
-        </mat-select>
-      </mat-form-field>
+      <app-dropdown [data]="status" [value]="data.personMaritalStatus" placeholder="สถานภาพ( Status)" name="personMaritalStatus"
+        fxFlex [formGroup]='form'></app-dropdown>
     </div>
     <div fxLayout="row">
       <app-input-text-normal [value]="data.personCareer" name="personCareer" placeholder="อาชีพ (ฺ Occupation )" text="" fxFlex
