@@ -10,6 +10,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class PersonalDialogComponent implements OnInit {
   public form: FormGroup;
   startDate: any;
+  gender: String;
+  brithDay: Date;
   public nametitle = ['นาย', 'นาง', 'นางสาว'];
   public status = ['โสด ( Single )', 'แต่งงาน ( Married )', 'หม้าย ( Widowed )', 'หย่า ( Divorced )'
     , 'แยกกันอยู่ ( Separated )', 'นักบวช ( Monk )'];
@@ -32,6 +34,8 @@ export class PersonalDialogComponent implements OnInit {
   }
   onSave() {
     const value = this.form.value;
+    value.personGender = this.gender;
+    value.personBirth = this.brithDay;
     this.dialogRef.close(value);
   }
 }
