@@ -3,22 +3,17 @@
         <div fxLayout="row">
             <app-input-text-normal [value]="data.evaAfter" name="evaAfter" placeholder="U61.2" text="การวินิจฉัย" fxFlex [formGroup]='form'></app-input-text-normal>
         </div>
-        <div fxLayout="row">
-            <mat-form-field>
-                <mat-select placeholder="ระดับความเจ็บปวด">
-                    <mat-option *ngFor="let data of level" value="option">
-                        {{data}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
+        <div fxLayout="row" style="width: 60%">
+            <app-dropdown [data]="level" [value]="data.evaLevel" text="ระดับความเจ็บปวด" placeholder="ระดับความเจ็บปวด" name="evaLevel"
+                fxFlex [formGroup]='form'></app-dropdown>
+        </div>
+        <div fxLayout="row" style="width: 60%" >
+            <app-dropdown [data]="bodyparth" [value]="data.evaBodyParth" text="ส่วนของร่างกาย" placeholder="ส่วนของร่างกาย" name="evaBodyParth"
+                fxFlex [formGroup]='form'></app-dropdown>
+           
         </div>
         <div fxLayout="row">
-            <mat-form-field>
-                <mat-select placeholder="ส่วนของร่างกาย" text="ส่วนของร่างกาย" >
-                    <mat-option *ngFor="let data of bodyparth" value="option">{{data}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <img src="../../assets/images/ศีรษะ.jpg" width="35%" height="35%">
+             <img src="../../assets/images/ศีรษะ.jpg" width="35%" height="35%">
         </div>
     </content>
     <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">

@@ -47,7 +47,7 @@ export class PhysicalComponent implements OnInit {
   }
   openEditDialog(row): void {
     const dialogRef = this.dialog.open(PhysicalDialogComponent, {
-        width: '500px',
+        width: '750px',
         data: {
             phyTemp: row.phyTemp,
             phyBp: row.phyBp,

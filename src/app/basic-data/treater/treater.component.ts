@@ -45,7 +45,7 @@ export class TreaterComponent implements OnInit {
   }
   openEditDialog(row): void {
     const dialogRef = this.dialog.open(TreaterDialogComponent, {
-      width: '500px',
+      width: '750px',
       data: {
         cerLicensed_No: row.cerLicensed_No,
         cerNameTitle: row.cerNameTitle,

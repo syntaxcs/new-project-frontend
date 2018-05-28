@@ -26,27 +26,14 @@
     <div fxLayout="row">
       <h4>มาตรวัดความปวด( ก่อนการรักษา ) Pain score ( Pre-treatment )</h4>
     </div>
+    <div fxLayout="row" style="width: 60%">
+      <app-dropdown [data]="level" [value]="data.phyLevel" text="ระดับความเจ็บปวด" placeholder="ระดับความเจ็บปวด" name="phyLevel"
+        fxFlex [formGroup]='form' ></app-dropdown>
+    </div>
     <div fxLayout="row">
-      <mat-form-field>
-        <mat-select [(value)]="selected">
-          <mat-option value="ระดับ 0">ระดับ 0</mat-option>
-          <mat-option value="ระดับ 1">ระดับ 1</mat-option>
-          <mat-option value="ระดับ 2">ระดับ 2</mat-option>
-          <mat-option value="ระดับ 3">ระดับ 3</mat-option>
-          <mat-option value="ระดับ 4">ระดับ 4</mat-option>
-          <mat-option value="ระดับ 5">ระดับ 6</mat-option>
-          <mat-option value="ระดับ 7">ระดับ 7</mat-option>
-          <mat-option value="ระดับ 8">ระดับ 8</mat-option>
-          <mat-option value="ระดับ 9">ระดับ 9</mat-option>
-          <mat-option value="ระดับ 10">ระดับ 10</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-select placeholder="ส่วนของร่างกาย" text="ส่วนของร่างกาย">
-          <mat-option *ngFor="let data of bodyparth" value="option">{{data}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <img src="../../assets/images/ศีรษะ.jpg" width="35%" height="35%">
+      <app-dropdown [data]="bodyparth" [value]="data.phyBodyParth" text="ส่วนของร่างกาย" placeholder="ส่วนของร่างกาย" name="phyBodyParth"
+        fxFlex [formGroup]='form'></app-dropdown>
+      <img src="../../assets/images/ศีรษะ.jpg" width="40%" height="40%">
     </div>
 
   </content>

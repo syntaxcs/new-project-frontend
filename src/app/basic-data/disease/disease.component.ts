@@ -45,7 +45,7 @@ export class DiseaseComponent implements OnInit {
   }
   openEditDialog(row): void {
     const dialogRef = this.dialog.open(DiseaseDialogComponent, {
-        width: '500px',
+        width: '750px',
         data: {
           disID: row.disID,
           disName: row.disName,

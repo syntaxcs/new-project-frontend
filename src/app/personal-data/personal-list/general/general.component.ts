@@ -59,7 +59,7 @@ export class GeneralComponent implements OnInit {
   }
   openEditDialog(row): void {
     const dialogRef = this.dialog.open(GeneralDialogComponent, {
-        width: '500px',
+        width: '750px',
         data: {
           genDate: row.genDate,
           genTime: row.genTime,

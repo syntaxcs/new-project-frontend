@@ -50,7 +50,8 @@ export class EvalutionComponent implements OnInit {
       data: {
         evaDate: row.evaDate,
         evaAfter: row.evaAfter,
-        evaBodyParth: row.evaBodyParth
+        evaBodyParth: row.evaBodyParth,
+        evaLevel: row.evaLevel
       }
     });
     dialogRef.afterClosed().subscribe(result => {

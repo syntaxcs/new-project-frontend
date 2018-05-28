@@ -23,7 +23,7 @@ interface Drug {
 export class SummaryComponent implements OnInit {
   public rows = [];
   public id;
-  public Drug = [];
+
 
   public drugCtrl: FormControl = new FormControl();
   /** control for the MatSelect filter keyword */
@@ -57,12 +57,12 @@ export class SummaryComponent implements OnInit {
       this.rows = result;
     });
     // set initial selection
-    this.drugCtrl.setValue(this.Drug[10]);
-    this.drugMultiCtrl.setValue([this.Drug[10], this.Drug[11], this.Drug[12]]);
+    this.drugCtrl.setValue(this.rows[10]);
+    this.drugMultiCtrl.setValue([this.rows[10], this.rows[11], this.rows[12]]);
 
     // load the initial bank list
-    this.filteredDrugs.next(this.Drug.slice());
-    this.filteredDrugsMulti.next(this.Drug.slice());
+    this.filteredDrugs.next(this.rows.slice());
+    this.filteredDrugsMulti.next(this.rows.slice());
     // listen for search field value changes
     this.drugFilterCtrl.valueChanges
       .pipe(takeUntil(this._onDestroy))
@@ -87,42 +87,42 @@ export class SummaryComponent implements OnInit {
     this.filteredDrugs
       .pipe(take(1), takeUntil(this._onDestroy))
       .subscribe(() => {
-        this.singleSelect.compareWith = (a: Drug, b: Drug) =>a.id === b.id;
+        this.singleSelect.compareWith = (a: Drug, b: Drug) => a.id === b.id;
         this.multiSelect.compareWith = (a: Drug, b: Drug) => a.id === b.id;
       });
   }
   private filterDrugs() {
-    if (!this.Drug) {
+    if (!this.rows) {
       return;
     }
     // get the search keyword
     let search = this.drugFilterCtrl.value;
     if (!search) {
-      this.filteredDrugs.next(this.Drug.slice());
+      this.filteredDrugs.next(this.rows.slice());
       return;
     } else {
       search = search.toLowerCase();
     }
     // filter the banks
     this.filteredDrugs.next(
-      this.Drug.filter(drug => drug.name.toLowerCase().indexOf(search) > -1)
+      this.rows.filter(drug => drug.name.toLowerCase().indexOf(search) > -1)
     );
   }
   private filterDrugsMulti() {
-    if (!this.Drug) {
+    if (!this.rows) {
       return;
     }
     // get the search keyword
     let search = this.drugMultiFilterCtrl.value;
     if (!search) {
-      this.filteredDrugsMulti.next(this.Drug.slice());
+      this.filteredDrugsMulti.next(this.rows.slice());
       return;
     } else {
       search = search.toLowerCase();
     }
     // filter the banks
     this.filteredDrugsMulti.next(
-      this.Drug.filter(bank => bank.name.toLowerCase().indexOf(search) > -1)
+      this.rows.filter(bank => bank.name.toLowerCase().indexOf(search) > -1)
     );
   }
   openDialog(): void {
@@ -142,10 +142,10 @@ export class SummaryComponent implements OnInit {
       }
     });
   }
-  
+
   openEditDialog(row): void {
     const dialogRef = this.dialog.open(SummaryDialogComponent, {
-      width: '500px',
+      width: '750px',
       data: {
         summarySymptom: row.summarySymptom,
         summaryProcedure: row.summaryProcedure,
