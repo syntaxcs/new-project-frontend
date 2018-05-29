@@ -48,8 +48,8 @@ public images = [
     this.dialogRef.close(value);
   }
 
-  calculate(){
-    this.result = (this.phyWeight/Math.pow(this.phyHeight,2))*10000;
-    
+  calculate(result){
+    this.result = (this.phyWeight/Math.pow(this.phyHeight,2));
+    return this.result.toFixed(2);
   }
 }
