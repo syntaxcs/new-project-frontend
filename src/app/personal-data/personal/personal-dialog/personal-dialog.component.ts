@@ -34,8 +34,6 @@ export class PersonalDialogComponent implements OnInit {
   }
   onSave() {
     const value = this.form.value;
-    value.personGender = this.gender;
-    value.personBirth = this.brithDay;
     this.dialogRef.close(value);
   }
 }

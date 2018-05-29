@@ -1,34 +1,49 @@
 <app-dialog title="ข้อมูลตรวจร่างกายก่อนรักษา">
   <content fxLayout="column">
     <div fxLayout="row">
-      <app-input-text-normal [value]="data.phyTemp" name="phyTemp" placeholder="U61.2" text="อุณหภูมิ ( Temp )" fxFlex [formGroup]='form'></app-input-text-normal>
+      <app-input-text-normal [value]="data.phyTemp" name="phyTemp" placeholder="อุณหภูมิ" text="อุณหภูมิ ( Temp )" fxFlex [formGroup]='form'></app-input-text-normal>
     </div>
     <div fxLayout="row">
-      <app-input-text-normal [value]="data.phyPulse" name="phyPulse" placeholder="เหน็บชา" text="ชีพจร( Pulse ) ครั้ง/นาที ( Beats/min )"
+      <app-input-text-normal [value]="data.phyPulse" name="phyPulse" placeholder="ชีพจร" text="ชีพจร( Pulse ) ครั้ง/นาที ( Beats/min )"
         fxFlex [formGroup]='form'></app-input-text-normal>
     </div>
     <div fxLayout="row">
-      <app-input-text-normal [value]="data.phyRespirationRate" name="phyRespirationRate" placeholder="ส.4 หัวไหล่" text="การหายใจ ( Respiration ) ครั้ง/นาที ( Beats/min )"
+      <app-input-text-normal [value]="data.phyRespirationRate" name="phyRespirationRate" placeholder="การหายใจ" text="การหายใจ ( Respiration ) ครั้ง/นาที ( Beats/min )"
         fxFlex [formGroup]='form'></app-input-text-normal>
     </div>
     <div fxLayout="row">
-      <app-input-text-normal [value]="data.phyBp" name="phyBp" placeholder="ส.4 หัวไหล่" text="ความดันโลหิต ( BP ) มม.ปรอท ( mmHg )"
+      <app-input-text-normal [value]="data.phyBp" name="phyBp" placeholder="ความดันโลหิต" text="ความดันโลหิต ( BP ) มม.ปรอท ( mmHg )"
         fxFlex [formGroup]='form'></app-input-text-normal>
     </div>
     <div fxLayout="row">
-      <app-input-text-normal [value]="data.phyHeight" name="phyHeight" placeholder="ส.4 หัวไหล่" text="ส่วนสูง ( Height ) ซม. ( cm. )"
-        fxFlex [formGroup]='form'></app-input-text-normal>
+      <!-- <app-input-text-normal [value]="data.phyHeight" name="phyHeight" placeholder="ส่วนสูง" text="ส่วนสูง ( Height ) ซม. ( cm. )"
+        fxFlex [formGroup]='form' [(ngModel)]="phyHeight"></app-input-text-normal>
     </div>
     <div fxLayout="row">
-      <app-input-text-normal [value]="data.phyWeight" name="phyWeight" placeholder="ส.4 หัวไหล่" text="น้ำหนัก ( Weight ) กก. ( Kg.)"
-        fxFlex [formGroup]='form'></app-input-text-normal>
+      <app-input-text-normal [value]="data.phyWeight" name="phyWeight" placeholder="น้ำหนัก " text="น้ำหนัก ( Weight ) กก. ( Kg.) "
+        fxFlex [formGroup]='form' [(ngModel)]="phyWeight"></app-input-text-normal> -->
+      <p>
+        <label>ส่วนสูง ( Height ) ซม. ( cm. )</label>
+        <input [(ngModel)]="phyHeight" [value]="data.phyHeight" name="phyHeight" type="number" placeholder="ส่วนสูง">
+      </p>
     </div>
     <div fxLayout="row">
-      <h4>มาตรวัดความปวด( ก่อนการรักษา ) Pain score ( Pre-treatment )</h4>
+      <p>
+        <label> น้ำหนัก ( Weight ) กก. ( Kg.)</label>
+        <input [(ngModel)]="phyWeight" [value]="data.phyWeight" name="phyWeight" type="number" placeholder="น้ำหนัก">
+      </p>
+    </div>
+
+    <div fxLayout="row">
+      <button (click)="calculate()">calculate</button>
+      BMI : {{result}}
+    </div>
+    <div fxLayout="row">
+      <h3>มาตรวัดความปวด( ก่อนการรักษา ) Pain score ( Pre-treatment )</h3>
     </div>
     <div fxLayout="row" style="width: 60%">
       <app-dropdown [data]="level" [value]="data.phyLevel" text="ระดับความเจ็บปวด" placeholder="ระดับความเจ็บปวด" name="phyLevel"
-        fxFlex [formGroup]='form' ></app-dropdown>
+        fxFlex [formGroup]='form'></app-dropdown>
     </div>
     <div fxLayout="row">
       <app-dropdown [data]="bodyparth" [value]="data.phyBodyParth" text="ส่วนของร่างกาย" placeholder="ส่วนของร่างกาย" name="phyBodyParth"

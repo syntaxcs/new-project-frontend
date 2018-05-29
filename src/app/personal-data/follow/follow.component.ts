@@ -44,6 +44,9 @@ export class FollowComponent implements OnInit {
       }
     });
   }
+  dateShow(date) {
+    return String(date).substr(0, 10)
+  }
   openEditDialog(row): void {
     const dialogRef = this.dialog.open(FollowDialogComponent, {
       width: '750px',

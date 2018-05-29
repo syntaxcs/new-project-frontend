@@ -42,12 +42,14 @@
                     <mat-checkbox class="example-margin" color="warn" [(ngModel)]="indeterminate">ทับหม้อเกลือฟื้นฟูมารดาหลังคลอด</mat-checkbox>
                 </section>
             </form>
-            <form>
-                <mat-radio-group>
+
+            <!-- <mat-radio-group>
                     <mat-radio-button class="time" color="primary" value="ในเวลา">ในเวลา</mat-radio-button>
                     <mat-radio-button class="time" color="primary" value="นอกเวลา">นอกเวลา</mat-radio-button>
-                </mat-radio-group>
-            </form>
+                </mat-radio-group> -->
+            <div class="daration2">
+                <app-dropdown [data]="duration" [value]="data.summaryDuration" placeholder="ช่วงการรักษา" name="summaryDuration" fxFlex [formGroup]='form'></app-dropdown>
+            </div>
 
         </div>
 

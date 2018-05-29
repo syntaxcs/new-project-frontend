@@ -7,12 +7,8 @@
         <mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
       </mat-form-field>
 
-    </div>
-
-    <div fxLayout="row">
-
       <div class="custom-buttons-example">
-        <input placeholder="เวลาที่มาพบแพทย์" aria-label="Custom buttons" [ngxTimepicker]="timepickerWithButtons" readonly >
+        <input placeholder="เวลาที่มาพบแพทย์" aria-label="Custom buttons" [ngxTimepicker]="timepickerWithButtons" readonly>
         <ngx-material-timepicker #timepickerWithButtons [cancelBtnTmpl]="cancelBtn" [confirmBtnTmpl]="confirmBtn"></ngx-material-timepicker>
 
         <ng-template #cancelBtn>
@@ -22,7 +18,6 @@
           <button>ตกลง</button>
         </ng-template>
       </div>
-
     </div>
     <div fxLayout="row">
       <app-input-text-normal [value]="data.genSymptoms" name="genSymptoms" placeholder="ส.4 หัวไหล่" text="อาการสำคัญ ( Symptoms/Condition )"

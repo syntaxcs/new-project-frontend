@@ -9,6 +9,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class PhysicalDialogComponent implements OnInit {
   public form: FormGroup;
+  public phyHeight: number;
+  public phyWeight: number;
+  public result: number;
   public level = ['ระดับ 1','ระดับ 2','ระดับ 3','ระดับ 4','ระดับ 5','ระดับ 6','ระดับ 7','ระดับ 8','ระดับ 9','ระดับ 10' ];
 
   public bodyparth = ['ศีรษะ', 'ต้นคอ', 'บ่า', 'ไหล่ ', 'หลัง-เอว '
@@ -35,6 +38,7 @@ public images = [
   ) { }
   ngOnInit() {
     this.form = this.formBuilder.group({});
+
   }
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);
@@ -42,5 +46,10 @@ public images = [
   onSave() {
     const value = this.form.value;
     this.dialogRef.close(value);
+  }
+
+  calculate(){
+    this.result = (this.phyWeight/Math.pow(this.phyHeight,2))*10000;
+    
   }
 }

@@ -6,12 +6,12 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-general-dialog',
   templateUrl: './general-dialog.component.html',
-//   styleUrls: ['./general-dialog.component.css']
+  styleUrls: ['./general-dialog.component.css']
 })
 export class GeneralDialogComponent implements OnInit {
   public form: FormGroup;
   startDate: any;
-
+  brithDay: Date;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
