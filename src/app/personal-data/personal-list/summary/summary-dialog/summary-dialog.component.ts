@@ -2,7 +2,7 @@ import { Component, OnInit, Inject, OnDestroy, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { DrugService } from '../../../../shared/services/drug.service';
-import { SummaryService } from '../../../../shared/services/summary.service';
+import { DiseaseService } from '../../../../shared/services/disease.service';
 import { from } from 'rxjs/internal/observable/from';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import { Subject } from 'rxjs/Subject';
@@ -50,7 +50,7 @@ export class SummaryDialogComponent implements OnInit {
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<SummaryDialogComponent>,
     private drugservice: DrugService,
-    private summaryService: SummaryService,
+    private diseaseService: DiseaseService,
 
 
   ) { }
@@ -59,7 +59,7 @@ export class SummaryDialogComponent implements OnInit {
     this.drugservice.getDrug().subscribe(result => {
       this.drugs = result;
     });
-    this.summaryService.getSummary().subscribe(result => {
+    this.diseaseService.getDis().subscribe(result => {
       this.symptoms = result;
     });
 

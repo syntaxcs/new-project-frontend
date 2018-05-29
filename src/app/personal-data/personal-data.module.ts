@@ -30,11 +30,12 @@ import { CertificateDialogComponent } from './certificate/certificate-dialog/cer
 import { PersonalService } from '../shared/services/personal.service';
 import { PhysicalService } from '../shared/services/physical.service';
 import { GeneralService } from '../shared/services/general.service';
-import { SummaryService } from '../shared/services/summary.service';
 import { EvalutionService } from '../shared/services/evalution.service';
 import { FollowService } from '../shared/services/follow.service';
 import { CertificateService } from '../shared/services/certificate.service';
 import { DrugService } from '../shared/services/drug.service';
+import { TreatmentService} from '../shared/services/treatment.service';
+import { DiseaseService} from '../shared/services/disease.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -75,17 +76,20 @@ import { DrugService } from '../shared/services/drug.service';
     EvalutionDialogComponent,
     PersonalDialogComponent,
     FollowDialogComponent,
-    CertificateDialogComponent
+    CertificateDialogComponent,
+
   ],
   providers: [
     PersonalService,
     PhysicalService,
     GeneralService,
-    SummaryService,
     EvalutionService,
     FollowService,,
     CertificateService,
-    DrugService
+    DrugService,
+    TreatmentService,
+    DiseaseService,
+    
   ],
 })
 export class PersonalDataModule { }

@@ -5,9 +5,10 @@ import { ActivatedRoute } from '@angular/router'
 import { GlobalState } from '../../../shared/global.state';
 import { ConfirmDeleteDialogComponent } from '../../../theme/components/confirm-delete-dialog/confirm-delete-dialog.component';
 import { SummaryDialogComponent } from './summary-dialog/summary-dialog.component';
-import { SummaryService } from '../../../shared/services/summary.service';
-
-
+import { DiseaseService } from '../../../shared/services/disease.service';
+import {DrugService} from '../../../shared/services/drug.service';
+import {TreatmentService } from '../../../shared/services/treatment.service';
+import { from } from 'rxjs/internal/observable/from';
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
@@ -15,6 +16,8 @@ import { SummaryService } from '../../../shared/services/summary.service';
 })
 export class SummaryComponent implements OnInit {
   public rows = [];
+  public row2 = [];
+  public row3 = [];
   public id;
 
   constructor(
@@ -22,13 +25,21 @@ export class SummaryComponent implements OnInit {
     private dialog: MatDialog,
     private formBuilder: FormBuilder,
     private activatedroute: ActivatedRoute,
-    private summaryService: SummaryService,
+    private diseaseService: DiseaseService,
+    private drugService: DrugService,
+    private treatmentService: TreatmentService,
 
   ) { }//this.id = this.activatedroute.snapshot.params['personalId'];  }
 
   ngOnInit() {
-    this.summaryService.getSummary().subscribe(result => {
+    this.diseaseService.getDis().subscribe(result => {
       this.rows = result;
+    });
+    this.drugService.getDrug().subscribe(result => {
+      this.row2 = result;
+    });
+    this.treatmentService.getTreat().subscribe(result => {
+      this.row3 = result;
     });
   }
   
@@ -41,8 +52,8 @@ export class SummaryComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(resultAllDialog => {
       if (resultAllDialog !== undefined) {
-        this.summaryService.addSummary(resultAllDialog)
-          .mergeMap(() => this.summaryService.getSummary())
+        this.diseaseService.addDis(resultAllDialog)
+          .mergeMap(() => this.diseaseService.getDis())
           .subscribe((valueFromDatabse) => {
             this.rows = valueFromDatabse;
           })
@@ -54,19 +65,13 @@ export class SummaryComponent implements OnInit {
     const dialogRef = this.dialog.open(SummaryDialogComponent, {
       width: '750px',
       data: {
-        summarySymptom: row.summarySymptom,
-        summaryProcedure: row.summaryProcedure,
-        summaryTreatment: row.summaryTreatment,
-        summaryHerbalcompress: row.summaryHerbalcompress,
-        summaryHerbalsteam: row.summaryHerbalsteam,
-        summaryDrug: row.summaryDrug,
-        summaryUnit: row.summaryUnit
+       
       }
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result !== undefined) {
-        this.summaryService.updateSummary(row._id, result)
-          .mergeMap(() => this.summaryService.getSummary())
+        this.diseaseService.updateDis(row._id, result)
+          .mergeMap(() => this.diseaseService.getDis())
           .subscribe((results) => {
             this.rows = results;
           });
@@ -82,8 +87,8 @@ export class SummaryComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result.status === true) {
-        this.summaryService.deleteSummary(row._id)
-          .mergeMap(() => this.summaryService.getSummary())
+        this.diseaseService.deleteDis(row._id)
+          .mergeMap(() => this.diseaseService.getDis())
           .subscribe((results) => {
             this.rows = results;
           });
