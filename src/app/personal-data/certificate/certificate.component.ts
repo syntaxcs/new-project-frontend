@@ -71,7 +71,7 @@ export class CertificateComponent implements OnInit {
     const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {
       width: '500px',
       data: {
-        content: 'ใบรับรองแพทย์: ' + row.cerLicensed_No
+        content:  'ข้อมูลที่ถูกลบจะไม่สามารถกู้คืนได้ !'
       }
     });
     dialogRef.afterClosed().subscribe(result => {

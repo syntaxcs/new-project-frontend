@@ -39,6 +39,7 @@ export class PersonalComponent implements OnInit {
       })
     }
   }
+  
   openDialog(): void {
     const dialogRef = this.dialog.open(PersonalDialogComponent, {
       width: '750px',
