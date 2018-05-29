@@ -33,8 +33,8 @@ export class GeneralComponent implements OnInit {
     private activatedroute: ActivatedRoute,
     private generalService:GeneralService,
 
-  ) {}  //this.id = this.activatedroute.snapshot.params['personalId']; }
-
+  ) { }//this.id = this.activatedroute.snapshot.params['personalId']; }
+yy
   ngOnInit() {
     // this.form = this.formBuilder.group(this.data);
     this.generalService.getGen().subscribe(result => {
@@ -82,7 +82,7 @@ export class GeneralComponent implements OnInit {
     const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {
       width: '500px',
       data: {
-        content: 'รหัสยา: ' + row.disID
+        content:  'ข้อมูลที่ถูกลบจะไม่สามารถกู้คืนได้ !'
       }
     });
     dialogRef.afterClosed().subscribe(result => {

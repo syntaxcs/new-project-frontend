@@ -71,7 +71,7 @@ export class DrugComponent implements OnInit {
     const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {
       width: '500px',
       data: {
-        content: 'รหัสโรค: ' + row.drugId
+        content: 'ข้อมูลที่ถูกลบจะไม่สามารถกู้คืนได้ !'
       }
     });
     dialogRef.afterClosed().subscribe(result => {

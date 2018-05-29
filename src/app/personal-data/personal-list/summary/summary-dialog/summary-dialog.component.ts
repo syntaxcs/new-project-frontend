@@ -22,10 +22,11 @@ interface Drug {
 })
 export class SummaryDialogComponent implements OnInit {
   public form: FormGroup;
+
   public drugs = [];
   public symptoms = [];
   select = null
-  public duration = ['ในเวลา','นอกเวลา'];
+  public duration = ['ในเวลา', 'นอกเวลา'];
   public drugCtrl: FormControl = new FormControl();
   /** control for the MatSelect filter keyword */
   public drugFilterCtrl: FormControl = new FormControl();
@@ -51,17 +52,18 @@ export class SummaryDialogComponent implements OnInit {
     private drugservice: DrugService,
     private summaryService: SummaryService,
 
+
   ) { }
   ngOnInit() {
     this.form = this.formBuilder.group({});
     this.drugservice.getDrug().subscribe(result => {
-      this.drugs = result; 
-     });
-      this.summaryService.getSummary().subscribe(result => {
-        this.symptoms = result;
-      });
+      this.drugs = result;
+    });
+    this.summaryService.getSummary().subscribe(result => {
+      this.symptoms = result;
+    });
 
-       // set initial selection
+    // set initial selection
     this.drugCtrl.setValue(this.drugs[10]);
     this.drugMultiCtrl.setValue([this.drugs[10], this.drugs[11], this.drugs[12]]);
 
@@ -82,7 +84,9 @@ export class SummaryDialogComponent implements OnInit {
   }
   ngAfterViewInit() {
     this.setInitialValue();
-  
+
+
+
   }
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);
