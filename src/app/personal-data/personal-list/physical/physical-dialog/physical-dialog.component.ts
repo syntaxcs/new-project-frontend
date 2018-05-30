@@ -9,12 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class PhysicalDialogComponent implements OnInit {
   public form: FormGroup;
-  public phyHeight: number;
-  public phyWeight: number;
-  public answer;
-  
   public level = ['ระดับ 1', 'ระดับ 2', 'ระดับ 3', 'ระดับ 4', 'ระดับ 5', 'ระดับ 6', 'ระดับ 7', 'ระดับ 8', 'ระดับ 9', 'ระดับ 10'];
-
   public bodyparth = ['ศีรษะ', 'ต้นคอ', 'บ่า', 'ไหล่ ', 'หลัง-เอว '
     , 'ขา-เท้า', 'ข้อเท้า ', 'เข่า', 'ข้อศอก', 'ข้อมือ/ข้อนิ้ว', 'อ่อนเเรงข้างซ้าย', 'อ่อนแรงข้างขวา', 'อ่อนแรงทั้งสองข้าง'];
   public images = [
@@ -46,11 +41,15 @@ export class PhysicalDialogComponent implements OnInit {
   }
   onSave() {
     const value = this.form.value;
+    value.personId = this.data.personId
     this.dialogRef.close(value);
   }
 
-  calculate() {
-    this.answer = String((this.phyWeight / Math.pow(this.phyHeight, 2))*10000).substr(0, 5);
-    
+  BMI() {
+    if(this.form.value.phyWeight !== null && this.form.value.phyHeight !== null){
+      return String(this.form.value.phyWeight / Math.pow(this.form.value.phyHeight, 2)*10000).substr(0, 5);
+    } else {
+      return 0;
+    }
   }
 }
