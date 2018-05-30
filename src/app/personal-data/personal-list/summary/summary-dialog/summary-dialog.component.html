@@ -5,8 +5,8 @@
                 <mat-form-field>
                     <input type="text" placeholder="อาการโรค" matInput [(ngModel)]="symptoms" [matAutocomplete]="auto">
                     <mat-autocomplete #auto="matAutocomplete">
-                        <mat-option *ngFor="let symptom of symptoms" [value]="symptom.summarySymptom">
-                            {{ symptom.summarySymptom }}
+                        <mat-option *ngFor="let symptom of symptoms" [value]="symptom.disName">
+                            {{ symptom.disName }}
                         </mat-option>
                     </mat-autocomplete>
                 </mat-form-field>
@@ -71,7 +71,7 @@
                 </mat-select>
             </mat-form-field>
 
-            <app-input-text-normal [value]="data.summaryUnit" name="summaryUnit" placeholder="2 กระปุก" text="จำนวน" fxFlex [formGroup]='form'></app-input-text-normal>
+            <app-input-text-normal [value]="data.drugUnit" name="drugUnit" placeholder="2 กระปุก" text="จำนวน" fxFlex [formGroup]='form'></app-input-text-normal>
         </div>
         <!-- <div fxLayout="row">
             <p>

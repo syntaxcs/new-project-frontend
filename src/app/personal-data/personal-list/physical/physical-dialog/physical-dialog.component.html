@@ -15,27 +15,30 @@
       <app-input-text-normal [value]="data.phyBp" name="phyBp" placeholder="ความดันโลหิต" text="ความดันโลหิต ( BP ) มม.ปรอท ( mmHg )"
         fxFlex [formGroup]='form'></app-input-text-normal>
     </div>
-    <br>
-    <div class="row">
-      <!-- <app-input-text-normal [value]="data.phyHeight" name="phyHeight" placeholder="ส่วนสูง" text="ส่วนสูง ( Height ) ซม. ( cm. )"
+    <!-- <div fxLayout="row">
+      <app-input-text-normal [value]="data.phyHeight" [(ngModel)]="phyHeight" name="phyHeight" placeholder="ส่วนสูง" text="ส่วนสูง ( Height ) ซม. ( cm. )"
         fxFlex [formGroup]='form'></app-input-text-normal>
     </div>
     <div fxLayout="row">
-      <app-input-text-normal [value]="data.phyWeight" name="phyWeight" placeholder="น้ำหนัก " text="น้ำหนัก ( Weight ) กก. ( Kg.) "
-        fxFlex [formGroup]='form'></app-input-text-normal> -->
-      <label>ส่วนสูง ( Height ) ซม. ( cm. ) : </label>
-      <input [(ngModel)]="phyHeight" [value]="data.phyHeight" name="phyHeight" type="number" placeholder="ส่วนสูง">
-    </div>
-    <div class="button">
-        <button mat-raised-button color="primary" (click)="calculate()">คำนวณ</button>
-      </div>
-    <div class="row" style=" margin-top: 2%">
-      <label> น้ำหนัก ( Weight ) กก. ( Kg.) : </label>
-      <input [(ngModel)]="phyWeight" [value]="data.phyWeight" name="phyWeight" type="number" placeholder="น้ำหนัก">
-    </div>
-    <br>
-     <p> BMI : {{result | number:2}}</p>
+      <app-input-text-normal [value]="data.phyWeight" [(ngModel)]="phyWeight" name="phyWeight" placeholder="น้ำหนัก " text="น้ำหนัก ( Weight ) กก. ( Kg.) "
+        fxFlex [formGroup]='form'></app-input-text-normal>
+    </div> -->
     
+    <div fxLayout="row">
+      <mat-form-field>
+        <input matInput [(ngModel)]="phyHeight" name="phyHeight" [value]="data.phyHeight" placeholder="ส่วนสูง (ซม.)">
+      </mat-form-field>
+
+      <mat-form-field style="margin-left: 7%">
+        <input matInput [(ngModel)]="phyWeight" name="phyWeight" [value]="data.phyHeight" placeholder="น้ำหนัก ( กก.)">
+      </mat-form-field>
+      <div class="button">
+        <button mat-raised-button color="warn" (click)="calculate()">คำนวณ BMI</button>
+      </div>
+    </div>
+
+    <p> BMI : {{answer}} </p> 
+
     <div fxLayout="row">
       <h3>มาตรวัดความปวด( ก่อนการรักษา ) Pain score ( Pre-treatment )</h3>
     </div>

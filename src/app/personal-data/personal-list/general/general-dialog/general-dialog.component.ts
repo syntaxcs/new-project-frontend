@@ -25,7 +25,7 @@ export class GeneralDialogComponent implements OnInit {
   calculateYear() {
     let year = new Date().getFullYear() + 543;
     let month = new Date().getMonth()
-    this.startDate = new Date(year+1, month+1, null, null, null, null);
+    this.startDate = new Date(year, month+1, null, null, null, null);
   }
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);
