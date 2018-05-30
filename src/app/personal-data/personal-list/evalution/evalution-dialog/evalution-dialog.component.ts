@@ -11,23 +11,8 @@ export class EvalutionDialogComponent implements OnInit {
     public form: FormGroup;
     public level = ['ระดับ 1', 'ระดับ 2', 'ระดับ 3', 'ระดับ 4', 'ระดับ 5', 'ระดับ 6', 'ระดับ 7', 'ระดับ 8', 'ระดับ 9', 'ระดับ 10'];
 
-    public bodyparth = ['ศีรษะ', 'ต้นคอ', 'บ่า', 'ไหล่ ', 'หลัง-เอว '
-        , 'ขา-เท้า', 'ข้อเท้า ', 'เข่า', 'ข้อศอก', 'ข้อมือ/ข้อนิ้ว', 'อ่อนเเรงข้างซ้าย', 'อ่อนแรงข้างขวา', 'อ่อนแรงทั้งสองข้าง'];
-    public images = [
-        {
-            name: 'ศรีษะ',
-            img: '../assets/images/ศีรษะ.jpg'
-        },
-        {
-            name: 'ไหล่',
-            img: '../assets/images/bed.png'
-        },
-        {
-            name: 'สะโพก',
-            img: '../assets/images/home.png'
-        },
-
-    ]
+    public bodyparth = ['ศีรษะ', 'ต้นคอ', 'บ่า', 'ไหล่', 'หลัง-เอว'
+        , 'ขา-เท้า', 'ข้อเท้า', 'เข่า', 'ข้อศอก', 'ข้อมือ-ข้อนิ้ว', 'อ่อนเเรงข้างซ้าย', 'อ่อนแรงข้างขวา', 'อ่อนแรงทั้งสองข้าง'];
     constructor(
         @Inject(MAT_DIALOG_DATA) public data: any,
         private formBuilder: FormBuilder,
