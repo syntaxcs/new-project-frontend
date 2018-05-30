@@ -29,12 +29,13 @@ export class GeneralComponent implements OnInit {
   ngOnInit() {
     this.generalService.getGenById(this.id).subscribe(result => {
       this.rows = result;
+      console.log(this.rows)
     });
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(GeneralDialogComponent, {
       width: '750px',
-      data: {}
+      data: { personId: this.id  }
     });
 
     dialogRef.afterClosed().subscribe(resultAllDialog => {
