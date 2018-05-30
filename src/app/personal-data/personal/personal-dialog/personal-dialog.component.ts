@@ -19,7 +19,10 @@ export class PersonalDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<PersonalDialogComponent>,
-  ) { }
+  ) { 
+    this.gender = this.data.personGender;
+    this.brithDay = this.data.personBirth;
+  }
   ngOnInit() {
     this.form = this.formBuilder.group({});
     this.calculateYear();
@@ -34,6 +37,8 @@ export class PersonalDialogComponent implements OnInit {
   }
   onSave() {
     const value = this.form.value;
+    value.personGender = this.gender;
+    value.personBirth = this.brithDay;
     this.dialogRef.close(value);
   }
 }

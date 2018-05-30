@@ -33,7 +33,7 @@ export class PersonalListComponent implements OnInit {
   }
   ageCalculate(birth) {
     if (birth !== undefined) {
-      let now = Number(new Date().getFullYear())+ 543;
+      let now = Number(new Date().getFullYear()) + 543;
       let cen = Number(String(birth).substr(0, 4));
       return (now - cen);
     }
@@ -41,13 +41,13 @@ export class PersonalListComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(PersonalDialogComponent, {
       width: '750px',
-      data: {}
+      data: { personId: this.id }
     });
 
     dialogRef.afterClosed().subscribe(resultAllDialog => {
       if (resultAllDialog !== undefined) {
         this.personalService.addPerson(resultAllDialog)
-          .mergeMap(() => this.personalService.getPerson())
+          .mergeMap(() => this.personalService.getPersonById(this.id))
           .subscribe((valueFromDatabse) => {
             this.rows = valueFromDatabse;
           })
@@ -56,33 +56,33 @@ export class PersonalListComponent implements OnInit {
   }
   openEditDialog(row): void {
     const dialogRef = this.dialog.open(PersonalDialogComponent, {
-        width: '750px',
-        data: {
-          personId: row.personalId,
-          personNameTitle: row.personNameTitle,
-          personName: row.personName,
-          personSurname: row.personSurname,
-          personGender: row.personGender,
-          personBirth: row.personBirth,
-          personMaritalStatus: row.personMaritalStatus,
-          personNationality: row.personNationality,
-          personCitizenship: row.personCitizenship,
-          personReligion: row.personReligion,
-          personCareer: row.personCareer,
-          personIdentityId: row.personIdentityId,
-          personBirthPlace: row.personBirthPlace,
-          personProvince: row.personProvince,
-          personAddress: row.personAddress,
-          personNumber: row.personNumber,
-          personFamilyHistory: row.personFamilyHistory,
-          personPersonalHistory: row.personPersonalHistory,
-        }
+      width: '750px',
+      data: {
+        personId: row.personId,
+        personNameTitle: row.personNameTitle,
+        personName: row.personName,
+        personSurname: row.personSurname,
+        personGender: row.personGender,
+        personBirth: row.personBirth,
+        personMaritalStatus: row.personMaritalStatus,
+        personNationality: row.personNationality,
+        personCitizenship: row.personCitizenship,
+        personReligion: row.personReligion,
+        personCareer: row.personCareer,
+        personIdentityId: row.personIdentityId,
+        personBirthPlace: row.personBirthPlace,
+        personProvince: row.personProvince,
+        personAddress: row.personAddress,
+        personNumber: row.personNumber,
+        personFamilyHistory: row.personFamilyHistory,
+        personPersonalHistory: row.personPersonalHistory,
+      }
 
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result !== undefined) {
         this.personalService.updatePerson(row._id, result)
-          .mergeMap(() => this.personalService.getPerson())
+          .mergeMap(() => this.personalService.getPersonById(this.id))
           .subscribe((results) => {
             this.rows = results;
           });
