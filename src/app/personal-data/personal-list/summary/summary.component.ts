@@ -39,7 +39,7 @@ export class SummaryComponent implements OnInit {
       this.row2 = result;
     });
     this.treatmentService.getTreat().subscribe(result => {
-      this.row3 = result;
+      this.row3= result;
     });
   }
   
