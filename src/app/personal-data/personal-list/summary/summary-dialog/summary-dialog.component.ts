@@ -27,14 +27,7 @@ export class SummaryDialogComponent implements OnInit {
   public symptoms = [];
   select = null
   public duration = ['ในเวลา', 'นอกเวลา'];
-  public drugCtrl: FormControl = new FormControl();
-  /** control for the MatSelect filter keyword */
-  public drugFilterCtrl: FormControl = new FormControl();
-  /** control for the selected bank for multi-selection */
-  public drugMultiCtrl: FormControl = new FormControl();
-  /** control for the MatSelect filter keyword multi-selection */
-  public drugMultiFilterCtrl: FormControl = new FormControl();
-  /** list of banks filtered by search keyword */
+  public checked = ''
   public filteredDrugs: ReplaySubject<Drug[]> = new ReplaySubject<Drug[]>(1);
   /** list of banks filtered by search keyword for multi-selection */
   public filteredDrugsMulti: ReplaySubject<Drug[]> = new ReplaySubject<Drug[]>(1);
@@ -62,85 +55,15 @@ export class SummaryDialogComponent implements OnInit {
     this.diseaseService.getDis().subscribe(result => {
       this.symptoms = result;
     });
-
-    // set initial selection
-    this.drugCtrl.setValue(this.drugs[10]);
-    this.drugMultiCtrl.setValue([this.drugs[10], this.drugs[11], this.drugs[12]]);
-
-    // load the initial bank list
-    this.filteredDrugs.next(this.drugs.slice());
-    this.filteredDrugsMulti.next(this.drugs.slice());
-    // listen for search field value changes
-    this.drugFilterCtrl.valueChanges
-      .pipe(takeUntil(this._onDestroy))
-      .subscribe(() => {
-        this.filterDrugs();
-      });
-    this.drugMultiFilterCtrl.valueChanges
-      .pipe(takeUntil(this._onDestroy))
-      .subscribe(() => {
-        this.filterDrugsMulti();
-      });
-  }
-  ngAfterViewInit() {
-    this.setInitialValue();
-
-
-
   }
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);
   }
   onSave() {
     const value = this.form.value;
-    this.dialogRef.close(value);
+    console.log(this.checked)
+    // this.dialogRef.close(value);
   }
 
-  ngOnDestroy() {
-    this._onDestroy.next();
-    this._onDestroy.complete();
-  }
-  private setInitialValue() {
-    this.filteredDrugs
-      .pipe(take(1), takeUntil(this._onDestroy))
-      .subscribe(() => {
-        this.singleSelect.compareWith = (a: Drug, b: Drug) => a.id === b.id;
-        this.multiSelect.compareWith = (a: Drug, b: Drug) => a.id === b.id;
-      });
-  }
-  private filterDrugs() {
-    if (!this.drugs) {
-      return;
-    }
-    // get the search keyword
-    let search = this.drugFilterCtrl.value;
-    if (!search) {
-      this.filteredDrugs.next(this.drugs.slice());
-      return;
-    } else {
-      search = search.toLowerCase();
-    }
-    // filter the banks
-    this.filteredDrugs.next(
-      this.drugs.filter(drug => drug.name.toLowerCase().indexOf(search) > -1)
-    );
-  }
-  private filterDrugsMulti() {
-    if (!this.drugs) {
-      return;
-    }
-    // get the search keyword
-    let search = this.drugMultiFilterCtrl.value;
-    if (!search) {
-      this.filteredDrugsMulti.next(this.drugs.slice());
-      return;
-    } else {
-      search = search.toLowerCase();
-    }
-    // filter the banks
-    this.filteredDrugsMulti.next(
-      this.drugs.filter(bank => bank.name.toLowerCase().indexOf(search) > -1)
-    );
-  }
 
 }

@@ -41,6 +41,7 @@ export class EvalutionDialogComponent implements OnInit {
     }
     onSave() {
         const value = this.form.value;
+        value.personId = this.data.personId;
         console.log(value)
         // this.dialogRef.close(value);
     }

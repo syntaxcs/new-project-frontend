@@ -33,8 +33,9 @@ export class GeneralDialogComponent implements OnInit {
   }
   onSave() {
     const value = this.form.value;
-    // value.genDate = this.date
-    console.log(value)
-    // this.dialogRef.close(value);
+    value.personId = this.data.personId
+    value.genDate = this.date;
+    value.genTime = this.brithDay;
+    this.dialogRef.close(value);
   }
 }

@@ -34,7 +34,7 @@ export class GeneralComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(GeneralDialogComponent, {
       width: '750px',
-      data: {}
+      data: { personId: this.id  }
     });
 
     dialogRef.afterClosed().subscribe(resultAllDialog => {
