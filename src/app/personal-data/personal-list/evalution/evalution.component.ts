@@ -26,12 +26,13 @@ export class EvalutionComponent implements OnInit {
   ngOnInit() {
     this.evalutionService.getEvaById(this.id).subscribe(result => {
       this.rows = result;
+      console.log(this.rows)
     });
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(EvalutionDialogComponent, {
       width: '750px',
-      data: {}
+      data: { personId: this.id }
     });
 
     dialogRef.afterClosed().subscribe(resultAllDialog => {

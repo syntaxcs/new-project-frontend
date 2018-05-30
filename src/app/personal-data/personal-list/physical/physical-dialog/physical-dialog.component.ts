@@ -44,7 +44,7 @@ export class PhysicalDialogComponent implements OnInit {
     value.personId = this.data.personId
     this.dialogRef.close(value);
   }
-
+  
   BMI() {
     if(this.form.value.phyWeight !== null && this.form.value.phyHeight !== null){
       return String(this.form.value.phyWeight / Math.pow(this.form.value.phyHeight, 2)*10000).substr(0, 5);

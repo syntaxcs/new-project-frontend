@@ -29,7 +29,6 @@ export class GeneralComponent implements OnInit {
   ngOnInit() {
     this.generalService.getGenById(this.id).subscribe(result => {
       this.rows = result;
-      console.log(this.rows)
     });
   }
   openDialog(): void {

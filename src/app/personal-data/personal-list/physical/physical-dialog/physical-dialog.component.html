@@ -44,7 +44,7 @@
     <div fxLayout="row">
       <app-dropdown [data]="bodyparth" [value]="data.phyBodyParth" text="ส่วนของร่างกาย" placeholder="ส่วนของร่างกาย" name="phyBodyParth"
         fxFlex [formGroup]='form'></app-dropdown>
-      <img src="../../assets/images/ศีรษะ.jpg" width="40%" height="40%">
+      <img *ngIf="this.form.value.phyBodyParth" src="../../assets/images/{{this.form.value.phyBodyParth}}.jpg" width="40%" height="40%">
     </div>
 
   </content>
