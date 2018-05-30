@@ -15,15 +15,6 @@
       <app-input-text-normal [value]="data.phyBp" name="phyBp" placeholder="ความดันโลหิต" text="ความดันโลหิต ( BP ) มม.ปรอท ( mmHg )"
         fxFlex [formGroup]='form'></app-input-text-normal>
     </div>
-    <!-- <div fxLayout="row">
-      <app-input-text-normal [value]="data.phyHeight" [(ngModel)]="phyHeight" name="phyHeight" placeholder="ส่วนสูง" text="ส่วนสูง ( Height ) ซม. ( cm. )"
-        fxFlex [formGroup]='form'></app-input-text-normal>
-    </div>
-    <div fxLayout="row">
-      <app-input-text-normal [value]="data.phyWeight" [(ngModel)]="phyWeight" name="phyWeight" placeholder="น้ำหนัก " text="น้ำหนัก ( Weight ) กก. ( Kg.) "
-        fxFlex [formGroup]='form'></app-input-text-normal>
-    </div> -->
-
     <div fxLayout="row">
       <app-input-text-normal [value]="data.phyHeight" name="phyHeight" placeholder="ส่วนสูง (ซม.)" text="ส่วนสูง (ซม.)" fxFlex
         [formGroup]='form'></app-input-text-normal>
@@ -31,9 +22,6 @@
         [formGroup]='form'></app-input-text-normal>
       <p> BMI : {{BMI()}} </p>
     </div>
-
-
-
     <div fxLayout="row">
       <h3>มาตรวัดความปวด( ก่อนการรักษา ) Pain score ( Pre-treatment )</h3>
     </div>
