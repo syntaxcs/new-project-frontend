@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router'
 import { GlobalState } from '../../../shared/global.state';
 import { ConfirmDeleteDialogComponent } from '../../../theme/components/confirm-delete-dialog/confirm-delete-dialog.component';
 import { PhysicalDialogComponent } from './physical-dialog/physical-dialog.component';
+import {PhysicalDetailDialogComponent} from './physical-dialog-detail/physical-dialog-detail.component';
 import { PhysicalService} from '../../../shared/services/physical.service';
 @Component({
   selector: 'app-physical',
@@ -48,9 +49,38 @@ export class PhysicalComponent implements OnInit {
       }
     });
   }
+  openDetailDialog(view): void {
+    const dialogRef = this.dialog.open(PhysicalDetailDialogComponent, {
+      width: '750px',
+      // height: '700px',
+    
+      data: {
+        phyTemp: view.phyTemp,
+        phyBp: view.phyBp,
+        phyHeight: view.phyHeight,
+        phyWeight: view.phyWeight,
+        phyBodyParth: view.phyBodyParth,
+        phyLevel: view. phyLevel,
+        phyPulse: view.phyPulse,
+        phyRespirationRate: view.phyRespirationRate,
+
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(resultAllDialog => {
+      if (resultAllDialog !== undefined) {
+        this.physicalService.addPhy(resultAllDialog)
+          .mergeMap(() => this.physicalService.getPhy())
+          .subscribe((valueFromDatabse) => {
+            this.rows = valueFromDatabse;
+          })
+      }
+    });
+  }
   openEditDialog(row): void {
     const dialogRef = this.dialog.open(PhysicalDialogComponent, {
         width: '750px',
+        height: '800px',
         data: {
             phyTemp: row.phyTemp,
             phyBp: row.phyBp,
