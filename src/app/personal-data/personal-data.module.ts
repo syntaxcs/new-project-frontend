@@ -5,7 +5,6 @@ import { MenuModule } from '../theme/menu/menu.module';
 import { HttpClientModule } from '@angular/common/http';
 import { routing } from './personal-data.routing';
 import { NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
-import { MatFormFieldModule,MatSelectModule, MatToolbarModule  } from '@angular/material';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 //component
@@ -47,9 +46,6 @@ import { DiseaseService} from '../shared/services/disease.service';
     MenuModule,
     HttpClientModule,
     NgxMaterialTimepickerModule.forRoot(),
-    MatSelectModule,
-    MatFormFieldModule,
-    MatToolbarModule,
     NgxMatSelectSearchModule
   ],
   //เขียน2ไฟล์(component,dialog)

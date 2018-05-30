@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class GeneralDialogComponent implements OnInit {
   public form: FormGroup;
+  date: Date;
   startDate: any;
   brithDay: Date;
   constructor(
@@ -32,6 +33,8 @@ export class GeneralDialogComponent implements OnInit {
   }
   onSave() {
     const value = this.form.value;
-    this.dialogRef.close(value);
+    // value.genDate = this.date
+    console.log(value)
+    // this.dialogRef.close(value);
   }
 }
