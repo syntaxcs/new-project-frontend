@@ -49,13 +49,15 @@ export class FollowComponent implements OnInit {
   }
   openEditDialog(row): void {
     const dialogRef = this.dialog.open(FollowDialogComponent, {
-      width: '750px',
+      width: '750px', 
       data: {
         folDate: row.folDate,
         folmytimeHour: row.folmytimeHour,
         folmytimeMinute: row.folmytimeMinute,
         folName: row.folName,
         folSurName: row.folSurName,
+        folDuration: row.folDuration,
+        folPurpose: row.folPurpose,
       }
     });
     dialogRef.afterClosed().subscribe(result => {

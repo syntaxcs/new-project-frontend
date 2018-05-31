@@ -14,9 +14,7 @@ import { PhysicalService} from '../../../shared/services/physical.service';
 export class PhysicalComponent implements OnInit {
   public rows = [];
   public id;
-  public phyHeight: number;
-  public phyWeight: number;
-  public answer;
+
   constructor(
     private _state: GlobalState,
     private dialog: MatDialog,
@@ -50,14 +48,14 @@ export class PhysicalComponent implements OnInit {
   }
   openEditDialog(row): void {
     const dialogRef = this.dialog.open(PhysicalDialogComponent, {
-        width: '750px',
+        width: '750px', height: '800px',
         data: {
             phyTemp: row.phyTemp,
             phyBp: row.phyBp,
             phyHeight: row.phyHeight,
             phyWeight: row.phyWeight,
             phyBodyParth: row.phyBodyParth,
-            phyLevel: row. phyLevel,
+            phyLevel: row.phyLevel,
             phyPulse: row.phyPulse,
             phyRespirationRate: row.phyRespirationRate,
         }
@@ -89,8 +87,5 @@ export class PhysicalComponent implements OnInit {
       }
     });
   }
-  calculate() {
-    this.answer = String((this.phyWeight / Math.pow(this.phyHeight, 2))*10000).substr(0, 5);
-    
-  }
+  
 }

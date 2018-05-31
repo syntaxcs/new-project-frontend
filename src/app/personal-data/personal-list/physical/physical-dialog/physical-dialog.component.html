@@ -26,11 +26,11 @@
     
     <div fxLayout="row">
       <mat-form-field>
-        <input matInput [(ngModel)]="phyHeight" name="phyHeight" [value]="data.phyHeight" placeholder="ส่วนสูง (ซม.)">
+        <input matInput [(ngModel)]="Height" [value]="data.phyHeight" name="phyHeight" placeholder="ส่วนสูง (ซม.)" >
       </mat-form-field>
 
       <mat-form-field style="margin-left: 7%">
-        <input matInput [(ngModel)]="phyWeight" name="phyWeight" [value]="data.phyHeight" placeholder="น้ำหนัก ( กก.)">
+        <input matInput [(ngModel)]="Weight" [value]="data.phyHeight" name="phyWeight" placeholder="น้ำหนัก ( กก.)" >
       </mat-form-field>
       <div class="button">
         <button mat-raised-button color="warn" (click)="calculate()">คำนวณ BMI</button>

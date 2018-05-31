@@ -1,17 +1,17 @@
 <app-dialog title="การนัดหมาย">
     <content fxLayout="column">
-        <div fxLayout="row">
+        <!-- <div fxLayout="row">
             <app-input-text-normal [value]="data.personId" name="personId" placeholder="เลขที่บัตร ( ID )" text="" fxFlex [formGroup]='form'></app-input-text-normal>
             <button mat-raised-button (click)="findPerson(userPerson)">
                 ค้นหาผู้ป่วย
                 <mat-icon>search</mat-icon>
             </button>
-        </div>
+        </div> -->
         <div fxLayout="row">
-            <!-- <app-input-text-normal [value]="data.folName" name="folName" placeholder="ชื่อผู้ป่วย" fxFlex [formGroup]='form'></app-input-text-normal>
-            <app-input-text-normal [value]="data.folSurName" name="folSurName" placeholder="นามสกุล" fxFlex [formGroup]='form'></app-input-text-normal> -->
-           <label>ชื่อ-นามสกุล</label>
-            {{rows.personNameTitle}} {{rows.personName}} {{rows.personSurname}}
+            <app-input-text-normal [value]="data.folName" name="folName" placeholder="ชื่อผู้ป่วย" fxFlex [formGroup]='form'></app-input-text-normal>
+            <app-input-text-normal [value]="data.folSurName" name="folSurName" placeholder="นามสกุล" fxFlex [formGroup]='form'></app-input-text-normal>
+           <!-- <label>ชื่อ-นามสกุล</label>
+            {{rows.personNameTitle}} {{rows.personName}} {{rows.personSurname}} -->
         </div>
 
 

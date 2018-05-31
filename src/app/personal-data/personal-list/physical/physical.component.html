@@ -19,22 +19,22 @@
             </ngx-datatable-column>
             <ngx-datatable-column name="ความดันโลหิต">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.phyBp}}
+                    {{value.phyBp}} มม.ปรอท
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="ส่วนสูง">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.phyHeight}}
+                    {{value.phyHeight}} ซม.
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="น้ำหนัก">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.phyWeight}}
+                    {{value.phyWeight}} กก.
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="ค่า BMI">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.onSave}}
+                    {{value.phyBMI}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="เครื่องมือ" [maxWidth]="170">

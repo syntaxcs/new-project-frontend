@@ -9,8 +9,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class PhysicalDialogComponent implements OnInit {
   public form: FormGroup;
-  public phyHeight: number;
-  public phyWeight: number;
+  public Height: number;
+  public Weight: number;
   public answer;
   
   public level = ['ระดับ 1', 'ระดับ 2', 'ระดับ 3', 'ระดับ 4', 'ระดับ 5', 'ระดับ 6', 'ระดับ 7', 'ระดับ 8', 'ระดับ 9', 'ระดับ 10'];
@@ -50,7 +50,7 @@ export class PhysicalDialogComponent implements OnInit {
   }
 
   calculate() {
-    this.answer = String((this.phyWeight / Math.pow(this.phyHeight, 2))*10000).substr(0, 5);
+    this.answer = String((this.Weight / Math.pow(this.Height, 2))*10000).substr(0, 5);
     
   }
 }
