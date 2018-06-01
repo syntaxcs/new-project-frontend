@@ -21,28 +21,23 @@
             <h3 class="daration">ช่วงเวลา ( Duration )</h3>
         </div>
         <div fxLayout="row">
-            <form>
-                <section class="example-section">
-                    <mat-checkbox class="example-margin" color="warn" [(ngModel)]="checked">นวดบำบัดอาการ</mat-checkbox>
+            <form [(ngModel)]="checked">
+                <section>
+                    <mat-checkbox class="example-margin" color="warn" value="นวดบำบัดอาการ">นวดบำบัดอาการ</mat-checkbox>
                 </section>
-                <section class="example-section">
-                    <mat-checkbox class="example-margin" color="warn" [(ngModel)]="indeterminate">นวดบำบัดและประคบสมุนไพร</mat-checkbox>
+                <section>
+                    <mat-checkbox class="example-margin" color="warn" value="นวดบำบัดและประคบสมุนไพร">นวดบำบัดและประคบสมุนไพร</mat-checkbox>
                 </section>
-                <section class="example-section">
-                    <mat-checkbox class="example-margin" color="warn" [(ngModel)]="checked">อบไอน้ำสมุนไพร</mat-checkbox>
+                <section>
+                    <mat-checkbox class="example-margin" color="warn" value="อบไอน้ำสมุนไพร">อบไอน้ำสมุนไพร</mat-checkbox>
                 </section>
-                <section class="example-section">
-                    <mat-checkbox class="example-margin" color="warn" [(ngModel)]="indeterminate">ค่าประคบสมุนไพร</mat-checkbox>
+                <section>
+                    <mat-checkbox class="example-margin" color="warn" value="ค่าประคบสมุนไพร">ค่าประคบสมุนไพร</mat-checkbox>
                 </section>
-                <section class="example-section">
-                    <mat-checkbox class="example-margin" color="warn" [(ngModel)]="indeterminate">ทับหม้อเกลือฟื้นฟูมารดาหลังคลอด</mat-checkbox>
+                <section>
+                    <mat-checkbox class="example-margin" color="warn" value="ทับหม้อเกลือฟื้นฟูมารดาหลังคลอด">ทับหม้อเกลือฟื้นฟูมารดาหลังคลอด</mat-checkbox>
                 </section>
             </form>
-
-            <!-- <mat-radio-group>
-                    <mat-radio-button class="time" color="primary" value="ในเวลา">ในเวลา</mat-radio-button>
-                    <mat-radio-button class="time" color="primary" value="นอกเวลา">นอกเวลา</mat-radio-button>
-                </mat-radio-group> -->
             <div class="daration2">
                 <app-dropdown [data]="duration" [value]="data.summaryDuration" placeholder="ช่วงการรักษา" name="summaryDuration" fxFlex [formGroup]='form'></app-dropdown>
             </div>
@@ -51,17 +46,6 @@
 
         <h3>จ่ายยา ( Dispense )</h3>
         <div fxLayout="row">
-            <!-- <form>
-                <mat-form-field>
-                    <input type="text" placeholder="ชื่อยา" matInput [(ngModel)]="select" [matAutocomplete]="auto">
-                    <mat-autocomplete #auto="matAutocomplete">
-                        <mat-option *ngFor="let drug of drugs" [value]="drug.drugName">
-                            {{ drug.drugName }}
-                        </mat-option>
-                    </mat-autocomplete>
-                </mat-form-field>
-            </form> -->
-
             <mat-form-field>
                 <mat-select [formControl]="drugMultiCtrl" placeholder="ชื่อยา" [multiple]="true" #multiSelect>
                     <ngx-mat-select-search [formControl]="drugMultiFilterCtrl"></ngx-mat-select-search>
@@ -73,14 +57,6 @@
 
             <app-input-text-normal [value]="data.drugUnit" name="drugUnit" placeholder="2 กระปุก" text="จำนวน" fxFlex [formGroup]='form'></app-input-text-normal>
         </div>
-        <!-- <div fxLayout="row">
-            <p>
-                Selected Banks:
-            </p>
-            <ul *ngFor="let drug of drugMultiCtrl?.value">
-                <li>{{ drug.drugName }}</li>
-            </ul>
-        </div> -->
 
     </content>
     <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">

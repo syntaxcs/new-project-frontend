@@ -18,14 +18,6 @@ export class GeneralComponent implements OnInit {
   public rows = [];
   public id;
   public form: FormGroup;
-//   public data = {
-//     // personId : [null, Validators.required],
-//     genDate:  [new Date('yyyy-mm-dd'), Validators.required],
-//     genTime: [null, Validators.required],
-//     genSymptoms: [null, Validators.required],
-//     genPresentHistory: [null, Validators.required],
-//     genPastHistory: [null, Validators.required],
-// }
   constructor(
     private _state: GlobalState,
     private dialog: MatDialog,
@@ -33,24 +25,25 @@ export class GeneralComponent implements OnInit {
     private activatedroute: ActivatedRoute,
     private generalService:GeneralService,
 
-  ) { }//this.id = this.activatedroute.snapshot.params['personalId']; }
-yy
+  ) { this.id = this.activatedroute.snapshot.params['personalId']; }
   ngOnInit() {
-    // this.form = this.formBuilder.group(this.data);
-    this.generalService.getGen().subscribe(result => {
+    this.generalService.getGenById(this.id).subscribe(result => {
       this.rows = result;
     });
+  }
+  dateShow(date) {
+    return String(date).substr(0, 10)
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(GeneralDialogComponent, {
       width: '750px',
-      data: {}
+      data: { personId: this.id  }
     });
 
     dialogRef.afterClosed().subscribe(resultAllDialog => {
       if (resultAllDialog !== undefined) {
         this.generalService.addGen(resultAllDialog)
-          .mergeMap(() => this.generalService.getGen())
+          .mergeMap(() => this.generalService.getGenById(this.id))
           .subscribe((valueFromDatabse) => {
             this.rows = valueFromDatabse;
           })
@@ -71,7 +64,7 @@ yy
     dialogRef.afterClosed().subscribe(result => {
         if (result !== undefined) {
           this.generalService.updateGen(row._id, result)
-          .mergeMap(() => this.generalService.getGen())
+          .mergeMap(() => this.generalService.getGenById(this.id))
           .subscribe((results) => {
             this.rows = results;
           });
@@ -88,7 +81,7 @@ yy
     dialogRef.afterClosed().subscribe(result => {
       if (result.status === true) {
         this.generalService.deleteGen(row._id)
-          .mergeMap(() => this.generalService.getGen())
+          .mergeMap(() => this.generalService.getGenById(this.id))
           .subscribe((results) => {
             this.rows = results;
           });

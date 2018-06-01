@@ -20,16 +20,8 @@
         <div fxLayout="row">
             <app-input-text-normal [value]="" name="" placeholder="" text="อาการ/โรค" fxFlex [formGroup]='form'></app-input-text-normal>
 
-            <form>
-                <mat-form-field>
-                    <input type="text" placeholder="ผู้รักษา" matInput [(ngModel)]="select" [matAutocomplete]="auto">
-                    <mat-autocomplete #auto="matAutocomplete">
-                        <mat-option *ngFor="let certificate of certificates" [value]="cer.cerPhysicianName">
-                            {{ cer.cerPhysicianName}}
-                        </mat-option>
-                    </mat-autocomplete>
-                </mat-form-field>
-            </form>
+            <app-dropdown [data]="nametitle" [value]="data.cerNameTitle" text="คำนำหน้า" placeholder="ผู้รักษา" name="cerNameTitle"
+            fxFlex [formGroup]='form'></app-dropdown>
 
         </div>
 

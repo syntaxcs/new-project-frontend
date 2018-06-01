@@ -21,23 +21,24 @@ export class EvalutionComponent implements OnInit {
     private activatedroute: ActivatedRoute,
     private evalutionService: EvalutionService,
 
-  ) { }//this.id = this.activatedroute.snapshot.params['personalId']; }
+  ) { this.id = this.activatedroute.snapshot.params['personalId']; }
 
   ngOnInit() {
-    this.evalutionService.getEva().subscribe(result => {
+    this.evalutionService.getEvaById(this.id).subscribe(result => {
       this.rows = result;
+      console.log(this.rows)
     });
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(EvalutionDialogComponent, {
       width: '750px',
-      data: {}
+      data: { personId: this.id }
     });
 
     dialogRef.afterClosed().subscribe(resultAllDialog => {
       if (resultAllDialog !== undefined) {
         this.evalutionService.addEva(resultAllDialog)
-          .mergeMap(() => this.evalutionService.getEva())
+          .mergeMap(() => this.evalutionService.getEvaById(this.id))
           .subscribe((valueFromDatabse) => {
             this.rows = valueFromDatabse;
           })
@@ -57,7 +58,7 @@ export class EvalutionComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result !== undefined) {
         this.evalutionService.updateEva(row._id, result)
-          .mergeMap(() => this.evalutionService.getEva())
+          .mergeMap(() => this.evalutionService.getEvaById(this.id))
           .subscribe((results) => {
             this.rows = results;
           });
@@ -74,7 +75,7 @@ export class EvalutionComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result.status === true) {
         this.evalutionService.deleteEva(row._id)
-          .mergeMap(() => this.evalutionService.getEva())
+          .mergeMap(() => this.evalutionService.getEvaById(this.id))
           .subscribe((results) => {
             this.rows = results;
           });

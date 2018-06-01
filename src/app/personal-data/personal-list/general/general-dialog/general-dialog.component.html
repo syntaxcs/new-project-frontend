@@ -2,14 +2,14 @@
   <content fxLayout="column">
     <div fxLayout="row">
       <mat-form-field>
-        <input matInput [matDatepicker]="picker" placeholder="วัน/เดือน/ปีที่นัดพบแพทย์">
+        <input matInput [matDatepicker]="picker" [(ngModel)]="date" placeholder="วัน/เดือน/ปีที่นัดพบแพทย์">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
       </mat-form-field>
 
       <div class="custom-buttons-example">
         <mat-form-field>
-          <input matInput placeholder="เวลาที่มาพบแพทย์" aria-label="Custom buttons" [ngxTimepicker]="timepickerWithButtons" readonly>
+          <input matInput placeholder="เวลาที่มาพบแพทย์" [(ngModel)]="brithDay" aria-label="Custom buttons" [ngxTimepicker]="timepickerWithButtons" readonly>
           <ngx-material-timepicker #timepickerWithButtons [cancelBtnTmpl]="cancelBtn" [confirmBtnTmpl]="confirmBtn"></ngx-material-timepicker>
         </mat-form-field>
         <ng-template #cancelBtn>
@@ -21,15 +21,15 @@
       </div>
     </div>
     <div fxLayout="row">
-      <app-input-text-normal [value]="data.genSymptoms" name="genSymptoms" placeholder="ส.4 หัวไหล่" text="อาการสำคัญ ( Symptoms/Condition )"
+      <app-input-text-normal [value]="data.genSymptoms" name="genSymptoms" placeholder="" text="อาการสำคัญ ( Symptoms/Condition )"
         fxFlex [formGroup]='form'></app-input-text-normal>
     </div>
     <div fxLayout="row">
-      <app-input-text-normal [value]="data.genPresentHistory" name="genPresentHistory" placeholder="ส.4 หัวไหล่" text="ประวัติปัจจุบัน ( Present History )"
+      <app-input-text-normal [value]="data.genPresentHistory" name="genPresentHistory" placeholder="" text="ประวัติปัจจุบัน ( Present History )"
         fxFlex [formGroup]='form'></app-input-text-normal>
     </div>
     <div fxLayout="row">
-      <app-input-text-normal [value]="data.genPastHistory" name="genPastHistory" placeholder="ส.4 หัวไหล่" text="ประวัติอดีต ( Past History )"
+      <app-input-text-normal [value]="data.genPastHistory" name="genPastHistory" placeholder="" text="ประวัติอดีต ( Past History )"
         fxFlex [formGroup]='form'></app-input-text-normal>
     </div>
   </content>

@@ -5,7 +5,6 @@ import { MenuModule } from '../theme/menu/menu.module';
 import { HttpClientModule } from '@angular/common/http';
 import { routing } from './personal-data.routing';
 import { NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
-import { MatFormFieldModule,MatSelectModule, MatToolbarModule  } from '@angular/material';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 //component
@@ -18,6 +17,7 @@ import { EvalutionComponent } from './personal-list/evalution/evalution.componen
 import { PersonalComponent } from './personal/personal.component';
 import { FollowComponent } from './follow/follow.component';
 import { CertificateComponent } from './certificate/certificate.component';
+
 //dialog
 import { PhysicalDialogComponent } from './personal-list/physical/physical-dialog/physical-dialog.component';
 import { GeneralDialogComponent } from './personal-list/general/general-dialog/general-dialog.component';
@@ -26,6 +26,8 @@ import { EvalutionDialogComponent } from './personal-list/evalution/evalution-di
 import { PersonalDialogComponent } from './personal/personal-dialog/personal-dialog.component';
 import { FollowDialogComponent } from './follow/follow-dialog/follow-dialog.component';
 import { CertificateDialogComponent } from './certificate/certificate-dialog/certificate-dialog.component';
+import { PhysicalDetailDialogComponent} from './personal-list/physical/physical-dialog-detail/physical-dialog-detail.component'
+
 //service
 import { PersonalService } from '../shared/services/personal.service';
 import { PhysicalService } from '../shared/services/physical.service';
@@ -44,9 +46,6 @@ import { DiseaseService} from '../shared/services/disease.service';
     MenuModule,
     HttpClientModule,
     NgxMaterialTimepickerModule.forRoot(),
-    MatSelectModule,
-    MatFormFieldModule,
-    MatToolbarModule,
     NgxMatSelectSearchModule
   ],
   //เขียน2ไฟล์(component,dialog)
@@ -55,6 +54,7 @@ import { DiseaseService} from '../shared/services/disease.service';
     PersonalDataComponent,
     PhysicalComponent,
     PhysicalDialogComponent,
+    PhysicalDetailDialogComponent,
     GeneralComponent,
     GeneralDialogComponent,
     SummaryComponent,
@@ -77,6 +77,7 @@ import { DiseaseService} from '../shared/services/disease.service';
     PersonalDialogComponent,
     FollowDialogComponent,
     CertificateDialogComponent,
+    PhysicalDetailDialogComponent,
 
   ],
   providers: [

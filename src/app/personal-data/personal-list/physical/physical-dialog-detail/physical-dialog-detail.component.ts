@@ -3,11 +3,11 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-physical-dialog',
-  templateUrl: './physical-dialog.component.html',
-  styleUrls: ['./physical-dialog.component.css']
+  selector: 'app-physical-dialog-detail',
+  templateUrl: './physical-dialog-detail.component.html',
+  // styleUrls: ['./physical-dialog-detail.component.css']
 })
-export class PhysicalDialogComponent implements OnInit {
+export class PhysicalDetailDialogComponent implements OnInit {
   public form: FormGroup;
   public level = ['ระดับ 1', 'ระดับ 2', 'ระดับ 3', 'ระดับ 4', 'ระดับ 5', 'ระดับ 6', 'ระดับ 7', 'ระดับ 8', 'ระดับ 9', 'ระดับ 10'];
   public bodyparth = ['ศีรษะ', 'ต้นคอ', 'บ่า', 'ไหล่', 'หลัง-เอว'
@@ -16,7 +16,7 @@ export class PhysicalDialogComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
-    private dialogRef: MatDialogRef<PhysicalDialogComponent>,
+    private dialogRef: MatDialogRef<PhysicalDetailDialogComponent>,
   ) { }
   ngOnInit() {
     this.form = this.formBuilder.group({});
@@ -30,7 +30,6 @@ export class PhysicalDialogComponent implements OnInit {
     value.personId = this.data.personId
     this.dialogRef.close(value);
   }
-
   
   BMI() {
     if(this.form.value.phyWeight !== null && this.form.value.phyHeight !== null){
@@ -38,6 +37,5 @@ export class PhysicalDialogComponent implements OnInit {
     } else {
       return 0;
     }
-
   }
 }

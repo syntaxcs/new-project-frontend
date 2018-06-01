@@ -7,14 +7,12 @@
             <app-dropdown [data]="level" [value]="data.evaLevel" text="ระดับความเจ็บปวด" placeholder="ระดับความเจ็บปวด" name="evaLevel"
                 fxFlex [formGroup]='form'></app-dropdown>
         </div>
-        <div fxLayout="row" style="width: 60%" >
+        <div fxLayout="row">
             <app-dropdown [data]="bodyparth" [value]="data.evaBodyParth" text="ส่วนของร่างกาย" placeholder="ส่วนของร่างกาย" name="evaBodyParth"
                 fxFlex [formGroup]='form'></app-dropdown>
-           
+            <img *ngIf="this.form.value.evaBodyParth" src="../../assets/images/{{this.form.value.evaBodyParth}}.jpg" width="40%" height="40%">
         </div>
-        <div fxLayout="row">
-             <img src="../../assets/images/ศีรษะ.jpg" width="35%" height="35%">
-        </div>
+
     </content>
     <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
         <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">บันทึก</button>

@@ -15,30 +15,13 @@
       <app-input-text-normal [value]="data.phyBp" name="phyBp" placeholder="ความดันโลหิต" text="ความดันโลหิต ( BP ) มม.ปรอท ( mmHg )"
         fxFlex [formGroup]='form'></app-input-text-normal>
     </div>
-    <!-- <div fxLayout="row">
-      <app-input-text-normal [value]="data.phyHeight" [(ngModel)]="phyHeight" name="phyHeight" placeholder="ส่วนสูง" text="ส่วนสูง ( Height ) ซม. ( cm. )"
-        fxFlex [formGroup]='form'></app-input-text-normal>
-    </div>
     <div fxLayout="row">
-      <app-input-text-normal [value]="data.phyWeight" [(ngModel)]="phyWeight" name="phyWeight" placeholder="น้ำหนัก " text="น้ำหนัก ( Weight ) กก. ( Kg.) "
-        fxFlex [formGroup]='form'></app-input-text-normal>
-    </div> -->
-    
-    <div fxLayout="row">
-      <mat-form-field>
-        <input matInput [(ngModel)]="Height" [value]="data.phyHeight" name="phyHeight" placeholder="ส่วนสูง (ซม.)" >
-      </mat-form-field>
-
-      <mat-form-field style="margin-left: 7%">
-        <input matInput [(ngModel)]="Weight" [value]="data.phyHeight" name="phyWeight" placeholder="น้ำหนัก ( กก.)" >
-      </mat-form-field>
-      <div class="button">
-        <button mat-raised-button color="warn" (click)="calculate()">คำนวณ BMI</button>
-      </div>
+      <app-input-text-normal [value]="data.phyHeight" name="phyHeight" placeholder="ส่วนสูง (ซม.)" text="ส่วนสูง (ซม.)" fxFlex
+        [formGroup]='form'></app-input-text-normal>
+      <app-input-text-normal [value]="data.phyWeight" name="phyWeight" placeholder="น้ำหนัก ( กก.)" text="น้ำหนัก ( กก.)" fxFlex
+        [formGroup]='form'></app-input-text-normal>
+      <p> BMI : {{BMI()}} </p>
     </div>
-
-    <p> BMI : {{answer}} </p> 
-
     <div fxLayout="row">
       <h3>มาตรวัดความปวด( ก่อนการรักษา ) Pain score ( Pre-treatment )</h3>
     </div>
@@ -49,7 +32,7 @@
     <div fxLayout="row">
       <app-dropdown [data]="bodyparth" [value]="data.phyBodyParth" text="ส่วนของร่างกาย" placeholder="ส่วนของร่างกาย" name="phyBodyParth"
         fxFlex [formGroup]='form'></app-dropdown>
-      <img src="../../assets/images/ศีรษะ.jpg" width="40%" height="40%">
+      <img *ngIf="this.form.value.phyBodyParth" src="../../assets/images/{{this.form.value.phyBodyParth}}.jpg" width="40%" height="40%">
     </div>
 
   </content>
