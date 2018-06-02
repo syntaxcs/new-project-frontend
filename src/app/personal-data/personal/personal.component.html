@@ -2,10 +2,10 @@
     <img src="../assets/images/cloud-computing.png">
     <div fxLayout="row">
         <mat-form-field>
-            <input matInput [(ngModel)]="userPerson" name="userPerson" placeholder="ผู้ป่วยรายเก่า">
+            <input matInput [(ngModel)]="userPerson" name="userPerson" placeholder="ผู้ป่วยรายเก่า" (keyup)="findPerson(userPerson)">
         </mat-form-field>
     </div>
-    <button mat-raised-button (click)="findPerson(userPerson)">
+    <button mat-raised-button (click)="findPerson(userPerson)" >
         ค้นหาผู้ป่วย<mat-icon>search</mat-icon>
     </button>
     <div fxLayout="row" fxFlex><br></div>
