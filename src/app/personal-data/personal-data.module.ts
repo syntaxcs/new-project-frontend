@@ -27,6 +27,8 @@ import { PersonalDialogComponent } from './personal/personal-dialog/personal-dia
 import { FollowDialogComponent } from './follow/follow-dialog/follow-dialog.component';
 import { CertificateDialogComponent } from './certificate/certificate-dialog/certificate-dialog.component';
 import { PhysicalDetailDialogComponent} from './personal-list/physical/physical-dialog-detail/physical-dialog-detail.component'
+import { SummaryDetailDialogComponent} from './personal-list/summary/summary-dialog-detail/summary-dialog-detail.component';
+import { FollowDetailDialogComponent} from './follow/follow-dialog-detail/follow-dialog-detail.component';
 
 //service
 import { PersonalService } from '../shared/services/personal.service';
@@ -59,12 +61,14 @@ import { DiseaseService} from '../shared/services/disease.service';
     GeneralDialogComponent,
     SummaryComponent,
     SummaryDialogComponent,
+    SummaryDetailDialogComponent,
     EvalutionComponent,
     EvalutionDialogComponent,
     PersonalComponent,
     PersonalDialogComponent,
     FollowComponent,
     FollowDialogComponent,
+    FollowDetailDialogComponent,
     CertificateComponent,
     CertificateDialogComponent
   ],
@@ -78,7 +82,8 @@ import { DiseaseService} from '../shared/services/disease.service';
     FollowDialogComponent,
     CertificateDialogComponent,
     PhysicalDetailDialogComponent,
-
+    SummaryDetailDialogComponent,
+    FollowDetailDialogComponent,
   ],
   providers: [
     PersonalService,

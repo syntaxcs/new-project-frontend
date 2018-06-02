@@ -7,15 +7,14 @@ import { CertificateService } from '../../../shared/services/certificate.service
 // import { PersonalService } from '../../../shared/services/personal.service';
 
 @Component({
-  selector: 'app-follow-dialog',
-  templateUrl: './follow-dialog.component.html',
-  styleUrls: ['./follow-dialog.component.css']
+  selector: 'app-follow-dialog-detail',
+  templateUrl: './follow-dialog-detail.component.html',
+  //   styleUrls: ['./follow-dialog-detail.component.css']
 })
-export class FollowDialogComponent implements OnInit {
+export class FollowDetailDialogComponent implements OnInit {
   public treaterNames = [];
   public rows = [];
   public form: FormGroup;
-  public id;
   date: Date;
   startDate: any;
   brithDay: Date;
@@ -27,7 +26,7 @@ export class FollowDialogComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
-    private dialogRef: MatDialogRef<FollowDialogComponent>,
+    private dialogRef: MatDialogRef<FollowDetailDialogComponent>,
     private certificateService: CertificateService,
     // private router: Router,
     // private personalService: PersonalService,
@@ -42,9 +41,6 @@ export class FollowDialogComponent implements OnInit {
     this.certificateService.getCer().subscribe(result => {
       this.treaterNames = result;
     })
-    // this.personalService.getPersonById(this.id).subscribe(result => {
-    //   this.rows = result;
-    // })
   }
   calculateYear() {
     // let year = new Date().getFullYear() + 543;
@@ -60,11 +56,14 @@ export class FollowDialogComponent implements OnInit {
     value.folDate = this.date;
     this.dialogRef.close(value);
   }
+  dateShow(date) {
+    return String(date).substr(0, 10)
+  }
   // findPerson(userPerson) {
   //   if (userPerson !== '' || userPerson !== undefined) {
   //     this.rows.forEach(element => {
   //       if (element.personId === userPerson) {
-        
+  //         this.router.navigate(['personal-data/follow/follow-dialog', element._id]);
   //       }
   //     })
   //   }

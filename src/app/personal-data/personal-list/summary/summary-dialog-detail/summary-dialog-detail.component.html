@@ -1,0 +1,24 @@
+<app-dialog title="รายละเอียด : ข้อมูลสรุปความเจ็บป่วย">
+    <content fxLayout="column">
+        <div fxLayout="row">
+            <p style="margin-left:10%">อาการโรค: {{data.disName}} </p>
+        </div>
+        <div fxLayout="row">
+            <p style="margin-left:10%">หัตถการ : {{data.disProcedure}} </p>
+        </div>
+        <div fxLayout="row">
+            <p style="margin-left:10%">วิธีการรักษา : {{data.treatMents}} </p>
+
+        </div>
+        <div fxLayout="row">
+            <p style="margin-left:10%">ช่วงเวลาการรักษา : {{data.folDuration}} </p>
+        </div>
+        <div fxLayout="row">
+            <p style="margin-left:10%">จ่ายยา : {{data.drugName}} </p>
+
+        </div>
+        <div fxLayout="row">
+            <p style="margin-left:10%">จำนวน : {{data.drugUnit}} </p>
+        </div>
+    </content>
+</app-dialog>

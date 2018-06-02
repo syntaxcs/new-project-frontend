@@ -1,0 +1,21 @@
+<app-dialog title="รายละเอียด : ข้อมูลการนัดหมาย">
+    <content fxLayout="column">
+        <div fxLayout="row">
+            <p style="margin-left:10%">เลขที่บัตร : {{data.personId}} </p>
+            <p style="margin-left:31%">ชื่อ-นามสกุล : {{data.personNameTitle}} {{data.personSurname}} {{data.personNameTitle}} </p>
+        </div>
+        <div fxLayout="row">
+            <p style="margin-left:10%">วันที่นัดพบแพทย์ : {{dateShow(data.folDate)}} </p>
+            <p style="margin-left:12.5%">เวลา : {{data.folmytimeHour}}-{{data.folmytimeMinute}} น.</p>
+        </div>
+        <div fxLayout="row">
+            <p style="margin-left:10%">จุดประสงค์เพื่อ : {{data.folPurpose}} </p>
+            <p style="margin-left:26%">ช่วงการรักษา : {{data.folDuration}} </p>
+        </div>
+        <div fxLayout="row">
+            <!-- <p style="margin-left:10%">ชื่อผู้รักษา : {{cer.cerNameTitle }}{{ cer.cerPhysicianName }} {{ cer.cerPhysicianSurName }} {{ cer.cerLicensed_No}}
+            </p> -->
+
+        </div>
+    </content>
+</app-dialog>

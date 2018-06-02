@@ -6,6 +6,7 @@ import { GlobalState } from '../../shared/global.state';
 import { FollowDialogComponent} from './follow-dialog/follow-dialog.component';
 import { FollowService } from '../../shared/services/follow.service';
 import { ConfirmDeleteDialogComponent } from '../../theme/components/confirm-delete-dialog/confirm-delete-dialog.component';
+import { FollowDetailDialogComponent } from './follow-dialog-detail/follow-dialog-detail.component';
 @Component({
   selector: 'app-follow',
   templateUrl: './follow.component.html',
@@ -84,6 +85,34 @@ export class FollowComponent implements OnInit {
           .subscribe((results) => {
             this.rows = results;
           });
+      }
+    });
+  }
+  openDetailDialog(view): void {
+    const dialogRef = this.dialog.open(FollowDetailDialogComponent, {
+      width: '750px',
+      // height: '700px',
+
+      data: {
+        folDate: view.folDate,
+        folmytimeHour: view.folmytimeHour,
+        folmytimeMinute: view.folmytimeMinute,
+        personNameTitle: view.personNameTitle,
+        personName: view.personName,
+        personSurname: view.personSurname,
+        folDuration: view.folDuration,
+        
+
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(resultAllDialog => {
+      if (resultAllDialog !== undefined) {
+        this.followService.addFollow(resultAllDialog)
+          .mergeMap(() => this.followService.getFollow())
+          .subscribe((valueFromDatabse) => {
+            this.rows = valueFromDatabse;
+          })
       }
     });
   }

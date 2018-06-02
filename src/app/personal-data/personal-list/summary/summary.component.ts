@@ -6,9 +6,10 @@ import { GlobalState } from '../../../shared/global.state';
 import { ConfirmDeleteDialogComponent } from '../../../theme/components/confirm-delete-dialog/confirm-delete-dialog.component';
 import { SummaryDialogComponent } from './summary-dialog/summary-dialog.component';
 import { DiseaseService } from '../../../shared/services/disease.service';
-import {DrugService} from '../../../shared/services/drug.service';
-import {TreatmentService } from '../../../shared/services/treatment.service';
+import { DrugService} from '../../../shared/services/drug.service';
+import { TreatmentService } from '../../../shared/services/treatment.service';
 import { from } from 'rxjs/internal/observable/from';
+import { SummaryDetailDialogComponent } from './summary-dialog-detail/summary-dialog-detail.component';
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
@@ -60,11 +61,18 @@ export class SummaryComponent implements OnInit {
       }
     });
   }
+  
 
   openEditDialog(row): void {
     const dialogRef = this.dialog.open(SummaryDialogComponent, {
       width: '750px',
       data: {
+        disName: row.disName,
+        disProcedure: row.disProcedure,
+        treatMents: row.treatMents,
+        drugName: row.drugName,
+        drugUnit: row.drugUnit,
+        folDuration: row.folDuration,
        
       }
     });
@@ -95,5 +103,30 @@ export class SummaryComponent implements OnInit {
       }
     });
   }
+  openDetailDialog(view): void {
+    const dialogRef = this.dialog.open(SummaryDetailDialogComponent, {
+      width: '750px',
+      // height: '700px',
 
+      data: {
+        disName: view.disName,
+        disProcedure: view.disProcedure,
+        treatMents: view.treatMents,
+        drugName: view.drugName,
+        drugUnit: view.drugUnit,
+        folDuration: view.folDuration,
+
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(resultAllDialog => {
+      if (resultAllDialog !== undefined) {
+        this.diseaseService.addDis(resultAllDialog)
+          .mergeMap(() => this.diseaseService.getDis())
+          .subscribe((valueFromDatabse) => {
+            this.rows = valueFromDatabse;
+          })
+      }
+    });
+  }
 }
