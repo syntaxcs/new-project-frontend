@@ -26,7 +26,6 @@ export class EvalutionComponent implements OnInit {
   ngOnInit() {
     this.evalutionService.getEvaById(this.id).subscribe(result => {
       this.rows = result;
-      console.log(this.rows)
     });
   }
   openDialog(): void {

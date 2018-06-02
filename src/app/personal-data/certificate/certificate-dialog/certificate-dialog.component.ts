@@ -22,8 +22,9 @@ export class CertificateDialogComponent implements OnInit {
     this.form = this.formBuilder.group({});
     this.certificateService.getCer().subscribe(result => {
       this.certificate = result;
-      
     })
+    
+    
   }
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);
