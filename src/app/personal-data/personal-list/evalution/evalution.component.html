@@ -1,38 +1,44 @@
 <mat-card>
-        <mat-card-subtitle fxLayout="row" fxLayoutGap="10px">
-            <h2>ข้อมูลตรวจร่างกายและประเมินผลหลังการรักษา</h2>
-            <div fxFlex></div>
-            <app-button-card-title (onClick)="openDialog()">
-                <mat-icon>add</mat-icon>เพิ่มข้อมูลตรวจร่างกายและประเมินผลหลังการรักษา</app-button-card-title>
-        </mat-card-subtitle>
-        <mat-card-content>
-            <ngx-datatable class="material" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows"[limit]="10">
-                <ngx-datatable-column name="ลำดับ" [maxWidth]="100">
-                    <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        {{rowIndex + 1}}
-                    </ng-template>
-                </ngx-datatable-column>
-                <ngx-datatable-column name="การวินิจฉัย">
-                    <ng-template let-value="value" ngx-datatable-cell-template>
-                        {{value.evaAfter}}
-                    </ng-template>
-                </ngx-datatable-column>
-                <ngx-datatable-column name="ระดับความเจ็บปวด">
-                    <ng-template let-value="value" ngx-datatable-cell-template>
-                        {{value.evaLevel}}
-                    </ng-template>
-                </ngx-datatable-column>
-                <ngx-datatable-column name="ส่วนของร่างกายที่ปวด">
-                    <ng-template let-value="value" ngx-datatable-cell-template>
-                        {{value.evaBodyParth}}
-                    </ng-template>
-                </ngx-datatable-column>
-                <ngx-datatable-column name="เครื่องมือ" [maxWidth]="170">
-                    <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                        <img src="../assets/images/pencil.png" (click)="openEditDialog(value)" width="40px" height="40px" title="แก้ไข">
-                        <img src="../assets/images/395848.svg" (click)="confirmDelete(value)"  width="40px" height="40px" title="ลบ">
-                    </ng-template>
-                </ngx-datatable-column>
-            </ngx-datatable>
-        </mat-card-content>
-    </mat-card>
+    <mat-card-subtitle fxLayout="row" fxLayoutGap="10px">
+        <h2>ข้อมูลตรวจร่างกายและประเมินผลหลังการรักษา</h2>
+        <div fxFlex></div>
+        <app-button-card-title (onClick)="openDialog()">
+            <mat-icon>add</mat-icon>เพิ่มข้อมูลตรวจร่างกายและประเมินผลหลังการรักษา</app-button-card-title>
+    </mat-card-subtitle>
+    <mat-card-content>
+        <ngx-datatable class="material" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows"
+            [limit]="10">
+            <ngx-datatable-column name="วันที่มาพบแพทย์">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{dateShow(value.date)}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="เวลา">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.time}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="การวินิจฉัย">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.evaAfter}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="ระดับความเจ็บปวด">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.evaLevel}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="ส่วนของร่างกายที่ปวด">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.evaBodyParth}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="เครื่องมือ" [maxWidth]="170">
+                <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                    <img src="../assets/images/pencil.png" (click)="openEditDialog(value)" width="40px" height="40px" title="แก้ไข">
+                    <img src="../assets/images/395848.svg" (click)="confirmDelete(value)" width="40px" height="40px" title="ลบ">
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+    </mat-card-content>
+</mat-card>

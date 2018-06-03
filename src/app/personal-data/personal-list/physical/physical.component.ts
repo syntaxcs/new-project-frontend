@@ -34,6 +34,9 @@ export class PhysicalComponent implements OnInit {
   calculateBMI(value) {
     return String((Number(value.phyWeight) / Math.pow(Number(value.phyHeight), 2)) * 10000).substr(0, 5);
   }
+  dateShow(date) {
+    return String(date).substr(0, 10)
+  }
   openDialog(): void {
     const dialogRef = this.dialog.open(PhysicalDialogComponent, {
       width: '750px',

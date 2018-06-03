@@ -54,8 +54,8 @@ export class GeneralComponent implements OnInit {
     const dialogRef = this.dialog.open(GeneralDialogComponent, {
         width: '750px',
         data: {
-          genDate: row.genDate,
-          genTime: row.genTime,
+          date: row.date,
+          time: row.time,
           genSymptoms: row.genSymptoms,
           genPresentHistory: row.genPresentHistory,
           genPastHistory: row.genPastHistory,
