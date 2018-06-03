@@ -1,41 +1,19 @@
 <app-dialog title="ข้อมูลสรุปความเจ็บป่วย">
     <content fxLayout="column">
+        <app-autocomplete-disease title="กลุ่ม" [(selectedDiseases)]="data.disease" (selectedDiseasesChange)="check($event)" name="disease"
+            placeholder="เลือกกลุ่ม" fxFlex [formGroup]='form'></app-autocomplete-disease>
         <div fxLayout="row">
-            <form>
-                <mat-form-field>
-                    <input type="text" placeholder="อาการโรค" matInput [(ngModel)]="symptoms" [matAutocomplete]="auto">
-                    <mat-autocomplete #auto="matAutocomplete">
-                        <mat-option *ngFor="let symptom of symptoms" [value]="symptom.disName">
-                            {{ symptom.disName }}
-                        </mat-option>
-                    </mat-autocomplete>
-                </mat-form-field>
-            </form>
-        </div>
-        <div fxLayout="row">
-            <app-input-text-normal [value]="data.summaryProcedure" name="summaryProcedure" placeholder="เหน็บชา" text="หัตถการ ( masssge )"
-                fxFlex [formGroup]='form'></app-input-text-normal>
+            <label>หัตถการ: </label>
+            <label> {{ form.value.disProcedure }} </label>
         </div>
         <div fxLayout="row">
             <h3>วิธีการรักษา ( Treatment )</h3>
             <h3 class="daration">ช่วงเวลา ( Duration )</h3>
         </div>
         <div fxLayout="row">
-            <form [(ngModel)]="checked">
-                <section>
-                    <mat-checkbox class="example-margin" color="warn" value="นวดบำบัดอาการ">นวดบำบัดอาการ</mat-checkbox>
-                </section>
-                <section>
-                    <mat-checkbox class="example-margin" color="warn" value="นวดบำบัดและประคบสมุนไพร">นวดบำบัดและประคบสมุนไพร</mat-checkbox>
-                </section>
-                <section>
-                    <mat-checkbox class="example-margin" color="warn" value="อบไอน้ำสมุนไพร">อบไอน้ำสมุนไพร</mat-checkbox>
-                </section>
-                <section>
-                    <mat-checkbox class="example-margin" color="warn" value="ค่าประคบสมุนไพร">ค่าประคบสมุนไพร</mat-checkbox>
-                </section>
-                <section>
-                    <mat-checkbox class="example-margin" color="warn" value="ทับหม้อเกลือฟื้นฟูมารดาหลังคลอด">ทับหม้อเกลือฟื้นฟูมารดาหลังคลอด</mat-checkbox>
+            <form>
+                <section *ngFor="let data of treat">
+                    <mat-checkbox color="warn" (change)="toggle($event.checked, data)" [value]="data.treatMents">{{data.treatMents}}</mat-checkbox>
                 </section>
             </form>
             <div class="daration2">
@@ -60,7 +38,7 @@
 
     </content>
     <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
-        <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">บันทึก</button>
+        <button mat-raised-button color="primary" (click)="onSave()">บันทึก</button>
         <button mat-raised-button color="warn" (click)="onClose()">ยกเลิก</button>
     </footer>
 </app-dialog>

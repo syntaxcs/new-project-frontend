@@ -8,7 +8,7 @@ import { ReplaySubject } from 'rxjs/ReplaySubject';
 import { Subject } from 'rxjs/Subject';
 import { take, takeUntil } from 'rxjs/operators';
 import { MatSelect, VERSION } from '@angular/material';
-
+import { TreatmentService } from '../../../../shared/services/treatment.service'
 interface Drug {
   id: string;
   Drug: string;
@@ -27,7 +27,10 @@ export class SummaryDialogComponent implements OnInit {
   public symptoms = [];
   select = null
   public duration = ['ในเวลา', 'นอกเวลา'];
-  public checked = ''
+  public treat = [];
+  treatMents = [];
+  isChecked = true;
+  public disprod = '';
   public filteredDrugs: ReplaySubject<Drug[]> = new ReplaySubject<Drug[]>(1);
   /** list of banks filtered by search keyword for multi-selection */
   public filteredDrugsMulti: ReplaySubject<Drug[]> = new ReplaySubject<Drug[]>(1);
@@ -44,24 +47,37 @@ export class SummaryDialogComponent implements OnInit {
     private dialogRef: MatDialogRef<SummaryDialogComponent>,
     private drugservice: DrugService,
     private diseaseService: DiseaseService,
-
+    private treatmentservice: TreatmentService
 
   ) { }
   ngOnInit() {
     this.form = this.formBuilder.group({});
-    this.drugservice.getDrug().subscribe(result => {
-      this.drugs = result;
-    });
-    this.diseaseService.getDis().subscribe(result => {
-      this.symptoms = result;
-    });
+    this.treatmentservice.getTreat().subscribe(result => {
+      this.treat = result;
+    })
+  }
+ 
+  
+  toggle(check, data){
+    if( check === true ) {
+      this.treatMents.push(data)
+    } else {
+      const index: number = this.treatMents.indexOf(data);
+      if (index !== -1) {
+        this.treatMents.splice(index, 1);
+      }
+    }
+  }
+  check(data){
+    this.form.value.disProcedure = data.disProcedure;
   }
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);
   }
   onSave() {
     const value = this.form.value;
-    console.log(this.checked)
+    value.disease = this.data.disease
+    value.treatMents = this.treatMents;
     // this.dialogRef.close(value);
   }
 

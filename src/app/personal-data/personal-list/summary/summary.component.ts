@@ -31,23 +31,19 @@ export class SummaryComponent implements OnInit {
     });
   }
   
-  // openDialog(): void {
-  //   const dialogRef = this.dialog.open(SummaryDialogComponent, {
-  //     width: '750px',
-  //     height: '800px',
-  //     data: {}
-  //   });
+  openDialog(): void {
+    const dialogRef = this.dialog.open(SummaryDialogComponent, {
+      width: '750px',
+      height: '800px',
+      data: {}
+    });
 
-  //   dialogRef.afterClosed().subscribe(resultAllDialog => {
-  //     if (resultAllDialog !== undefined) {
-  //       this.diseaseService.addDis(resultAllDialog)
-  //         .mergeMap(() => this.diseaseService.getDis())
-  //         .subscribe((valueFromDatabse) => {
-  //           this.rows = valueFromDatabse;
-  //         })
-  //     }
-  //   });
-  // }
+    dialogRef.afterClosed().subscribe(resultAllDialog => {
+      if (resultAllDialog !== undefined) {
+
+      }
+    });
+  }
 
   // openEditDialog(row): void {
   //   const dialogRef = this.dialog.open(SummaryDialogComponent, {

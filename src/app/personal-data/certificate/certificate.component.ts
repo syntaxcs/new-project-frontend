@@ -25,7 +25,10 @@ export class CertificateComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._state.notifyDataChanged('[Breadcrumbs] changed', [{ url: '/', title: 'หน้าแรก' }, { title: 'ใบรับรองแพทย์' }]);
+    this.certificateService.getCer().subscribe((result) => {
+      this.rows = result;
+      console.log(this.rows)
+    })
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(CertificateDialogComponent, {
