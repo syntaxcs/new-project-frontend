@@ -28,6 +28,9 @@ export class EvalutionComponent implements OnInit {
       this.rows = result;
     });
   }
+  dateShow(date) {
+    return String(date).substr(0, 10)
+  }
   openDialog(): void {
     const dialogRef = this.dialog.open(EvalutionDialogComponent, {
       width: '750px',

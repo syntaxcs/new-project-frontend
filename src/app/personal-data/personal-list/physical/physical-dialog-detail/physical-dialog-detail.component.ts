@@ -8,7 +8,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   // styleUrls: ['./physical-dialog-detail.component.css']
 })
 export class PhysicalDetailDialogComponent implements OnInit {
-  public row = [];
 
   public form: FormGroup;
   public level = ['ระดับ 1', 'ระดับ 2', 'ระดับ 3', 'ระดับ 4', 'ระดับ 5', 'ระดับ 6', 'ระดับ 7', 'ระดับ 8', 'ระดับ 9', 'ระดับ 10'];
@@ -27,6 +26,7 @@ export class PhysicalDetailDialogComponent implements OnInit {
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);
   }
+  
   onSave() {
     const value = this.form.value;
     value.personId = this.data.personId

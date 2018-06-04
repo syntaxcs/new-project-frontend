@@ -18,18 +18,16 @@ export class GeneralDialogComponent implements OnInit {
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<GeneralDialogComponent>,
   ) {
-    let year = new Date().getFullYear() + 543;
-    let month = new Date().getMonth()
-    this.startDate = new Date(year, month + 1, null, null, null, null);
+    this.calculateYear();
   }
 
   ngOnInit() {
     this.form = this.formBuilder.group({});
-    this.calculateYear();
   }
   calculateYear() {
-
-    // this.startDate = new Date(year, month+1, null, null, null, null);
+    let year = new Date().getFullYear() + 543;
+    let month = new Date().getMonth()
+    this.startDate = new Date(year, month + 1, null, null, null, null);
   }
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);
@@ -37,8 +35,8 @@ export class GeneralDialogComponent implements OnInit {
   onSave() {
     const value = this.form.value;
     value.personId = this.data.personId
-    value.genDate = this.date;
-    value.genTime = this.brithDay;
+    value.date = this.date;
+    value.time = this.brithDay;
     this.dialogRef.close(value);
   }
 }

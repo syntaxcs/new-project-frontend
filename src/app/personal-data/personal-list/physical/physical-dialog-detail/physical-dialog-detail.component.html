@@ -6,7 +6,7 @@
         </div>
         <div fxLayout="row">
             <p style="margin-left:20%">ความดันโลหิต : {{data.phyBp}} มม.ปรอท</p>
-            <p style="margin-left:12%">ค่า BMI :   {{ calculateBMI(row) }} </p>
+            <p style="margin-left:12%">ค่า BMI :   {{ calculateBMI(data) }} </p>
         </div>
         <div fxLayout="row">
             <p style="margin-left:20%">ส่วนสูง : {{data.phyHeight}} เซนติเมตร</p>
@@ -16,7 +16,7 @@
             <p style="margin-left:20%">ระดับความเจ็บปวด : {{data.phyLevel}}</p>
             <p style="margin-left:11%">ส่วนของร่างกาย : {{data.phyBodyParth}}</p>
         </div>
-
+        <img *ngIf="data.phyBodyParth" src="../../assets/images/{{data.phyBodyParth}}.jpg" width="40%" height="40%">
 
     </content>
 </app-dialog>
