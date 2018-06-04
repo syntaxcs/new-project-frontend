@@ -8,7 +8,6 @@ import { PhysicalDialogComponent } from './physical-dialog/physical-dialog.compo
 import { PhysicalDetailDialogComponent } from './physical-dialog-detail/physical-dialog-detail.component';
 import { PhysicalService } from '../../../shared/services/physical.service';
 
-
 @Component({
   selector: 'app-physical',
   templateUrl: './physical.component.html',

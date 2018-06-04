@@ -6,7 +6,7 @@
         </div>
         <div fxLayout="row">
             <p style="margin-left:20%">ความดันโลหิต : {{data.phyBp}} มม.ปรอท</p>
-            <p style="margin-left:12%">ค่า BMI :</p>
+            <p style="margin-left:12%">ค่า BMI :   {{ calculateBMI(row) }} </p>
         </div>
         <div fxLayout="row">
             <p style="margin-left:20%">ส่วนสูง : {{data.phyHeight}} เซนติเมตร</p>

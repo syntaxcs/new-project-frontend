@@ -13,10 +13,7 @@
         <div fxLayout="row">
             <app-input-text-normal [value]="data.folName" name="folName" placeholder="ชื่อผู้ป่วย" fxFlex [formGroup]='form'></app-input-text-normal>
             <app-input-text-normal [value]="data.folSurName" name="folSurName" placeholder="นามสกุล" fxFlex [formGroup]='form'></app-input-text-normal>
-           <!-- <p> ชื่อ-นามสกุล {{data.personNameTitle}} {{data.personName}} {{data.personSurname}}</p> -->
         </div>
-
-
         <div fxLayout="row">
             <mat-form-field>
                 <input matInput [matDatepicker]="picker" [(ngModel)]="date" placeholder="วันเดือนปีที่นัดพบแพทย์">
@@ -30,25 +27,14 @@
 
         </div>
 
-        <div fxLayout="row">
-            <app-input-text-normal [value]="data.folPurpose" name="folPurpose" placeholder="จุดประสงค์เพื่อ" fxFlex [formGroup]='form'></app-input-text-normal>
+        <app-input-text-normal [value]="data.folPurpose" text="จุดประสงค์เพื่อ" name="folPurpose" placeholder="จุดประสงค์เพื่อ" fxFlex
+            [formGroup]='form'></app-input-text-normal>
 
+        <div fxLayout="row">
             <app-dropdown [data]="duration" [value]="data.folDuration" placeholder="ช่วงการรักษา" text="ช่วงการรักษา" name="folDuration"
                 fxFlex [formGroup]='form'></app-dropdown>
+            <app-dropdown-certificate [value]="data.cerNameTitle" text="ผู้รักษา" placeholder="ผู้รักษา" name="cerNameTitle" fxFlex [formGroup]='form'></app-dropdown-certificate>
         </div>
-
-        <!-- <div fxLayout="row" >
-            <form>
-                <mat-form-field style="width: 200%">
-                    <input type="text" placeholder="ชื่อผู้รักษา" matInput [(ngModel)]="select" [matAutocomplete]="auto">
-                    <mat-autocomplete #auto="matAutocomplete">
-                        <mat-option *ngFor="let cer of treaterNames" [value]="cer.cerNameTitle " [value]= "cer.cerPhysicianName" [value]="cer.cerPhysicianSurName" [value]="cer.cerLicensed_No">
-                                {{cer.cerNameTitle }}{{ cer.cerPhysicianName }} {{ cer.cerPhysicianSurName }} {{ cer.cerLicensed_No }}
-                        </mat-option>
-                    </mat-autocomplete>
-                </mat-form-field>
-            </form>
-        </div> -->
 
     </content>
     <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">

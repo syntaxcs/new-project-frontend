@@ -7,6 +7,7 @@ import { MatNativeDateModule } from '@angular/material';
 
 import { TextNormalComponent } from './text-normal/text-normal.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
+import { DropdownCertificateComponent } from './dropdown-certificate/dropdown-certificate.component';
 @NgModule({
   imports: [
     MaterialModule,
@@ -18,11 +19,13 @@ import { DropdownComponent } from './dropdown/dropdown.component';
   ],
   declarations: [
     TextNormalComponent,
-    DropdownComponent
+    DropdownComponent,
+    DropdownCertificateComponent
   ],
   exports: [
     TextNormalComponent,
-    DropdownComponent
+    DropdownComponent,
+    DropdownCertificateComponent
   ]
 })
 export class InputModule { }

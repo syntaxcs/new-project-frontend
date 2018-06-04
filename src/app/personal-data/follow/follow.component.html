@@ -12,7 +12,7 @@
             [limit]="10">
             <ngx-datatable-column name="ลำดับ" [maxWidth]="100">
                 <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                    {{rowIndex + 1}}
+                    {{rowIndex + 1}}     
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="วันที่">
@@ -27,12 +27,12 @@
             </ngx-datatable-column>
             <ngx-datatable-column name="ชื่อ-นามสกุล">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.personNameTitle}} {{value.personName}} {{value.personSurname}}
+                    <!-- {{value.personNameTitle}} {{value.personName}} {{value.personSurname}} -->
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="ผู้รักษา">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-
+                    {{value.cerNameTitle}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="เครื่องมือ" [maxWidth]="170">

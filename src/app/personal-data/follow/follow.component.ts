@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import {Observable} from 'rxjs/Rx';
+import { Observable} from 'rxjs/Rx';
 import { GlobalState } from '../../shared/global.state';
 import { FollowDialogComponent} from './follow-dialog/follow-dialog.component';
 import { FollowService } from '../../shared/services/follow.service';
 import { ConfirmDeleteDialogComponent } from '../../theme/components/confirm-delete-dialog/confirm-delete-dialog.component';
 import { FollowDetailDialogComponent } from './follow-dialog-detail/follow-dialog-detail.component';
+import { CertificateService } from '../../shared/services/certificate.service';
 @Component({
   selector: 'app-follow',
   templateUrl: './follow.component.html',
@@ -20,14 +21,18 @@ export class FollowComponent implements OnInit {
     private dialog: MatDialog,
     private formBuilder: FormBuilder,
     private followService: FollowService,
+    private certificateService: CertificateService,
   ) { }
 
   ngOnInit() {
     this._state.notifyDataChanged('[Breadcrumbs] changed', [{ url: '/', title: 'หน้าแรก' }, { title: 'การนัดหมาย' }]);
     this.form = this.formBuilder.group({});
     this.followService.getFollow().subscribe(result => {
+      
       this.rows = result;
+      console.log( this.rows)
     });
+    
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(FollowDialogComponent, {
@@ -59,6 +64,7 @@ export class FollowComponent implements OnInit {
         folSurName: row.folSurName,
         folDuration: row.folDuration,
         folPurpose: row.folPurpose,
+        cerNameTitle: row.cerNameTitle,
       }
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -101,7 +107,7 @@ export class FollowComponent implements OnInit {
         personName: view.personName,
         personSurname: view.personSurname,
         folDuration: view.folDuration,
-        
+        cerNameTitle: view.cerNameTitle,
 
       }
     });

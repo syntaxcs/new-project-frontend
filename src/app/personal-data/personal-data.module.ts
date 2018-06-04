@@ -40,6 +40,7 @@ import { CertificateService } from '../shared/services/certificate.service';
 import { DrugService } from '../shared/services/drug.service';
 import { TreatmentService} from '../shared/services/treatment.service';
 import { DiseaseService} from '../shared/services/disease.service';
+import { SummaryService } from '../shared/services/summary.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -95,7 +96,7 @@ import { DiseaseService} from '../shared/services/disease.service';
     DrugService,
     TreatmentService,
     DiseaseService,
-    
+    SummaryService
   ],
 })
 export class PersonalDataModule { }

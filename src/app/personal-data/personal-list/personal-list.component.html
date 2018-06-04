@@ -3,9 +3,12 @@
         <mat-grid-tile>
             <img src="../assets/images/user.png">
             <div>
-                <p><mat-icon>face</mat-icon>คุณ : {{rows.personName}} {{rows.personSurname}}</p>
-                <p><mat-icon>room</mat-icon>สถานะ : กำลังใช้งาน </p>
-                <p routerLink="/personal-data/personal"><mat-icon>assignment_return</mat-icon>ออกจากระบบ</p>
+                <p>
+                    <mat-icon>face</mat-icon>คุณ : {{rows.personName}} {{rows.personSurname}}</p>
+                <p>
+                    <mat-icon>room</mat-icon>สถานะ : กำลังใช้งาน </p>
+                <p routerLink="/personal-data/personal">
+                    <mat-icon>assignment_return</mat-icon>ออกจากระบบ</p>
             </div>
         </mat-grid-tile>
     </mat-grid-list>
@@ -21,7 +24,8 @@
                 <app-button-card-title (onClick)="openEditDialog(rows)">
                     <mat-icon>settings</mat-icon>แก้ไขข้อมูลส่วนตัว
                 </app-button-card-title>
-            </div><br>
+            </div>
+            <br>
             <table>
                 <tr>
                     <th>เลขที่บัตร</th>
@@ -92,7 +96,7 @@
             <app-physical></app-physical>
         </mat-tab>
         <mat-tab label="สรุปความเจ็บป่วย">
-            <app-summary></app-summary>
+            <!-- <app-summary></app-summary> -->
         </mat-tab>
         <mat-tab label="ตรวจร่างกายและประเมินผลหลังการรักษา">
             <app-evalution></app-evalution>

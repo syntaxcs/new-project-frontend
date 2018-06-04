@@ -15,7 +15,6 @@ export class FollowDialogComponent implements OnInit {
   public treaterNames = [];
   public rows = [];
   public form: FormGroup;
-  public id;
   date: Date;
   startDate: any;
   brithDay: Date;
