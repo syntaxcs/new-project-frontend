@@ -4,7 +4,7 @@ import { SharedModule } from '../shared/shared.module';
 import { MenuModule } from '../theme/menu/menu.module';
 import { HttpClientModule } from '@angular/common/http';
 import { routing } from './personal-data.routing';
-import { NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 //component
@@ -30,6 +30,7 @@ import { PhysicalDetailDialogComponent} from './personal-list/physical/physical-
 import { SummaryDetailDialogComponent} from './personal-list/summary/summary-dialog-detail/summary-dialog-detail.component';
 import { FollowDetailDialogComponent} from './follow/follow-dialog-detail/follow-dialog-detail.component';
 
+
 //service
 import { PersonalService } from '../shared/services/personal.service';
 import { PhysicalService } from '../shared/services/physical.service';
@@ -38,9 +39,10 @@ import { EvalutionService } from '../shared/services/evalution.service';
 import { FollowService } from '../shared/services/follow.service';
 import { CertificateService } from '../shared/services/certificate.service';
 import { DrugService } from '../shared/services/drug.service';
-import { TreatmentService} from '../shared/services/treatment.service';
-import { DiseaseService} from '../shared/services/disease.service';
+import { TreatmentService } from '../shared/services/treatment.service';
+import { DiseaseService } from '../shared/services/disease.service';
 import { SummaryService } from '../shared/services/summary.service';
+import { TreaterService } from '../shared/services/treater.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -91,12 +93,14 @@ import { SummaryService } from '../shared/services/summary.service';
     PhysicalService,
     GeneralService,
     EvalutionService,
-    FollowService,,
+    FollowService, ,
     CertificateService,
     DrugService,
     TreatmentService,
     DiseaseService,
-    SummaryService
+    SummaryService,
+    TreaterService,
+
   ],
 })
 export class PersonalDataModule { }

@@ -21,9 +21,8 @@ export class TreaterComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._state.notifyDataChanged('[Breadcrumbs] changed', [{ url: '/', title: 'หน้าแรก' }, { title: 'ผู้รักษา' }]);
     this.form = this.formBuilder.group({});
-    this.treaterService.getCer().subscribe(result => {
+    this.treaterService.getTre().subscribe(result => {
       this.rows = result;
     });
   }
@@ -35,8 +34,8 @@ export class TreaterComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(resultAllDialog => {
       if (resultAllDialog !== undefined) {
-        this.treaterService.addCer(resultAllDialog)
-          .mergeMap(() => this.treaterService.getCer())
+        this.treaterService.addTre(resultAllDialog)
+          .mergeMap(() => this.treaterService.getTre())
           .subscribe((valueFromDatabse) => {
             this.rows = valueFromDatabse;
           })
@@ -47,16 +46,16 @@ export class TreaterComponent implements OnInit {
     const dialogRef = this.dialog.open(TreaterDialogComponent, {
       width: '750px',
       data: {
-        cerLicensed_No: row.cerLicensed_No,
-        cerNameTitle: row.cerNameTitle,
-        cerPhysicianName: row.cerPhysicianName,
-        cerPhysicianSurName: row.cerPhysicianSurName
+        treLicensed_No: row.treLicensed_No,
+        treNameTitle: row.treNameTitle,
+        trePhysicianName: row.trePhysicianName,
+        trePhysicianSurName: row.trePhysicianSurName
       }
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result !== undefined) {
-        this.treaterService.updateCer(row._id, result)
-          .mergeMap(() => this.treaterService.getCer())
+        this.treaterService.updateTre(row._id, result)
+          .mergeMap(() => this.treaterService.getTre())
           .subscribe((results) => {
             this.rows = results;
           });
@@ -72,8 +71,8 @@ export class TreaterComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result.status === true) {
-        this.treaterService.deleteCer(row._id)
-          .mergeMap(() => this.treaterService.getCer())
+        this.treaterService.deleteTre(row._id)
+          .mergeMap(() => this.treaterService.getTre())
           .subscribe((results) => {
             this.rows = results;
           });

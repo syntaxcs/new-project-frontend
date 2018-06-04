@@ -23,6 +23,7 @@ import { DrugService } from '../shared/services/drug.service';
 import { TreatmentService } from '../shared/services/treatment.service';
 import { RemedyComponent } from './remedy/remedy.component';
 
+
 @NgModule({
     imports: [
         SharedModule,
@@ -56,6 +57,7 @@ import { RemedyComponent } from './remedy/remedy.component';
         TreaterService,
         DrugService,
         TreatmentService,
+        
     ],
 })
 export class BasicDataModule {
