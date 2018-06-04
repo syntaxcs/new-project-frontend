@@ -1,15 +1,15 @@
 <app-dialog title="ข้อมูลผู้รักษา">
   <content fxLayout="column">
     <div fxLayout="row">
-      <app-input-text-normal [value]="data.cerLicensed_No" name="cerLicensed_No" placeholder="พท.ป.608" text="เลขที่ประกอบโรคศิลปะ ( Licensed No. )"
+      <app-input-text-normal [value]="data.treLicensed_No" name="treLicensed_No" placeholder="พท.ป.608" text="เลขที่ประกอบโรคศิลปะ ( Licensed No. )"
         fxFlex [formGroup]='form'></app-input-text-normal>
-      <app-dropdown [data]="nametitle" [value]="data.cerNameTitle" text="คำนำหน้า" placeholder="คำนำหน้า( NameTitle )" name="cerNameTitle"
+      <app-dropdown [data]="nametitle" [value]="data.treNameTitle" text="คำนำหน้า" placeholder="คำนำหน้า( NameTitle )" name="treNameTitle"
         fxFlex [formGroup]='form'></app-dropdown>
     </div>
     <div fxLayout="row">
-      <app-input-text-normal [value]="data.cerPhysicianName" name="cerPhysicianName" placeholder="ชื่อ" text="ชื่อ-นามสกุล"
+      <app-input-text-normal [value]="data.trePhysicianName" name="trePhysicianName" placeholder="ชื่อ" text="ชื่อ-นามสกุล"
         fxFlex [formGroup]='form'></app-input-text-normal>
-      <app-input-text-normal [value]="data.cerPhysicianSurName" name="cerPhysicianSurName" placeholder="นามสกุล" text="" fxFlex
+      <app-input-text-normal [value]="data.trePhysicianSurName" name="trePhysicianSurName" placeholder="นามสกุล" text="" fxFlex
         [formGroup]='form'></app-input-text-normal>
     </div>
   </content>

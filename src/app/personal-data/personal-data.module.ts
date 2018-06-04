@@ -4,7 +4,7 @@ import { SharedModule } from '../shared/shared.module';
 import { MenuModule } from '../theme/menu/menu.module';
 import { HttpClientModule } from '@angular/common/http';
 import { routing } from './personal-data.routing';
-import { NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 //component
@@ -26,7 +26,7 @@ import { EvalutionDialogComponent } from './personal-list/evalution/evalution-di
 import { PersonalDialogComponent } from './personal/personal-dialog/personal-dialog.component';
 import { FollowDialogComponent } from './follow/follow-dialog/follow-dialog.component';
 import { CertificateDialogComponent } from './certificate/certificate-dialog/certificate-dialog.component';
-import { PhysicalDetailDialogComponent} from './personal-list/physical/physical-dialog-detail/physical-dialog-detail.component'
+import { PhysicalDetailDialogComponent } from './personal-list/physical/physical-dialog-detail/physical-dialog-detail.component'
 
 //service
 import { PersonalService } from '../shared/services/personal.service';
@@ -36,9 +36,10 @@ import { EvalutionService } from '../shared/services/evalution.service';
 import { FollowService } from '../shared/services/follow.service';
 import { CertificateService } from '../shared/services/certificate.service';
 import { DrugService } from '../shared/services/drug.service';
-import { TreatmentService} from '../shared/services/treatment.service';
-import { DiseaseService} from '../shared/services/disease.service';
+import { TreatmentService } from '../shared/services/treatment.service';
+import { DiseaseService } from '../shared/services/disease.service';
 import { SummaryService } from '../shared/services/summary.service';
+import { TreaterService } from '../shared/services/treater.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -86,12 +87,14 @@ import { SummaryService } from '../shared/services/summary.service';
     PhysicalService,
     GeneralService,
     EvalutionService,
-    FollowService,,
+    FollowService, ,
     CertificateService,
     DrugService,
     TreatmentService,
     DiseaseService,
-    SummaryService
+    SummaryService,
+    TreaterService,
+
   ],
 })
 export class PersonalDataModule { }

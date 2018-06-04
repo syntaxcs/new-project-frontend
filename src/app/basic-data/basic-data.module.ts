@@ -56,6 +56,7 @@ import { RemedyComponent } from './remedy/remedy.component';
         TreaterService,
         DrugService,
         TreatmentService,
+        
     ],
 })
 export class BasicDataModule {

@@ -8,20 +8,20 @@ export class TreaterService {
   constructor(
     private apiService: ApiService
   ) { }
-  getCer(): Observable<any> {
-    return this.apiService.get(`certificate`);
+  getTre(): Observable<any> {
+    return this.apiService.get(`treater`);
   }
-  getCerById(id): Observable<any> {
-    return this.apiService.get(`certificate/` + id);
+  getTreById(id): Observable<any> {
+    return this.apiService.get(`treater/` + id);
   }
-  addCer(data): Observable<any> {
-    return this.apiService.post('certificate', data);
+  addTre(data): Observable<any> {
+    return this.apiService.post('treater', data);
   }
-  updateCer(id: string, data): Observable<any> {
-    return this.apiService.put('certificate/' + id, data);
+  updateTre(id: string, data): Observable<any> {
+    return this.apiService.put('treater/' + id, data);
   }
-  deleteCer(id: string): Observable<any> {
-    return this.apiService.delete('certificate/' + id);
+  deleteTre(id: string): Observable<any> {
+    return this.apiService.delete('treater/' + id);
   }
   
 }
