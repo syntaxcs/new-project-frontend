@@ -5,7 +5,8 @@ import { MaterialModule } from '../../../shared/material.module';
 import { FileUploadModule } from 'ng2-file-upload';
 import { MatNativeDateModule } from '@angular/material';
 
-import { AutocompleteDiseasesComponent } from './autocomplete-disease/autocomplete-disease.component'
+import { AutocompleteDiseasesComponent } from './autocomplete-disease/autocomplete-disease.component';
+import { AutocompleteDrugmultiComponent } from './autocomplete-drugmulti/autocomplete-drugmulti.component';
 import { TextNormalComponent } from './text-normal/text-normal.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { DropdownCertificateComponent } from './dropdown-certificate/dropdown-certificate.component';
@@ -22,13 +23,15 @@ import { DropdownCertificateComponent } from './dropdown-certificate/dropdown-ce
     TextNormalComponent,
     DropdownComponent,
     DropdownCertificateComponent,
-    AutocompleteDiseasesComponent
+    AutocompleteDiseasesComponent,
+    AutocompleteDrugmultiComponent
   ],
   exports: [
     TextNormalComponent,
     DropdownComponent,
     DropdownCertificateComponent,
-    AutocompleteDiseasesComponent
+    AutocompleteDiseasesComponent,
+    AutocompleteDrugmultiComponent
   ]
 })
 export class InputModule { }

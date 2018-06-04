@@ -26,7 +26,7 @@ export class SummaryComponent implements OnInit {
   ) { this.id = this.activatedroute.snapshot.params['personalId'];  }
 
   ngOnInit() {
-    this.summaryservice.getSummaryById(this.id).subscribe(result => {
+    this.summaryservice.getSummary().subscribe(result => {
       this.rows = result;
     });
   }
@@ -34,13 +34,16 @@ export class SummaryComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(SummaryDialogComponent, {
       width: '750px',
-      height: '800px',
       data: {}
     });
 
     dialogRef.afterClosed().subscribe(resultAllDialog => {
       if (resultAllDialog !== undefined) {
-
+        this.summaryservice.addSummary(resultAllDialog)
+        .mergeMap(() => this.summaryservice.getSummaryById(this.id))
+          .subscribe((results) => {
+            this.rows = results;
+          });
       }
     });
   }
