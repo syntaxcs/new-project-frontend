@@ -7,7 +7,7 @@ import { FollowDialogComponent} from './follow-dialog/follow-dialog.component';
 import { FollowService } from '../../shared/services/follow.service';
 import { ConfirmDeleteDialogComponent } from '../../theme/components/confirm-delete-dialog/confirm-delete-dialog.component';
 import { FollowDetailDialogComponent } from './follow-dialog-detail/follow-dialog-detail.component';
-import { CertificateService } from '../../shared/services/certificate.service';
+// import { TreaterService } from '../../shared/services/treater.service';
 @Component({
   selector: 'app-follow',
   templateUrl: './follow.component.html',
@@ -21,7 +21,7 @@ export class FollowComponent implements OnInit {
     private dialog: MatDialog,
     private formBuilder: FormBuilder,
     private followService: FollowService,
-    private certificateService: CertificateService,
+    // private treaterService: TreaterService,
   ) { }
 
   ngOnInit() {
@@ -64,7 +64,7 @@ export class FollowComponent implements OnInit {
         folSurName: row.folSurName,
         folDuration: row.folDuration,
         folPurpose: row.folPurpose,
-        cerNameTitle: row.cerNameTitle,
+        treNameTitle: row.treNameTitle,
       }
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -107,7 +107,7 @@ export class FollowComponent implements OnInit {
         personName: view.personName,
         personSurname: view.personSurname,
         folDuration: view.folDuration,
-        cerNameTitle: view.cerNameTitle,
+        treNameTitle: view.treNameTitle,
 
       }
     });
