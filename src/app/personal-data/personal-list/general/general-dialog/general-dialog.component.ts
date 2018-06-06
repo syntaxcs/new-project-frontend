@@ -23,6 +23,9 @@ export class GeneralDialogComponent implements OnInit {
   ngOnInit() {
     this.form = this.formBuilder.group({});
   }
+  // timeShow(time) {
+  //   return time.format
+  // }
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);
   }
