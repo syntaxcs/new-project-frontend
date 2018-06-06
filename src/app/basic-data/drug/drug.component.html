@@ -2,6 +2,9 @@
     <mat-card-subtitle fxLayout="row" fxLayoutGap="10px">
         <h2>ข้อมูลยา</h2>
         <div fxFlex></div>
+        <mat-form-field>
+            <input matInput placeholder='รหัสยา/ชื่อยา' (keyup)='searchFilter($event)'>
+        </mat-form-field>
         <app-button-card-title (onClick)="openDialog()">
             <mat-icon>add</mat-icon>เพิ่มข้อมูลยา</app-button-card-title>
             <app-button-card-title routerLink = "/">

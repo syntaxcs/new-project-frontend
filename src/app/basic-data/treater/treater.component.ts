@@ -12,6 +12,7 @@ import { ConfirmDeleteDialogComponent } from '../../theme/components/confirm-del
 })
 export class TreaterComponent implements OnInit {
   public rows = [];
+  public search = [];
   public form: FormGroup;
   constructor(
     private _state: GlobalState,
@@ -24,7 +25,17 @@ export class TreaterComponent implements OnInit {
     this.form = this.formBuilder.group({});
     this.treaterService.getTre().subscribe(result => {
       this.rows = result;
+      this.search = [...result];
     });
+  }
+  searchFilter(event) {
+    const val = event.target.value;
+      const temp = this.search.filter((data) => {
+        return data.treLicensed_No.indexOf(val) !== -1 ||
+          data.trePhysicianName.indexOf(val) !== -1 ||
+          data.trePhysicianSurName.indexOf(val) !== -1 || !val;
+      });
+      this.rows = temp;
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(TreaterDialogComponent, {

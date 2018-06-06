@@ -13,6 +13,7 @@ import { DiseaseService } from '../../shared/services/disease.service';
 })
 export class DiseaseComponent implements OnInit {
   public rows = [];
+  public search = [];
   constructor(
     private _state: GlobalState,
     private dialog: MatDialog,
@@ -22,10 +23,19 @@ export class DiseaseComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._state.notifyDataChanged('[Breadcrumbs] changed', [{ url: '/', title: 'หน้าแรก' }, { title: 'โรค-หัตถการ' }]);
     this.diseaseService.getDis().subscribe(result => {
       this.rows = result;
+      this.search = [...result];
     });
+  }
+  searchFilter(event) {
+    const val = event.target.value;
+      const temp = this.search.filter((data) => {
+        return data.disID.indexOf(val) !== -1 ||
+          data.disName.indexOf(val) !== -1 ||
+          data.disProcedure.indexOf(val) !== -1 || !val;
+      });
+      this.rows = temp;
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(DiseaseDialogComponent, {

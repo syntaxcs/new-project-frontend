@@ -2,6 +2,9 @@
     <mat-card-subtitle fxLayout="row" fxLayoutGap="10px">
         <h2>ข้อมูลประวัติการรักษา</h2>
         <div fxFlex></div>
+        <mat-form-field>
+            <input matInput placeholder='รหัสโรค/โรค/หัตถการ' (keyup)='searchFilter($event)'>
+        </mat-form-field>
         <app-button-card-title (onClick)="openDialog()">
             <mat-icon>add</mat-icon>เพิ่มข้อมูลประวัติการรักษา</app-button-card-title>
     </mat-card-subtitle>
@@ -14,7 +17,7 @@
             </ngx-datatable-column>
             <ngx-datatable-column name="วันที่มาพบแพทย์">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                  {{dateShow(value.date)}}
+                  {{value.date | date}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="เวลา">

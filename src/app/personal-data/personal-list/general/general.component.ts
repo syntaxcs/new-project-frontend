@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router'
 import { GlobalState } from '../../../shared/global.state';
 import { ConfirmDeleteDialogComponent } from '../../../theme/components/confirm-delete-dialog/confirm-delete-dialog.component';
 import { GeneralDialogComponent } from './general-dialog/general-dialog.component';
-import { GeneralService} from '../../../shared/services/general.service';
+import { GeneralService } from '../../../shared/services/general.service';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 
@@ -16,6 +16,7 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 })
 export class GeneralComponent implements OnInit {
   public rows = [];
+  public search = [];
   public id;
   public form: FormGroup;
   constructor(
@@ -23,21 +24,29 @@ export class GeneralComponent implements OnInit {
     private dialog: MatDialog,
     private formBuilder: FormBuilder,
     private activatedroute: ActivatedRoute,
-    private generalService:GeneralService,
+    private generalService: GeneralService,
 
   ) { this.id = this.activatedroute.snapshot.params['personalId']; }
   ngOnInit() {
     this.generalService.getGenById(this.id).subscribe(result => {
       this.rows = result;
+      this.search = [...result];
     });
   }
   dateShow(date) {
     return String(date).substr(0, 10)
   }
+  searchFilter(event) {
+    const val = event.target.value;
+    const temp = this.search.filter((data) => {
+      return (data.date.indexOf(val) !== -1);
+    });
+    this.rows = temp;
+  }
   openDialog(): void {
     const dialogRef = this.dialog.open(GeneralDialogComponent, {
       width: '750px',
-      data: { personId: this.id  }
+      data: { personId: this.id }
     });
 
     dialogRef.afterClosed().subscribe(resultAllDialog => {
@@ -52,30 +61,30 @@ export class GeneralComponent implements OnInit {
   }
   openEditDialog(row): void {
     const dialogRef = this.dialog.open(GeneralDialogComponent, {
-        width: '750px',
-        data: {
-          date: row.date,
-          time: row.time,
-          genSymptoms: row.genSymptoms,
-          genPresentHistory: row.genPresentHistory,
-          genPastHistory: row.genPastHistory,
-        }
+      width: '750px',
+      data: {
+        date: row.date,
+        time: row.time,
+        genSymptoms: row.genSymptoms,
+        genPresentHistory: row.genPresentHistory,
+        genPastHistory: row.genPastHistory,
+      }
     });
     dialogRef.afterClosed().subscribe(result => {
-        if (result !== undefined) {
-          this.generalService.updateGen(row._id, result)
+      if (result !== undefined) {
+        this.generalService.updateGen(row._id, result)
           .mergeMap(() => this.generalService.getGenById(this.id))
           .subscribe((results) => {
             this.rows = results;
           });
-        }
+      }
     });
-}
+  }
   confirmDelete(row): void {
     const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {
       width: '500px',
       data: {
-        content:  'ข้อมูลที่ถูกลบจะไม่สามารถกู้คืนได้ !'
+        content: 'ข้อมูลที่ถูกลบจะไม่สามารถกู้คืนได้ !'
       }
     });
     dialogRef.afterClosed().subscribe(result => {

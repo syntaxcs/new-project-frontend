@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class GeneralDialogComponent implements OnInit {
   public form: FormGroup;
-  date: Date;
+  date = new Intl.DateTimeFormat('th').format(new Date());
   startDate: any;
   brithDay: Date;
   constructor(
@@ -18,16 +18,14 @@ export class GeneralDialogComponent implements OnInit {
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<GeneralDialogComponent>,
   ) {
-    this.calculateYear();
   }
 
   ngOnInit() {
     this.form = this.formBuilder.group({});
   }
-  calculateYear() {
-    let year = new Date().getFullYear() + 543;
-    let month = new Date().getMonth()
-    this.startDate = new Date(year, month + 1, null, null, null, null);
+  getLocale() {
+    const locale = 'th';
+    return `${locale}-u-ca-gregory`;
   }
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);
