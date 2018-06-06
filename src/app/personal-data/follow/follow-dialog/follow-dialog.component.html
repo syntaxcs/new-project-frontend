@@ -1,30 +1,17 @@
 <app-dialog title="การนัดหมาย">
     <content fxLayout="column">
-        <!-- <div fxLayout="row">
-           // <app-input-text-normal [value]="data.personId" name="personId" placeholder="เลขที่บัตร ( ID )" text="" fxFlex [formGroup]='form'></app-input-text-normal>
-            <mat-form-field>
-                <input matInput [(ngModel)]="userPerson" name="userPerson" placeholder="เลขที่บัตร ( ID )">
-            </mat-form-field>
-            <button mat-raised-button (click)="findPerson(userPerson)">
-                ค้นหาผู้ป่วย
-                <mat-icon>search</mat-icon>
-            </button>
-        </div> -->
         <div fxLayout="row">
-            <app-input-text-normal [value]="data.folName" name="folName" placeholder="ชื่อผู้ป่วย" fxFlex [formGroup]='form'></app-input-text-normal>
-            <app-input-text-normal [value]="data.folSurName" name="folSurName" placeholder="นามสกุล" fxFlex [formGroup]='form'></app-input-text-normal>
-        </div>
-        <div fxLayout="row">
+            <app-autocomplete-personal title="เลขที่บัตรผู้ป่วย" [(selectedPersonals)]="data.personal" name="personal" fxFlex [formGroup]='form'></app-autocomplete-personal>
             <mat-form-field>
                 <input matInput [matDatepicker]="picker" [(ngModel)]="date" placeholder="วันเดือนปีที่นัดพบแพทย์">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
             </mat-form-field>
-
-            <app-dropdown [data]="time" [value]="data.folmytimeHour" placeholder="เวลานัดหมาย" name="folmytimeHour" fxFlex [formGroup]='form'></app-dropdown>
-            <app-dropdown [data]="time" [value]="data.folmytimeMinute" placeholder="เวลานัดหมาย" text="ถึง" name="folmytimeMinute" fxFlex
+        </div>
+        <div fxLayout="row">
+            <app-dropdown [data]="time" [value]="data.folmytimeHour" placeholder="เวลา" text="เวลานัดหมาย" name="folmytimeHour" fxFlex [formGroup]='form'></app-dropdown>
+            <app-dropdown [data]="time" [value]="data.folmytimeMinute" placeholder="เวลา" text="ถึง" name="folmytimeMinute" fxFlex
                 [formGroup]='form'></app-dropdown>
-
         </div>
 
         <app-input-text-normal [value]="data.folPurpose" text="จุดประสงค์เพื่อ" name="folPurpose" placeholder="จุดประสงค์เพื่อ" fxFlex
