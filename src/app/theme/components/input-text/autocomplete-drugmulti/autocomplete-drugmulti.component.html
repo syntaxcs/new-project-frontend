@@ -6,7 +6,7 @@
                 <input type="text" placeholder="เลือกยา" matInput [matAutocomplete]="auto" formControlName="drug">
                 <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
                     <mat-option *ngFor="let drug of filterDrugs" [value]="drug">
-                        รหัส {{drug.drugId}} {{drug.drugName}}
+                        {{drug.drugName}} ( {{drug.drugPackages}} )
                     </mat-option>
                 </mat-autocomplete>
             </mat-form-field>

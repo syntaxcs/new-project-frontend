@@ -1,11 +1,11 @@
 <app-dialog title="เพิ่มข้อมูลทั่วไป ( Add Personal )">
   <content fxLayout="column">
     <div fxLayout="row">
-      <app-input-text-normal [value]="data.personId" name="personId" placeholder="เลขที่บัตร ( ID )" text="" fxFlex [formGroup]='form'></app-input-text-normal>
-      <section>
-        <label>เพศ( sex )</label>
+      <app-input-text-normal style="margin-right:20%;" [value]="data.personId" name="personId" placeholder="เลขที่บัตร ( ID )" text="" fxFlex [formGroup]='form'></app-input-text-normal>
+      <section style="margin-top: 3%; margin-right: 10%;">
+        <label style="margin-left: -20%; margin-right: 5%;">เพศ( sex )</label>
         <mat-radio-group name="gender" [(ngModel)]="gender">
-          <mat-radio-button value="ชาย">ชาย</mat-radio-button>
+          <mat-radio-button style="margin-right: 3%" value="ชาย">ชาย</mat-radio-button>
           <mat-radio-button value="หญิง">หญิง</mat-radio-button>
         </mat-radio-group>
       </section>

@@ -12,8 +12,8 @@
             </div>
         </mat-grid-tile>
     </mat-grid-list>
-    <mat-accordion>
-        <mat-expansion-panel>
+    <mat-accordion >
+        <mat-expansion-panel style="background-color :rgb(253, 225, 113);">
             <mat-expansion-panel-header>
                 <mat-panel-title>
                     <h4>ข้อมูลส่วนตัว : {{rows.personId}} </h4>
@@ -22,59 +22,59 @@
             <div fxLayout="row">
                 <div fxFlex></div>
                 <app-button-card-title (onClick)="openEditDialog(rows)">
-                    <mat-icon>settings</mat-icon>แก้ไขข้อมูลส่วนตัว
+                    <mat-icon>edit</mat-icon>แก้ไขข้อมูลส่วนตัว
                 </app-button-card-title>
             </div>
-            <br>
-            <table>
+            
+            <table style="margin-top: -2%;">
                 <tr>
-                    <th>เลขที่บัตร</th>
-                    <td> {{rows.personId}} </td>
-                    <th>ชื่อ-นามสกุล</th>
+                    <th style="color: red;">เลขที่บัตร</th>
+                    <td > {{rows.personId}} </td>
+                    <th style="color: red;">ชื่อ-นามสกุล</th>
                     <td>{{rows.personNameTitle}} {{rows.personName}} {{rows.personSurname}}</td>
                 </tr>
                 <tr>
-                    <th>เพศ</th>
+                    <th style="color: red;">เพศ</th>
                     <td>{{rows.personGender}}</td>
-                    <th>วันเกิด</th>
+                    <th style="color: red;">วันเกิด</th>
                     <td>{{dateShow(rows.personBirth)}} </td>
                 </tr>
                 <tr>
-                    <th>อายุ</th>
+                    <th style="color: red;">อายุ</th>
                     <td>{{ageCalculate(rows.personBirth)}}</td>
-                    <th>เลขบัตรประชาชน</th>
+                    <th style="color: red;">เลขบัตรประชาชน</th>
                     <td>{{rows.personIdentityId}}</td>
                 </tr>
                 <tr>
-                    <th>สถานะภาพ</th>
+                    <th style="color: red;">สถานะภาพ</th>
                     <td> {{rows.personMaritalStatus}}</td>
-                    <th>อาชีพ</th>
+                    <th style="color: red;">อาชีพ</th>
                     <td>{{rows.personCareer}}</td>
                 </tr>
                 <tr>
-                    <th>สถานที่เกิด</th>
+                    <th style="color: red;">สถานที่เกิด</th>
                     <td> {{rows.personBirthPlace}}</td>
-                    <th>จังหวัด</th>
+                    <th style="color: red;">จังหวัด</th>
                     <td>{{rows.personProvince}}</td>
                 </tr>
                 <tr>
-                    <th>เชื้อชาติ</th>
+                    <th style="color: red;">เชื้อชาติ</th>
                     <td>{{rows.personNationality}} </td>
-                    <th> สัญชาติ </th>
+                    <th style="color: red;"> สัญชาติ </th>
                     <td> {{rows.personCitizenship}}</td>
                 </tr>
                 <tr>
-                    <th>ศาสนา</th>
+                    <th style="color: red;">ศาสนา</th>
                     <td>{{rows. personReligion}}</td>
-                    <th>เบอร์โทร </th>
+                    <th style="color: red;">เบอร์โทร </th>
                     <td> {{rows.personNumber}}</td>
                 </tr>
-                <th>ที่อยู่</th>
+                <th style="color: red;">ที่อยู่</th>
                 <td colspan="3">{{rows.personAddress}} </td>
                 <tr>
-                    <th>ประวัติครอบครัว</th>
+                    <th style="color: red;">ประวัติครอบครัว</th>
                     <td>{{rows.personFamilyHistory}}</td>
-                    <th>ประวัติส่วนตัว</th>
+                    <th style="color: red;">ประวัติส่วนตัว</th>
                     <td>{{rows.personPersonalHistory}}</td>
                 </tr>
             </table>
@@ -89,7 +89,7 @@
         <br>
     </div>
     <mat-tab-group cols="2">
-        <mat-tab label="ประวัติการรักษา">
+        <mat-tab label="การรักษา">
             <app-general></app-general>
         </mat-tab>
         <mat-tab label="ตรวจร่างกายก่อนการรักษา">
