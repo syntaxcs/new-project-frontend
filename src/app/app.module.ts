@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations/';
 import { routing } from './app.routing';
 import { NgModule } from '@angular/core';
 import { LayoutModule } from './theme/layout/layout.module';
-
+import { LOCALE_ID } from '@angular/core';
 // import Components
 import { AppComponent } from './app.component';
 
@@ -26,7 +26,8 @@ import { GlobalState } from './shared/global.state';
   providers: [
     JwtService,
     GlobalState,
-    ApiService
+    ApiService,
+    { provide: LOCALE_ID, useValue: "th-US" }
   ],
   bootstrap: [AppComponent]
 })

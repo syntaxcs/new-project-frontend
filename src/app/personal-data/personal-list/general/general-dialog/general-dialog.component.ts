@@ -23,10 +23,6 @@ export class GeneralDialogComponent implements OnInit {
   ngOnInit() {
     this.form = this.formBuilder.group({});
   }
-  getLocale() {
-    const locale = 'th';
-    return `${locale}-u-ca-gregory`;
-  }
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);
   }
