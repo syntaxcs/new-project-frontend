@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class GeneralDialogComponent implements OnInit {
   public form: FormGroup;
-  date = new Intl.DateTimeFormat('th').format(new Date());
+  date = new Date();
   startDate: any;
   brithDay: Date;
   constructor(
