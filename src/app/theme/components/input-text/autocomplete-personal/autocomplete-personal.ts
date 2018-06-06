@@ -17,7 +17,7 @@ export class AutocompletePersonalComponent implements OnInit {
     @Input() _selectedPersonal = {};
 
     private courses = [];
-    public filteredCourses =;
+    public filteredCourses = '';
     public myControl = new FormControl();
     public otherCourses: { coursesCode: '' };
     public loading = true;
@@ -30,22 +30,22 @@ export class AutocompletePersonalComponent implements OnInit {
 
     @Input('selectedPersonal')
     set setSelectedCourses(courses) {
-        if (courses === undefined) this._selectedCourses = null;
-        else { this._selectedCourses = courses || []; }
+        if (courses === undefined) this._selectedPersonal = null;
+        else { this._selectedPersonal = courses || []; }
     }
-    get selectedCourses() {
-        return this._selectedCourses;
+    get selectedPersonal() {
+        return this._selectedPersonal;
     }
 
     ngOnInit() {
-        this.personalservice.getCourses().subscribe((courses: Courses[]) => {
-            this.courses = courses;
-            this.loading = false;
-        });
-        this.filteredCourses = this.myControl.valueChanges.pipe(
-            startWith(null),
-            map(value => value && value instanceof Courses ? value.coursesCode : value),
-            map(value => value ? this.filter(value) : this.courses.slice()), );
+        // this.personalservice.getCourses().subscribe((courses: Courses[]) => {
+        //     this.courses = courses;
+        //     this.loading = false;
+        // });
+        // this.filteredCourses = this.myControl.valueChanges.pipe(
+        //     startWith(null),
+        //     map(value => value && value instanceof Courses ? value.coursesCode : value),
+        //     map(value => value ? this.filter(value) : this.courses.slice()), );
     }
     filter(name: string) {
         return this.courses.filter(courses => courses.coursesCode.indexOf(name) === 0);

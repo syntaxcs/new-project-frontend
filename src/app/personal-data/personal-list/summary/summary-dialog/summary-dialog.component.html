@@ -11,31 +11,18 @@
             <h3 class="daration">ช่วงเวลา ( Duration )</h3>
         </div>
         <div fxLayout="row">
-            <form>
+            <div fxLayout="column">
                 <section *ngFor="let data of treat">
                     <mat-checkbox color="warn" (change)="toggle($event.checked, data)" [value]="data.treatMents">{{data.treatMents}}</mat-checkbox>
                 </section>
-            </form>
-            <div class="daration2">
-                <app-dropdown [data]="duration" [value]="data.summaryDuration" placeholder="ช่วงการรักษา" name="summaryDuration" fxFlex [formGroup]='form'></app-dropdown>
             </div>
-
+            <div fxFlex></div>
+            <div fxLayout="column">
+                <app-dropdown [data]="duration" [value]="data.statusTime" placeholder="ช่วงการรักษา" name="statusTime" fxFlex [formGroup]='form'></app-dropdown>
+            </div>
         </div>
-
         <h3>จ่ายยา ( Dispense )</h3>
-        <div fxLayout="row">
-            <mat-form-field>
-                <mat-select [formControl]="drugMultiCtrl" placeholder="ชื่อยา" [multiple]="true" #multiSelect>
-                    <ngx-mat-select-search [formControl]="drugMultiFilterCtrl"></ngx-mat-select-search>
-                    <mat-option *ngFor="let drug of drugs" [value]="drug.drugName">
-                        {{ drug.drugName }}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-
-            <app-input-text-normal [value]="data.drugUnit" name="drugUnit" placeholder="2 กระปุก" text="จำนวน" fxFlex [formGroup]='form'></app-input-text-normal>
-        </div>
-
+        <app-autocomplete-drugmulti [(selectedDrugs)]="data.drug" fxFlex [formGroup]="form"></app-autocomplete-drugmulti>
     </content>
     <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
         <button mat-raised-button color="primary" (click)="onSave()">บันทึก</button>

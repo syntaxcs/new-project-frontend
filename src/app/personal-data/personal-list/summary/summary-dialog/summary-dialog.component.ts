@@ -76,9 +76,10 @@ export class SummaryDialogComponent implements OnInit {
   }
   onSave() {
     const value = this.form.value;
-    value.disease = this.data.disease
-    value.treatMents = this.treatMents;
-    // this.dialogRef.close(value);
+    value.disease = this.data.disease._id
+    value.treatment = this.treatMents;
+    value.personId = this.data.personId
+    this.dialogRef.close(value);
   }
 
 
