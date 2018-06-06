@@ -30,6 +30,7 @@ export class SummaryDialogComponent implements OnInit {
   public treat = [];
   treatMents = [];
   isChecked = true;
+  disProcedure = '';
   public disprod = '';
   public filteredDrugs: ReplaySubject<Drug[]> = new ReplaySubject<Drug[]>(1);
   /** list of banks filtered by search keyword for multi-selection */
@@ -69,7 +70,7 @@ export class SummaryDialogComponent implements OnInit {
     }
   }
   check(data){
-    this.form.value.disProcedure = data.disProcedure;
+    this.disProcedure = data.disProcedure;
   }
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);
@@ -78,7 +79,7 @@ export class SummaryDialogComponent implements OnInit {
     const value = this.form.value;
     value.disease = this.data.disease._id
     value.treatment = this.treatMents;
-    value.personId = this.data.personId
+    value.personId = this.data.personId;
     this.dialogRef.close(value);
   }
 
