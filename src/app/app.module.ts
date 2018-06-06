@@ -27,7 +27,7 @@ import { GlobalState } from './shared/global.state';
     JwtService,
     GlobalState,
     ApiService,
-    { provide: LOCALE_ID, useValue: "th-US" }
+    { provide: LOCALE_ID, useValue: "th-TH" }
   ],
   bootstrap: [AppComponent]
 })
