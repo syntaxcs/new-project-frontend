@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { Observable} from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
 import { GlobalState } from '../../shared/global.state';
 import { DrugDialogComponent } from './drug-dialog/drug-dialog.component';
 import { DrugService } from '../../shared/services/drug.service';
@@ -13,6 +13,7 @@ import { ConfirmDeleteDialogComponent } from '../../theme/components/confirm-del
 })
 export class DrugComponent implements OnInit {
   public rows = [];
+  public search = [];
   public form: FormGroup;
   constructor(
     private _state: GlobalState,
@@ -26,7 +27,16 @@ export class DrugComponent implements OnInit {
     this.form = this.formBuilder.group({});
     this.drugService.getDrug().subscribe(result => {
       this.rows = result;
+      this.search = [...result];
     });
+  }
+  searchFilter(event) {
+    const val = event.target.value;
+    const temp = this.search.filter((data) => {
+      return data.drugId.indexOf(val) !== -1 ||
+        data.drugName.indexOf(val) !== -1 || !val;
+    });
+    this.rows = temp;
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(DrugDialogComponent, {
@@ -37,10 +47,10 @@ export class DrugComponent implements OnInit {
     dialogRef.afterClosed().subscribe(resultAllDialog => {
       if (resultAllDialog !== undefined) {
         this.drugService.addDrug(resultAllDialog)
-        .mergeMap(() => this.drugService.getDrug())
-        .subscribe((valueFromDatabse) => {
+          .mergeMap(() => this.drugService.getDrug())
+          .subscribe((valueFromDatabse) => {
             this.rows = valueFromDatabse;
-        })
+          })
       }
     });
   }
@@ -54,7 +64,7 @@ export class DrugComponent implements OnInit {
         drugPrice: row.drugPrice,
         drugPackages: row.drugPackages
 
-        
+
       }
     });
     dialogRef.afterClosed().subscribe(result => {

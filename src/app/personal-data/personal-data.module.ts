@@ -100,7 +100,7 @@ import { TreaterService } from '../shared/services/treater.service';
     DiseaseService,
     SummaryService,
     TreaterService,
-
   ],
 })
+
 export class PersonalDataModule { }

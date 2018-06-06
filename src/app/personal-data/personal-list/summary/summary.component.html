@@ -39,7 +39,7 @@
             <ngx-datatable-column name="จ่ายยา">
                 <ng-template let-value="value" ngx-datatable-cell-template>
                     <div *ngFor="let data of value.countDrugs">
-                        <!-- <a> {{data.drug.drugName}} {{data.count}}</a> -->
+                        <a> {{data.drug.drugName}} {{data.count}}</a>
                     </div>
 
                 </ng-template>

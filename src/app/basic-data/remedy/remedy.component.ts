@@ -14,8 +14,9 @@ import { ConfirmDeleteDialogComponent } from '../../theme/components/confirm-del
 })
 export class RemedyComponent implements OnInit {
   public rows = [];
+  public search = [];
   public form: FormGroup;
- 
+
   constructor(
     private _state: GlobalState,
     private dialog: MatDialog,
@@ -29,7 +30,16 @@ export class RemedyComponent implements OnInit {
     this.form = this.formBuilder.group({});
     this.treatmentService.getTreat().subscribe(result => {
       this.rows = result;
+      this.search = [...result];
     });
+  }
+  searchFilter(event) {
+    const val = event.target.value;
+    const temp = this.search.filter((data) => {
+      return data.treatID.indexOf(val) !== -1 ||
+        data.treatMents.indexOf(val) !== -1 || !val;
+    });
+    this.rows = temp;
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(RemedyDialogComponent, {
@@ -41,10 +51,10 @@ export class RemedyComponent implements OnInit {
     dialogRef.afterClosed().subscribe(resultAllDialog => {
       if (resultAllDialog !== undefined) {
         this.treatmentService.addTreat(resultAllDialog)
-        .mergeMap(() => this.treatmentService.getTreat())
-        .subscribe((valueFromDatabse) => {
+          .mergeMap(() => this.treatmentService.getTreat())
+          .subscribe((valueFromDatabse) => {
             this.rows = valueFromDatabse;
-        })
+          })
       }
     });
   }
