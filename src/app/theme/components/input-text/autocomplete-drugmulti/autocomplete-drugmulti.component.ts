@@ -19,8 +19,11 @@ export class AutocompleteDrugmultiComponent implements OnInit {
 
     public form = new FormArray([]);
     private _selectedDrugs = [];
-    filterDrugs = [];
-
+    public filterDrugs = [];
+    public myControl = new FormControl();
+    public drugs: any = [];
+    // public loading = true;
+    public filtered: Observable<[{}]>;
     constructor(
         private formBuilder: FormBuilder,
         private drugservice: DrugService
@@ -28,7 +31,7 @@ export class AutocompleteDrugmultiComponent implements OnInit {
     @Output() selectedDrugChange = new EventEmitter<any>();
     @Input('selectedDrugs')
 
-    set setSelectedTeachers(countDrugs) {
+    set setSelectedDrugs(countDrugs) {
         this._selectedDrugs = countDrugs || [];
         this._selectedDrugs.forEach((drug) => {
             const validator = {};
@@ -48,12 +51,17 @@ export class AutocompleteDrugmultiComponent implements OnInit {
             this.add();
         }
         this.setDrugToString();
+        this.filtered = this.myControl.valueChanges.pipe(
+            startWith(null),
+            map(value => value ? this.filter(value) : this.drugs.slice()), );
     }
 
     displayFn(drugs): string {
-        return drugs ? `${drugs.drugId} ${drugs.drugName}` : '';
+        return drugs ? `${drugs.drugName}` + ' (' + `${drugs.drugPackages}` + ')' : '';
     }
-
+    filter(name: string) {
+        return this.filterDrugs.filter(drug => drug.drugName.indexOf(name) === 0 || drug.drugPackages.indexOf(name) === 0);
+    }
     add() {
         this.selectedDrugs.push({});
         this.selectedDrugChange.emit(this.selectedDrugs);

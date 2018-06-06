@@ -1,10 +1,28 @@
 <app-dialog title="ข้อมูลสรุปความเจ็บป่วย">
     <content fxLayout="column">
+        <div fxLayout="row">
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="date" placeholder="วัน/เดือน/ปีที่มาพบแพทย์">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="เวลาที่มาพบแพทย์" [(ngModel)]="brithDay" aria-label="Custom buttons" [ngxTimepicker]="timepickerWithButtons"
+                    readonly>
+                <ngx-material-timepicker #timepickerWithButtons [cancelBtnTmpl]="cancelBtn" [confirmBtnTmpl]="confirmBtn"></ngx-material-timepicker>
+            </mat-form-field>
+            <ng-template #cancelBtn>
+                <button mat-raised-button color="primary" style="margin-right: 10px; ">ยกเลิก</button>
+            </ng-template>
+            <ng-template #confirmBtn>
+                <button mat-raised-button color="primary">ตกลง</button>
+            </ng-template>
+        </div>
         <app-autocomplete-disease title="กลุ่ม" [(selectedDiseases)]="data.disease" (selectedDiseasesChange)="check($event)" name="disease"
             placeholder="เลือกกลุ่ม" fxFlex [formGroup]='form'></app-autocomplete-disease>
         <div fxLayout="row">
             <label>หัตถการ: </label>
-            <label> {{ form.value.disProcedure }} </label>
+            <label> {{ disProcedure }} </label>
         </div>
         <div fxLayout="row">
             <h3>วิธีการรักษา ( Treatment )</h3>

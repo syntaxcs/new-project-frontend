@@ -9,10 +9,6 @@ import { Subject } from 'rxjs/Subject';
 import { take, takeUntil } from 'rxjs/operators';
 import { MatSelect, VERSION } from '@angular/material';
 import { TreatmentService } from '../../../../shared/services/treatment.service'
-interface Drug {
-  id: string;
-  Drug: string;
-}
 
 @Component({
   selector: 'app-summary-dialog',
@@ -22,7 +18,6 @@ interface Drug {
 })
 export class SummaryDialogComponent implements OnInit {
   public form: FormGroup;
-
   public drugs = [];
   public symptoms = [];
   select = null
@@ -30,10 +25,11 @@ export class SummaryDialogComponent implements OnInit {
   public treat = [];
   treatMents = [];
   isChecked = true;
+  disProcedure = '';
   public disprod = '';
-  public filteredDrugs: ReplaySubject<Drug[]> = new ReplaySubject<Drug[]>(1);
-  /** list of banks filtered by search keyword for multi-selection */
-  public filteredDrugsMulti: ReplaySubject<Drug[]> = new ReplaySubject<Drug[]>(1);
+  date: Date;
+  startDate: any;
+  brithDay: Date;
 
   @ViewChild('singleSelect') singleSelect: MatSelect;
   @ViewChild('multiSelect') multiSelect: MatSelect;
@@ -49,7 +45,11 @@ export class SummaryDialogComponent implements OnInit {
     private diseaseService: DiseaseService,
     private treatmentservice: TreatmentService
 
-  ) { }
+  ) {
+    let year = new Date().getFullYear() + 543;
+    let month = new Date().getMonth()
+    this.startDate = new Date(year, month + 1, null, null, null, null);
+   }
   ngOnInit() {
     this.form = this.formBuilder.group({});
     this.treatmentservice.getTreat().subscribe(result => {
@@ -69,7 +69,7 @@ export class SummaryDialogComponent implements OnInit {
     }
   }
   check(data){
-    this.form.value.disProcedure = data.disProcedure;
+    this.disProcedure = data.disProcedure;
   }
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);
@@ -78,7 +78,9 @@ export class SummaryDialogComponent implements OnInit {
     const value = this.form.value;
     value.disease = this.data.disease._id
     value.treatment = this.treatMents;
-    value.personId = this.data.personId
+    value.personId = this.data.personId;
+    value.date = this.date;
+    value.time = this.brithDay;
     this.dialogRef.close(value);
   }
 

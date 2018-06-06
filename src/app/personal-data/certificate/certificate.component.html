@@ -10,29 +10,24 @@
     <mat-card-content>
         <ngx-datatable class="material" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows"
             [limit]="10">
-            <ngx-datatable-column name="ลำดับ" [maxWidth]="100">
-                <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                    {{rowIndex + 1}}
+            <ngx-datatable-column name="วันที่ออกใบรับรองแพทย์">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.cerDateout}}
                 </ng-template>
             </ngx-datatable-column>
-            <ngx-datatable-column name="วันที่">
+            <ngx-datatable-column name="ชื่อ-นามสกุลผู้ป่วย">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    
-                </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="เวลา">
-                <ng-template let-value="value" ngx-datatable-cell-template>
-
+                    {{ value.personal }} {{ value.personNameTitle + value.personName }} {{ value.personSurname }}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="อาการ/โรค">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-
+                    {{value.cerSymptom}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="ผู้รักษา">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-
+                    {{value.treNameTitle}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="ดำเนินการ" [maxWidth]="170">
