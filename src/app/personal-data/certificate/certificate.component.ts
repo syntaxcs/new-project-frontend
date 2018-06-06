@@ -17,6 +17,7 @@ export class CertificateComponent implements OnInit {
   public id;
   public certificate = [];
   public form: FormGroup;
+ 
 
   constructor(
     private _state: GlobalState,
@@ -25,7 +26,9 @@ export class CertificateComponent implements OnInit {
     private certificateService: CertificateService,
     private personalService : PersonalService,
 
-  ) { }
+  ) { 
+    
+  }
 
   ngOnInit() {
     this.certificateService.getCer().subscribe((result) => {

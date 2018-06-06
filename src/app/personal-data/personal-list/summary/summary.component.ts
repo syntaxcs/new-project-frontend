@@ -35,6 +35,7 @@ export class SummaryComponent implements OnInit {
       width: '750px',
       height: '800px',
       data: {
+        
 
       }
     });

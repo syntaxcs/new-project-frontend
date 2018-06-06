@@ -10,7 +10,7 @@
             [limit]="10">
             <ngx-datatable-column name="วันที่มาพบแพทย์">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                  {{dateShow(value.date)}}
+                    {{dateShow(value.date)}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="เวลา">
@@ -39,7 +39,7 @@
             <ngx-datatable-column name="จ่ายยา">
                 <ng-template let-value="value" ngx-datatable-cell-template>
                     <div *ngFor="let data of value.countDrugs">
-                        <a> {{data.drug.drugName}} {{data.count}}</a>
+                        <!-- <a> {{data.drug.drugName}} {{data.count}}</a> -->
                     </div>
 
                 </ng-template>
