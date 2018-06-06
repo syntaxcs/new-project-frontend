@@ -20,9 +20,7 @@ export class PhysicalDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<PhysicalDialogComponent>,
-  ) {  let year = new Date().getFullYear() + 543;
-    let month = new Date().getMonth()
-    this.startDate = new Date(year, month + 1, null, null, null, null);}
+  ) {}
   ngOnInit() {
     this.form = this.formBuilder.group({});
     
