@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CertificateService } from '../../../../shared/services/certificate.service';
+import { TreaterService} from '../../../../shared/services/treater.service';
 @Component({
   selector: 'app-dropdown-certificate',
   templateUrl: './dropdown-certificate.component.html',
@@ -16,11 +16,11 @@ export class DropdownCertificateComponent implements OnInit, OnDestroy {
   @Input() value: string;
   @Output() change: EventEmitter<any> = new EventEmitter();
   constructor(private formBuilder: FormBuilder,
-    private certificateservice: CertificateService) { }
+    private treaterService: TreaterService) { }
 
   ngOnInit() {
     this.formGroup.addControl(this.name, this.formBuilder.control(this.value, [Validators.required]));
-    this.certificateservice.getCer().subscribe(result => {
+    this.treaterService.getTre().subscribe(result => {
       this.data = result;
     })
   }

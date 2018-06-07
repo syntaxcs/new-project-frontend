@@ -6,6 +6,7 @@ import { GlobalState } from '../../shared/global.state';
 import { CertificateDialogComponent } from './certificate-dialog/certificate-dialog.component';
 import { CertificateService } from '../../shared/services/certificate.service';
 import { ConfirmDeleteDialogComponent } from '../../theme/components/confirm-delete-dialog/confirm-delete-dialog.component';
+import { PersonalService } from '../../shared/services/personal.service'
 @Component({
   selector: 'app-certificate',
   templateUrl: './certificate.component.html',
@@ -13,22 +14,29 @@ import { ConfirmDeleteDialogComponent } from '../../theme/components/confirm-del
 })
 export class CertificateComponent implements OnInit {
   public rows = [];
+  public id;
   public certificate = [];
   public form: FormGroup;
+ 
 
   constructor(
     private _state: GlobalState,
     private dialog: MatDialog,
     private formBuilder: FormBuilder,
     private certificateService: CertificateService,
+    private personalService : PersonalService,
 
-  ) { }
+  ) { 
+    
+  }
 
   ngOnInit() {
     this.certificateService.getCer().subscribe((result) => {
       this.rows = result;
-      console.log(this.rows)
     })
+    // this.personalService.getPersonById(this.id).subscribe((result) => {
+    //   this.rows = result;
+    // })
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(CertificateDialogComponent, {
@@ -54,10 +62,9 @@ export class CertificateComponent implements OnInit {
     const dialogRef = this.dialog.open(CertificateDialogComponent, {
       width: '750px',
       data: {
-        cerLicensed_No: row.cerLicensed_No,
-        cerNameTitle: row.cerNameTitle,
-        cerPhysicianName: row.cerPhysicianName,
-        cerPhysicianSurName: row.cerPhysicianSurName
+        
+        cerSymptom: row.cerSymptom,
+        cerDateout: row.cerDateout,
       }
     });
     dialogRef.afterClosed().subscribe(result => {

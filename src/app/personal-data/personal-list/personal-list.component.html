@@ -28,53 +28,53 @@
             
             <table style="margin-top: -2%;">
                 <tr>
-                    <th style="color: red;">เลขที่บัตร</th>
+                    <th>เลขที่บัตร</th>
                     <td > {{rows.personId}} </td>
-                    <th style="color: red;">ชื่อ-นามสกุล</th>
+                    <th >ชื่อ-นามสกุล</th>
                     <td>{{rows.personNameTitle}} {{rows.personName}} {{rows.personSurname}}</td>
                 </tr>
                 <tr>
-                    <th style="color: red;">เพศ</th>
+                    <th >เพศ</th>
                     <td>{{rows.personGender}}</td>
-                    <th style="color: red;">วันเกิด</th>
+                    <th >วันเกิด</th>
                     <td>{{dateShow(rows.personBirth)}} </td>
                 </tr>
                 <tr>
-                    <th style="color: red;">อายุ</th>
+                    <th >อายุ</th>
                     <td>{{ageCalculate(rows.personBirth)}}</td>
-                    <th style="color: red;">เลขบัตรประชาชน</th>
+                    <th >เลขบัตรประชาชน</th>
                     <td>{{rows.personIdentityId}}</td>
                 </tr>
                 <tr>
-                    <th style="color: red;">สถานะภาพ</th>
+                    <th >สถานะภาพ</th>
                     <td> {{rows.personMaritalStatus}}</td>
-                    <th style="color: red;">อาชีพ</th>
+                    <th >อาชีพ</th>
                     <td>{{rows.personCareer}}</td>
                 </tr>
                 <tr>
-                    <th style="color: red;">สถานที่เกิด</th>
+                    <th >สถานที่เกิด</th>
                     <td> {{rows.personBirthPlace}}</td>
-                    <th style="color: red;">จังหวัด</th>
+                    <th >จังหวัด</th>
                     <td>{{rows.personProvince}}</td>
                 </tr>
                 <tr>
-                    <th style="color: red;">เชื้อชาติ</th>
+                    <th >เชื้อชาติ</th>
                     <td>{{rows.personNationality}} </td>
-                    <th style="color: red;"> สัญชาติ </th>
+                    <th > สัญชาติ </th>
                     <td> {{rows.personCitizenship}}</td>
                 </tr>
                 <tr>
-                    <th style="color: red;">ศาสนา</th>
+                    <th >ศาสนา</th>
                     <td>{{rows. personReligion}}</td>
-                    <th style="color: red;">เบอร์โทร </th>
+                    <th >เบอร์โทร </th>
                     <td> {{rows.personNumber}}</td>
                 </tr>
-                <th style="color: red;">ที่อยู่</th>
+                <th >ที่อยู่</th>
                 <td colspan="3">{{rows.personAddress}} </td>
                 <tr>
-                    <th style="color: red;">ประวัติครอบครัว</th>
+                    <th >ประวัติครอบครัว</th>
                     <td>{{rows.personFamilyHistory}}</td>
-                    <th style="color: red;">ประวัติส่วนตัว</th>
+                    <th >ประวัติส่วนตัว</th>
                     <td>{{rows.personPersonalHistory}}</td>
                 </tr>
             </table>

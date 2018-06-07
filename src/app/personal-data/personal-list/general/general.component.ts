@@ -82,7 +82,7 @@ export class GeneralComponent implements OnInit {
   }
   confirmDelete(row): void {
     const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {
-      width: '500px',
+      width: '500px', 
       data: {
         content: 'ข้อมูลที่ถูกลบจะไม่สามารถกู้คืนได้ !'
       }

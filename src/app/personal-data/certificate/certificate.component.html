@@ -12,22 +12,22 @@
             [limit]="10">
             <ngx-datatable-column name="วันที่ออกใบรับรองแพทย์">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.cerDateout}}
+                    {{dateShow(value.cerDateout)}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="ชื่อ-นามสกุลผู้ป่วย">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                  
+                    {{ value.personId }} {{ value.personNameTitle + value.personName }} {{ value.personSurname }}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="อาการ/โรค">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-
+                    {{value.cerSymptom}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="ผู้รักษา">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-               
+                    {{value.treNameTitle}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="ดำเนินการ" [maxWidth]="170">

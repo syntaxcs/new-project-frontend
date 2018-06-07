@@ -6,6 +6,7 @@ import { GlobalState } from '../../../shared/global.state';
 import { ConfirmDeleteDialogComponent } from '../../../theme/components/confirm-delete-dialog/confirm-delete-dialog.component';
 import { SummaryDialogComponent } from './summary-dialog/summary-dialog.component';
 import { SummaryService } from './../../../shared/services/summary.service';
+
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
@@ -13,8 +14,6 @@ import { SummaryService } from './../../../shared/services/summary.service';
 })
 export class SummaryComponent implements OnInit {
   public rows = [];
-  public row2 = [];
-  public row3 = [];
   public id;
 
   constructor(
@@ -36,6 +35,7 @@ export class SummaryComponent implements OnInit {
       width: '750px',
       height: '800px',
       data: {
+        
 
       }
     });
@@ -50,7 +50,9 @@ export class SummaryComponent implements OnInit {
       }
     });
   }
-
+  dateShow(date) {
+    return String(date).substr(0, 10)
+  }
   openEditDialog(row): void {
     const dialogRef = this.dialog.open(SummaryDialogComponent, {
       width: '750px',
