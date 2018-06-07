@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormGroup } from '@angular/forms';
 // import { CertificateService } from '../../../shared/services/certificate.service';
 import { TreaterService } from '../../../shared/services/treater.service';
+
 @Component({
   selector: 'app-certificate-dialog',
   templateUrl: './certificate-dialog.component.html',
@@ -20,6 +21,7 @@ export class CertificateDialogComponent implements OnInit {
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<CertificateDialogComponent>,
     private treaterService: TreaterService,
+    
   ) {
     let year = new Date().getFullYear() + 543;
     let month = new Date().getMonth()
@@ -30,8 +32,6 @@ export class CertificateDialogComponent implements OnInit {
     this.treaterService.getTre().subscribe(result => {
       this.certificate = result;
     })
-
-
   }
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);

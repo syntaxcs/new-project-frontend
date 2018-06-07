@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class GeneralDialogComponent implements OnInit {
   public form: FormGroup;
-  date = new Intl.DateTimeFormat('th').format(new Date());
+  date: Date;
   startDate: any;
   brithDay: Date;
   constructor(
@@ -23,6 +23,9 @@ export class GeneralDialogComponent implements OnInit {
   ngOnInit() {
     this.form = this.formBuilder.group({});
   }
+  // timeShow(time) {
+  //   return time.format
+  // }
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);
   }
