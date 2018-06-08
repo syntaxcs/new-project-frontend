@@ -13,13 +13,20 @@ export class EvalutionDialogComponent implements OnInit {
     public bodyparth = ['ศีรษะ', 'ต้นคอ', 'บ่า', 'ไหล่', 'หลัง-เอว'
         , 'ขา-เท้า', 'ข้อเท้า', 'เข่า', 'ข้อศอก', 'ข้อมือ-ข้อนิ้ว', 'อ่อนเเรงข้างซ้าย', 'อ่อนแรงข้างขวา', 'อ่อนแรงทั้งสองข้าง'];
     date: Date;
-    startDate: any;
     brithDay: Date;
     constructor(
         @Inject(MAT_DIALOG_DATA) public data: any,
         private formBuilder: FormBuilder,
         private dialogRef: MatDialogRef<EvalutionDialogComponent>,
-    ) { }
+    ) { 
+        if (this.data.date !== undefined) {
+            this.date = new Date(this.data.date);
+            this.date.setDate(this.date.getDate()-1);
+          }
+          if (this.data.time !== undefined) {
+            this.brithDay = this.data.time
+          }
+    }
     ngOnInit() {
         this.form = this.formBuilder.group({});
     }
@@ -30,6 +37,7 @@ export class EvalutionDialogComponent implements OnInit {
         const value = this.form.value;
         value.personId = this.data.personId;
         value.date = this.date;
+        value.date.setDate(this.date.getDate()+1);
         value.time = this.brithDay;
         this.dialogRef.close(value);
     }

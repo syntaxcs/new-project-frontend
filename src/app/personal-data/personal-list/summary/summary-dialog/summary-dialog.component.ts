@@ -18,17 +18,11 @@ import { TreatmentService } from '../../../../shared/services/treatment.service'
 })
 export class SummaryDialogComponent implements OnInit {
   public form: FormGroup;
-  public drugs = [];
-  public symptoms = [];
-  select = null
   public duration = ['ในเวลา', 'นอกเวลา'];
   public treat = [];
   treatMents = [];
-  isChecked = true;
   disProcedure = '';
-  public disprod = '';
   date: Date;
-  startDate: any;
   brithDay: Date;
 
   @ViewChild('singleSelect') singleSelect: MatSelect;
@@ -46,20 +40,33 @@ export class SummaryDialogComponent implements OnInit {
     private treatmentservice: TreatmentService
 
   ) {
-    let year = new Date().getFullYear() + 543;
-    let month = new Date().getMonth()
-    this.startDate = new Date(year, month + 1, null, null, null, null);
-   }
+    this.editMode();
+  }
   ngOnInit() {
     this.form = this.formBuilder.group({});
     this.treatmentservice.getTreat().subscribe(result => {
       this.treat = result;
     })
   }
- 
-  
-  toggle(check, data){
-    if( check === true ) {
+  editMode() {
+    if (this.data.date !== undefined) {
+      if (this.data.date !== undefined) {
+        this.date = new Date(this.data.date);
+        this.date.setDate(this.date.getDate() - 1);
+      }
+      if (this.data.time !== undefined) {
+        this.brithDay = this.data.time
+      }
+      if (this.data.disease !== undefined) {
+        this.check(this.data.disease);
+      }
+      if (this.data.treatment.length > 0) {
+        this.treat = this.data.treatment;
+      }
+    }
+  }
+  toggle(check, data) {
+    if (check === true) {
       this.treatMents.push(data)
     } else {
       const index: number = this.treatMents.indexOf(data);
@@ -68,7 +75,7 @@ export class SummaryDialogComponent implements OnInit {
       }
     }
   }
-  check(data){
+  check(data) {
     this.disProcedure = data.disProcedure;
   }
   onClose() {

@@ -35,7 +35,10 @@ export class PhysicalComponent implements OnInit {
     return String((Number(value.phyWeight) / Math.pow(Number(value.phyHeight), 2)) * 10000).substr(0, 5);
   }
   dateShow(date) {
-    return String(date).substr(0, 10)
+    let year = String(Number(String(date).substr(0, 4)) + 543);
+    let month = String(date).substr(5, 2);
+    let day = String(date).substr(8, 2);
+    return day + '/' + month + '/' + year;
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(PhysicalDialogComponent, {
@@ -57,8 +60,7 @@ export class PhysicalComponent implements OnInit {
   openDetailDialog(view): void {
     const dialogRef = this.dialog.open(PhysicalDetailDialogComponent, {
       width: '750px',
-      // height: '700px',
-
+      height: '800px',
       data: {
         phyTemp: view.phyTemp,
         phyBp: view.phyBp,
@@ -68,10 +70,8 @@ export class PhysicalComponent implements OnInit {
         phyLevel: view.phyLevel,
         phyPulse: view.phyPulse,
         phyRespirationRate: view.phyRespirationRate,
-
       }
     });
-
     dialogRef.afterClosed().subscribe(resultAllDialog => {
       if (resultAllDialog !== undefined) {
         this.physicalService.addPhy(resultAllDialog)
@@ -87,6 +87,8 @@ export class PhysicalComponent implements OnInit {
       width: '750px',
       height: '800px',
       data: {
+        date: row.date,
+        time: row.time,
         phyTemp: row.phyTemp,
         phyBp: row.phyBp,
         phyHeight: row.phyHeight,
