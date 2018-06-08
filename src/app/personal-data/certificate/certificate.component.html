@@ -17,7 +17,7 @@
             </ngx-datatable-column>
             <ngx-datatable-column name="ชื่อ-นามสกุลผู้ป่วย">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{ value.personId }} {{ value.personNameTitle + value.personName }} {{ value.personSurname }}
+                    {{value.personal.personal}} {{value.personal.personNameTitle + value.personal.personName}} {{value.personal.personSurname}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="อาการ/โรค">
@@ -27,7 +27,7 @@
             </ngx-datatable-column>
             <ngx-datatable-column name="ผู้รักษา">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.treNameTitle}}
+                    {{value.treater.treNameTitle + value.treater.trePhysicianName}} {{value.treater.trePhysicianSurName}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="ดำเนินการ" [maxWidth]="170">

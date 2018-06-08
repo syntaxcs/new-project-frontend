@@ -2,7 +2,7 @@
     <label fxFlex="nogrow" fxHide.xs>{{text}}</label>
     <mat-form-field fxFlex [formGroup]="formGroup">
       <mat-select [placeholder]="placeholder" [formControlName]="name" (selectionChange)="change.emit($event)">
-        <mat-option *ngFor="let element of data" [value]="element">
+        <mat-option *ngFor="let element of data" [value]="element._id">
           {{element.treNameTitle}} {{element.trePhysicianName}} {{element.trePhysicianSurName}} {{element.treLicensed_No}}
         </mat-option>
       </mat-select>

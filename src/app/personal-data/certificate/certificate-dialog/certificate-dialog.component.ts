@@ -39,6 +39,7 @@ export class CertificateDialogComponent implements OnInit {
   onSave() {
     const value = this.form.value;
     value.cerDateout = this.date;
+    value.personal = this.data.personal._id;
     this.dialogRef.close(value);
   }
 }

@@ -6,7 +6,7 @@ import { GlobalState } from '../../shared/global.state';
 import { CertificateDialogComponent } from './certificate-dialog/certificate-dialog.component';
 import { CertificateService } from '../../shared/services/certificate.service';
 import { ConfirmDeleteDialogComponent } from '../../theme/components/confirm-delete-dialog/confirm-delete-dialog.component';
-import { PersonalService } from '../../shared/services/personal.service'
+
 @Component({
   selector: 'app-certificate',
   templateUrl: './certificate.component.html',
@@ -24,7 +24,7 @@ export class CertificateComponent implements OnInit {
     private dialog: MatDialog,
     private formBuilder: FormBuilder,
     private certificateService: CertificateService,
-    private personalService : PersonalService,
+  
 
   ) { 
     
@@ -34,17 +34,12 @@ export class CertificateComponent implements OnInit {
     this.certificateService.getCer().subscribe((result) => {
       this.rows = result;
     })
-    // this.personalService.getPersonById(this.id).subscribe((result) => {
-    //   this.rows = result;
-    // })
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(CertificateDialogComponent, {
       width: '750px',
-      data: {
-      }
+      data: {}
     });
-
     dialogRef.afterClosed().subscribe(resultAllDialog => {
       if (resultAllDialog !== undefined) {
         this.certificateService.addCer(resultAllDialog)
