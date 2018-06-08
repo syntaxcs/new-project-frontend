@@ -29,7 +29,10 @@ export class EvalutionComponent implements OnInit {
     });
   }
   dateShow(date) {
-    return String(date).substr(0, 10)
+    let year = String(Number(String(date).substr(0, 4)) + 543);
+    let month = String(date).substr(5, 2);
+    let day = String(date).substr(8, 2);
+    return day + '/' + month + '/' + year;
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(EvalutionDialogComponent, {
@@ -51,6 +54,8 @@ export class EvalutionComponent implements OnInit {
     const dialogRef = this.dialog.open(EvalutionDialogComponent, {
       width: '750px',
       data: {
+        date: row.date,
+        time: row.time,
         evaDate: row.evaDate,
         evaAfter: row.evaAfter,
         evaBodyParth: row.evaBodyParth,

@@ -34,12 +34,8 @@ export class SummaryComponent implements OnInit {
     const dialogRef = this.dialog.open(SummaryDialogComponent, {
       width: '750px',
       height: '800px',
-      data: {
-        
-
-      }
+      data: { personId: this.id }
     });
-
     dialogRef.afterClosed().subscribe(resultAllDialog => {
       if (resultAllDialog !== undefined) {
         this.summaryservice.addSummary(resultAllDialog)
@@ -51,13 +47,18 @@ export class SummaryComponent implements OnInit {
     });
   }
   dateShow(date) {
-    return String(date).substr(0, 10)
+    let year = String(Number(String(date).substr(0, 4)) + 543);
+    let month = String(date).substr(5, 2);
+    let day = String(date).substr(8, 2);
+    return day + '/' + month + '/' + year;
   }
   openEditDialog(row): void {
     const dialogRef = this.dialog.open(SummaryDialogComponent, {
       width: '750px',
       height: '800px',
       data: {
+        date: row.date,
+        time: row.time,
         disease: row.disease,
         treatment: row.treatment,
         countDrugs: row.countDrugs,

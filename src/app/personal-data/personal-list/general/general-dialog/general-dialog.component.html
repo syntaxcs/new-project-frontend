@@ -4,7 +4,7 @@
       <mat-form-field>
         <input matInput [matDatepicker]="picker" [(ngModel)]="date" placeholder="วัน/เดือน/ปีที่มาพบแพทย์">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
+        <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
       <mat-form-field>
         <input matInput placeholder="เวลาที่มาพบแพทย์" [(ngModel)]="brithDay" aria-label="Custom buttons" [ngxTimepicker]="timepickerWithButtons"
