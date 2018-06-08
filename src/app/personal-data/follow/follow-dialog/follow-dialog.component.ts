@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
-import { CertificateService } from '../../../shared/services/certificate.service';
+import { TreaterService } from '../../../shared/services/treater.service';
 // import { Router } from '@angular/router';
 // import { PersonalService } from '../../../shared/services/personal.service';
 
@@ -12,7 +12,7 @@ import { CertificateService } from '../../../shared/services/certificate.service
   styleUrls: ['./follow-dialog.component.css']
 })
 export class FollowDialogComponent implements OnInit {
-  public treaterNames = [];
+  public certificate = [];
   public rows = [];
   public form: FormGroup;
   date: Date;
@@ -27,45 +27,25 @@ export class FollowDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<FollowDialogComponent>,
-    private certificateService: CertificateService,
-    // private router: Router,
-    // private personalService: PersonalService,
+    private treaterService: TreaterService,
   ) {
-    let year = new Date().getFullYear() + 543;
+    let year = new Date().getFullYear();
     let month = new Date().getMonth()
     this.startDate = new Date(year, month + 1, null, null, null, null);
   }
   ngOnInit() {
     this.form = this.formBuilder.group({});
-    this.calculateYear();
-    this.certificateService.getCer().subscribe(result => {
-      this.treaterNames = result;
+    this.treaterService.getTre().subscribe(result => {
+      this.certificate = result;
     })
-    // this.personalService.getPersonById(this.id).subscribe(result => {
-    //   this.rows = result;
-    // })
-  }
-  calculateYear() {
-    // let year = new Date().getFullYear() + 543;
-    // let month = new Date().getMonth()
-    // this.startDate = new Date(year, month+1, null, null, null, null);
   }
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);
   }
   onSave() {
     const value = this.form.value;
-    value.personId = this.data.personId
     value.folDate = this.date;
+    value.personal = this.data.personal._id;
     this.dialogRef.close(value);
   }
-  // findPerson(userPerson) {
-  //   if (userPerson !== '' || userPerson !== undefined) {
-  //     this.rows.forEach(element => {
-  //       if (element.personId === userPerson) {
-        
-  //       }
-  //     })
-  //   }
-  // }
 }

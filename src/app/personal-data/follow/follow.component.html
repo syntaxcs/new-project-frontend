@@ -10,11 +10,6 @@
     <mat-card-content>
         <ngx-datatable class="material" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows"
             [limit]="10">
-            <ngx-datatable-column name="ลำดับ" [maxWidth]="100">
-                <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
-                    {{rowIndex + 1}}     
-                </ng-template>
-            </ngx-datatable-column>
             <ngx-datatable-column name="วันที่">
                 <ng-template let-value="value" ngx-datatable-cell-template>
                     {{dateShow(value.folDate)}}
@@ -27,12 +22,12 @@
             </ngx-datatable-column>
             <ngx-datatable-column name="ชื่อ-นามสกุล">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    <!-- {{value.personNameTitle}} {{value.personName}} {{value.personSurname}} -->
+                    {{value.personal.personal}} {{value.personal.personNameTitle + value.personal.personName}} {{value.personal.personSurname}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="ผู้รักษา">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.cerNameTitle}}
+                    {{value.treater.treNameTitle + value.treater.trePhysicianName}} {{value.treater.trePhysicianSurName}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="เครื่องมือ" [maxWidth]="170">
