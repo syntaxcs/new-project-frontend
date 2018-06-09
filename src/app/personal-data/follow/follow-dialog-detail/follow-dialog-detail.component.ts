@@ -37,15 +37,9 @@ export class FollowDetailDialogComponent implements OnInit {
   }
   ngOnInit() {
     this.form = this.formBuilder.group({});
-    this.calculateYear();
     this.certificateService.getCer().subscribe(result => {
       this.treaterNames = result;
     })
-  }
-  calculateYear() {
-    // let year = new Date().getFullYear() + 543;
-    // let month = new Date().getMonth()
-    // this.startDate = new Date(year, month+1, null, null, null, null);
   }
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);
@@ -53,11 +47,15 @@ export class FollowDetailDialogComponent implements OnInit {
   onSave() {
     const value = this.form.value;
     value.personId = this.data.personId
-    value.folDate = this.date;
+    value.date.setDate(this.date.getDate()+1);
+    value.date = this.date;
     this.dialogRef.close(value);
   }
   dateShow(date) {
-    return String(date).substr(0, 10)
+    let year = String(Number(String(date).substr(0, 4)) + 543);
+    let month = String(date).substr(5, 2);
+    let day = String(date).substr(8, 2);
+    return day + '/' + month + '/' + year;
   }
   // findPerson(userPerson) {
   //   if (userPerson !== '' || userPerson !== undefined) {

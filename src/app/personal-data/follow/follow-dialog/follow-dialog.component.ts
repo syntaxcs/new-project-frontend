@@ -29,9 +29,10 @@ export class FollowDialogComponent implements OnInit {
     private dialogRef: MatDialogRef<FollowDialogComponent>,
     private treaterService: TreaterService,
   ) {
-    let year = new Date().getFullYear();
-    let month = new Date().getMonth()
-    this.startDate = new Date(year, month + 1, null, null, null, null);
+    if (this.data.date !== undefined) {
+      this.date = new Date(this.data.date);
+      this.date.setDate(this.date.getDate()-1);
+    }
   }
   ngOnInit() {
     this.form = this.formBuilder.group({});
@@ -44,8 +45,9 @@ export class FollowDialogComponent implements OnInit {
   }
   onSave() {
     const value = this.form.value;
-    value.folDate = this.date;
     value.personal = this.data.personal._id;
+    value.date = this.date;
+    value.date.setDate(this.date.getDate()+1);
     this.dialogRef.close(value);
   }
 }

@@ -28,16 +28,15 @@ export class FollowComponent implements OnInit {
     this._state.notifyDataChanged('[Breadcrumbs] changed', [{ url: '/', title: 'หน้าแรก' }, { title: 'การนัดหมาย' }]);
     this.form = this.formBuilder.group({});
     this.followService.getFollow().subscribe(result => {
-
       this.rows = result;
-      console.log(this.rows)
+
     });
 
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(FollowDialogComponent, {
       width: '750px',
-      data: {
+      data: {  
       }
     });
     dialogRef.afterClosed().subscribe(resultAllDialog => {
@@ -51,13 +50,16 @@ export class FollowComponent implements OnInit {
     });
   }
   dateShow(date) {
-    return String(date).substr(0, 10)
+    let year = String(Number(String(date).substr(0, 4)) + 543);
+    let month = String(date).substr(5, 2);
+    let day = String(date).substr(8, 2);
+    return day + '/' + month + '/' + year;
   }
   openEditDialog(row): void {
     const dialogRef = this.dialog.open(FollowDialogComponent, {
       width: '750px',
       data: {
-        folDate: row.folDate,
+        date: row.date,
         folmytimeHour: row.folmytimeHour,
         folmytimeMinute: row.folmytimeMinute,
         folDuration: row.folDuration,
@@ -67,11 +69,6 @@ export class FollowComponent implements OnInit {
         personName: row.personName,
         personSurname: row.personSurname,
         treater: row.treater,
-        treNameTitle: row.treNameTitle,
-        trePhysicianName: row.trePhysicianName,
-        trePhysicianSurName: row.trePhysicianSurName,
-        treLicensed_No: row.treLicensed_No,
-
 
       }
     });
@@ -108,7 +105,7 @@ export class FollowComponent implements OnInit {
       // height: '700px',
 
       data: {
-        folDate: view.folDate,
+        date: view.date,
         folmytimeHour: view.folmytimeHour,
         folmytimeMinute: view.folmytimeMinute,
         personal: view.personal,
