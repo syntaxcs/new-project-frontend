@@ -14,7 +14,6 @@ export class CertificateDialogComponent implements OnInit {
   public certificate = [];
   select = null
   date: Date;
-  startDate: any;
   brithDay: Date;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -23,9 +22,13 @@ export class CertificateDialogComponent implements OnInit {
     private treaterService: TreaterService,
     
   ) {
-    let year = new Date().getFullYear() + 543;
-    let month = new Date().getMonth()
-    this.startDate = new Date(year, month + 1, null, null, null, null);
+    if (this.data.date !== undefined) {
+      this.date = new Date(this.data.date);
+      this.date.setDate(this.date.getDate()-1);
+    }
+    if (this.data.time !== undefined) {
+      this.brithDay = this.data.time
+    }
   }
   ngOnInit() {
     this.form = this.formBuilder.group({});
@@ -38,7 +41,8 @@ export class CertificateDialogComponent implements OnInit {
   }
   onSave() {
     const value = this.form.value;
-    value.cerDateout = this.date;
+    value.date = this.date;
+    value.date.setDate(this.date.getDate()+1);
     value.personal = this.data.personal._id;
     this.dialogRef.close(value);
   }

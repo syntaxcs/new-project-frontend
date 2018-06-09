@@ -15,6 +15,7 @@ import { FollowDetailDialogComponent } from './follow-dialog-detail/follow-dialo
 })
 export class FollowComponent implements OnInit {
   public rows = [];
+  public id;
   public form: FormGroup;
   constructor(
     private _state: GlobalState,
@@ -25,19 +26,16 @@ export class FollowComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._state.notifyDataChanged('[Breadcrumbs] changed', [{ url: '/', title: 'หน้าแรก' }, { title: 'การนัดหมาย' }]);
-    this.form = this.formBuilder.group({});
     this.followService.getFollow().subscribe(result => {
       this.rows = result;
-
+console.log(this.rows)
     });
 
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(FollowDialogComponent, {
       width: '750px',
-      data: {  
-      }
+      data: {}
     });
     dialogRef.afterClosed().subscribe(resultAllDialog => {
       if (resultAllDialog !== undefined) {

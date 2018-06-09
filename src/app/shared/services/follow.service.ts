@@ -11,7 +11,10 @@ export class FollowService {
   getFollow(): Observable<any> {
     return this.apiService.get(`follow`);
   }
-  addFollow (data): Observable<any> {
+  getFollowById(id): Observable<any> {
+    return this.apiService.get(`follow/` + id);
+  }
+  addFollow(data): Observable<any> {
     return this.apiService.post('follow', data);
   }
   updateFollow(id: string, data): Observable<any> {

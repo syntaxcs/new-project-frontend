@@ -51,13 +51,18 @@ export class CertificateComponent implements OnInit {
     });
   }
   dateShow(date) {
-    return String(date).substr(0, 10)
+    let year = String(Number(String(date).substr(0, 4)) + 543);
+    let month = String(date).substr(5, 2);
+    let day = String(date).substr(8, 2);
+    return day + '/' + month + '/' + year;
   }
   openEditDialog(row): void {
     const dialogRef = this.dialog.open(CertificateDialogComponent, {
       width: '750px',
       data: {
-        
+        personal: row.personal,
+        treater: row.treater,
+        date: row.date,
         cerSymptom: row.cerSymptom,
         cerDateout: row.cerDateout,
       }
