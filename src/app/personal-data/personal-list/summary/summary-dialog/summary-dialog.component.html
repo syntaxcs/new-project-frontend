@@ -30,8 +30,8 @@
         </div>
         <div fxLayout="row">
             <div fxLayout="column">
-                <section *ngFor="let data of treat">
-                    <mat-checkbox color="warn" (change)="toggle($event.checked, data)" [value]="data.treatMents">{{data.treatMents}}</mat-checkbox>
+                <section *ngFor="let element of treat; index">
+                    <mat-checkbox color="warn" (change)="toggle($event.checked, data)" [value]="element.treatMents">{{element.treatMents}}</mat-checkbox>
                 </section>
             </div>
             <div fxFlex></div>

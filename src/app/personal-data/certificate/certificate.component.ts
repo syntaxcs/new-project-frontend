@@ -61,7 +61,7 @@ export class CertificateComponent implements OnInit {
       width: '750px',
       data: {
         personal: row.personal,
-        treater: row.treater,
+        treater: row.treater._id,
         date: row.date,
         cerSymptom: row.cerSymptom,
         cerDateout: row.cerDateout,

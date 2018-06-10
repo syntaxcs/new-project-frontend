@@ -18,6 +18,10 @@ export const routes: Routes = [
       {
         path: 'personal-data',
         loadChildren: './personal-data/personal-data.module#PersonalDataModule',
+      },
+      {
+        path: 'report-data',
+        loadChildren: './report-data/report-data.module#ReportDataModule',
       }
     ]
   },

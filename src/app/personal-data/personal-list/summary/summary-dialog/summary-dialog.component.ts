@@ -20,6 +20,7 @@ export class SummaryDialogComponent implements OnInit {
   public form: FormGroup;
   public duration = ['ในเวลา', 'นอกเวลา'];
   public treat = [];
+  checkboxStatus = [];
   treatMents = [];
   disProcedure = '';
   date: Date;
@@ -47,6 +48,7 @@ export class SummaryDialogComponent implements OnInit {
     this.treatmentservice.getTreat().subscribe(result => {
       this.treat = result;
     })
+    this.checkboxStatus = this.treat;
   }
   editMode() {
     if (this.data.date !== undefined) {
@@ -60,9 +62,7 @@ export class SummaryDialogComponent implements OnInit {
       if (this.data.disease !== undefined) {
         this.check(this.data.disease);
       }
-      if (this.data.treatment.length > 0) {
-        this.treat = this.data.treatment;
-      }
+
     }
   }
   toggle(check, data) {

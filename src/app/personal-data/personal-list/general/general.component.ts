@@ -42,7 +42,7 @@ export class GeneralComponent implements OnInit {
   searchFilter(event) {
     const val = event.target.value;
     const temp = this.search.filter((data) => {
-      return (data.date.indexOf(val) !== -1);
+      return (this.dateShow(data.date).indexOf(val) !== -1);
     });
     this.rows = temp;
   }
