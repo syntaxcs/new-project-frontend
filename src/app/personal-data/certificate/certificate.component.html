@@ -2,6 +2,10 @@
     <mat-card-subtitle fxLayout="row" fxLayoutGap="10px">
         <h2>ใบรับรองแพทย์</h2>
         <div fxFlex></div>
+        <p>ค้นหา : </p>
+        <mat-form-field>
+            <input matInput placeholder='วันที่' (keyup)='searchFilter($event)'>
+        </mat-form-field>
         <app-button-card-title (onClick)="openDialog()">
             <mat-icon>add</mat-icon>เพิ่มข้อมูลใบรับรองแพทย์</app-button-card-title>
         <app-button-card-title routerLink="/">
