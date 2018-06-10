@@ -15,6 +15,7 @@ import { FollowDetailDialogComponent } from './follow-dialog-detail/follow-dialo
 })
 export class FollowComponent implements OnInit {
   public rows = [];
+  public search = [];
   public id;
   public form: FormGroup;
   constructor(
@@ -28,9 +29,15 @@ export class FollowComponent implements OnInit {
   ngOnInit() {
     this.followService.getFollow().subscribe(result => {
       this.rows = result;
-console.log(this.rows)
+      this.search = [...result];
     });
-
+  }
+  searchFilter(event) {
+    const val = event.target.value;
+    const temp = this.search.filter((data) => {
+      return (this.dateShow(data.date).indexOf(val) !== -1);
+    });
+    this.rows = temp;
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(FollowDialogComponent, {

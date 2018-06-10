@@ -12,6 +12,7 @@ export class PersonalDialogComponent implements OnInit {
   startDate: any;
   gender: String;
   brithDay: Date;
+  date: Date;
   public nametitle = ['นาย', 'นาง', 'นางสาว'];
   public status = ['โสด ( Single )', 'แต่งงาน ( Married )', 'หม้าย ( Widowed )', 'หย่า ( Divorced )'
     , 'แยกกันอยู่ ( Separated )', 'นักบวช ( Monk )'];
@@ -28,7 +29,7 @@ export class PersonalDialogComponent implements OnInit {
     this.calculateYear();
   }
   calculateYear() {
-    let year = new Date().getFullYear() + 543;
+    let year = new Date().getFullYear();
     let month = new Date().getMonth()
     this.startDate = new Date(year, month+1, null, null, null, null);
   }
