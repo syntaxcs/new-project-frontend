@@ -34,10 +34,10 @@ export class FollowComponent implements OnInit {
   }
   searchFilter(event) {
     const val = event.target.value;
-    const temp = this.search.filter((data) => {
-      return (data.date.indexOf(val) !== -1);
-    });
-    this.rows = temp;
+      const temp = this.search.filter((data) => {
+        return (data.date.indexOf(val) !== -1);
+      });
+      this.rows = temp;
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(FollowDialogComponent, {
@@ -74,9 +74,6 @@ export class FollowComponent implements OnInit {
         personName: row.personName,
         personSurname: row.personSurname,
         treater: row.treater,
-        treNameTitle: row.treNameTitle,
-        trePhysicianName: row.trePhysicianName,
-        trePhysicianSurName: row.trePhysicianSurName,
 
       }
     });
