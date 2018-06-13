@@ -30,13 +30,15 @@
         </div>
         <div fxLayout="row">
             <div fxLayout="column">
-                <section *ngFor="let element of treat; index">
-                    <mat-checkbox color="warn" (change)="toggle($event.checked, data)" [value]="element.treatMents">{{element.treatMents}}</mat-checkbox>
+                <section *ngFor="let element of treat; let i = index">
+                    <mat-checkbox color="warn" (change)="toggle($event.checked, element)" [checked]="checkboxTreat[i]" [value]="element.treatMents">{{element.treatMents}}</mat-checkbox>
                 </section>
             </div>
             <div fxFlex></div>
-            <div fxLayout="column">
+            <div fxLayout="column" style="margin-right:8%">
                 <app-dropdown [data]="duration" [value]="data.statusTime" placeholder="ช่วงการรักษา" name="statusTime" fxFlex [formGroup]='form'></app-dropdown>
+              <h3  class="treater">ผู้รักษา ( Treater )</h3>
+                <app-dropdown-certificate [value]="data.treater" name="treater" fxFlex [formGroup]='form'></app-dropdown-certificate>
             </div>
         </div>
         <h3>จ่ายยา ( Dispense )</h3>

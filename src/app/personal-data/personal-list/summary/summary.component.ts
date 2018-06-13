@@ -9,8 +9,7 @@ import { SummaryService } from './../../../shared/services/summary.service';
 
 @Component({
   selector: 'app-summary',
-  templateUrl: './summary.component.html',
-  //  styleUrls: ['./summary.component.scss']
+  templateUrl: './summary.component.html'
 })
 export class SummaryComponent implements OnInit {
   public rows = [];
@@ -26,7 +25,7 @@ export class SummaryComponent implements OnInit {
   ) { this.id = this.activatedroute.snapshot.params['personalId']; }
 
   ngOnInit() {
-    this.summaryservice.getSummary().subscribe(result => {
+    this.summaryservice.getSummaryById(this.id).subscribe(result => {
       this.rows = result;
       this.search = [...result];
     });
@@ -76,7 +75,7 @@ export class SummaryComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result !== undefined) {
         this.summaryservice.updateSummary(row._id, result)
-          .mergeMap(() => this.summaryservice.getSummary())
+          .mergeMap(() => this.summaryservice.getSummaryById(this.id))
           .subscribe((results) => {
             this.rows = results;
           });
@@ -93,7 +92,7 @@ export class SummaryComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result.status === true) {
         this.summaryservice.deleteSummary(row._id)
-          .mergeMap(() => this.summaryservice.getSummary())
+          .mergeMap(() => this.summaryservice.getSummaryById(this.id))
           .subscribe((results) => {
             this.rows = results;
           });

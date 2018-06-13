@@ -73,8 +73,7 @@ export class FollowComponent implements OnInit {
         personNameTitle: row.personNameTitle,
         personName: row.personName,
         personSurname: row.personSurname,
-        treater: row.treater,
-
+        treater: row.treater._id
       }
     });
     dialogRef.afterClosed().subscribe(result => {

@@ -66,7 +66,7 @@ export class DashboardComponent implements OnInit {
           {
             icon: 'assets/images/computer (1).png',
             title: 'แบบบันทึกรายงานสรุป',
-            url: '/report-data'
+            url: '/report-data/report'
           },
         ]
         },

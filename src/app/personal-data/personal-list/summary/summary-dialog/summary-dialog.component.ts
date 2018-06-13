@@ -1,36 +1,26 @@
-import { Component, OnInit, Inject, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { DrugService } from '../../../../shared/services/drug.service';
 import { DiseaseService } from '../../../../shared/services/disease.service';
 import { from } from 'rxjs/internal/observable/from';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
-import { Subject } from 'rxjs/Subject';
-import { take, takeUntil } from 'rxjs/operators';
-import { MatSelect, VERSION } from '@angular/material';
 import { TreatmentService } from '../../../../shared/services/treatment.service'
 
 @Component({
   selector: 'app-summary-dialog',
   templateUrl: './summary-dialog.component.html',
   styleUrls: ['./summary-dialog.component.css']
-
 })
 export class SummaryDialogComponent implements OnInit {
   public form: FormGroup;
   public duration = ['ในเวลา', 'นอกเวลา'];
+  public certificate = [];
   public treat = [];
-  checkboxStatus = [];
+  checkboxTreat = [];
   treatMents = [];
   disProcedure = '';
   date: Date;
   brithDay: Date;
-
-  @ViewChild('singleSelect') singleSelect: MatSelect;
-  @ViewChild('multiSelect') multiSelect: MatSelect;
-
-  /** Subject that emits when the component has been destroyed. */
-  private _onDestroy = new Subject<void>();
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -47,8 +37,10 @@ export class SummaryDialogComponent implements OnInit {
     this.form = this.formBuilder.group({});
     this.treatmentservice.getTreat().subscribe(result => {
       this.treat = result;
+      if (this.data.treatment !== undefined) {
+        this.editTreat();
+      }
     })
-    this.checkboxStatus = this.treat;
   }
   editMode() {
     if (this.data.date !== undefined) {
@@ -62,7 +54,23 @@ export class SummaryDialogComponent implements OnInit {
       if (this.data.disease !== undefined) {
         this.check(this.data.disease);
       }
-
+    }
+  }
+  editTreat(){
+    let bool = []; let index = 0;
+    this.treat.forEach(element => {
+      this.data.treatment.forEach(treat => {
+        if(element._id === treat._id){
+          bool.push(index);
+          this.treatMents.push(treat)
+          return;
+        } 
+      })
+      index++;
+    })
+    for (let i = 0; i<this.treat.length; i++){
+      if (i == bool[i])this.checkboxTreat.push(true);
+      else this.checkboxTreat.push(false);
     }
   }
   toggle(check, data) {
@@ -88,6 +96,7 @@ export class SummaryDialogComponent implements OnInit {
     value.personId = this.data.personId;
     value.date = this.date;
     value.time = this.brithDay;
+    console.log(value.treatment)
     this.dialogRef.close(value);
   }
 
