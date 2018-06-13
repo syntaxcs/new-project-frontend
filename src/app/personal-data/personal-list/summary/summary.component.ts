@@ -14,6 +14,7 @@ import { SummaryService } from './../../../shared/services/summary.service';
 })
 export class SummaryComponent implements OnInit {
   public rows = [];
+  public search = [];
   public id;
 
   constructor(
@@ -27,9 +28,16 @@ export class SummaryComponent implements OnInit {
   ngOnInit() {
     this.summaryservice.getSummary().subscribe(result => {
       this.rows = result;
+      this.search = [...result];
     });
   }
-
+  searchFilter(event) {
+    const val = event.target.value;
+    const temp = this.search.filter((data) => {
+      return (this.dateShow(data.date).indexOf(val) !== -1);
+    });
+    this.rows = temp;
+  }
   openDialog(): void {
     const dialogRef = this.dialog.open(SummaryDialogComponent, {
       width: '750px',

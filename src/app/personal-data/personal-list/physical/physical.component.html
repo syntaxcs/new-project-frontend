@@ -2,6 +2,11 @@
     <mat-card-subtitle fxLayout="row" fxLayoutGap="10px">
         <h2>ข้อมูลตรวจร่างกายก่อนการรักษา</h2>
         <div fxFlex></div>
+        <mat-form-field appearance="outline">
+            <mat-label>ค้นหา</mat-label>
+            <input matInput placeholder="dd/mm/yyyy" (keyup)='searchFilter($event)'>
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
         <app-button-card-title (onClick)="openDialog()">
             <mat-icon>add</mat-icon>เพิ่มข้อมูลตรวจร่างกายก่อนการรักษา</app-button-card-title>
     </mat-card-subtitle>
@@ -35,7 +40,7 @@
             </ngx-datatable-column>
             <ngx-datatable-column name="ระดับความเจ็บปวด">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.phyLevel}} 
+                    {{value.phyLevel}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="เครื่องมือ" [maxWidth]="170">

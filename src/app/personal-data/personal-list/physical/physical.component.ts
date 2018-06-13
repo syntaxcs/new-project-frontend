@@ -16,7 +16,7 @@ import { PhysicalService } from '../../../shared/services/physical.service';
 export class PhysicalComponent implements OnInit {
   public rows = [];
   public id;
-
+  public search = [];
   constructor(
     private _state: GlobalState,
     private dialog: MatDialog,
@@ -29,6 +29,7 @@ export class PhysicalComponent implements OnInit {
   ngOnInit() {
     this.physicalService.getPhyById(this.id).subscribe(result => {
       this.rows = result;
+      this.search = [...result];
     });
   }
   calculateBMI(value) {
@@ -39,6 +40,13 @@ export class PhysicalComponent implements OnInit {
     let month = String(date).substr(5, 2);
     let day = String(date).substr(8, 2);
     return day + '/' + month + '/' + year;
+  }
+  searchFilter(event) {
+    const val = event.target.value;
+    const temp = this.search.filter((data) => {
+      return (this.dateShow(data.date).indexOf(val) !== -1);
+    });
+    this.rows = temp;
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(PhysicalDialogComponent, {

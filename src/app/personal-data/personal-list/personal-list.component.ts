@@ -29,11 +29,14 @@ export class PersonalListComponent implements OnInit {
     })
   }
   dateShow(date) {
-    return String(date).substr(0, 10)
+    let year = String(Number(String(date).substr(0, 4)) + 543);
+    let month = String(date).substr(5, 2);
+    let day = String(date).substr(8, 2);
+    return day + '/' + month + '/' + year;
   }
   ageCalculate(birth) {
     if (birth !== undefined) {
-      let now = Number(new Date().getFullYear()) + 543;
+      let now = Number(new Date().getFullYear()) ;
       let cen = Number(String(birth).substr(0, 4));
       return (now - cen);
     }

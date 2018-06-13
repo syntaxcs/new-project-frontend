@@ -1,0 +1,31 @@
+<app-dialog title="ใบรับรองแพทย์">
+    <content fxLayout="column">
+        <img src="../assets/images/pic.png" style="margin-left: 40%;" width="100px" height="100px">
+        <br>
+        <label style="margin-left:40%">ใบรับรองแพทย์ </label>
+        <label style="margin-left:35%">ศูนย์บริการการแพทย์แผนไทยและการแพทย์ทางเลือก</label>
+        <label style="margin-left:47%">คณะการแพทย์แผนไทยอภัยภูเบศร </label>
+        <label style="margin-left:45%">มหาวิทยาลัยบูรพา จังหวัดชลบุรี 20131</label>
+        <br>
+        <label style="margin-left:10%">ข้าพเจ้า : {{data.treater.treNameTitle + data.treater.trePhysicianName}} {{data.treater.trePhysicianSurName}}</label>
+        <label style="margin-left:10%">ใบอนุญาตประกอบโรคศิลปะ สาขาการแพทย์แผนไทยประยุกต์</label>
+        <label style="margin-left:10%">เลขที่ {{data.treater.treLicensed_No}} ได้ทำการตรวจร่างกาย {{data.personal.personal}} {{data.personal.personNameTitle
+            + data.personal.personName}} {{data.personal.personSurname}}</label>
+        <label style="margin-left:10%">ที่อยู่ปัจจุบัน : {{data.personal.personAddress}}</label>
+        <label style="margin-left:10%">เมื่อวันที่ : {{dateShow(data.date)}} </label>
+        <label style="margin-left:10%">ถึงวันที่ : {{dateShow(data.date)}} </label>
+        <label style="margin-left:10%">มีอาการ/โรค : {{data.cerSymptom}}</label>
+        <br>
+        <br>
+        <label style="margin-left:10%">ซึ่งเป็นผู้มีข้อบ่งชี้ทางการแพทย์ว่าจำเป็นต้องบำบัดรักษาและฟื้นฟูสภาพโดยวิธี </label>
+        <label style="margin-left:10%">(/) ทางการแพทย์แผนไทย</label>
+        <br>
+        <br>
+        <label style="margin-left:50%">ลงชื่อ.................................................ผู้ตรวจ</label>
+        <label style="margin-left:59%">({{data.treater.treNameTitle + data.treater.trePhysicianName}} {{data.treater.trePhysicianSurName}})</label>
+        <label style="margin-left:65%">{{data.treater.treLicensed_No}}</label>
+    </content>
+    <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+        <button mat-raised-button color="primary">พิมพ์</button>
+    </footer>
+</app-dialog>
