@@ -28,6 +28,7 @@ import { CertificateDialogComponent } from './certificate/certificate-dialog/cer
 import { PhysicalDetailDialogComponent} from './personal-list/physical/physical-dialog-detail/physical-dialog-detail.component'
 import { SummaryDetailDialogComponent} from './personal-list/summary/summary-dialog-detail/summary-dialog-detail.component';
 import { FollowDetailDialogComponent} from './follow/follow-dialog-detail/follow-dialog-detail.component';
+import { CertificateDetailDialogComponent } from './certificate/certificate-dialog-detail/certificate-dialog-detail.component';
 
 
 //service
@@ -71,7 +72,8 @@ import { TreaterService } from '../shared/services/treater.service';
     FollowDialogComponent,
     FollowDetailDialogComponent,
     CertificateComponent,
-    CertificateDialogComponent
+    CertificateDialogComponent,
+    CertificateDetailDialogComponent,
   ],
   //dialog
   entryComponents: [
@@ -85,6 +87,7 @@ import { TreaterService } from '../shared/services/treater.service';
     PhysicalDetailDialogComponent,
     SummaryDetailDialogComponent,
     FollowDetailDialogComponent,
+    CertificateDetailDialogComponent,
   ],
   providers: [
     PersonalService,

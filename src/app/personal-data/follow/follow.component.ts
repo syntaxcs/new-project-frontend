@@ -34,6 +34,7 @@ export class FollowComponent implements OnInit {
   }
   searchFilter(event) {
     const val = event.target.value;
+
     const temp = this.search.filter((data) => {
       return (this.dateShow(data.date).indexOf(val) !== -1);
     });

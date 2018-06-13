@@ -2,8 +2,10 @@
     <mat-card-subtitle fxLayout="row" fxLayoutGap="10px">
         <h2>ข้อมูลสรุปความเจ็บปวด</h2>
         <div fxFlex></div>
-        <mat-form-field>
-            <input matInput placeholder='dd/mm/yyyy' (keyup)='searchFilter($event)'>
+        <mat-form-field appearance="outline">
+            <mat-label>ค้นหา</mat-label>
+            <input matInput placeholder="dd/mm/yyyy" (keyup)='searchFilter($event)'>
+            <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
         <app-button-card-title (onClick)="openDialog()">
             <mat-icon>add</mat-icon>เพิ่มข้อมูลสรุปความเจ็บปวด</app-button-card-title>

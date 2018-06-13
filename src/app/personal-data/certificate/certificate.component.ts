@@ -6,6 +6,7 @@ import { GlobalState } from '../../shared/global.state';
 import { CertificateDialogComponent } from './certificate-dialog/certificate-dialog.component';
 import { CertificateService } from '../../shared/services/certificate.service';
 import { ConfirmDeleteDialogComponent } from '../../theme/components/confirm-delete-dialog/confirm-delete-dialog.component';
+import { CertificateDetailDialogComponent } from './certificate-dialog-detail/certificate-dialog-detail.component';
 
 @Component({
   selector: 'app-certificate',
@@ -39,6 +40,7 @@ export class CertificateComponent implements OnInit {
   }
   searchFilter(event) {
     const val = event.target.value;
+
     const temp = this.search.filter((data) => {
       return (this.dateShow(data.date).indexOf(val) !== -1);
     });
@@ -100,6 +102,34 @@ export class CertificateComponent implements OnInit {
           .subscribe((results) => {
             this.rows = results;
           });
+      }
+    });
+  }
+  openDetailDialog(view): void {
+    const dialogRef = this.dialog.open(CertificateDetailDialogComponent, {
+      width: '750px',
+      height: '700px',
+
+      data: {
+        personal: view.personal,
+        personNameTitle: view.personNameTitle,
+        personName: view.personName,
+        personSurname: view.personSurname,
+        treater: view.treater,
+        date: view.date,
+        cerSymptom: view.cerSymptom,
+        cerDateout: view.cerDateout,
+
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(resultAllDialog => {
+      if (resultAllDialog !== undefined) {
+        this.certificateService.addCer(resultAllDialog)
+          .mergeMap(() => this.certificateService.getCer())
+          .subscribe((valueFromDatabse) => {
+            this.rows = valueFromDatabse;
+          })
       }
     });
   }
