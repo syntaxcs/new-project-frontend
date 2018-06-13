@@ -1,58 +1,60 @@
 <mat-card>
-  <mat-card-subtitle fxLayout="row" fxLayoutGap="10px">
-      <h2>แบบบันทึกการใช้บริการการแพทย์แผนไทยและการแพทย์ทางเลือก</h2>
-      <div fxFlex></div>
-      <mat-form-field>
-          <input matInput placeholder='dd/mm/yyyy' (keyup)='searchFilter($event)'>
-      </mat-form-field>
-      <app-button-card-title routerLink = "/">
-        <mat-icon>home</mat-icon>กลับสู่เมนูหลัก</app-button-card-title>
-  </mat-card-subtitle>
-  <mat-card-content>
-      <ngx-datatable class="material" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows"
-          [limit]="10">
-          <ngx-datatable-column name="วันที่มาพบแพทย์">
-              <ng-template let-value="value" ngx-datatable-cell-template>
-                  {{dateShow(value.date)}}
-              </ng-template>
-          </ngx-datatable-column> 
-          <ngx-datatable-column name="เลขที่บัตร">
-            <ng-template let-value="value" ngx-datatable-cell-template>
-              
-            </ng-template>
-        </ngx-datatable-column>
-          <ngx-datatable-column name="ชื่อ-นามสกุล">
-            <ng-template let-value="value" ngx-datatable-cell-template>
-              
-            </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column name="สถานะ">
-            <ng-template let-value="value" ngx-datatable-cell-template>
-              
-            </ng-template>
-        </ngx-datatable-column>
-          <ngx-datatable-column name="อาการโรค">
-              <ng-template let-value="value" ngx-datatable-cell-template>
-                  {{value.disease.disName}}
-              </ng-template>
-          </ngx-datatable-column>
-          <ngx-datatable-column name="วิธีการรักษา">
-              <ng-template let-value="value" ngx-datatable-cell-template>
-                  <div *ngFor="let data of value.treatment">
-                      <a>{{ data.treatMents }}</a>
-                  </div>
-              </ng-template>
-          </ngx-datatable-column>
-          <ngx-datatable-column name="ค่าบริการทั้งหมด(บาท)">
-            <ng-template let-value="value" ngx-datatable-cell-template>
-              
-            </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column name="ผู้รักษา">
-            <ng-template let-value="value" ngx-datatable-cell-template>
-              
-            </ng-template>
-        </ngx-datatable-column>
-      </ngx-datatable>
-  </mat-card-content>
+    <mat-card-subtitle fxLayout="row" fxLayoutGap="10px">
+        <h2>แบบบันทึกการใช้บริการการแพทย์แผนไทยและการแพทย์ทางเลือก</h2>
+        <div fxFlex></div>
+        <mat-form-field appearance="outline">
+            <mat-label>ค้นหา</mat-label>
+            <input matInput placeholder="รหัสวิธีการรักษา/ชื่อวิธีการรักษา" (keyup)='searchFilter($event)'>
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+        <app-button-card-title routerLink="/">
+            <mat-icon>home</mat-icon>กลับสู่เมนูหลัก</app-button-card-title>
+    </mat-card-subtitle>
+    <mat-card-content>
+        <ngx-datatable class="material" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows"
+            [limit]="10">
+            <ngx-datatable-column name="วันที่มาพบแพทย์">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{dateShow(value.date)}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="เลขที่บัตร">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="ชื่อ-นามสกุล">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="สถานะ">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="อาการโรค">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{value.disease.disName}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="วิธีการรักษา">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    <div *ngFor="let data of value.treatment">
+                        <a>{{ data.treatMents }}</a>
+                    </div>
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="ค่าบริการทั้งหมด(บาท)">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="ผู้รักษา">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+    </mat-card-content>
 </mat-card>
