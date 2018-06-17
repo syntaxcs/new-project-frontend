@@ -14,6 +14,9 @@ export class PersonalService {
   getPersonById(id): Observable<any> {
     return this.apiService.get(`personal/` + id);
   }
+  generatePersonalId(): Observable<any> {
+    return this.apiService.get(`personal/generate`);
+  }
   addPerson (data): Observable<any> {
     return this.apiService.post('personal', data);
   }
