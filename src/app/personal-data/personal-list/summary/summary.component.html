@@ -6,7 +6,7 @@
             <input matInput placeholder='dd/mm/yyyy' (keyup)='searchFilter($event)'>
         </mat-form-field>
         <app-button-card-title (onClick)="openDialog()">
-            <mat-icon>add</mat-icon>เพิ่มข้อมูลสรุปความเจ็บปวด</app-button-card-title>
+            <mat-icon>add</mat-icon>เพิ่มข้อมูลสรุปความเจ็บป่วย</app-button-card-title>
     </mat-card-subtitle>
     <mat-card-content>
         <ngx-datatable class="material" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows"
@@ -26,30 +26,16 @@
                     {{value.disease.disName}}
                 </ng-template>
             </ngx-datatable-column>
-            <ngx-datatable-column name="หัตถการ">
+            <ngx-datatable-column name="ผู้รักษา">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.disease.disProcedure}}
-                </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="วิธีการรักษา">
-                <ng-template let-value="value" ngx-datatable-cell-template>
-                    <div *ngFor="let data of value.treatment">
-                        <a>{{ data.treatMents }}</a>
-                    </div>
-                </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="จ่ายยา">
-                <ng-template let-value="value" ngx-datatable-cell-template>
-                    <div *ngFor="let data of value.countDrugs">
-                        <a> {{data.drug.drugName}} {{data.count}}</a>
-                    </div>
+                    {{ value.treater.treNameTitle}} {{ value.treater.trePhysicianName}} {{ value.treater.trePhysicianSurName}} {{ value.treater.treLicensed_No}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="เครื่องมือ" [maxWidth]="170">
                 <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
                     <img src="../assets/images/pencil.png" (click)="openEditDialog(value)" width="40px" height="40px" title="แก้ไข">
                     <img src="../assets/images/395848.svg" (click)="confirmDelete(value)" width="40px" height="40px" title="ลบ">
-                    <!-- <img src="../assets/images/de.png" (click)=" openDetailDialog(value)" width="40px" height="40px" title="ดูรายละเอียด"> -->
+                    <img src="../assets/images/de.png" (click)=" openDetailDialog(value)" width="40px" height="40px" title="ดูรายละเอียด">
                 </ng-template>
             </ngx-datatable-column>
         </ngx-datatable>

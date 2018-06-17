@@ -64,6 +64,7 @@ export class AutocompleteDrugmultiComponent implements OnInit {
     }
     add() {
         this.selectedDrugs.push({});
+
         this.selectedDrugChange.emit(this.selectedDrugs);
         const validator = {};
         validator['drug'] = [undefined, Validators.required];

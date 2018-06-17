@@ -61,7 +61,7 @@ export class EvalutionComponent implements OnInit {
   }
   openEditDialog(row): void {
     const dialogRef = this.dialog.open(EvalutionDialogComponent, {
-      width: '750px',
+      width: '550px',
       data: {
         date: row.date,
         time: row.time,

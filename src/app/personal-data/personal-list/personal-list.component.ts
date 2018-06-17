@@ -92,8 +92,4 @@ export class PersonalListComponent implements OnInit {
       }
     });
   }
-
-  submit() {
-
-  }
 }

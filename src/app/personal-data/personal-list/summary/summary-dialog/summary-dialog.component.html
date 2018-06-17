@@ -18,7 +18,7 @@
                 <button mat-raised-button color="primary">ตกลง</button>
             </ng-template>
         </div>
-        <app-autocomplete-disease title="กลุ่ม" [(selectedDiseases)]="data.disease" (selectedDiseasesChange)="check($event)" name="disease"
+        <app-autocomplete-disease title="โรค" [(selectedDiseases)]="data.disease" (selectedDiseasesChange)="check($event)" name="disease"
             placeholder="เลือกกลุ่ม" fxFlex [formGroup]='form'></app-autocomplete-disease>
         <div fxLayout="row">
             <label>หัตถการ: </label>
