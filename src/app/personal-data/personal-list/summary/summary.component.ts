@@ -30,6 +30,7 @@ export class SummaryComponent implements OnInit {
       this.rows = result;
       this.search = [...result];
     });
+    this.summaryservice.getSummaryPdfById(this.id).subscribe()
   }
   searchFilter(event) {
     const val = event.target.value;
