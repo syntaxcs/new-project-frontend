@@ -1,29 +1,36 @@
 <app-dialog title="ใบรับรองแพทย์">
     <content fxLayout="column">
-        <img src="../assets/images/pic.png" style="margin-left: 40%;" width="100px" height="100px">
+        <img src="../assets/images/482457_10200601494981789_1825578775_n.jpg" style="margin-left: 40%;" width="100px" height="100px">
         <br>
-        <label style="margin-left:40%">ใบรับรองแพทย์ </label>
-        <label style="margin-left:35%">ศูนย์บริการการแพทย์แผนไทยและการแพทย์ทางเลือก</label>
-        <label style="margin-left:47%">คณะการแพทย์แผนไทยอภัยภูเบศร </label>
-        <label style="margin-left:45%">มหาวิทยาลัยบูรพา จังหวัดชลบุรี 20131</label>
+        <h3>
+            <label style="margin-left:40%">ใบรับรองแพทย์ </label>
+        </h3>
+        <label style="margin-left:43%">ศูนย์บริการการแพทย์แผนไทยและการแพทย์ทางเลือก</label>
+        <label style="margin-left:55%">คณะการแพทย์แผนไทยอภัยภูเบศร </label>
+        <label style="margin-left:53%">มหาวิทยาลัยบูรพา จังหวัดชลบุรี 20131</label>
         <br>
-        <label style="margin-left:10%">ข้าพเจ้า : {{data.treater.treNameTitle + data.treater.trePhysicianName}} {{data.treater.trePhysicianSurName}}</label>
-        <label style="margin-left:10%">ใบอนุญาตประกอบโรคศิลปะ สาขาการแพทย์แผนไทยประยุกต์</label>
-        <label style="margin-left:10%">เลขที่ {{data.treater.treLicensed_No}} ได้ทำการตรวจร่างกาย {{data.personal.personal}} {{data.personal.personNameTitle
-            + data.personal.personName}} {{data.personal.personSurname}}</label>
-        <label style="margin-left:10%">ที่อยู่ปัจจุบัน : {{data.personal.personAddress}}</label>
-        <label style="margin-left:10%">เมื่อวันที่ : {{dateShow(data.date)}} </label>
-        <label style="margin-left:10%">ถึงวันที่ : {{dateShow(data.date)}} </label>
-        <label style="margin-left:10%">มีอาการ/โรค : {{data.cerSymptom}}</label>
-        <br>
-        <br>
-        <label style="margin-left:10%">ซึ่งเป็นผู้มีข้อบ่งชี้ทางการแพทย์ว่าจำเป็นต้องบำบัดรักษาและฟื้นฟูสภาพโดยวิธี </label>
-        <label style="margin-left:10%">(/) ทางการแพทย์แผนไทย</label>
+        <label style="margin-left:15%">ข้าพเจ้า  {{data.treater.treNameTitle + data.treater.trePhysicianName}} {{data.treater.trePhysicianSurName}} ใบอนุญาตประกอบโรค</label>
+        <label style="margin-left:15%">ศิลปะสาขาการแพทย์แผนไทยประยุกต์เลขที่ {{data.treater.treLicensed_No}}</label>
+        <label style="margin-left:15%">ได้ทำการตรวจร่างกาย {{data.personal.personal}} {{data.personal.personNameTitle + data.personal.personName}} {{data.personal.personSurname}}</label>
+        <label style="margin-left:15%">ที่อยู่ปัจจุบัน  {{data.personal.personAddress}}</label>
+        <label style="margin-left:15%">เมื่อวันที่  {{dateShow(data.date)}} ได้พิจารณาเห็นแล้วว่า</label>
+        <label style="margin-left:15%">.........................................................................................................................</label>
+        <label style="margin-left:15%">มีอาการ/โรค  {{data.cerSymptom}} ซึ่งเป็นผู้มีข้อบ่งชี้</label>
+        <label style="margin-left:15%">ทางการแพทย์ว่าจำเป็นต้องรักษาฟื้นฟูสภาพโดยวิธีทางการแพทย์แผนไทย</label>
+
         <br>
         <br>
         <label style="margin-left:50%">ลงชื่อ.................................................ผู้ตรวจ</label>
-        <label style="margin-left:59%">({{data.treater.treNameTitle + data.treater.trePhysicianName}} {{data.treater.trePhysicianSurName}})</label>
-        <label style="margin-left:65%">{{data.treater.treLicensed_No}}</label>
+        <label style="margin-left:59%">( {{data.treater.treNameTitle + data.treater.trePhysicianName}} {{data.treater.trePhysicianSurName}} )</label>
+        <label style="margin-left:60%">แพทย์แผนไทยประยุกต์</label>
+        <br>
+        <br>
+
+        <label style="margin-left:10%; font-size: 13px">หมายเหตุ : ใบรับรองแพทย์นี้จะสมบูรณ์เมื่อมีตราประทับของศูนย์บริการการแพทย์แผนไทยและการแพทย์ทางเลือก</label>
+        <label style="margin-left:19%; font-size: 13px">คณะการแพทย์แผนไทยอภัยภูเบศร มหาวิทยาลัยบูรพา จังหวัดชลบุรี และลงนามลายมือชื่อเจ้าหน้าที่</label>
+        <label style="margin-left:19%; font-size: 13px">ที่ได้รับมอบหมายกำกับตรา</label>
+
+
     </content>
     <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
         <button mat-raised-button color="primary">พิมพ์</button>
