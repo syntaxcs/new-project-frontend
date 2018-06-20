@@ -1,8 +1,9 @@
 <app-dialog title="เพิ่มข้อมูลทั่วไป ( Add Personal )">
   <content fxLayout="column">
-    <div fxLayout="row">
-      <app-input-text-normal style="margin-right:20%;" [value]="data.personId" name="personId" placeholder="เลขที่บัตร ( ID )" text="" fxFlex [formGroup]='form'></app-input-text-normal>
-      <section style="margin-top: 3%; margin-right: 10%;">
+    <div fxLayout="row" fxLayoutWrap fxLayoutAlign="start center" fxLayoutGap="20px">
+      <label fxFlex fxHide.xs fxFlex="nogrow"></label>
+      <label fxFlex fxHide.xs fxFlex="nogrow" fxFlex>เลขที่บัตร: {{data.personId}}</label>
+      <section style=" margin-right: 10%;">
         <label style="margin-left: -20%; margin-right: 5%;">เพศ( sex )</label>
         <mat-radio-group name="gender" [(ngModel)]="gender">
           <mat-radio-button style="margin-right: 3%" value="ชาย">ชาย</mat-radio-button>
@@ -23,7 +24,7 @@
       <mat-form-field>
         <input matInput [matDatepicker]="picker" placeholder="วัน/เดือน/ปีเกิด" [(ngModel)]="brithDay">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
+        <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
 
       <app-input-text-normal [value]="data.personIdentityId" name="personIdentityId" placeholder="เลขบัตรประชาชน (ฺฺ ID card )"

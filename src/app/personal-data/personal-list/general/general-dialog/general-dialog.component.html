@@ -25,6 +25,8 @@
       fxFlex [formGroup]='form'></app-input-text-normal>
     <app-input-text-normal [value]="data.genPastHistory" name="genPastHistory" placeholder="" text="ประวัติอดีต ( Past History )"
       fxFlex [formGroup]='form'></app-input-text-normal>
+      <app-input-text-normal [value]="data.genCongenitalDisease" name="genCongenitalDisease" placeholder="" text="โรคประจำตัว ( Congenital Disease )"
+      fxFlex [formGroup]='form'></app-input-text-normal>
   </content>
   <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
     <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">บันทึก</button>

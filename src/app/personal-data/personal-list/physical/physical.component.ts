@@ -68,7 +68,6 @@ export class PhysicalComponent implements OnInit {
   openDetailDialog(view): void {
     const dialogRef = this.dialog.open(PhysicalDetailDialogComponent, {
       width: '750px',
-      height: '800px',
       data: {
         phyTemp: view.phyTemp,
         phyBp: view.phyBp,
@@ -78,15 +77,6 @@ export class PhysicalComponent implements OnInit {
         phyLevel: view.phyLevel,
         phyPulse: view.phyPulse,
         phyRespirationRate: view.phyRespirationRate,
-      }
-    });
-    dialogRef.afterClosed().subscribe(resultAllDialog => {
-      if (resultAllDialog !== undefined) {
-        this.physicalService.addPhy(resultAllDialog)
-          .mergeMap(() => this.physicalService.getPhy())
-          .subscribe((valueFromDatabse) => {
-            this.rows = valueFromDatabse;
-          })
       }
     });
   }

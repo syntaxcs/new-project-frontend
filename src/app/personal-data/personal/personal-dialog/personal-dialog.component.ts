@@ -12,7 +12,6 @@ export class PersonalDialogComponent implements OnInit {
   startDate: any;
   gender: String;
   brithDay: Date;
-  date: Date;
   public nametitle = ['นาย', 'นาง', 'นางสาว'];
   public status = ['โสด ( Single )', 'แต่งงาน ( Married )', 'หม้าย ( Widowed )', 'หย่า ( Divorced )'
     , 'แยกกันอยู่ ( Separated )', 'นักบวช ( Monk )'];
@@ -22,7 +21,10 @@ export class PersonalDialogComponent implements OnInit {
     private dialogRef: MatDialogRef<PersonalDialogComponent>,
   ) { 
     this.gender = this.data.personGender;
-    this.brithDay = this.data.personBirth;
+    if (this.data.personBirth !== undefined) {
+      this.brithDay = new Date(this.data.personBirth);
+      this.brithDay.setDate(this.brithDay.getDate() - 1);
+    }
   }
   ngOnInit() {
     this.form = this.formBuilder.group({});
@@ -38,8 +40,10 @@ export class PersonalDialogComponent implements OnInit {
   }
   onSave() {
     const value = this.form.value;
+    value.personId = this.data.personId;
     value.personGender = this.gender;
     value.personBirth = this.brithDay;
+    value.personBirth.setDate(this.brithDay.getDate() + 1);
     this.dialogRef.close(value);
   }
 }

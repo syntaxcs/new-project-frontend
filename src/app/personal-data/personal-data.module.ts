@@ -12,7 +12,6 @@ import { PersonalListComponent } from './personal-list/personal-list.component'
 import { PhysicalComponent } from './personal-list/physical/physical.component';
 import { GeneralComponent } from './personal-list/general/general.component';
 import { SummaryComponent } from './personal-list/summary/summary.component';
-import { EvalutionComponent } from './personal-list/evalution/evalution.component';
 import { PersonalComponent } from './personal/personal.component';
 import { FollowComponent } from './follow/follow.component';
 import { CertificateComponent } from './certificate/certificate.component';
@@ -21,7 +20,6 @@ import { CertificateComponent } from './certificate/certificate.component';
 import { PhysicalDialogComponent } from './personal-list/physical/physical-dialog/physical-dialog.component';
 import { GeneralDialogComponent } from './personal-list/general/general-dialog/general-dialog.component';
 import { SummaryDialogComponent } from './personal-list/summary/summary-dialog/summary-dialog.component';
-import { EvalutionDialogComponent } from './personal-list/evalution/evalution-dialog/evalution-dialog.component';
 import { PersonalDialogComponent } from './personal/personal-dialog/personal-dialog.component';
 import { FollowDialogComponent } from './follow/follow-dialog/follow-dialog.component';
 import { CertificateDialogComponent } from './certificate/certificate-dialog/certificate-dialog.component';
@@ -35,7 +33,6 @@ import { CertificateDetailDialogComponent } from './certificate/certificate-dial
 import { PersonalService } from '../shared/services/personal.service';
 import { PhysicalService } from '../shared/services/physical.service';
 import { GeneralService } from '../shared/services/general.service';
-import { EvalutionService } from '../shared/services/evalution.service';
 import { FollowService } from '../shared/services/follow.service';
 import { CertificateService } from '../shared/services/certificate.service';
 import { DrugService } from '../shared/services/drug.service';
@@ -64,8 +61,6 @@ import { TreaterService } from '../shared/services/treater.service';
     SummaryComponent,
     SummaryDialogComponent,
     SummaryDetailDialogComponent,
-    EvalutionComponent,
-    EvalutionDialogComponent,
     PersonalComponent,
     PersonalDialogComponent,
     FollowComponent,
@@ -80,7 +75,6 @@ import { TreaterService } from '../shared/services/treater.service';
     PhysicalDialogComponent,
     GeneralDialogComponent,
     SummaryDialogComponent,
-    EvalutionDialogComponent,
     PersonalDialogComponent,
     FollowDialogComponent,
     CertificateDialogComponent,
@@ -93,7 +87,6 @@ import { TreaterService } from '../shared/services/treater.service';
     PersonalService,
     PhysicalService,
     GeneralService,
-    EvalutionService,
     FollowService, ,
     CertificateService,
     DrugService,

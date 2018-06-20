@@ -18,7 +18,7 @@
                 <button mat-raised-button color="primary">ตกลง</button>
             </ng-template>
         </div>
-        <app-autocomplete-disease title="กลุ่ม" [(selectedDiseases)]="data.disease" (selectedDiseasesChange)="check($event)" name="disease"
+        <app-autocomplete-disease title="โรค" [(selectedDiseases)]="data.disease" (selectedDiseasesChange)="check($event)" name="disease"
             placeholder="เลือกกลุ่ม" fxFlex [formGroup]='form'></app-autocomplete-disease>
         <div fxLayout="row">
             <label>หัตถการ: </label>
@@ -35,11 +35,16 @@
                 </section>
             </div>
             <div fxFlex></div>
-            <div fxLayout="column" style="margin-right:8%">
+            <div fxLayout="column" style="margin-right:13%">
                 <app-dropdown [data]="duration" [value]="data.statusTime" placeholder="ช่วงการรักษา" name="statusTime" fxFlex [formGroup]='form'></app-dropdown>
-              <h3  class="treater">ผู้รักษา ( Treater )</h3>
-                <app-dropdown-certificate [value]="data.treater" name="treater" fxFlex [formGroup]='form'></app-dropdown-certificate>
             </div>
+           
+        </div>
+        <div fxLayout="row">
+            <h3  class="treater">ผู้รักษา ( Treater )</h3>
+            <app-dropdown-certificate [value]="data.treater" name="treater" fxFlex [formGroup]='form'></app-dropdown-certificate>
+            <h3  class="treater">ผู้ตรวจ ( officer )</h3>
+            <app-dropdown-certificate [value]="data.treater" name="treater" fxFlex [formGroup]='form'></app-dropdown-certificate>
         </div>
         <h3>จ่ายยา ( Dispense )</h3>
         <app-autocomplete-drugmulti [(selectedDrugs)]="data.countDrugs" fxFlex [formGroup]="form"></app-autocomplete-drugmulti>

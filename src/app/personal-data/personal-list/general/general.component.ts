@@ -71,6 +71,7 @@ export class GeneralComponent implements OnInit {
         genSymptoms: row.genSymptoms,
         genPresentHistory: row.genPresentHistory,
         genPastHistory: row.genPastHistory,
+        genCongenitalDisease: row.genCongenitalDisease,
       }
     });
     dialogRef.afterClosed().subscribe(result => {

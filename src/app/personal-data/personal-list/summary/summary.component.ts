@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router'
 import { GlobalState } from '../../../shared/global.state';
 import { ConfirmDeleteDialogComponent } from '../../../theme/components/confirm-delete-dialog/confirm-delete-dialog.component';
 import { SummaryDialogComponent } from './summary-dialog/summary-dialog.component';
+import { SummaryDetailDialogComponent} from './summary-dialog-detail/summary-dialog-detail.component';
 import { SummaryService } from './../../../shared/services/summary.service';
 
 @Component({
@@ -29,6 +30,7 @@ export class SummaryComponent implements OnInit {
       this.rows = result;
       this.search = [...result];
     });
+    this.summaryservice.getSummaryPdfById(this.id).subscribe()
   }
   searchFilter(event) {
     const val = event.target.value;
@@ -59,15 +61,32 @@ export class SummaryComponent implements OnInit {
     let day = String(date).substr(8, 2);
     return day + '/' + month + '/' + year;
   }
+  openDetailDialog(view): void {
+    const dialogRef = this.dialog.open(SummaryDetailDialogComponent, {
+      width: '750px',
+      data: {
+        personId: this.id,
+        date: this.dateShow(view.date),
+        time: view.time,
+        disease: view.disease,
+        treatment: view.treatment,
+        treater: view.treater._id,
+        countDrugs: view.countDrugs,
+        statusTime: view.statusTime,
+      }
+    });
+  }
   openEditDialog(row): void {
     const dialogRef = this.dialog.open(SummaryDialogComponent, {
       width: '750px',
       height: '800px',
       data: {
+        personId: this.id,
         date: row.date,
         time: row.time,
         disease: row.disease,
         treatment: row.treatment,
+        treater: row.treater._id,
         countDrugs: row.countDrugs,
         statusTime: row.statusTime,
       }

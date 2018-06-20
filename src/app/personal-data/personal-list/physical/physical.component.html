@@ -21,19 +21,14 @@
                     {{value.time}}
                 </ng-template>
             </ngx-datatable-column>
-            <ngx-datatable-column name="อุณหภูมิ">
+            <ngx-datatable-column name="ส่วนของร่างกายที่ปวด">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.phyTemp}} องศา
+                    {{value.phyBodyParth}} 
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="ความดันโลหิต">
                 <ng-template let-value="value" ngx-datatable-cell-template>
                     {{value.phyBp}} มม.ปรอท
-                </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="ค่า BMI">
-                <ng-template let-row="row" ngx-datatable-cell-template>
-                    {{ calculateBMI(row) }}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="ระดับความเจ็บปวด">

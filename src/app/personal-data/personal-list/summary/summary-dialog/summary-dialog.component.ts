@@ -44,33 +44,33 @@ export class SummaryDialogComponent implements OnInit {
   }
   editMode() {
     if (this.data.date !== undefined) {
-      if (this.data.date !== undefined) {
-        this.date = new Date(this.data.date);
-        this.date.setDate(this.date.getDate() - 1);
-      }
-      if (this.data.time !== undefined) {
-        this.brithDay = this.data.time
-      }
-      if (this.data.disease !== undefined) {
-        this.check(this.data.disease);
-      }
+      this.date = new Date(this.data.date);
+      this.date.setDate(this.date.getDate() - 1);
+    }
+    if (this.data.time !== undefined) {
+      this.brithDay = this.data.time
+    }
+    if (this.data.disease !== undefined) {
+      this.check(this.data.disease);
     }
   }
-  editTreat(){
-    let bool = []; let index = 0;
+  editTreat() {
+    let bool = [];
     this.treat.forEach(element => {
       this.data.treatment.forEach(treat => {
-        if(element._id === treat._id){
-          bool.push(index);
-          this.treatMents.push(treat)
+        if (element._id === treat._id) {
+          this.treatMents.push(element)
           return;
-        } 
+        }
       })
-      index++;
     })
-    for (let i = 0; i<this.treat.length; i++){
-      if (i == bool[i])this.checkboxTreat.push(true);
-      else this.checkboxTreat.push(false);
+    this.treatMents.forEach(result => {
+      const index: number = this.treat.indexOf(result);
+      this.checkboxTreat[index] = true;
+    })
+    for (let i = 0; i < this.treat.length; i++) {
+      if (this.checkboxTreat[i] === undefined)
+        this.checkboxTreat[i] = false;
     }
   }
   toggle(check, data) {
@@ -95,8 +95,8 @@ export class SummaryDialogComponent implements OnInit {
     value.treatment = this.treatMents;
     value.personId = this.data.personId;
     value.date = this.date;
+    value.date.setDate(this.date.getDate() + 1);
     value.time = this.brithDay;
-    console.log(value.treatment)
     this.dialogRef.close(value);
   }
 

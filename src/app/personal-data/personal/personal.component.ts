@@ -24,10 +24,10 @@ export class PersonalComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._state.notifyDataChanged('[Breadcrumbs] changed', [{ url: '/', title: 'หน้าแรก' }, { title: 'เข้าสู่ระบบ' }]);
     this.personalService.getPerson().subscribe(result => {
       this.rows = result;
     });
+
   }
 
   findPerson(userPerson) {
@@ -41,18 +41,21 @@ export class PersonalComponent implements OnInit {
   }
   
   openDialog(): void {
-    const dialogRef = this.dialog.open(PersonalDialogComponent, {
-      width: '750px',
-      data: {}
+    this.personalService.generatePersonalId().subscribe(generate => {
+      const dialogRef = this.dialog.open(PersonalDialogComponent, {
+        width: '750px',
+        data: { personId: generate}
+      });
+      dialogRef.afterClosed().subscribe(resultAllDialog => {
+        if (resultAllDialog !== undefined) {
+          this.personalService.addPerson(resultAllDialog)
+            .mergeMap(() => this.personalService.getPerson())
+            .subscribe((valueFromDatabse) => {
+              this.rows = valueFromDatabse;
+            })
+        }
+      });
     });
-    dialogRef.afterClosed().subscribe(resultAllDialog => {
-      if (resultAllDialog !== undefined) {
-        this.personalService.addPerson(resultAllDialog)
-          .mergeMap(() => this.personalService.getPerson())
-          .subscribe((valueFromDatabse) => {
-            this.rows = valueFromDatabse;
-          })
-      }
-    });
+    
   }
 }
