@@ -5,14 +5,49 @@
             <input matInput [(ngModel)]="userPerson" name="userPerson" placeholder="ผู้ป่วยรายเก่า" (keyup)="findPerson(userPerson)">
         </mat-form-field>
     </div>
-    <button mat-raised-button (click)="findPerson(userPerson)" >
-        ค้นหาผู้ป่วย<mat-icon>search</mat-icon>
+    <div fxLayout="row" fxFlex>
+    </div>
+    <button mat-raised-button (click)="openDialog()">ผู้ป่วยรายใหม่
+        <mat-icon>face</mat-icon>
     </button>
-    <div fxLayout="row" fxFlex><br></div>
-    <button mat-raised-button (click)="openDialog()">ผู้ป่วยรายใหม่<mat-icon>face</mat-icon></button>
-    <div fxLayout="row" fxFlex><br></div>
-
+    <div fxLayout="row" fxFlex>
+        <br>
+    </div>
     <div fxLayout="row" fxFlex></div>
-    <button mat-raised-button routerLink = "/">กลับสู่เมนูหลัก<mat-icon>home</mat-icon></button>
-    <div fxLayout="row" fxFlex><br></div>
+    <button mat-raised-button routerLink="/">กลับสู่เมนูหลัก
+        <mat-icon>home</mat-icon>
+    </button>
+    <div fxLayout="row" fxFlex>
+        <br>
+    </div>
 </mat-card>
+<br>
+<mat-card-subtitle fxLayout="row" fxLayoutGap="10px">
+    <h2>ผู้รับบริการทั้งหมด</h2>
+    <div fxFlex></div>
+    <mat-form-field appearance="outline" style="width : 20%">
+        <mat-label>ค้นหา</mat-label>
+        <input matInput placeholder="เลขที่บัตร/ชื่อ/นามสกุล" (keyup)='searchFilter($event)'>
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+</mat-card-subtitle>
+<mat-card-content>
+    <ngx-datatable class="material" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows"
+        [limit]="10">
+        <ngx-datatable-column name="ลำดับ" [maxWidth]="400">
+            <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                {{rowIndex + 1}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="เลขที่บัตร">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+                {{value.personId}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="ชื่อ-นามสกุล">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+                {{value.personNameTitle}} {{value.personName}} {{value.personSurname}}
+            </ng-template>
+        </ngx-datatable-column>
+    </ngx-datatable>
+</mat-card-content>

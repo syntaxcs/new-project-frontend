@@ -12,6 +12,7 @@ import { PersonalService } from '../../shared/services/personal.service';
 })
 export class PersonalComponent implements OnInit {
   public rows = [];
+  public search = [];
   public nametitle = ['นาย', 'นาง', 'นางสาว'];
   public status = ['โสด ( Single )', 'แต่งงาน ( Married )', 'หม้าย ( Widowed )', 'หย่า ( Divorced )'
     , 'แยกกันอยู่ ( Separated )', 'นักบวช ( Monk )'];
@@ -26,10 +27,18 @@ export class PersonalComponent implements OnInit {
   ngOnInit() {
     this.personalService.getPerson().subscribe(result => {
       this.rows = result;
+      this.search = [...result];
     });
-
   }
-
+  searchFilter(event) {
+    const val = event.target.value;
+      const temp = this.search.filter((data) => {
+        return data.personId.indexOf(val) !== -1 ||
+          data.personName.indexOf(val) !== -1 ||
+          data.personSurname.indexOf(val) !== -1 || !val;
+      });
+      this.rows = temp;
+  }
   findPerson(userPerson) {
     if (userPerson !== '' || userPerson !== undefined) {
       this.rows.forEach(element => {

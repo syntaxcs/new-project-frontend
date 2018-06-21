@@ -20,7 +20,7 @@
             </ngx-datatable-column>
             <ngx-datatable-column name="เลขที่บัตร">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-
+                    <!-- {{value.personId.personId}} -->
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="ชื่อ-นามสกุล">
@@ -52,7 +52,7 @@
             </ngx-datatable-column>
             <ngx-datatable-column name="ผู้รักษา">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-
+                    {{ value.treater.treNameTitle}} {{ value.treater.trePhysicianName}} {{ value.treater.trePhysicianSurName}} 
                 </ng-template>
             </ngx-datatable-column>
         </ngx-datatable>
