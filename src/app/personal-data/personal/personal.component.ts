@@ -61,6 +61,7 @@ export class PersonalComponent implements OnInit {
             .mergeMap(() => this.personalService.getPerson())
             .subscribe((valueFromDatabse) => {
               this.rows = valueFromDatabse;
+              this.search = [...valueFromDatabse];
             })
         }
       });

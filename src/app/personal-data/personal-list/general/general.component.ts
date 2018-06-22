@@ -39,12 +39,18 @@ export class GeneralComponent implements OnInit {
     let day = String(date).substr(8, 2);
     return day + '/' + month + '/' + year;
   }
+  
   searchFilter(event) {
     const val = event.target.value;
     const temp = this.search.filter((data) => {
-      return (this.dateShow(data.date).indexOf(val) !== -1);
+      return (this.dateSearch(data.date).indexOf(val) !== -1);
     });
     this.rows = temp;
+  }
+  dateSearch(date) {
+    let year = String(Number(String(date).substr(0, 4)) + 543);
+    let month = String(date).substr(5, 2);
+    return month + '/' + year;
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(GeneralDialogComponent, {
@@ -58,6 +64,7 @@ export class GeneralComponent implements OnInit {
           .mergeMap(() => this.generalService.getGenById(this.id))
           .subscribe((valueFromDatabse) => {
             this.rows = valueFromDatabse;
+            this.search = [...valueFromDatabse];
           })
       }
     });
@@ -80,6 +87,7 @@ export class GeneralComponent implements OnInit {
           .mergeMap(() => this.generalService.getGenById(this.id))
           .subscribe((results) => {
             this.rows = results;
+            this.search = [...results];
           });
       }
     });
@@ -97,6 +105,7 @@ export class GeneralComponent implements OnInit {
           .mergeMap(() => this.generalService.getGenById(this.id))
           .subscribe((results) => {
             this.rows = results;
+            this.search = [...results];
           });
       }
     });

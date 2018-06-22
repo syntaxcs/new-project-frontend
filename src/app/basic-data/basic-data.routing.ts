@@ -5,6 +5,7 @@ import { DiseaseComponent } from './disease/disease.component';
 import { TreaterComponent } from './treater/treater.component';
 import { RemedyComponent } from './remedy/remedy.component';
 import { DrugComponent } from './drug/drug.component';
+import { OfficerComponent } from './officer/officer.component';
 
 export const routes: Routes = [
     {
@@ -26,6 +27,10 @@ export const routes: Routes = [
     {
         path: 'drug',
         component: DrugComponent
+    },
+    {
+        path: 'officer',
+        component: OfficerComponent
     },
 ];
 export const routing: ModuleWithProviders = RouterModule.forChild(routes);

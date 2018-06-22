@@ -54,6 +54,7 @@ export class RemedyComponent implements OnInit {
           .mergeMap(() => this.treatmentService.getTreat())
           .subscribe((valueFromDatabse) => {
             this.rows = valueFromDatabse;
+            this.search = [...valueFromDatabse];
           })
       }
     });
@@ -74,6 +75,7 @@ export class RemedyComponent implements OnInit {
           .mergeMap(() => this.treatmentService.getTreat())
           .subscribe((results) => {
             this.rows = results;
+            this.search = [...results];
           });
       }
     });
@@ -91,6 +93,7 @@ export class RemedyComponent implements OnInit {
           .mergeMap(() => this.treatmentService.getTreat())
           .subscribe((results) => {
             this.rows = results;
+            this.search = [...results];
           });
       }
     });

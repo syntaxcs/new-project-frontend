@@ -1,0 +1,36 @@
+<mat-card>
+  <mat-card-subtitle fxLayout="row" fxLayoutGap="10px">
+      <h2>ข้อมูลผู้ตรวจ</h2>
+      <div fxFlex></div>
+      <mat-form-field appearance="outline">
+          <mat-label>ค้นหา</mat-label>
+          <input matInput placeholder="เลขที่ใบอนุญาต/ชื่อ/นามสกุล" (keyup)='searchFilter($event)'>
+          <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+      <app-button-card-title (onClick)="openDialog()">
+          <mat-icon>add</mat-icon>เพิ่มข้อมูลผู้ตรวจ</app-button-card-title>
+      <app-button-card-title routerLink="/">
+          <mat-icon>home</mat-icon>กลับสู่เมนูหลัก</app-button-card-title>
+  </mat-card-subtitle>
+  <mat-card-content>
+      <ngx-datatable class="material" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows"
+          [limit]="10">
+          <ngx-datatable-column name="ใบอนุญาตประกอบโรคศิลปะเลขที่">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                  {{value.ficerLicensed_No}}
+              </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="ชื่อ-นามสกุล">
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                  {{value.ficerNameTitle}}{{value.ficerName}} {{value.ficerSurName}}
+              </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="เครื่องมือ" [maxWidth]="170">
+              <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                  <img src="../assets/images/pencil.png" (click)="openEditDialog(value)" width="40px" height="40px" title="แก้ไข">
+                  <img src="../assets/images/395848.svg" (click)="confirmDelete(value)" width="40px" height="40px" title="ลบ">
+              </ng-template>
+          </ngx-datatable-column>
+      </ngx-datatable>
+  </mat-card-content>
+</mat-card>

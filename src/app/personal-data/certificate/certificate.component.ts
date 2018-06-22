@@ -19,17 +19,17 @@ export class CertificateComponent implements OnInit {
   public id;
   public certificate = [];
   public form: FormGroup;
- 
+
 
   constructor(
     private _state: GlobalState,
     private dialog: MatDialog,
     private formBuilder: FormBuilder,
     private certificateService: CertificateService,
-  
 
-  ) { 
-    
+
+  ) {
+
   }
 
   ngOnInit() {
@@ -41,9 +41,9 @@ export class CertificateComponent implements OnInit {
   }
   searchFilter(event) {
     const val = event.target.value;
-
     const temp = this.search.filter((data) => {
-      return (this.dateShow(data.date).indexOf(val) !== -1);
+      return data.personal.personName.indexOf(val) !== -1 ||
+        data.personal.personSurname.indexOf(val) !== -1 || !val;
     });
     this.rows = temp;
   }
@@ -58,6 +58,7 @@ export class CertificateComponent implements OnInit {
           .mergeMap(() => this.certificateService.getCer())
           .subscribe((valueFromDatabse) => {
             this.rows = valueFromDatabse;
+            this.search = [...valueFromDatabse];
           })
       }
     });
@@ -68,6 +69,7 @@ export class CertificateComponent implements OnInit {
     let day = String(date).substr(8, 2);
     return day + '/' + month + '/' + year;
   }
+
   openEditDialog(row): void {
     const dialogRef = this.dialog.open(CertificateDialogComponent, {
       width: '750px',
@@ -85,6 +87,7 @@ export class CertificateComponent implements OnInit {
           .mergeMap(() => this.certificateService.getCer())
           .subscribe((results) => {
             this.rows = results;
+            this.search = [...results];
           });
       }
     });
@@ -102,6 +105,7 @@ export class CertificateComponent implements OnInit {
           .mergeMap(() => this.certificateService.getCer())
           .subscribe((results) => {
             this.rows = results;
+            this.search = [...results];
           });
       }
     });
@@ -130,6 +134,8 @@ export class CertificateComponent implements OnInit {
           .mergeMap(() => this.certificateService.getCer())
           .subscribe((valueFromDatabse) => {
             this.rows = valueFromDatabse;
+            this.search = [...valueFromDatabse];
+
           })
       }
     });

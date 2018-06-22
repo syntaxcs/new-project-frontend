@@ -51,6 +51,7 @@ export class FollowComponent implements OnInit {
           .mergeMap(() => this.followService.getFollow())
           .subscribe((valueFromDatabse) => {
             this.rows = valueFromDatabse;
+            this.search = [...valueFromDatabse];
           })
       }
     });
@@ -83,6 +84,7 @@ export class FollowComponent implements OnInit {
           .mergeMap(() => this.followService.getFollow())
           .subscribe((results) => {
             this.rows = results;
+            this.search = [...results];
           });
       }
     });
@@ -100,6 +102,7 @@ export class FollowComponent implements OnInit {
           .mergeMap(() => this.followService.getFollow())
           .subscribe((results) => {
             this.rows = results;
+            this.search = [...results];
           });
       }
     });
@@ -108,7 +111,6 @@ export class FollowComponent implements OnInit {
     const dialogRef = this.dialog.open(FollowDetailDialogComponent, {
       width: '750px',
       // height: '700px',
-
       data: {
         date: view.date,
         folmytimeHour: view.folmytimeHour,
@@ -120,18 +122,6 @@ export class FollowComponent implements OnInit {
         folDuration: view.folDuration,
         folPurpose: view.folPurpose,
         treater: view.treater,
-
-
-      }
-    });
-
-    dialogRef.afterClosed().subscribe(resultAllDialog => {
-      if (resultAllDialog !== undefined) {
-        this.followService.addFollow(resultAllDialog)
-          .mergeMap(() => this.followService.getFollow())
-          .subscribe((valueFromDatabse) => {
-            this.rows = valueFromDatabse;
-          })
       }
     });
   }

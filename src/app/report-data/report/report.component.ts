@@ -19,13 +19,14 @@ export class ReportComponent implements OnInit {
   ngOnInit() {
     this.summaryservice.getSummary().subscribe(result => {
       this.rows = result;
+      console.log(this.rows);
       this.search = [...result];
     });
   }
   searchFilter(event) {
     const val = event.target.value;
     const temp = this.search.filter((data) => {
-      return (this.dateShow(data.date).indexOf(val) !== -1);
+      return (this.dateSearch(data.date).indexOf(val) !== -1);
     });
     this.rows = temp;
   }
@@ -35,5 +36,9 @@ export class ReportComponent implements OnInit {
     let day = String(date).substr(8, 2);
     return day + '/' + month + '/' + year;
   }
- 
+  dateSearch(date) {
+    let year = String(Number(String(date).substr(0, 4)) + 543);
+    let month = String(date).substr(5, 2);
+    return month + '/' + year;
+  }
 }

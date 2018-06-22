@@ -1,6 +1,6 @@
 <mat-card>
     <mat-card-subtitle fxLayout="row" fxLayoutGap="10px">
-        <h2>ข้อมูลเจ้าหน้าที่</h2>
+        <h2>ข้อมูลผู้รักษา</h2>
         <div fxFlex></div>
         <mat-form-field appearance="outline">
             <mat-label>ค้นหา</mat-label>
@@ -8,7 +8,7 @@
             <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
         <app-button-card-title (onClick)="openDialog()">
-            <mat-icon>add</mat-icon>เพิ่มข้อมูลเจ้าหน้าที่</app-button-card-title>
+            <mat-icon>add</mat-icon>เพิ่มข้อมูลผู้รักษา</app-button-card-title>
         <app-button-card-title routerLink="/">
             <mat-icon>home</mat-icon>กลับสู่เมนูหลัก</app-button-card-title>
     </mat-card-subtitle>
@@ -22,7 +22,7 @@
             </ngx-datatable-column>
             <ngx-datatable-column name="ชื่อ-นามสกุล">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value.treNameTitle}} {{value.trePhysicianName}} {{value.trePhysicianSurName}}
+                    {{value.treNameTitle}}{{value.trePhysicianName}} {{value.trePhysicianSurName}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="เครื่องมือ" [maxWidth]="170">
