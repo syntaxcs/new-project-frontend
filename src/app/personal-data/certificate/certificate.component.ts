@@ -37,6 +37,7 @@ export class CertificateComponent implements OnInit {
       this.rows = result;
       this.search = [...result];
     })
+    this.certificateService.getCerPdfById(this.id).subscribe()
   }
   searchFilter(event) {
     const val = event.target.value;
