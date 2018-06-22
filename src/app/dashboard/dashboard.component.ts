@@ -16,23 +16,28 @@ export class DashboardComponent implements OnInit {
         [
           {
             icon: 'assets/images/worldwide.png',
-            title: 'เพิ่มข้อมูลโรค/หัตถการ',
+            title: 'ข้อมูลโรค/หัตถการ',
             url: '/basic-data/disease'
           },
           {
             icon: 'assets/images/pain (1).png',
-            title: 'เพิ่มข้อมูลวิธีการรักษา',
+            title: 'ข้อมูลวิธีการรักษา',
             url: '/basic-data/remedy'
           },
           {
             icon: 'assets/images/pills (1).png',
-            title: 'เพิ่มข้อมูลยา',
+            title: 'ข้อมูลยา',
             url: '/basic-data/drug'
           },
           {
             icon: 'assets/images/doctor.png',
-            title: 'เพิ่มข้อมูลผู้รักษา',
+            title: 'ข้อมูลผู้รักษา',
             url: '/basic-data/treater'
+          },
+          {
+            icon: 'assets/images/officer.png',
+            title: 'ข้อมูลผู้ตรวจ',
+            url: '/basic-data/officer'
           },
         ]
     },

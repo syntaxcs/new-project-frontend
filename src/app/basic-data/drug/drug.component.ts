@@ -50,6 +50,7 @@ export class DrugComponent implements OnInit {
           .mergeMap(() => this.drugService.getDrug())
           .subscribe((valueFromDatabse) => {
             this.rows = valueFromDatabse;
+            this.search = [...valueFromDatabse];
           })
       }
     });
@@ -73,6 +74,7 @@ export class DrugComponent implements OnInit {
           .mergeMap(() => this.drugService.getDrug())
           .subscribe((results) => {
             this.rows = results;
+            this.search = [...results];
           });
       }
     });
@@ -90,6 +92,7 @@ export class DrugComponent implements OnInit {
           .mergeMap(() => this.drugService.getDrug())
           .subscribe((results) => {
             this.rows = results;
+            this.search = [...results];
           });
       }
     });

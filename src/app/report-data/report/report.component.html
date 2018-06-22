@@ -4,7 +4,7 @@
         <div fxFlex></div>
         <mat-form-field appearance="outline">
             <mat-label>ค้นหา</mat-label>
-            <input matInput placeholder="รหัสวิธีการรักษา/ชื่อวิธีการรักษา" (keyup)='searchFilter($event)'>
+            <input matInput placeholder="mm/yyyy" (keyup)='searchFilter($event)'>
             <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
         <app-button-card-title routerLink="/">
@@ -20,12 +20,12 @@
             </ngx-datatable-column>
             <ngx-datatable-column name="เลขที่บัตร">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    <!-- {{value.personId.personId}} -->
+                    {{value.personId.personId}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="ชื่อ-นามสกุล">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-
+                    {{value.personId.personNameTitle}}{{value.personId.personName}} {{value.personId.personSurname}}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="สถานะ">
@@ -52,9 +52,14 @@
             </ngx-datatable-column>
             <ngx-datatable-column name="ผู้รักษา">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{ value.treater.treNameTitle}} {{ value.treater.trePhysicianName}} {{ value.treater.trePhysicianSurName}} 
+                    {{ value.treater.treNameTitle}}{{ value.treater.trePhysicianName}} {{ value.treater.trePhysicianSurName}} 
                 </ng-template>
             </ngx-datatable-column>
+            <!-- <ngx-datatable-column name="ผู้ตรวจ">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                    {{ value.officer.ficerNameTitle}}{{ value.officer.ficerName}} {{ value.officer.ficerSurName}} 
+                </ng-template>
+            </ngx-datatable-column> -->
         </ngx-datatable>
     </mat-card-content>
 </mat-card>

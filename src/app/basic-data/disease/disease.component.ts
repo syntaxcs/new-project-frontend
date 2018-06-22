@@ -49,6 +49,7 @@ export class DiseaseComponent implements OnInit {
           .mergeMap(() => this.diseaseService.getDis())
           .subscribe((valueFromDatabse) => {
             this.rows = valueFromDatabse;
+            this.search = [...valueFromDatabse];
           })
       }
     });
@@ -68,6 +69,7 @@ export class DiseaseComponent implements OnInit {
           .mergeMap(() => this.diseaseService.getDis())
           .subscribe((results) => {
             this.rows = results;
+            this.search = [...results];
           });
       }
     });
@@ -85,6 +87,7 @@ export class DiseaseComponent implements OnInit {
           .mergeMap(() => this.diseaseService.getDis())
           .subscribe((results) => {
             this.rows = results;
+            this.search = [...results];
           });
       }
     });

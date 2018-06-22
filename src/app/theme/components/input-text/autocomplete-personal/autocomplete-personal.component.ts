@@ -11,13 +11,13 @@ import { PersonalService } from '../../../../shared/services/personal.service';
 })
 export class AutocompletePersonalsComponent implements OnInit {
     @Input() title: string;
+    @Input() personals: any = [];
     @Input() placeholder: string;
     @Input() positions: string[];
     @Input() percent: boolean;
     @Input() onOtherPersonal = false;
     @Input() _selectedPersonals: any;
 
-    public personals: any = [];
     public filtered: Observable<[{}]>;
     public myControl = new FormControl();
     public setValueInput: string = '';

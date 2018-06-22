@@ -1,0 +1,20 @@
+<app-dialog title="ข้อมูลผู้ตรวจ">
+  <content fxLayout="column">
+    <div fxLayout="row">
+      <app-input-text-normal [value]="data.ficerLicensed_No" name="ficerLicensed_No" placeholder="พท.ป.608" text="เลขที่ประกอบโรคศิลปะ ( Licensed No. )"
+        fxFlex [formGroup]='form'></app-input-text-normal>
+      <app-dropdown [data]="nametitle" [value]="data.ficerNameTitle" text="คำนำหน้า" placeholder="คำนำหน้า( NameTitle )" name="ficerNameTitle"
+        fxFlex [formGroup]='form'></app-dropdown>
+    </div>
+    <div fxLayout="row">
+      <app-input-text-normal [value]="data.ficerName" name="ficerName" placeholder="ชื่อ" text="ชื่อ-นามสกุล"
+        fxFlex [formGroup]='form'></app-input-text-normal>
+      <app-input-text-normal [value]="data.ficerSurName" name="ficerSurName" placeholder="นามสกุล" text="" fxFlex
+        [formGroup]='form'></app-input-text-normal>
+    </div>
+  </content>
+  <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">บันทึก</button>
+    <button mat-raised-button color="warn" (click)="onClose()">ยกเลิก</button>
+  </footer>
+</app-dialog>

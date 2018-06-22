@@ -49,6 +49,7 @@ export class TreaterComponent implements OnInit {
           .mergeMap(() => this.treaterService.getTre())
           .subscribe((valueFromDatabse) => {
             this.rows = valueFromDatabse;
+            this.search = [...valueFromDatabse];
           })
       }
     });
@@ -69,6 +70,7 @@ export class TreaterComponent implements OnInit {
           .mergeMap(() => this.treaterService.getTre())
           .subscribe((results) => {
             this.rows = results;
+            this.search = [...results];
           });
       }
     });
@@ -86,6 +88,7 @@ export class TreaterComponent implements OnInit {
           .mergeMap(() => this.treaterService.getTre())
           .subscribe((results) => {
             this.rows = results;
+            this.search = [...results];
           });
       }
     });

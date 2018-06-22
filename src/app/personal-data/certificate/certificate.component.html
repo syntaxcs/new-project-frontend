@@ -4,7 +4,7 @@
         <div fxFlex></div>
         <mat-form-field appearance="outline">
             <mat-label>ค้นหา</mat-label>
-            <input matInput placeholder="dd/mm/yyyy" (keyup)='searchFilter($event)'>
+            <input matInput placeholder="ชื่อ/นามสกุล" (keyup)='searchFilter($event)'>
             <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
         <app-button-card-title (onClick)="openDialog()">
@@ -20,11 +20,11 @@
                     {{dateShow(value.date)}}
                 </ng-template>
             </ngx-datatable-column>
-            <!-- <ngx-datatable-column name="ชื่อ-นามสกุลผู้ป่วย">
+            <ngx-datatable-column name="ชื่อ-นามสกุลผู้ป่วย">
                 <ng-template let-value="value" ngx-datatable-cell-template>
                     {{value.personal.personal}} {{value.personal.personNameTitle + value.personal.personName}} {{value.personal.personSurname}}
                 </ng-template>
-            </ngx-datatable-column> -->
+            </ngx-datatable-column>
             <ngx-datatable-column name="อาการ/โรค">
                 <ng-template let-value="value" ngx-datatable-cell-template>
                     {{value.cerSymptom}}

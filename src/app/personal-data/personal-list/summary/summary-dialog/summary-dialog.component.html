@@ -44,7 +44,7 @@
             <h3  class="treater">ผู้รักษา ( Treater )</h3>
             <app-dropdown-certificate [value]="data.treater" name="treater" fxFlex [formGroup]='form'></app-dropdown-certificate>
             <h3  class="treater">ผู้ตรวจ ( officer )</h3>
-            <app-dropdown-certificate [value]="data.treater" name="treater" fxFlex [formGroup]='form'></app-dropdown-certificate>
+            <app-dropdown-certificate [value]="data.officer" name="officer" fxFlex [formGroup]='form'></app-dropdown-certificate>
         </div>
         <h3>จ่ายยา ( Dispense )</h3>
         <app-autocomplete-drugmulti [(selectedDrugs)]="data.countDrugs" fxFlex [formGroup]="form"></app-autocomplete-drugmulti>
