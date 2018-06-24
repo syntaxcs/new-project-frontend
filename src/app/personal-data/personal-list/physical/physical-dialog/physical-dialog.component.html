@@ -51,8 +51,12 @@
             fxFlex [formGroup]='form'></app-dropdown>
         </div>
         <div fxLayout="row" style="width: 60%;">
-          <app-dropdown [data]="bodyparth" [value]="data.phyBodyParth" text="ส่วนของร่างกาย" placeholder="ส่วนของร่างกาย" name="phyBodyParth"
+          <app-dropdown [data]="bodyparth" [value]="data.phyBodyParth" text="ส่วนของร่างกายที่ปวด" placeholder="ส่วนของร่างกายที่ปวด" name="phyBodyParth"
             fxFlex [formGroup]='form'></app-dropdown>
+        </div>
+        <div fxLayout="row">
+          <app-input-text-normal [value]="data.phyJoinBodyParth" name="phyJoinBodyParth" placeholder="ส่วนของร่างกายที่ปวดร่วมด้วย" text="ส่วนของร่างกายที่ปวดร่วมด้วย"
+            fxFlex [formGroup]='form'></app-input-text-normal>
         </div>
         <img *ngIf="this.form.value.phyBodyParth" src="../../assets/images/{{this.form.value.phyBodyParth}}.jpg" width="40%" height="40%" style="margin-left: 25%;">
 

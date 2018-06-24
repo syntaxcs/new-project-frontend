@@ -22,12 +22,14 @@
     </div>
 </mat-card>
 <br>
-<mat-card-subtitle fxLayout="row" fxLayoutGap="10px">
-    <h2>ผู้รับบริการทั้งหมด</h2>
+<mat-card-subtitle fxLayout="row" fxLayoutGap="10px" style="margin-left:2%">
+    <h2>
+        ผู้รับบริการทั้งหมด
+    </h2>
     <div fxFlex></div>
     <mat-form-field appearance="outline" style="width : 20%">
         <mat-label>ค้นหา</mat-label>
-        <input matInput placeholder="เลขที่บัตร/ชื่อ/นามสกุล" (keyup)='searchFilter($event)' >
+        <input matInput placeholder="เลขที่บัตร/ชื่อ/นามสกุล" (keyup)='searchFilter($event)'>
         <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
 </mat-card-subtitle>

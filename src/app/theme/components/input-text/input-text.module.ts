@@ -11,6 +11,8 @@ import { AutocompleteDrugmultiComponent } from './autocomplete-drugmulti/autocom
 import { TextNormalComponent } from './text-normal/text-normal.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { DropdownCertificateComponent } from './dropdown-certificate/dropdown-certificate.component';
+import {DropdownOfficerComponent } from './dropdown-officer/dropdown-officer.component';
+import { from } from 'rxjs/internal/observable/from';
 @NgModule({
   imports: [
     MaterialModule,
@@ -24,6 +26,7 @@ import { DropdownCertificateComponent } from './dropdown-certificate/dropdown-ce
     TextNormalComponent,
     DropdownComponent,
     DropdownCertificateComponent,
+    DropdownOfficerComponent,
     AutocompleteDiseasesComponent,
     AutocompleteDrugmultiComponent,
     AutocompletePersonalsComponent
@@ -32,6 +35,7 @@ import { DropdownCertificateComponent } from './dropdown-certificate/dropdown-ce
     TextNormalComponent,
     DropdownComponent,
     DropdownCertificateComponent,
+    DropdownOfficerComponent,
     AutocompleteDiseasesComponent,
     AutocompleteDrugmultiComponent,
     AutocompletePersonalsComponent

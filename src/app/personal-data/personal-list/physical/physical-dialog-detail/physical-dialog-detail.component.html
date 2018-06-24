@@ -2,22 +2,24 @@
     <content fxLayout="column">
         <div fxLayout="row">
             <p style="margin-left:20%">อุณหภูมิ : {{data.phyTemp}} องศา </p>
-            <p style="margin-left:20%">ชีพจร : {{data.phyPulse}} ครั้ง/นาที</p>
+            <p style="margin-left:20.5%">ความดันโลหิต : {{data.phyBp}} มม.ปรอท</p>
         </div>
         <div fxLayout="row">
-            <p style="margin-left:20%">ความดันโลหิต : {{data.phyBp}} มม.ปรอท</p>
-            <p style="margin-left:12%">ค่า BMI : {{ calculateBMI(data) }} </p>
+            <p style="margin-left:20.5%">ชีพจร : {{data.phyPulse}} ครั้ง/นาที</p>
+            <p style="margin-left:18.5%">ค่า BMI : {{ calculateBMI(data) }} </p>
         </div>
         <div fxLayout="row">
             <p style="margin-left:20%">ส่วนสูง : {{data.phyHeight}} เซนติเมตร</p>
-            <p style="margin-left:15%">น้ำหนัก : {{data.phyWeight}} กิโลกรัม</p>
+            <p style="margin-left:16%">น้ำหนัก : {{data.phyWeight}} กิโลกรัม</p>
         </div>
         <div fxLayout="row">
             <p style="margin-left:20%">ระดับความเจ็บปวด : {{data.phyLevel}}</p>
-            <p style="margin-left:11%">ส่วนของร่างกาย : {{data.phyBodyParth}}</p>
+            <p style="margin-left:12%">ส่วนของร่างกายที่ปวด : {{data.phyBodyParth}}</p>
         </div>
-       
-            <img style="margin-left:30%" *ngIf="data.phyBodyParth" src="../../assets/images/{{data.phyBodyParth}}.jpg" width="40%" height="40%">
-        
+        <div fxLayout="row">
+            <p style="margin-left:20%">ส่วนของร่างกายที่ปวดร่วมด้วย : {{data.phyJoinBodyParth}}</p>
+        </div>
+        <img style="margin-left:30%" *ngIf="data.phyBodyParth" src="../../assets/images/{{data.phyBodyParth}}.jpg" width="40%" height="40%">
+
     </content>
 </app-dialog>

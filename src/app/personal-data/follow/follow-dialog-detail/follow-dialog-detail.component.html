@@ -1,20 +1,22 @@
 <app-dialog title="รายละเอียด : ข้อมูลการนัดหมาย">
     <content fxLayout="column">
         <div fxLayout="row">
-            <p style="margin-left:10%">เลขที่บัตร :  {{data.personal.personId}} </p>
-            <p style="margin-left:24.5%">ชื่อ-นามสกุล : {{data.personal.personal}} {{data.personal.personNameTitle + data.personal.personName}} {{data.personal.personSurname}} </p>
+            <p style="margin-left:10%">เลขที่บัตร : {{data.personal.personId}} </p>
+            <p style="margin-left:24.5%">ชื่อ-นามสกุล : {{data.personal.personal}} {{data.personal.personNameTitle + data.personal.personName}} {{data.personal.personSurname}}
+                </p>
         </div>
         <div fxLayout="row">
             <p style="margin-left:10%">วันที่นัดพบแพทย์ : {{dateShow(data.date)}} </p>
             <p style="margin-left:15%">เวลา : {{data.folmytimeHour}}-{{data.folmytimeMinute}} น.</p>
         </div>
         <div fxLayout="row">
-            <p style="margin-left:10%">จุดประสงค์เพื่อ : {{data.folPurpose}} </p>
-            <p style="margin-left:26%">ช่วงการรักษา : {{data.folDuration}} </p>
+            <p style="margin-left:10%">ช่วงการรักษา : {{data.folDuration}} </p>
+            <p style="margin-left:23%">ชื่อผู้รักษา : {{data.treater.treNameTitle + data.treater.trePhysicianName}} {{data.treater.trePhysicianSurName}}
+                </p>
         </div>
         <div fxLayout="row">
-            <p style="margin-left:10%">ชื่อผู้รักษา : {{data.treater.treNameTitle + data.treater.trePhysicianName}} {{data.treater.trePhysicianSurName}}
-            </p>
+            <p style="margin-left:10%">จุดประสงค์เพื่อ : {{data.folPurpose}} </p>
+
 
         </div>
     </content>

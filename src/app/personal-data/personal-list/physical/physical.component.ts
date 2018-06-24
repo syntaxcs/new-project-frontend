@@ -83,6 +83,7 @@ export class PhysicalComponent implements OnInit {
         phyLevel: view.phyLevel,
         phyPulse: view.phyPulse,
         phyRespirationRate: view.phyRespirationRate,
+        phyJoinBodyParth: view.phyJoinBodyParth,
       }
     });
   }
@@ -101,6 +102,7 @@ export class PhysicalComponent implements OnInit {
         phyLevel: row.phyLevel,
         phyPulse: row.phyPulse,
         phyRespirationRate: row.phyRespirationRate,
+        phyJoinBodyParth: row.phyJoinBodyParth,
       }
     });
     dialogRef.afterClosed().subscribe(result => {
