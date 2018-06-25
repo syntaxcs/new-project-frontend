@@ -8,10 +8,11 @@ import { MatNativeDateModule } from '@angular/material';
 import { AutocompletePersonalsComponent } from './autocomplete-personal/autocomplete-personal.component';
 import { AutocompleteDiseasesComponent } from './autocomplete-disease/autocomplete-disease.component';
 import { AutocompleteDrugmultiComponent } from './autocomplete-drugmulti/autocomplete-drugmulti.component';
+import { AutocompleteTreatmultiComponent } from './autocomplete-treatment/autocomplete-treatment.component';
 import { TextNormalComponent } from './text-normal/text-normal.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { DropdownCertificateComponent } from './dropdown-certificate/dropdown-certificate.component';
-import {DropdownOfficerComponent } from './dropdown-officer/dropdown-officer.component';
+import { DropdownOfficerComponent } from './dropdown-officer/dropdown-officer.component';
 import { from } from 'rxjs/internal/observable/from';
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { from } from 'rxjs/internal/observable/from';
     DropdownOfficerComponent,
     AutocompleteDiseasesComponent,
     AutocompleteDrugmultiComponent,
-    AutocompletePersonalsComponent
+    AutocompletePersonalsComponent,
+    AutocompleteTreatmultiComponent
   ],
   exports: [
     TextNormalComponent,
@@ -38,7 +40,8 @@ import { from } from 'rxjs/internal/observable/from';
     DropdownOfficerComponent,
     AutocompleteDiseasesComponent,
     AutocompleteDrugmultiComponent,
-    AutocompletePersonalsComponent
+    AutocompletePersonalsComponent,
+    AutocompleteTreatmultiComponent
   ]
 })
 export class InputModule { }

@@ -24,28 +24,19 @@
             <label>หัตถการ: </label>
             <label> {{ disProcedure }} </label>
         </div>
+        <h3 class="daration">ช่วงเวลา ( Duration )</h3>
+        <app-dropdown [data]="duration" [value]="data.statusTime" placeholder="ช่วงการรักษา" name="statusTime" fxFlex [formGroup]='form'></app-dropdown>
         <div fxLayout="row">
-            <h3>วิธีการรักษา ( Treatment )</h3>
-            <h3 class="daration">ช่วงเวลา ( Duration )</h3>
-        </div>
-        <div fxLayout="row">
-            <div fxLayout="column">
-                <section *ngFor="let element of treat; let i = index">
-                    <mat-checkbox color="warn" (change)="toggle($event.checked, element)" [checked]="checkboxTreat[i]" [value]="element.treatMents">{{element.treatMents}}</mat-checkbox>
-                </section>
-            </div>
-            <div fxFlex></div>
-            <div fxLayout="column" style="margin-right:13%">
-                <app-dropdown [data]="duration" [value]="data.statusTime" placeholder="ช่วงการรักษา" name="statusTime" fxFlex [formGroup]='form'></app-dropdown>
-            </div>
-           
-        </div>
-        <div fxLayout="row">
-            <h3  class="treater">ผู้รักษา ( Treater )</h3>
+            <h3 class="treater">ผู้รักษา ( Treater )</h3>
             <app-dropdown-certificate [value]="data.treater" name="treater" fxFlex [formGroup]='form'></app-dropdown-certificate>
-            <h3  class="treater">ผู้ตรวจ ( officer )</h3>
-            <app-dropdown-certificate [value]="data.officer" name="officer" fxFlex [formGroup]='form'></app-dropdown-certificate>
+            <h3 class="treater">ผู้ตรวจ ( officer )</h3>
+            <app-dropdown-officer [value]="data.officer" name="officer" fxFlex [formGroup]='form'></app-dropdown-officer>
         </div>
+        <h3>วิธีการรักษา ( Treatment )</h3>
+        <!-- <section *ngFor="let element of treat; let i = index">
+                        <mat-checkbox color="warn" (change)="toggle($event.checked, element)" [checked]="checkboxTreat[i]" [value]="element.treatMents">{{element.treatMents}}</mat-checkbox>
+                    </section> -->
+        <app-autocomplete-treatment [(selectedTreatments)]="data.treatment" fxFlex [formGroup]="form"></app-autocomplete-treatment>
         <h3>จ่ายยา ( Dispense )</h3>
         <app-autocomplete-drugmulti [(selectedDrugs)]="data.countDrugs" fxFlex [formGroup]="form"></app-autocomplete-drugmulti>
     </content>

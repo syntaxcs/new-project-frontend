@@ -40,6 +40,7 @@ import { TreatmentService } from '../shared/services/treatment.service';
 import { DiseaseService } from '../shared/services/disease.service';
 import { SummaryService } from '../shared/services/summary.service';
 import { TreaterService } from '../shared/services/treater.service';
+import { OfficerService} from '../shared/services/officer.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -94,6 +95,7 @@ import { TreaterService } from '../shared/services/treater.service';
     DiseaseService,
     SummaryService,
     TreaterService,
+    OfficerService,
   ],
 })
 

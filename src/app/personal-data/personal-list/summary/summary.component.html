@@ -31,11 +31,11 @@
                     {{ value.treater.treNameTitle}}{{ value.treater.trePhysicianName}} {{ value.treater.trePhysicianSurName}} 
                 </ng-template>
             </ngx-datatable-column>
-            <!-- <ngx-datatable-column name="ผู้ตรวจ">
+            <ngx-datatable-column name="ผู้ตรวจ">
                 <ng-template let-value="value" ngx-datatable-cell-template>
                     {{ value.officer.ficerNameTitle}}{{ value.officer.ficerName}} {{ value.officer.ficerSurName}} 
                 </ng-template>
-            </ngx-datatable-column> -->
+            </ngx-datatable-column>
             <ngx-datatable-column name="เครื่องมือ" [maxWidth]="170">
                 <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
                     <img src="../assets/images/pencil.png" (click)="openEditDialog(value)" width="40px" height="40px" title="แก้ไข">

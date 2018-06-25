@@ -37,9 +37,9 @@ export class SummaryDialogComponent implements OnInit {
     this.form = this.formBuilder.group({});
     this.treatmentservice.getTreat().subscribe(result => {
       this.treat = result;
-      if (this.data.treatment !== undefined) {
-        this.editTreat();
-      }
+      // if (this.data.treatment !== undefined) {
+      //   this.editTreat();
+      // }
     })
   }
   editMode() {
@@ -54,25 +54,25 @@ export class SummaryDialogComponent implements OnInit {
       this.check(this.data.disease);
     }
   }
-  editTreat() {
-    let bool = [];
-    this.treat.forEach(element => {
-      this.data.treatment.forEach(treat => {
-        if (element._id === treat._id) {
-          this.treatMents.push(element)
-          return;
-        }
-      })
-    })
-    this.treatMents.forEach(result => {
-      const index: number = this.treat.indexOf(result);
-      this.checkboxTreat[index] = true;
-    })
-    for (let i = 0; i < this.treat.length; i++) {
-      if (this.checkboxTreat[i] === undefined)
-        this.checkboxTreat[i] = false;
-    }
-  }
+  // editTreat() {
+  //   let bool = [];
+  //   this.treat.forEach(element => {
+  //     this.data.treatment.forEach(treat => {
+  //       if (element._id === treat._id) {
+  //         this.treatMents.push(element)
+  //         return;
+  //       }
+  //     })
+  //   })
+  //   this.treatMents.forEach(result => {
+  //     const index: number = this.treat.indexOf(result);
+  //     this.checkboxTreat[index] = true;
+  //   })
+  //   for (let i = 0; i < this.treat.length; i++) {
+  //     if (this.checkboxTreat[i] === undefined)
+  //       this.checkboxTreat[i] = false;
+  //   }
+  // }
   toggle(check, data) {
     if (check === true) {
       this.treatMents.push(data)
@@ -92,7 +92,6 @@ export class SummaryDialogComponent implements OnInit {
   onSave() {
     const value = this.form.value;
     value.disease = this.data.disease._id
-    value.treatment = this.treatMents;
     value.personId = this.data.personId;
     value.date = this.date;
     value.date.setDate(this.date.getDate() + 1);

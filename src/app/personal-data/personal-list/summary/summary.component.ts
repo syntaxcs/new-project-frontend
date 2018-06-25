@@ -29,6 +29,7 @@ export class SummaryComponent implements OnInit {
     this.summaryservice.getSummaryById(this.id).subscribe(result => {
       this.rows = result;
       this.search = [...result];
+      console.log(this.rows)
     });
     this.summaryservice.getSummaryPdfById(this.id).subscribe()
   }

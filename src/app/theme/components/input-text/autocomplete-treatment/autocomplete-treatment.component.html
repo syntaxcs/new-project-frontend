@@ -1,0 +1,29 @@
+<div [formGroup]="form">
+    <mat-list-item *ngFor="let data of selectedTreatments;let index = index">
+        <div fxLayout="row" fxLayoutWrap fxLayoutAlign="start center" fxLayoutGap="10px" [formGroupName]="index" >
+            <label fxFlex="nogrow" fxHide.xs>การรักษา</label>
+            <mat-form-field fxFlex>
+                <input type="text" placeholder="เลือกยา" matInput [matAutocomplete]="auto" formControlName="treat">
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                    <mat-option *ngFor="let treat of treatment" [value]="treat">
+                        {{treat.treatMents}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <label fxFlex fxHide.xs fxFlex="nogrow">ชั่วโมง</label>
+            <mat-form-field fxFlex>
+                <input type="text" placeholder="จำนวนชั่วโมง" matInput formControlName="hours">
+            </mat-form-field>
+
+            <button *ngIf="index===0" mat-mini-fab color="primary" (click)="add()">
+                เพิ่ม
+            </button>
+            <button *ngIf="index!==0" mat-mini-fab color="warn" (click)="remove(data)">
+                ลบ
+            </button>
+
+        </div>
+
+    </mat-list-item>
+</div>
