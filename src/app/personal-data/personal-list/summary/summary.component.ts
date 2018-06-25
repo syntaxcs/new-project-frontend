@@ -77,8 +77,8 @@ export class SummaryComponent implements OnInit {
         time: view.time,
         disease: view.disease,
         treatment: view.treatment,
-        treater: view.treater._id,
-        officer: view.officer._id,
+        treater: view.treater,
+        officer: view.officer,
         countDrugs: view.countDrugs,
         statusTime: view.statusTime,
       }

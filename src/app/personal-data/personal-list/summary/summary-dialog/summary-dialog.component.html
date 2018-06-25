@@ -17,15 +17,15 @@
             <ng-template #confirmBtn>
                 <button mat-raised-button color="primary">ตกลง</button>
             </ng-template>
+            
+        <app-dropdown [data]="duration" [value]="data.statusTime" placeholder="ช่วงการรักษา" text="ช่วงการรักษา" name="statusTime" fxFlex [formGroup]='form'></app-dropdown>
         </div>
         <app-autocomplete-disease title="โรค" [(selectedDiseases)]="data.disease" (selectedDiseasesChange)="check($event)" name="disease"
             placeholder="เลือกกลุ่ม" fxFlex [formGroup]='form'></app-autocomplete-disease>
         <div fxLayout="row">
-            <label>หัตถการ: </label>
+            <label style="margin-right: 2%;">หัตถการ : </label>
             <label> {{ disProcedure }} </label>
         </div>
-        <h3 class="daration">ช่วงเวลา ( Duration )</h3>
-        <app-dropdown [data]="duration" [value]="data.statusTime" placeholder="ช่วงการรักษา" name="statusTime" fxFlex [formGroup]='form'></app-dropdown>
         <div fxLayout="row">
             <h3 class="treater">ผู้รักษา ( Treater )</h3>
             <app-dropdown-certificate [value]="data.treater" name="treater" fxFlex [formGroup]='form'></app-dropdown-certificate>
