@@ -19,9 +19,9 @@ export class ReportComponent implements OnInit {
   ngOnInit() {
     this.summaryservice.getSummary().subscribe(result => {
       this.rows = result;
-      console.log(this.rows);
       this.search = [...result];
     });
+    this.summaryservice.getSummaryPdf().subscribe()
   }
   searchFilter(event) {
     const val = event.target.value;

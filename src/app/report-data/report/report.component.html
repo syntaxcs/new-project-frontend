@@ -30,7 +30,7 @@
             </ngx-datatable-column>
             <ngx-datatable-column name="สถานะ">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-
+                    {{value.status }}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="อาการโรค">
@@ -41,18 +41,18 @@
             <ngx-datatable-column name="วิธีการรักษา">
                 <ng-template let-value="value" ngx-datatable-cell-template>
                     <div *ngFor="let data of value.treatment">
-                        <a>{{ data.treatMents }}</a>
+                        <a>{{ data.treat.treatMents }}</a>
                     </div>
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="ค่าบริการทั้งหมด(บาท)">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-
+                    {{value.charge }}
                 </ng-template>
             </ngx-datatable-column>
             <ngx-datatable-column name="ผู้รักษา">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{ value.treater.treNameTitle}}{{ value.treater.trePhysicianName}} {{ value.treater.trePhysicianSurName}} 
+                    {{ value.treater.treNameTitle}}{{ value.treater.trePhysicianName}} {{ value.treater.trePhysicianSurName}}
                 </ng-template>
             </ngx-datatable-column>
             <!-- <ngx-datatable-column name="ผู้ตรวจ">
