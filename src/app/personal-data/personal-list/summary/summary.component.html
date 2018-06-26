@@ -36,11 +36,12 @@
                     {{ value.officer.ficerNameTitle}}{{ value.officer.ficerName}} {{ value.officer.ficerSurName}} 
                 </ng-template>
             </ngx-datatable-column>
-            <ngx-datatable-column name="เครื่องมือ" [maxWidth]="170">
+            <ngx-datatable-column name="เครื่องมือ" [maxWidth]="200">
                 <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
                     <img src="../assets/images/pencil.png" (click)="openEditDialog(value)" width="40px" height="40px" title="แก้ไข">
                     <img src="../assets/images/395848.svg" (click)="confirmDelete(value)" width="40px" height="40px" title="ลบ">
                     <img src="../assets/images/de.png" (click)=" openDetailDialog(value)" width="40px" height="40px" title="ดูรายละเอียด">
+                    <img src="../assets/images/printer.png" (click)=" openDetailDialog(value)" width="40px" height="40px" title="พิมพ์ใบสรุปความเจ็บป่วย">
                 </ng-template>
             </ngx-datatable-column>
         </ngx-datatable>

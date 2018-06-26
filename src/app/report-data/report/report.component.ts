@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { SummaryService } from './../../shared/services/summary.service';
-
+import { ReportDetailDialogComponent } from './report-dialog-detail/report-dialog-detail.component';
+import { ReportDialogComponent } from './report-dialog/report-dialog.component';
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
@@ -9,7 +10,7 @@ import { SummaryService } from './../../shared/services/summary.service';
 export class ReportComponent implements OnInit {
   public rows = [];
   public search = [];
- 
+  public id = [];
 
   constructor(
     private dialog: MatDialog,
@@ -40,5 +41,33 @@ export class ReportComponent implements OnInit {
     let year = String(Number(String(date).substr(0, 4)) + 543);
     let month = String(date).substr(5, 2);
     return month + '/' + year;
+  }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ReportDialogComponent, {
+      width: '500px',
+    
+      data: { personId: this.id }
+    });
+    dialogRef.afterClosed().subscribe(resultAllDialog => {
+      if (resultAllDialog !== undefined) {
+
+      }
+    });
+  }
+  openDetailDialog(view): void {
+    const dialogRef = this.dialog.open(ReportDetailDialogComponent, {
+      width: '750px',
+      data: {
+        personId: this.id,
+        date: this.dateShow(view.date),
+        time: view.time,
+        disease: view.disease,
+        treatment: view.treatment,
+        treater: view.treater._id,
+        officer: view.officer._id,
+        countDrugs: view.countDrugs,
+        statusTime: view.statusTime,
+      }
+    });
   }
 }

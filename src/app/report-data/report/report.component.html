@@ -7,8 +7,12 @@
             <input matInput placeholder="mm/yyyy" (keyup)='searchFilter($event)'>
             <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
+        <app-button-card-title (onClick)="openDialog()">
+            พิมพ์แบบบันทึกรายงานสรุป
+        </app-button-card-title>
         <app-button-card-title routerLink="/">
-            <mat-icon>home</mat-icon>กลับสู่เมนูหลัก</app-button-card-title>
+            <mat-icon>home</mat-icon>กลับสู่เมนูหลัก
+        </app-button-card-title>
     </mat-card-subtitle>
     <mat-card-content>
         <ngx-datatable class="material" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]="rows"
@@ -55,11 +59,16 @@
                     {{ value.treater.treNameTitle}}{{ value.treater.trePhysicianName}} {{ value.treater.trePhysicianSurName}}
                 </ng-template>
             </ngx-datatable-column>
-            <!-- <ngx-datatable-column name="ผู้ตรวจ">
+            <ngx-datatable-column name="ผู้ตรวจ">
                 <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{ value.officer.ficerNameTitle}}{{ value.officer.ficerName}} {{ value.officer.ficerSurName}} 
+                    {{ value.officer.ficerNameTitle}}{{ value.officer.ficerName}} {{ value.officer.ficerSurName}}
                 </ng-template>
-            </ngx-datatable-column> -->
+            </ngx-datatable-column>
+            <ngx-datatable-column name="เครื่องมือ" [maxWidth]="170">
+                <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+                    <img src="../assets/images/de.png" (click)=" openDetailDialog(value)" width="40px" height="40px" title="ดูรายละเอียด">
+                </ng-template>
+            </ngx-datatable-column>
         </ngx-datatable>
     </mat-card-content>
 </mat-card>

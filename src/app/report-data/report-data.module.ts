@@ -6,6 +6,8 @@ import { routing } from './report-data.routing';
 
 import { ReportDataComponent } from './report-data.component';
 import { ReportComponent } from './report/report.component';
+import { ReportDetailDialogComponent } from './report/report-dialog-detail/report-dialog-detail.component';
+import { ReportDialogComponent } from './report/report-dialog/report-dialog.component';
 
 import { SummaryService } from '../shared/services/summary.service';
 
@@ -18,7 +20,14 @@ import { SummaryService } from '../shared/services/summary.service';
   ],
   declarations: [
     ReportDataComponent,
-    ReportComponent
+    ReportComponent,
+    ReportDetailDialogComponent,
+    ReportDialogComponent,
+
+  ],
+  entryComponents: [
+    ReportDetailDialogComponent,
+    ReportDialogComponent
   ],
   providers: [
     SummaryService

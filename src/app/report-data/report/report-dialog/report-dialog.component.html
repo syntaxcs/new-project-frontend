@@ -1,0 +1,14 @@
+<app-dialog title="กรุณาเลือก">
+    <content fxLayout="column">
+        <div fxLayout="row">
+            <app-dropdown [data]="month" [value]="data.month" placeholder="เดือน" name="month" fxFlex [formGroup]='form'></app-dropdown>
+            <app-input-text-normal style="margin-left:5%" [value]="data.year" name="year" placeholder="ปี พ.ศ." text="ปี" fxFlex
+                [formGroup]='form'></app-input-text-normal>
+        </div>
+
+    </content>
+    <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+        <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">พิมพ์</button>
+        <button mat-raised-button color="warn" (click)="onClose()">ยกเลิก</button>
+    </footer>
+</app-dialog>
