@@ -23,7 +23,6 @@ export class AutocompleteDrugmultiComponent implements OnInit {
     public myControl = new FormControl();
     public drugs: any = [];
     // public loading = true;
-    public filtered: Observable<[{}]>;
     constructor(
         private formBuilder: FormBuilder,
         private drugservice: DrugService
@@ -51,15 +50,16 @@ export class AutocompleteDrugmultiComponent implements OnInit {
             this.add();
         }
         this.setDrugToString();
-        this.filtered = this.myControl.valueChanges.pipe(
-            startWith(null),
-            map(value => value ? this.filter(value) : this.drugs.slice()), );
+        // this.filterDrugs = this.form.valueChanges.pipe(
+        //     startWith(null),
+        //     map(value => value ? this.filter(value) : this.drugs.slice()) );
     }
 
     displayFn(drugs): string {
         return drugs ? `${drugs.drugName}` + ' (' + `${drugs.drugPackages}` + ')' : '';
     }
     filter(name: string) {
+        console.log(name)
         return this.filterDrugs.filter(drug => drug.drugName.indexOf(name) === 0 || drug.drugPackages.indexOf(name) === 0);
     }
     add() {

@@ -1,22 +1,29 @@
 <app-dialog title="รายละเอียด : ข้อมูลสรุปความเจ็บป่วย {{data.date}}">
     <content fxLayout="column">
         <div fxLayout="row">
-            <p style="margin-left:10%">อาการโรค: {{data.disease.disName}}</p>
-        </div>
-        <div fxLayout="row">
-            <p style="margin-left:10%">หัตถการ : {{data.disease.disProcedure}} </p>
-        </div>
-        <div fxLayout="row" *ngFor="let value of data.treatment">
-            <label style="margin-left:10%">
-                วิธีการรักษา {{ value.treatMents }}
-            </label>
-        </div>
-        <div fxLayout="row">
+            <p style="margin-left:10%">เวลาที่มาพบแพทย์ : {{data.time}} </p>
             <p style="margin-left:10%">ช่วงเวลาการรักษา : {{data.statusTime}} </p>
         </div>
-        <div fxLayout="row" *ngFor="let value of data.countDrugs">
-                <label style="margin-left:10%">จ่ายยา : {{value.drug.drugName}} จำนวน : {{value.count}} </label>
+        <p style="margin-left:10%">ชื่อ-นามสกุล :  {{data.personId.personNameTitle}}{{data.personId.personName}} {{data.personId.personSurname}}</p>
+        <p style="margin-left:10%">อาการโรค : {{data.disease.disName}}</p>
+        <p style="margin-left:10%">หัตถการ : {{data.disease.disProcedure}} </p>
+
+        <div fxLayout="row" *ngFor="let value of data.treatment">
+            <p style="margin-left:10%">
+                วิธีการรักษา : {{value.treat.treatMents}}
+            </p>
+            <p style="margin-left:10%">
+                จำนวน : {{value.hours}} ชั่วโมง
+            </p>
         </div>
-      
+        <div fxLayout="row" *ngFor="let value of data.countDrugs">
+            <p style="margin-left:10%">จ่ายยา : {{value.drug.drugName}}</p>
+            <p style="margin-left:10%">จำนวน : {{value.count}} {{value.drug.drugPackages}} </p>
+        </div>
+        <div fxLayout="row">
+            <p style="margin-left:10%">ผู้ตรวจ : {{data.officer.ficerNameTitle}}{{data.officer.ficerName}} {{data.officer.ficerSurName}}</p>
+            <p style="margin-left:10%">ผู้รักษา : {{data.treater.treNameTitle + data.treater.trePhysicianName}} {{data.treater.trePhysicianSurName}}</p>
+        </div>
+
     </content>
 </app-dialog>

@@ -70,6 +70,7 @@ export class SummaryComponent implements OnInit {
   openDetailDialog(view): void {
     const dialogRef = this.dialog.open(SummaryDetailDialogComponent, {
       width: '750px',
+      height: '500px',
       data: {
         personId: this.id,
         date: this.dateShow(view.date),

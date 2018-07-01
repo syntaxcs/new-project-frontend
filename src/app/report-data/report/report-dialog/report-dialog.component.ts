@@ -11,7 +11,6 @@ export class ReportDialogComponent implements OnInit {
   public month = ['มกราคม' , 'กุมพาพันธ์' , 'มีนาคม' , 'เมษายน' , 'พฤษภาคม' , 'มิถุนายน' , 'กรกฎาคม' ,
 'สิงหาคม' , 'กันยายน' , 'ตุลาคม' , 'พฤศจิกายน' , 'ธันวาคม'];
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<ReportDialogComponent>,
   ) { }
@@ -23,7 +22,6 @@ export class ReportDialogComponent implements OnInit {
   }
   onSave() {
     const value = this.form.value;
-    console.log(value);
-    // this.dialogRef.close(value);
+    this.dialogRef.close(value);
   }
 }

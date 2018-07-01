@@ -3,6 +3,7 @@ import { MatDialog, MatSnackBar } from '@angular/material';
 import { SummaryService } from './../../shared/services/summary.service';
 import { ReportDetailDialogComponent } from './report-dialog-detail/report-dialog-detail.component';
 import { ReportDialogComponent } from './report-dialog/report-dialog.component';
+import { Observable } from 'rxjs/Rx';
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
@@ -11,7 +12,7 @@ export class ReportComponent implements OnInit {
   public rows = [];
   public search = [];
   public id = [];
-
+  pdfSrc: string;
   constructor(
     private dialog: MatDialog,
     private summaryservice: SummaryService
@@ -22,7 +23,6 @@ export class ReportComponent implements OnInit {
       this.rows = result;
       this.search = [...result];
     });
-    this.summaryservice.getSummaryPdf().subscribe()
   }
   searchFilter(event) {
     const val = event.target.value;
@@ -45,29 +45,31 @@ export class ReportComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(ReportDialogComponent, {
       width: '500px',
-    
-      data: { personId: this.id }
     });
-    dialogRef.afterClosed().subscribe(resultAllDialog => {
-      if (resultAllDialog !== undefined) {
-
+    dialogRef.afterClosed().subscribe(result => {
+      if (result !== undefined) {
+        this.summaryservice.createSummaryPdf(result)
       }
     });
   }
   openDetailDialog(view): void {
     const dialogRef = this.dialog.open(ReportDetailDialogComponent, {
       width: '750px',
+      height: '500px',
+
       data: {
-        personId: this.id,
+        personId: view.personId,
         date: this.dateShow(view.date),
         time: view.time,
         disease: view.disease,
         treatment: view.treatment,
-        treater: view.treater._id,
-        officer: view.officer._id,
+        treater: view.treater,
+        officer: view.officer,
         countDrugs: view.countDrugs,
         statusTime: view.statusTime,
+
       }
+
     });
   }
 }

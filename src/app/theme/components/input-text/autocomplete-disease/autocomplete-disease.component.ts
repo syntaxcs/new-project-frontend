@@ -32,7 +32,11 @@ export class AutocompleteDiseasesComponent implements OnInit {
 
     @Input('selectedDiseases')
     set setselectedDiseases(diseases) {
-        this._selectedDiseases = diseases || [];
+        if (diseases === undefined) {
+            this._selectedDiseases = null;
+        } else {
+            this._selectedDiseases = diseases || [];
+        }
     }
     get selectedDiseases() {
         return this._selectedDiseases;
@@ -47,11 +51,9 @@ export class AutocompleteDiseasesComponent implements OnInit {
             map(value => value ? this.filter(value) : this.diseases.slice()), );
     }
     filter(name: string) {
-        // tslint:disable-next-line:max-line-length
         return this.diseases.filter(diseases => diseases.disName.indexOf(name) === 0 || diseases.disID.indexOf(name) === 0);
     }
     displayFn(diseases) {
-        // tslint:disable-next-line:max-line-length
         return diseases ? `${diseases.disID} ${diseases.disName}` : '';
     }
     addSelectDiseases(disease) {

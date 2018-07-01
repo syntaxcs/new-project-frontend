@@ -14,8 +14,11 @@ export class SummaryService {
   getSummaryById(id): Observable<any> {
     return this.apiService.get(`summary/` + id);
   }
-  getSummaryPdf(): Observable<any> {
-    return this.apiService.get(`summary/getpdf/` +'1');
+  getPdfByDate(date): Observable<any> {
+    return this.apiService.get(`summary/getpdf/` + date);
+  }
+  createSummaryPdf(data): Observable<any> {
+    return this.apiService.post(`summary/createpdf`, data);
   }
   addSummary(data): Observable<any> {
     return this.apiService.post('summary', data);
@@ -26,5 +29,5 @@ export class SummaryService {
   deleteSummary(id: string): Observable<any> {
     return this.apiService.delete('summary/' + id);
   }
-  
+
 }

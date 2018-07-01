@@ -1,6 +1,10 @@
 <mat-card>
     <mat-card-subtitle fxLayout="row" fxLayoutGap="10px">
         <h2>แบบบันทึกการใช้บริการการแพทย์แผนไทยและการแพทย์ทางเลือก</h2>
+        <!-- <div *ngIf="pdfSrc"> -->
+            <!-- <a src="http://localhost:3000/summary/getpdf/2018-06" [render-text]="true" style="display: block;"></a> -->
+        <!-- </div> -->
+
         <div fxFlex></div>
         <mat-form-field appearance="outline">
             <mat-label>ค้นหา</mat-label>
@@ -42,28 +46,28 @@
                     {{value.disease.disName}}
                 </ng-template>
             </ngx-datatable-column>
-            <ngx-datatable-column name="วิธีการรักษา">
+            <!-- <ngx-datatable-column name="วิธีการรักษา">
                 <ng-template let-value="value" ngx-datatable-cell-template>
                     <div *ngFor="let data of value.treatment">
                         <a>{{ data.treat.treatMents }}</a>
                     </div>
                 </ng-template>
-            </ngx-datatable-column>
+            </ngx-datatable-column> -->
             <ngx-datatable-column name="ค่าบริการทั้งหมด(บาท)">
                 <ng-template let-value="value" ngx-datatable-cell-template>
                     {{value.charge }}
                 </ng-template>
             </ngx-datatable-column>
-            <ngx-datatable-column name="ผู้รักษา">
+            <!-- <ngx-datatable-column name="ผู้รักษา">
                 <ng-template let-value="value" ngx-datatable-cell-template>
                     {{ value.treater.treNameTitle}}{{ value.treater.trePhysicianName}} {{ value.treater.trePhysicianSurName}}
                 </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="ผู้ตรวจ">
+            </ngx-datatable-column> -->
+            <!-- <ngx-datatable-column name="ผู้ตรวจ">
                 <ng-template let-value="value" ngx-datatable-cell-template>
                     {{ value.officer.ficerNameTitle}}{{ value.officer.ficerName}} {{ value.officer.ficerSurName}}
                 </ng-template>
-            </ngx-datatable-column>
+            </ngx-datatable-column> -->
             <ngx-datatable-column name="เครื่องมือ" [maxWidth]="170">
                 <ng-template let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
                     <img src="../assets/images/de.png" (click)=" openDetailDialog(value)" width="40px" height="40px" title="ดูรายละเอียด">

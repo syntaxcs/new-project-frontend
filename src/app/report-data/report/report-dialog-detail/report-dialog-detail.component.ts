@@ -10,6 +10,7 @@ export class ReportDetailDialogComponent implements OnInit {
     private dialogRef: MatDialogRef<ReportDetailDialogComponent>,
   ) { }
   ngOnInit() {
+    console.log(this.data)
   }
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);

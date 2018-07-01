@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReportDetailDialogComponent } from './summary-dialog-detail.component';
+import { ReportDetailDialogComponent } from './report-dialog-detail.component';
 
 describe('ReportDetailDialogComponent', () => {
   let component: ReportDetailDialogComponent;

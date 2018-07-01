@@ -8,7 +8,7 @@ import { MaterialModule } from './material.module';
 import { FileUploadModule } from 'ng2-file-upload';
 import { ThemeModule } from '../theme/theme.module';
 import { HttpClientModule } from '@angular/common/http';
-
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 @NgModule({
   imports: [
     HttpClientModule,
@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     FileUploadModule,
     ThemeModule,
     NgxDatatableModule,
+    PdfViewerModule
   ],
   declarations: []
 })
