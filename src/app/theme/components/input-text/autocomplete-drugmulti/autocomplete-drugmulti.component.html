@@ -5,6 +5,9 @@
             <mat-form-field fxFlex>
                 <input type="text" placeholder="เลือกยา" matInput [matAutocomplete]="auto" formControlName="drug">
                 <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                    <mat-option value="">
+                      --
+                    </mat-option>
                     <mat-option *ngFor="let drug of filterDrugs" [value]="drug">
                         {{drug.drugName}} ( {{drug.drugPackages}} )
                     </mat-option>
@@ -15,7 +18,7 @@
             <mat-form-field fxFlex>
                 <input type="text" placeholder="กรอกจำนวน" matInput formControlName="count">
             </mat-form-field>
-            
+
             <button *ngIf="index===0" mat-mini-fab color="primary" (click)="add()">
                 เพิ่ม
             </button>
