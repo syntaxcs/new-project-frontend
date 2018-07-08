@@ -6,7 +6,6 @@ import { ReportDialogComponent } from './report-dialog/report-dialog.component';
 import { Router } from '@angular/router';
 import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import * as FileSaver from 'file-saver';
-import { saveAs } from 'file-saver';
 import 'rxjs/Rx';
 import { async } from '@angular/core/testing';
 @Component({
@@ -58,7 +57,7 @@ export class ReportComponent implements OnInit {
         let date = this.convertDate(result)
         this.summaryservice.createSummaryPdf(result)
           .mergeMap(() => this.downloadFile(date)).subscribe(
-          data => saveAs(data, 'สรุปผู้ป่วย ' + date),
+          data => FileSaver.saveAs(data, 'สรุปผู้ป่วย ' + date),
           error => console.error(error)
           );
       }
