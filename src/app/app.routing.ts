@@ -25,7 +25,7 @@ export const routes: Routes = [
       }
     ]
   },
-  // { path: 'login', loadChildren: './login/login.module#LoginModule', pathMatch: 'full' },
+  { path: 'login', loadChildren: './login/login.module#LoginModule', pathMatch: 'full' },
   { path: '**', redirectTo: '' },
 ];
 
