@@ -27,12 +27,15 @@ export class LoginComponent implements OnInit {
         return this.userForm.invalid || this.loading;
     }
     login(user: User) {
+        
         this.loading = true;
         this.userService.login(user).subscribe((data) => {
-            this.router.navigateByUrl('/');
+            if (data.access_token === true) this.router.navigateByUrl('/');
+            else this.router.navigateByUrl('/login');
+          
         }, err => {
             this.loading = false;
-        });
+        }); 
     }
 
 }
