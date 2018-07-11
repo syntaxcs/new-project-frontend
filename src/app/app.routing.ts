@@ -22,6 +22,10 @@ export const routes: Routes = [
       {
         path: 'report-data',
         loadChildren: './report-data/report-data.module#ReportDataModule',
+      },
+      {
+        path: 'login',
+        loadChildren: './login/login.module#LoginModule',
       }
     ]
   },
