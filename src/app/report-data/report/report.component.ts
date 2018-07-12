@@ -56,10 +56,11 @@ export class ReportComponent implements OnInit {
       if (result !== undefined) {
         let date = this.convertDate(result)
         this.summaryservice.createSummaryPdf(result)
-          .mergeMap(() => this.downloadFile(date)).subscribe(
-          data => FileSaver.saveAs(data, 'สรุปผู้ป่วย ' + date),
+        // .mergeMap(() => this.downloadFile(date))
+        .subscribe(
+          data => FileSaver.saveAs(data, 'สรุปผู้ป่วย ' + date + '.pdf'),
           error => console.error(error)
-          );
+        );
       }
     });
   }
@@ -87,7 +88,8 @@ export class ReportComponent implements OnInit {
     return this.http.get('http://localhost:3000/summary/getpdf/' + name, {
       responseType: 'blob',
       headers: new HttpHeaders().append('Content-Type', 'application/json')
-    });
+    })
+    
   }
   openDetailDialog(view): void {
     const dialogRef = this.dialog.open(ReportDetailDialogComponent, {

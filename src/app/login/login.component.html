@@ -1,0 +1,15 @@
+<mat-card class="h1">
+    <h1>WELCOME TO LOGIN...</h1>
+</mat-card>
+<mat-card>
+    <img src="../assets/images/login.png">
+    <form [formGroup]="userForm" fxLayout="column" fxFlexFill (ngSubmit)="login(userForm.value)">
+        <mat-form-field fxFlex="40">
+            <input matInput type="text" placeholder="ชื่อเข้าใช้" formControlName="username">
+        </mat-form-field>
+        <mat-form-field fxFlex="40">
+            <input matInput type="password" placeholder="รหัสผ่าน" formControlName="password">
+        </mat-form-field>
+        <button  style="margin-top: 10%;" fxFlex="15" type="submit" mat-raised-button color="primary" [disabled]="formInValid"> เข้าสู่ระบบ </button>
+    </form>
+</mat-card>
