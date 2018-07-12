@@ -13,9 +13,10 @@ import { JwtService } from './shared/services/jwt.service';
 import { ApiService } from './shared/services/api.service';
 import { GlobalState } from './shared/global.state';
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

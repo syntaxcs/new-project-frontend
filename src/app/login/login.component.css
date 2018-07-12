@@ -1,0 +1,25 @@
+.mat-card{
+    background:white;
+    width: 30%;
+    height: 40%;
+    margin-left: 35%;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    margin-top: 1%;
+}
+
+.mat-card img{
+    width: 25%;
+    height: 25%;
+    margin-left: 37%;
+    
+}
+.mat-form-field{
+    width: 100%;
+    color: white;
+}
+.mat-card button{
+
+    margin-left: 37%;
+}
+
