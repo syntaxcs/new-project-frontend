@@ -3,7 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { DrugService } from '../../../../shared/services/drug.service';
 import { DiseaseService } from '../../../../shared/services/disease.service';
-import { from } from 'rxjs/internal/observable/from';
+import { Observable } from 'rxjs/Observable';
 import { TreatmentService } from '../../../../shared/services/treatment.service'
 
 @Component({
@@ -91,12 +91,12 @@ export class SummaryDialogComponent implements OnInit {
   }
   onSave() {
     const value = this.form.value;
-    console.log(this.data.disease)
     value.disease = this.data.disease._id
     value.personId = this.data.personId;
     value.date = this.date;
     value.date.setDate(this.date.getDate() + 1);
     value.time = this.brithDay;
+    console.log(value)
     this.dialogRef.close(value);
   }
 
