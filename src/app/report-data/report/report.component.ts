@@ -56,7 +56,8 @@ export class ReportComponent implements OnInit {
       if (result !== undefined) {
         let date = this.convertDate(result)
         this.summaryservice.createSummaryPdf(result)
-        .mergeMap(() => this.downloadFile(date)).subscribe(
+        // .mergeMap(() => this.downloadFile(date))
+        .subscribe(
           data => FileSaver.saveAs(data, 'สรุปผู้ป่วย ' + date + '.pdf'),
           error => console.error(error)
         );

@@ -6,7 +6,7 @@ import { User } from './../shared/models/user.model';
 @Component({
     selector: 'app-login-form',
     templateUrl: './login.component.html',
-    // styleUrls: ['./login.component.scss']
+    styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
     loading = false;

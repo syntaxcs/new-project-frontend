@@ -18,7 +18,7 @@ export class SummaryService {
     return this.apiService.get(`summary/getpdf/` + date);
   }
   createSummaryPdf(data): Observable<any> {
-    return this.apiService.post(`summary/createpdf`, data);
+    return this.apiService.postContent(`summary/createpdf`, data);
   }
   addSummary(data): Observable<any> {
     return this.apiService.post('summary', data);
