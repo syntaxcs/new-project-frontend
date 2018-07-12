@@ -43,6 +43,7 @@ export class ApiService {
       { headers: this.setHeaders(), params: params })
       .catch(this.formatErrors.bind(this));
   }
+
   getContent(path: string): Observable<any> {
     return this.http.get(`${environment.apiUrl}${path}`,
       {
