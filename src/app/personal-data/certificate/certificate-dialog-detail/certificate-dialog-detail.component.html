@@ -33,6 +33,6 @@
 
     </content>
     <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
-        <button mat-raised-button color="primary">พิมพ์</button>
+        <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSave()">พิมพ์</button>
     </footer>
 </app-dialog>

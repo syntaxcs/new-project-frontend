@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalState } from '../shared/global.state';
+import { Title } from '@angular/platform-browser/src/browser/title';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,9 +9,9 @@ import { GlobalState } from '../shared/global.state';
 })
 export class DashboardComponent implements OnInit {
   public _menus = [
-    
+   
     {
-      title: 'ข้อมูลพื้นฐาน',
+      title: 'ข้อมูลพื้นฐาน', 
       name: 'manage-basic',
       items:
         [
@@ -76,7 +77,6 @@ export class DashboardComponent implements OnInit {
         ]
         },
   ];
-
   constructor(
     private _state: GlobalState,
   ) { }

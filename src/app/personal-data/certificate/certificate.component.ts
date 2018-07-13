@@ -7,6 +7,11 @@ import { CertificateDialogComponent } from './certificate-dialog/certificate-dia
 import { CertificateService } from '../../shared/services/certificate.service';
 import { ConfirmDeleteDialogComponent } from '../../theme/components/confirm-delete-dialog/confirm-delete-dialog.component';
 import { CertificateDetailDialogComponent } from './certificate-dialog-detail/certificate-dialog-detail.component';
+import { Router } from '@angular/router';
+import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
+import * as FileSaver from 'file-saver';
+import 'rxjs/Rx';
+import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-certificate',
@@ -26,11 +31,10 @@ export class CertificateComponent implements OnInit {
     private dialog: MatDialog,
     private formBuilder: FormBuilder,
     private certificateService: CertificateService,
+    private router: Router,
+    private http: HttpClient,
 
-
-  ) {
-
-  }
+  ) { }
 
   ngOnInit() {
     this.certificateService.getCer().subscribe((result) => {
@@ -63,6 +67,7 @@ export class CertificateComponent implements OnInit {
       }
     });
   }
+
   dateShow(date) {
     let year = String(Number(String(date).substr(0, 4)) + 543);
     let month = String(date).substr(5, 2);
@@ -110,6 +115,13 @@ export class CertificateComponent implements OnInit {
       }
     });
   }
+  downloadFile(name: String) {
+    return this.http.get('http://localhost:3000/summary/getpdf/' + name, {
+      responseType: 'blob',
+      headers: new HttpHeaders().append('Content-Type', 'application/json')
+    })
+
+  }
   openDetailDialog(view): void {
     const dialogRef = this.dialog.open(CertificateDetailDialogComponent, {
       width: '750px',
@@ -128,15 +140,14 @@ export class CertificateComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe(resultAllDialog => {
-      if (resultAllDialog !== undefined) {
-        this.certificateService.addCer(resultAllDialog)
-          .mergeMap(() => this.certificateService.getCer())
-          .subscribe((valueFromDatabse) => {
-            this.rows = valueFromDatabse;
-            this.search = [...valueFromDatabse];
-
-          })
+    dialogRef.afterClosed().subscribe(async result => {
+      if (result !== undefined) {
+        this.certificateService.createCerPdf(result)
+          // .mergeMap(() => this.downloadFile(date))
+          .subscribe(
+          data => FileSaver.saveAs(data, 'ใบรับรองแพทย์' + '.pdf'),
+          error => console.error(error)
+          );
       }
     });
   }

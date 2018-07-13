@@ -14,11 +14,14 @@ export class CertificateService {
   getCerById(id): Observable<any> {
     return this.apiService.get(`certificate/` + id);
   }
-  addCer(data): Observable<any> {
-    return this.apiService.post('certificate', data);
-  }
   getCerPdfById(id): Observable<any> {
     return this.apiService.get(`certificate/getpdf/` + id);
+  }
+  createCerPdf(data): Observable<any> {
+    return this.apiService.postContent(`certificate/createpdf`, data);
+  } 
+  addCer(data): Observable<any> {
+    return this.apiService.post('certificate', data);
   }
   updateCer(id: string, data): Observable<any> {
     return this.apiService.put('certificate/' + id, data);
