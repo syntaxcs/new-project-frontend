@@ -31,8 +31,12 @@ export class AutocompletePersonalsComponent implements OnInit {
     selectedPersonalsChange = new EventEmitter<any>();
 
     @Input('selectedPersonals')
-    set setselectedPersonals(diseases) {
-        this._selectedPersonals = diseases || [];
+    set setselectedPersonals(personals) {
+        if (personals === undefined) {
+            this._selectedPersonals = null;
+        } else {
+            this._selectedPersonals = personals || [];
+        }
     }
     get selectedPersonals() {
         return this._selectedPersonals;
