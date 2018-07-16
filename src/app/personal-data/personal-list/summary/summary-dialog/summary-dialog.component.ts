@@ -96,7 +96,6 @@ export class SummaryDialogComponent implements OnInit {
     value.date = this.date;
     value.date.setDate(this.date.getDate() + 1);
     value.time = this.brithDay;
-    console.log(value)
     this.dialogRef.close(value);
   }
 

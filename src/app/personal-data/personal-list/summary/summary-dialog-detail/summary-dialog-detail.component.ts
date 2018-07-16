@@ -15,7 +15,7 @@ export class SummaryDetailDialogComponent implements OnInit {
     this.dialogRef.close(/*sent value to tab-supervision*/);
   }
   onSave() {
-    this.dialogRef.close();
+    this.dialogRef.close(this.data);
   }
 
 

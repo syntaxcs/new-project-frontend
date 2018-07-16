@@ -83,7 +83,6 @@ export class CertificateComponent implements OnInit {
         treater: row.treater._id,
         date: row.date,
         cerSymptom: row.cerSymptom,
-        cerDateout: row.cerDateout,
       }
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -115,35 +114,21 @@ export class CertificateComponent implements OnInit {
       }
     });
   }
-  downloadFile(name: String) {
-    return this.http.get('http://localhost:3000/summary/getpdf/' + name, {
-      responseType: 'blob',
-      headers: new HttpHeaders().append('Content-Type', 'application/json')
-    })
-
-  }
   openDetailDialog(view): void {
     const dialogRef = this.dialog.open(CertificateDetailDialogComponent, {
       width: '750px',
       height: '700px',
-
       data: {
         personal: view.personal,
-        personNameTitle: view.personNameTitle,
-        personName: view.personName,
-        personSurname: view.personSurname,
         treater: view.treater,
         date: view.date,
         cerSymptom: view.cerSymptom,
-        cerDateout: view.cerDateout,
-
       }
     });
 
     dialogRef.afterClosed().subscribe(async result => {
       if (result !== undefined) {
         this.certificateService.createCerPdf(result)
-          // .mergeMap(() => this.downloadFile(date))
           .subscribe(
           data => FileSaver.saveAs(data, 'ใบรับรองแพทย์' + '.pdf'),
           error => console.error(error)

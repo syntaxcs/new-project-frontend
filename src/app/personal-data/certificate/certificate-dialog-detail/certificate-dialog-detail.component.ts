@@ -28,19 +28,19 @@ export class CertificateDetailDialogComponent implements OnInit {
     this.startDate = new Date(year, month + 1, null, null, null, null);
   }
   ngOnInit() {
+    this.date = new Date();
     this.form = this.formBuilder.group({});
-    this.treaterService.getTre().subscribe(result => {
-      this.certificate = result;
-    })
   }
   onClose() {
     this.dialogRef.close(/*sent value to tab-supervision*/);
   }
   onSave() {
     const value = this.form.value;
-    value.personId = this.data.personId
-    value.date.setDate(this.date.getDate()+1);
+    value.personal = this.data.personal
     value.date = this.date;
+    value.date.setDate(this.date.getDate() + 1);
+    value.treater = this.data.treater
+    value.cerSymptom = this.data.cerSymptom,
     this.dialogRef.close(value);
   }
   dateShow(date) {

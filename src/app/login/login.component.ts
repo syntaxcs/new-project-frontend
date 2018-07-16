@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         
         this.loading = true;
         this.userService.login(user).subscribe((data) => {
-            if (data.access_token === true) this.router.navigateByUrl('/');
+            if (data.access_token === true) this.router.navigateByUrl('/dashboard');
             else this.router.navigateByUrl('/login');
           
         }, err => {

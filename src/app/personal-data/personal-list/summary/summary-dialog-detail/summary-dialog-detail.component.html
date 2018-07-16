@@ -14,9 +14,11 @@
                 จำนวน : {{value.hours}} ชั่วโมง
             </p>
         </div>
-        <div fxLayout="row" *ngFor="let value of data.countDrugs">
-            <p style="margin-left:10%">จ่ายยา : {{value.drug.drugName}}</p>
-            <p style="margin-left:10%">จำนวน : {{value.count}} {{value.drug.drugPackages}} </p>
+        <div *ngFor="let value of data.countDrugs">
+            <div fxLayout="row" >
+                <p style="margin-left:10%" *ngIf="value.drug.drugName !== undefined">จ่ายยา : {{value.drug.drugName}}</p>
+                <p style="margin-left:10%" *ngIf="value.count !== null">จำนวน : {{value.count}} {{value.drug.drugPackages}} </p>
+            </div>
         </div>
         <div fxLayout="row">
             <p style="margin-left:10%">ผู้ตรวจ : {{data.officer.ficerNameTitle}} {{data.officer.ficerName}} {{data.officer.ficerSurName}}</p>
@@ -24,6 +26,6 @@
         </div>
     </content>
     <footer select="footer" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
-        <button mat-raised-button color="primary" >พิมพ์</button>
+        <button mat-raised-button color="primary" (click)="onSave()">พิมพ์</button>
     </footer>
 </app-dialog>

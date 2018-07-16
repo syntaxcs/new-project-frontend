@@ -4,11 +4,12 @@ import { ModuleWithProviders } from '@angular/core';
 import { LayoutComponent } from './theme/layout/layout.component';
 
 export const routes: Routes = [
+  { path: '', redirectTo: '/login' ,pathMatch: 'full'  },
   {
     path: '', component: LayoutComponent,
     children: [
       {
-        path: '',
+        path: 'dashboard',
         loadChildren: './dashboard/dashboard.module#DashboardModule',
       },
       {
@@ -26,7 +27,7 @@ export const routes: Routes = [
     ]
   },
   { path: 'login', loadChildren: './login/login.module#LoginModule', pathMatch: 'full' },
-  { path: '**', redirectTo: 'login' },
+  { path: '**', redirectTo: '' },
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

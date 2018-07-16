@@ -20,6 +20,9 @@ export class SummaryService {
   createSummaryPdf(data): Observable<any> {
     return this.apiService.postContent(`summary/createpdf`, data);
   }
+  createSummaryPdfDialog(data): Observable<any> {
+    return this.apiService.postContent(`summary/createpdfDialog`, data);
+  }
   addSummary(data): Observable<any> {
     return this.apiService.post('summary', data);
   }

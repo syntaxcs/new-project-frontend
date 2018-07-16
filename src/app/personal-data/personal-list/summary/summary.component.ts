@@ -7,7 +7,7 @@ import { ConfirmDeleteDialogComponent } from '../../../theme/components/confirm-
 import { SummaryDialogComponent } from './summary-dialog/summary-dialog.component';
 import { SummaryDetailDialogComponent} from './summary-dialog-detail/summary-dialog-detail.component';
 import { SummaryService } from './../../../shared/services/summary.service';
-
+import * as FileSaver from 'file-saver';
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html'
@@ -83,6 +83,16 @@ export class SummaryComponent implements OnInit {
         statusTime: view.statusTime,
       }
     });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result !== undefined) {
+        this.summaryservice.createSummaryPdfDialog(result)
+        .subscribe(
+          data => FileSaver.saveAs(data, 'สรุปผู้ป่วย ' + result.date + '.pdf'),
+          error => console.error(error)
+          );
+      }
+
+    })
   }
   openEditDialog(row): void {
     const dialogRef = this.dialog.open(SummaryDialogComponent, {

@@ -4,7 +4,6 @@ import { SummaryService } from './../../shared/services/summary.service';
 import { ReportDetailDialogComponent } from './report-dialog-detail/report-dialog-detail.component';
 import { ReportDialogComponent } from './report-dialog/report-dialog.component';
 import { Router } from '@angular/router';
-import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import * as FileSaver from 'file-saver';
 import 'rxjs/Rx';
 import { async } from '@angular/core/testing';
@@ -21,7 +20,6 @@ export class ReportComponent implements OnInit {
     private dialog: MatDialog,
     private summaryservice: SummaryService,
     private router: Router,
-    private http: HttpClient,
   ) { }
 
   ngOnInit() {
@@ -56,11 +54,10 @@ export class ReportComponent implements OnInit {
       if (result !== undefined) {
         let date = this.convertDate(result)
         this.summaryservice.createSummaryPdf(result)
-        // .mergeMap(() => this.downloadFile(date))
-        .subscribe(
+          .subscribe(
           data => FileSaver.saveAs(data, 'สรุปผู้ป่วย ' + date + '.pdf'),
           error => console.error(error)
-        );
+          );
       }
     });
   }
@@ -83,13 +80,6 @@ export class ReportComponent implements OnInit {
       case "ธันวาคม": return "12"
       default: return "0"
     }
-  }
-  downloadFile(name: String) {
-    return this.http.get('http://localhost:3000/summary/getpdf/' + name, {
-      responseType: 'blob',
-      headers: new HttpHeaders().append('Content-Type', 'application/json')
-    })
-    
   }
   openDetailDialog(view): void {
     const dialogRef = this.dialog.open(ReportDetailDialogComponent, {
